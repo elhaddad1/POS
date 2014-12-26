@@ -71,7 +71,6 @@
     <Compile Include="Base\SALSalesLineBatchBase.cs" />
     <Compile Include="Base\SALSalesReturnHeaderBase.cs" />
     <Compile Include="Base\SALSalesReturnLineBase.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Collection\ADGroupCollection.cs" />
     <Compile Include="Collection\ADRoleCollection.cs" />
     <Compile Include="Collection\ADUserCollection.cs" />
