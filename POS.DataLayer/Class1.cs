@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAPOS
+namespace POS.DataLayer
 {
     public class Class1
     {
