@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAPOS", "DAPOS\DAPOS.csproj", "{AA4247A2-F215-4AFD-80C8-7DADF4998A52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAPOS", "DAPOS.csproj", "{C43E445C-4384-492B-8253-CA45562DCB90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AA4247A2-F215-4AFD-80C8-7DADF4998A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA4247A2-F215-4AFD-80C8-7DADF4998A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA4247A2-F215-4AFD-80C8-7DADF4998A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA4247A2-F215-4AFD-80C8-7DADF4998A52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C43E445C-4384-492B-8253-CA45562DCB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43E445C-4384-492B-8253-CA45562DCB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43E445C-4384-492B-8253-CA45562DCB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43E445C-4384-492B-8253-CA45562DCB90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

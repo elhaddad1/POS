@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA4247A2-F215-4AFD-80C8-7DADF4998A52}</ProjectGuid>
+    <ProjectGuid>{C43E445C-4384-492B-8253-CA45562DCB90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAPOS</RootNamespace>
