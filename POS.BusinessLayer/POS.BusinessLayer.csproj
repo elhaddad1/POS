@@ -174,7 +174,6 @@
     <Compile Include="Service\ADGroupService.svc.cs" />
     <Compile Include="Service\ADRoleService.svc.cs" />
     <Compile Include="Service\ADUserService.svc.cs" />
-    <Compile Include="Service\AGGroupRoleService.svc.cs" />
     <Compile Include="Service\BDCustomerService.svc.cs" />
     <Compile Include="Service\BDProductGroupService.svc.cs" />
     <Compile Include="Service\BDProductService.svc.cs" />

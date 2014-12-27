@@ -1,6 +1,6 @@
-﻿namespace POS.UserInterfaceLayer
+﻿namespace POS.UserInterfaceLayer.BasicData
 {
-    partial class Form1
+    partial class frmProductGroupAddEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.SuspendLayout();
+            // 
+            // frmProductGroup
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.ClientSize = new System.Drawing.Size(773, 282);
+            this.Name = "frmProductGroup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "مجموعات الأصناف";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
     }
 }
-

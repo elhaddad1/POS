@@ -4,12 +4,7 @@
 // Date		:	12/27/2014 11:07:47 PM
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -17,7 +12,7 @@ namespace POS.BusinessLayer
 	///<summary>
 	///WCF service for the ADGroupRole
 	///</summary>
-	public class ADGroupRoleService : IADGroupRoleService
+	public class ADGroupRoleService 
 	{
 		private ADGroupRole _aDGroupRoleWCF;
 		private POS.DataLayer.ADGroupRole _aDGroupRole;
