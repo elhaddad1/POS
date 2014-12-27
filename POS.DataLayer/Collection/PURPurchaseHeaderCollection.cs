@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/26/2014 2:45:59 AM
+// Date		:	12/27/2014 6:56:06 PM
 //
 
 using System;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
 
-namespace DAPOS
+namespace POS.DataLayer
 {
 	public class PURPurchaseHeaderCollection :Collection<PURPurchaseHeader>, IEnumerable<PURPurchaseHeader>, IComparer
 	{

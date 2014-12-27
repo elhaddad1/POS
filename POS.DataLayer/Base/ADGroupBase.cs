@@ -1,7 +1,7 @@
 //
 // Class	:	ADGroupBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/26/2014 2:45:56 AM
+// Date		:	12/27/2014 6:56:02 PM
 //
 
 using System;
@@ -15,7 +15,7 @@ using System.Data.Common;
 using System.IO;
 using System.Xml;
 
-namespace DAPOS
+namespace POS.DataLayer
 {
 
 	/// <summary>
@@ -137,7 +137,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -184,7 +184,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -219,7 +219,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -255,7 +255,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -292,7 +292,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -331,7 +331,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -366,7 +366,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -414,7 +414,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -451,7 +451,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -493,7 +493,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -539,7 +539,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -580,7 +580,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -613,7 +613,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM				Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -669,7 +669,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -706,7 +706,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -736,7 +736,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -768,7 +768,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:56 AM		Created function
+		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

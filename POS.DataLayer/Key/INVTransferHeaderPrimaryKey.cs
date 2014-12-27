@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/26/2014 2:45:53 AM
+// Date		:	12/27/2014 6:55:57 PM
 //
 
 using System;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections.Specialized;
 
-namespace DAPOS
+namespace POS.DataLayer
 {
 	public class INVTransferHeaderPrimaryKey
 	{
@@ -69,7 +69,7 @@ namespace DAPOS
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/26/2014 2:45:53 AM				Created function
+		/// DLGenerator			12/27/2014 6:55:57 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

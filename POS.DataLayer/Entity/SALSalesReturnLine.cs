@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnLine.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/26/2014 2:45:57 AM
+// Date		:	12/27/2014 6:56:04 PM
 //
 
 using System;
@@ -13,7 +13,7 @@ using System.Xml.Serialization;
 using System.Collections;
 using System.Data.Common;
 
-namespace DAPOS
+namespace POS.DataLayer
 {
 	
 	/// <summary>
