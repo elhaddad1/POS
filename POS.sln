@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.DataLayer", "POS.DataLayer\POS.DataLayer.csproj", "{F4CD3C80-B326-4A9B-BF6B-E336690092FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.BusinessLayer", "POS.BusinessLayer\POS.BusinessLayer.csproj", "{47A5F43C-ECFA-446A-8097-41B9151C45C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.UserInterfaceLayer", "POS.UserInterfaceLayer\POS.UserInterfaceLayer.csproj", "{F45FC8D1-2E07-4A91-B162-EE2064A38420}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4CD3C80-B326-4A9B-BF6B-E336690092FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4CD3C80-B326-4A9B-BF6B-E336690092FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4CD3C80-B326-4A9B-BF6B-E336690092FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4CD3C80-B326-4A9B-BF6B-E336690092FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47A5F43C-ECFA-446A-8097-41B9151C45C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47A5F43C-ECFA-446A-8097-41B9151C45C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47A5F43C-ECFA-446A-8097-41B9151C45C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47A5F43C-ECFA-446A-8097-41B9151C45C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45FC8D1-2E07-4A91-B162-EE2064A38420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45FC8D1-2E07-4A91-B162-EE2064A38420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45FC8D1-2E07-4A91-B162-EE2064A38420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45FC8D1-2E07-4A91-B162-EE2064A38420}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
