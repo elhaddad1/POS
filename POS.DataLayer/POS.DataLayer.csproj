@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\ADGroupBase.cs" />
+    <Compile Include="Base\ADGroupRoleBase.cs" />
     <Compile Include="Base\ADRoleBase.cs" />
     <Compile Include="Base\ADUserBase.cs" />
-    <Compile Include="Base\AGGroupRoleBase.cs" />
     <Compile Include="Base\BDCustomerBase.cs" />
     <Compile Include="Base\BDProductBase.cs" />
     <Compile Include="Base\BDProductGroupBase.cs" />
@@ -76,9 +76,9 @@
     <Compile Include="Base\SALSalesReturnHeaderBase.cs" />
     <Compile Include="Base\SALSalesReturnLineBase.cs" />
     <Compile Include="Collection\ADGroupCollection.cs" />
+    <Compile Include="Collection\ADGroupRoleCollection.cs" />
     <Compile Include="Collection\ADRoleCollection.cs" />
     <Compile Include="Collection\ADUserCollection.cs" />
-    <Compile Include="Collection\AGGroupRoleCollection.cs" />
     <Compile Include="Collection\BDCustomerCollection.cs" />
     <Compile Include="Collection\BDProductCollection.cs" />
     <Compile Include="Collection\BDProductGroupCollection.cs" />
@@ -109,9 +109,9 @@
     <Compile Include="Collection\SALSalesReturnLineCollection.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Entity\ADGroup.cs" />
+    <Compile Include="Entity\ADGroupRole.cs" />
     <Compile Include="Entity\ADRole.cs" />
     <Compile Include="Entity\ADUser.cs" />
-    <Compile Include="Entity\AGGroupRole.cs" />
     <Compile Include="Entity\BDCustomer.cs" />
     <Compile Include="Entity\BDProduct.cs" />
     <Compile Include="Entity\BDProductGroup.cs" />
@@ -142,9 +142,9 @@
     <Compile Include="Entity\SALSalesReturnLine.cs" />
     <Compile Include="EnumTypeOperation.cs" />
     <Compile Include="Key\ADGroupPrimaryKey.cs" />
+    <Compile Include="Key\ADGroupRolePrimaryKey.cs" />
     <Compile Include="Key\ADRolePrimaryKey.cs" />
     <Compile Include="Key\ADUserPrimaryKey.cs" />
-    <Compile Include="Key\AGGroupRolePrimaryKey.cs" />
     <Compile Include="Key\BDCustomerPrimaryKey.cs" />
     <Compile Include="Key\BDProductGroupPrimaryKey.cs" />
     <Compile Include="Key\BDProductPrimaryKey.cs" />
