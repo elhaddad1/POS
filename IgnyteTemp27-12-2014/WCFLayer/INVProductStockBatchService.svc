@@ -1,0 +1,1 @@
+<%@ ServiceHost Language="C#" Debug="true" Service="POS.BusinessLayer.INVProductStockBatchService" CodeBehind="INVProductStockBatchService.svc.cs" %>
