@@ -5,7 +5,7 @@
 //
 using System;
 using System.Runtime.Serialization;
-using POS.DataLayer;
+using POS.DataLayer;  
 
 namespace POS.BusinessLayer
 {
