@@ -81,6 +81,7 @@
             this.btn_Enter.TabIndex = 5;
             this.btn_Enter.Text = "دخول";
             this.btn_Enter.UseVisualStyleBackColor = true;
+            this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
             // btn_Back
             // 
