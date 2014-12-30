@@ -45,7 +45,7 @@ namespace POS.DataLayer
         #endregion
 
         #region Methods (Public)
-        public static ADUser SelectUserData(string UserName, string Password)
+        public static ADUser SelectByUserNameAndPassword(string UserName, string Password)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
@@ -56,7 +56,7 @@ namespace POS.DataLayer
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            IDataReader dr = oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectbyPrimaryKey", ref ExecutionState);
+            IDataReader dr = oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectUserNameAndPassword", ref ExecutionState);
             if (dr.Read())
             {
                 ADUser obj = new ADUser();
