@@ -44,14 +44,15 @@
             this.panl_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(773, 46);
+            this.panl_Header.Size = new System.Drawing.Size(627, 53);
             this.panl_Header.TabIndex = 0;
             // 
             // lbl_FormHeader
             // 
+            this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(364, 14);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(298, 9);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(45, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -62,17 +63,18 @@
             this.panl_Footer.Controls.Add(this.btn_Back);
             this.panl_Footer.Controls.Add(this.btn_Save);
             this.panl_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panl_Footer.Location = new System.Drawing.Point(0, 228);
+            this.panl_Footer.Location = new System.Drawing.Point(0, 260);
             this.panl_Footer.Name = "panl_Footer";
-            this.panl_Footer.Size = new System.Drawing.Size(773, 54);
+            this.panl_Footer.Size = new System.Drawing.Size(627, 62);
             this.panl_Footer.TabIndex = 1;
             // 
             // btn_Back
             // 
+            this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(291, 3);
+            this.btn_Back.Location = new System.Drawing.Point(192, 4);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(87, 48);
+            this.btn_Back.Size = new System.Drawing.Size(97, 55);
             this.btn_Back.TabIndex = 2;
             this.btn_Back.Text = "رجوع";
             this.btn_Back.UseVisualStyleBackColor = true;
@@ -80,10 +82,11 @@
             // 
             // btn_Save
             // 
+            this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(394, 3);
+            this.btn_Save.Location = new System.Drawing.Point(309, 4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(87, 48);
+            this.btn_Save.Size = new System.Drawing.Size(97, 55);
             this.btn_Save.TabIndex = 0;
             this.btn_Save.Text = "حفظ";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -91,14 +94,14 @@
             // 
             // frmBaseAddEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClientSize = new System.Drawing.Size(773, 282);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(627, 322);
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
-            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmBaseAddEditForm";

@@ -50,6 +50,18 @@
     <Compile Include="Administration\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\FrmCustomerAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\FrmCustomerAddEdit.Designer.cs">
+      <DependentUpon>FrmCustomerAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData\FrmCustomerSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\FrmCustomerSearch.Designer.cs">
+      <DependentUpon>FrmCustomerSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmProductGroupAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,12 @@
     <EmbeddedResource Include="Administration\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\FrmCustomerAddEdit.resx">
+      <DependentUpon>FrmCustomerAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\FrmCustomerSearch.resx">
+      <DependentUpon>FrmCustomerSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmProductGroupAddEdit.resx">
       <DependentUpon>frmProductGroupAddEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,7 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.BusinessLayer\POS.BusinessLayer.csproj">
