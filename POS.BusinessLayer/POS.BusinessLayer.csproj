@@ -203,6 +203,7 @@
     <Compile Include="Service\SALSalesReturnHeaderService.svc.cs" />
     <Compile Include="Service\SALSalesReturnLineService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
+    <Compile Include="Wrapper\ADUserServiceWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.DataLayer\POS.DataLayer.csproj">

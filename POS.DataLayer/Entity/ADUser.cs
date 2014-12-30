@@ -15,42 +15,70 @@ using System.Data.Common;
 
 namespace POS.DataLayer
 {
-	
-	/// <summary>
-	/// Data access class for the "ADUser" table.
-	/// </summary>
-	[Serializable]
-	public class ADUser : ADUserBase
-	{
-	
-		#region Class Level Variables
 
-		#endregion
-		
-		#region Constants
-		
-		#endregion
+    /// <summary>
+    /// Data access class for the "ADUser" table.
+    /// </summary>
+    [Serializable]
+    public class ADUser : ADUserBase
+    {
 
-		#region Constructors / Destructors 
-		
-		public ADUser() : base()
-		{
-		}
+        #region Class Level Variables
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Constants
 
-		#endregion
+        #endregion
 
-		#region Methods (Public)
+        #region Constructors / Destructors
 
-		#endregion
-		
-		#region Methods (Private)
+        public ADUser()
+            : base()
+        {
+        }
 
-		#endregion
+        #endregion
 
-	}
-	
+        #region Properties
+
+        #endregion
+
+        #region Methods (Public)
+        public static ADUser SelectUserData(string UserName, string Password)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            oDatabaseHelper.AddParameter("@UserName", UserName);
+            oDatabaseHelper.AddParameter("@Password", Password);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectbyPrimaryKey", ref ExecutionState);
+            if (dr.Read())
+            {
+                ADUser obj = new ADUser();
+                PopulateObjectFromReader(obj, dr);
+                dr.Close();
+                oDatabaseHelper.Dispose();
+                return obj;
+            }
+            else
+            {
+                dr.Close();
+                oDatabaseHelper.Dispose();
+                return null;
+            }
+
+        }
+        #endregion
+
+        #region Methods (Private)
+
+        #endregion
+
+    }
+
 }
