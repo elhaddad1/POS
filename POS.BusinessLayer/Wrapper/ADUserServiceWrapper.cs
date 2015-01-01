@@ -14,7 +14,6 @@ namespace POS.BusinessLayer.Wrapper
 
         public bool SelectByUserNameAndPassword(string userName, string password)
         {
-            _aDUserBl = new ADUser();
             _aDUserDa = POS.DataLayer.ADUser.SelectByUserNameAndPassword(userName, password);
             if (_aDUserDa != null)
             {

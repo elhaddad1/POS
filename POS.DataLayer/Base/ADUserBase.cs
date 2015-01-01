@@ -77,7 +77,7 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Returns the identifier of the persistent object. Don't set it manually!
 		/// </summary>
-		public int UserID
+		public int? UserID
 		{
 			get 
 			{ 

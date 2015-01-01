@@ -26,7 +26,15 @@ namespace POS.UserInterfaceLayer.Administration
                 if (!ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
                     MessageBox.Show("خطأ فى اسم المستخدم او رمز الدخول");
         }
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        /// <summary>
+        /// methods
+        /// </summary>
+        /// <returns></returns>
         private bool Validate()
         {
             if (string.IsNullOrEmpty(tbx_UserName.Text))
@@ -41,5 +49,7 @@ namespace POS.UserInterfaceLayer.Administration
             }
             return true;
         }
+
+
     }
 }
