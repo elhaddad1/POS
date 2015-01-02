@@ -13,28 +13,31 @@ namespace POS.UserInterfaceLayer.Administration
 {
     public partial class frmLogin : Form
     {
-        ADUserServiceWrapper ADUserService;
+        ADUserWrapper ADUserService;
         public frmLogin()
         {
             InitializeComponent();
-            ADUserService = new ADUserServiceWrapper();
+            ADUserService = new ADUserWrapper();
         }
 
         private void btn_Enter_Click(object sender, EventArgs e)
         {
-            if (Validate())
-                if (!ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
-                    MessageBox.Show("خطأ فى اسم المستخدم او رمز الدخول");
+            try
+            {
+                if (Validate())
+                    if (!ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
+                        MessageBox.Show("خطأ فى اسم المستخدم او رمز الدخول");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "حدث خطأ برجاء الرجوع لمصمم البرنامج");
+            }
         }
         private void btn_Back_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        /// <summary>
-        /// methods
-        /// </summary>
-        /// <returns></returns>
         private bool Validate()
         {
             if (string.IsNullOrEmpty(tbx_UserName.Text))
