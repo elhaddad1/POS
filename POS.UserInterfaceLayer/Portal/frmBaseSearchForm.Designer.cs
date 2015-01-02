@@ -35,13 +35,10 @@
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvResults = new System.Windows.Forms.DataGridView();
-            this.grbSearch = new System.Windows.Forms.GroupBox();
+            this.Dgrid_Result = new System.Windows.Forms.DataGridView();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
-            this.grbSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgrid_Result)).BeginInit();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -125,34 +122,14 @@
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
-            // btnSearch
+            // Dgrid_Result
             // 
-            this.btnSearch.Location = new System.Drawing.Point(6, 49);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 33);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "بحث";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // dgvResults
-            // 
-            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvResults.Location = new System.Drawing.Point(0, 147);
-            this.dgvResults.Name = "dgvResults";
-            this.dgvResults.Size = new System.Drawing.Size(590, 212);
-            this.dgvResults.TabIndex = 5;
-            // 
-            // grbSearch
-            // 
-            this.grbSearch.Controls.Add(this.btnSearch);
-            this.grbSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grbSearch.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.grbSearch.Location = new System.Drawing.Point(0, 53);
-            this.grbSearch.Name = "grbSearch";
-            this.grbSearch.Size = new System.Drawing.Size(590, 88);
-            this.grbSearch.TabIndex = 4;
-            this.grbSearch.TabStop = false;
+            this.Dgrid_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgrid_Result.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Dgrid_Result.Location = new System.Drawing.Point(0, 147);
+            this.Dgrid_Result.Name = "Dgrid_Result";
+            this.Dgrid_Result.Size = new System.Drawing.Size(590, 212);
+            this.Dgrid_Result.TabIndex = 5;
             // 
             // frmBaseSearchForm
             // 
@@ -161,8 +138,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(590, 421);
-            this.Controls.Add(this.dgvResults);
-            this.Controls.Add(this.grbSearch);
+            this.Controls.Add(this.Dgrid_Result);
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,8 +153,7 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
-            this.grbSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgrid_Result)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -192,8 +167,6 @@
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_Edit;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridView dgvResults;
-        private System.Windows.Forms.GroupBox grbSearch;
+        private System.Windows.Forms.DataGridView Dgrid_Result;
     }
 }

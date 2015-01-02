@@ -49,7 +49,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(227, 22);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(199, 22);
             this.lbl_FormHeader.Size = new System.Drawing.Size(106, 19);
             this.lbl_FormHeader.Text = "إضافه /تعديل عميل";
             // 
@@ -215,6 +215,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCustomerAddEdit";
             this.Text = "العملاء";
+            this.Load += new System.EventHandler(this.FrmCustomerAddEdit_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
