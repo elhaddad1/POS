@@ -62,7 +62,7 @@
             // 
             this.tbx_UserName.Location = new System.Drawing.Point(135, 63);
             this.tbx_UserName.Name = "tbx_UserName";
-            this.tbx_UserName.Size = new System.Drawing.Size(255, 20);
+            this.tbx_UserName.Size = new System.Drawing.Size(180, 20);
             this.tbx_UserName.TabIndex = 3;
             // 
             // tbx_Password
@@ -70,8 +70,9 @@
             this.tbx_Password.Location = new System.Drawing.Point(135, 114);
             this.tbx_Password.Name = "tbx_Password";
             this.tbx_Password.PasswordChar = '*';
-            this.tbx_Password.Size = new System.Drawing.Size(255, 20);
+            this.tbx_Password.Size = new System.Drawing.Size(180, 20);
             this.tbx_Password.TabIndex = 4;
+            this.tbx_Password.UseSystemPasswordChar = true;
             // 
             // btn_Enter
             // 
@@ -81,6 +82,7 @@
             this.btn_Enter.TabIndex = 5;
             this.btn_Enter.Text = "دخول";
             this.btn_Enter.UseVisualStyleBackColor = true;
+            this.btn_Enter.Click += new System.EventHandler(this.btn_Enter_Click);
             // 
             // btn_Back
             // 
@@ -90,6 +92,7 @@
             this.btn_Back.TabIndex = 6;
             this.btn_Back.Text = "رجوع";
             this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // pictureBox1
             // 
@@ -103,6 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(433, 222);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Back);

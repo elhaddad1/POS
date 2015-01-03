@@ -72,6 +72,7 @@
     <Compile Include="Base\SALSalesLineBatchBase.cs" />
     <Compile Include="Base\SALSalesReturnHeaderBase.cs" />
     <Compile Include="Base\SALSalesReturnLineBase.cs" />
+    <Compile Include="Base\VUserRoleBase.cs" />
     <Compile Include="Collection\ADGroupCollection.cs" />
     <Compile Include="Collection\ADGroupRoleCollection.cs" />
     <Compile Include="Collection\ADRoleCollection.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Collection\SALSalesLineCollection.cs" />
     <Compile Include="Collection\SALSalesReturnHeaderCollection.cs" />
     <Compile Include="Collection\SALSalesReturnLineCollection.cs" />
+    <Compile Include="Collection\VUserRoleCollection.cs" />
     <Compile Include="Entity\ADGroup.cs" />
     <Compile Include="Entity\ADGroupRole.cs" />
     <Compile Include="Entity\ADRole.cs" />
@@ -136,6 +138,7 @@
     <Compile Include="Entity\SALSalesLineBatch.cs" />
     <Compile Include="Entity\SALSalesReturnHeader.cs" />
     <Compile Include="Entity\SALSalesReturnLine.cs" />
+    <Compile Include="Entity\VUserRole.cs" />
     <Compile Include="Key\ADGroupPrimaryKey.cs" />
     <Compile Include="Key\ADGroupRolePrimaryKey.cs" />
     <Compile Include="Key\ADRolePrimaryKey.cs" />
@@ -168,6 +171,7 @@
     <Compile Include="Key\SALSalesLinePrimaryKey.cs" />
     <Compile Include="Key\SALSalesReturnHeaderPrimaryKey.cs" />
     <Compile Include="Key\SALSalesReturnLinePrimaryKey.cs" />
+    <Compile Include="Key\VUserRolePrimaryKey.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ADGroupRoleService.svc.cs" />
@@ -202,6 +206,7 @@
     <Compile Include="Service\SALSalesLineService.svc.cs" />
     <Compile Include="Service\SALSalesReturnHeaderService.svc.cs" />
     <Compile Include="Service\SALSalesReturnLineService.svc.cs" />
+    <Compile Include="Service\VUserRoleService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
     <Compile Include="Wrapper\ADUserServiceWrapper.cs" />
     <Compile Include="Wrapper\BDCustomerWrapper.cs" />

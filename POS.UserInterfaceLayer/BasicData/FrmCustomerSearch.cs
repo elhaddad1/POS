@@ -12,7 +12,7 @@ namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class FrmCustomerSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        BDCustomerWrapper bDCustomerWrapper;
+        DBCustomerWrapper bDCustomerWrapper;
         public FrmCustomerSearch()
         {
             InitializeComponent();
