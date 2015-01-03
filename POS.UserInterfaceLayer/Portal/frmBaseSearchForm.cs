@@ -17,14 +17,14 @@ namespace POS.UserInterfaceLayer.Portal
             get { return Dgrid_Result; }
             set { Dgrid_Result = value; }
         }
-        
+
         public frmBaseSearchForm()
         {
             InitializeComponent();
             Dgrid_Result.AutoGenerateColumns = false;
             Dgrid_Result.ReadOnly = true;
         }
-       
+
 
         /// <summary>
         /// Events implementation
@@ -47,14 +47,14 @@ namespace POS.UserInterfaceLayer.Portal
             col.Visible = visible;
             if (visible)
             {
-                col.Width = width; 
+                col.Width = width;
             }
-          
-            Dgrid_Result .Columns.Add(col);
+           
+            Dgrid_Result.Columns.Add(col);
         }
-        
+
         #endregion
 
-       
+
     }
 }

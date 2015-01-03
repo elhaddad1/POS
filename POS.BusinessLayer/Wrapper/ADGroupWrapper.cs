@@ -14,5 +14,19 @@ namespace POS.BusinessLayer.Wrapper
         {
             return base.SelectAll();
         }
+
+        public ADGroup SelectOneByID(int? GroupID)
+        {
+            ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
+            pk.GroupID = GroupID;
+            return base.SelectOne(pk);
+        }
+
+        public bool DeleteByPrimaryKey(int GroupID)
+        {
+            ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
+            pk.GroupID = GroupID;
+            return base.Delete(pk);
+        }
     }
 }
