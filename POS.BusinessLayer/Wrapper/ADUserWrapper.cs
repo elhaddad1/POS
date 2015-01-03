@@ -18,14 +18,18 @@ namespace POS.BusinessLayer.Wrapper
             if (_aDUserDa != null)
             {
                 _vUserRoleCollection = vUserRoleService.SelectByField("UserID", _aDUserDa.UserID, null, DataLayer.TypeOperation.Equal);
-                GlobalVariables.CurrentUser.UserID = _aDUserDa.UserID;
-                GlobalVariables.CurrentUser.UserFullName = _aDUserDa.UserFullName;
-                GlobalVariables.CurrentUser.UserName = _aDUserDa.UserName;
-                foreach (VUserRole userRole in _vUserRoleCollection)
+                if (_vUserRoleCollection.Count != 0)
                 {
-                    GlobalVariables.CurrentUser.UserRoles.Add(userRole.RolePath);
+                    GlobalVariables.CurrentUser.UserID = _aDUserDa.UserID;
+                    GlobalVariables.CurrentUser.UserFullName = _aDUserDa.UserFullName;
+                    GlobalVariables.CurrentUser.UserName = _aDUserDa.UserName;
+                    foreach (VUserRole userRole in _vUserRoleCollection)
+                    {
+                        GlobalVariables.CurrentUser.UserRoles.Add(new KeyValuePair<string, string>(userRole.RolePath, userRole.MenuButton));
+                    }
+                    return true;
                 }
-                return true;
+                else { return false; }
             }
             return false;
         }

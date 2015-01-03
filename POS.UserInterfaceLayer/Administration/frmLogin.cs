@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.BusinessLayer.Wrapper;
+using POS.UserInterfaceLayer.Portal;
 
 namespace POS.UserInterfaceLayer.Administration
 {
@@ -25,8 +26,15 @@ namespace POS.UserInterfaceLayer.Administration
             try
             {
                 if (Validate())
-                    if (!ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
+                {
+                    if (ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
+                    {
+                        frmMain frm = new frmMain();
+                        frm.ShowDialog();
+                    }
+                    else
                         MessageBox.Show("خطأ فى اسم المستخدم او رمز الدخول");
+                }
             }
             catch (Exception ex)
             {

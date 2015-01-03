@@ -1,7 +1,7 @@
 //
 // Class	:	ADRoleServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:02 PM
+// Date		:	1/3/2015 2:21:04 AM
 //
 
 
@@ -54,6 +54,7 @@ namespace POS.BusinessLayer
 				_aDRoleWCF.RoleID = _aDRole.RoleID;
 				_aDRoleWCF.RoleName = _aDRole.RoleName;
 				_aDRoleWCF.RolePath = _aDRole.RolePath;
+				_aDRoleWCF.MenuButton = _aDRole.MenuButton;
 				
 			return _aDRoleWCF;
 		}
@@ -73,6 +74,7 @@ namespace POS.BusinessLayer
 				_aDRoleWCF.RoleID = _aDRole.RoleID;
 				_aDRoleWCF.RoleName = _aDRole.RoleName;
 				_aDRoleWCF.RolePath = _aDRole.RolePath;
+				_aDRoleWCF.MenuButton = _aDRole.MenuButton;
 				
 				aDRoleCollection.Add(_aDRoleWCF);
 			}
@@ -109,6 +111,7 @@ namespace POS.BusinessLayer
 				_aDRoleWCF.RoleID = _aDRole.RoleID;
 				_aDRoleWCF.RoleName = _aDRole.RoleName;
 				_aDRoleWCF.RolePath = _aDRole.RolePath;
+				_aDRoleWCF.MenuButton = _aDRole.MenuButton;
 				
 				aDRoleCollection.Add(_aDRoleWCF);
 			}
@@ -128,6 +131,7 @@ namespace POS.BusinessLayer
 			_aDRole.RoleID=aDRole.RoleID;
 			_aDRole.RoleName=aDRole.RoleName;
 			_aDRole.RolePath=aDRole.RolePath;
+			_aDRole.MenuButton=aDRole.MenuButton;
 			
 			return _aDRole.Insert();
 		}
@@ -151,6 +155,7 @@ namespace POS.BusinessLayer
 				_aDRoleWCF.RoleID = _aDRole.RoleID;
 				_aDRoleWCF.RoleName = _aDRole.RoleName;
 				_aDRoleWCF.RolePath = _aDRole.RolePath;
+				_aDRoleWCF.MenuButton = _aDRole.MenuButton;
 				
 				aDRoleCollection.Add(_aDRoleWCF);
 			}
@@ -181,6 +186,7 @@ namespace POS.BusinessLayer
 				_aDRoleWCF.RoleID = _aDRole.RoleID;
 				_aDRoleWCF.RoleName = _aDRole.RoleName;
 				_aDRoleWCF.RolePath = _aDRole.RolePath;
+				_aDRoleWCF.MenuButton = _aDRole.MenuButton;
 				
 				aDRoleCollection.Add(_aDRoleWCF);
 			}
@@ -199,6 +205,7 @@ namespace POS.BusinessLayer
 			
 			_aDRole.RoleName=aDRole.RoleName;
 			_aDRole.RolePath=aDRole.RolePath;
+			_aDRole.MenuButton=aDRole.MenuButton;
 			
 			return _aDRole.Update();
 		}

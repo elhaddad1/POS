@@ -1,7 +1,7 @@
 //
 // Class	:	VUserRoleBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	1/2/2015 2:16:12 AM
+// Date		:	1/3/2015 2:37:33 AM
 //
 
 using System;
@@ -29,6 +29,7 @@ namespace POS.DataLayer
 		public const string RoleName                  = "RoleName";
 		public const string RolePath                  = "RolePath";
 		public const string Expr1                     = "Expr1";
+		public const string MenuButton                = "MenuButton";
 	}
 	
 	/// <summary>
@@ -48,6 +49,7 @@ namespace POS.DataLayer
 		private string         	_roleNameNonDefault      	= null;
 		private string         	_rolePathNonDefault      	= null;
 		private int?           	_expr1NonDefault         	= null;
+		private string         	_menuButtonNonDefault    	= null;
 		
 		#endregion
 		
@@ -126,7 +128,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "RoleName" field. Length must be between 0 and 50 characters. 
+		/// This property is mapped to the "RoleName" field. Length must be between 0 and 50 characters. Mandatory.
 		/// </summary>
 		public string RoleName
 		{
@@ -137,7 +139,9 @@ namespace POS.DataLayer
 			}
 			set 
 			{
-			    if (value != null && value.Length > 50)
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 50)
 					throw new ArgumentException("RoleName length must be between 0 and 50 characters.");
 
 				
@@ -153,7 +157,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "RolePath" field. Length must be between 0 and 255 characters. 
+		/// This property is mapped to the "RolePath" field. Length must be between 0 and 255 characters. Mandatory.
 		/// </summary>
 		public string RolePath
 		{
@@ -164,7 +168,9 @@ namespace POS.DataLayer
 			}
 			set 
 			{
-			    if (value != null && value.Length > 255)
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 255)
 					throw new ArgumentException("RolePath length must be between 0 and 255 characters.");
 
 				
@@ -195,6 +201,35 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "MenuButton" field. Length must be between 0 and 50 characters. Mandatory.
+		/// </summary>
+		public string MenuButton
+		{
+			get 
+			{ 
+				if(_menuButtonNonDefault==null)return _menuButtonNonDefault;
+				else return _menuButtonNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 50)
+					throw new ArgumentException("MenuButton length must be between 0 and 50 characters.");
+
+				
+				if(value ==null)
+				{
+					_menuButtonNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_menuButtonNonDefault = value.Trim(); 
+				}
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -211,7 +246,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -259,7 +294,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -296,7 +331,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -338,7 +373,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -384,7 +419,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -425,7 +460,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -462,7 +497,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -499,7 +534,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,17 +550,10 @@ namespace POS.DataLayer
 				obj.GroupName = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.GroupName));
 			}
 			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(VUserRoleFields.RoleName)))
-			{
-				obj.RoleName = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RoleName));
-			}
-			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(VUserRoleFields.RolePath)))
-			{
-				obj.RolePath = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RolePath));
-			}
-			
+			obj.RoleName = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RoleName));
+			obj.RolePath = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RolePath));
 			obj.Expr1 = rdr.GetInt32(rdr.GetOrdinal(VUserRoleFields.Expr1));
+			obj.MenuButton = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.MenuButton));
 
 		}
 
@@ -541,7 +569,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -573,7 +601,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/2/2015 2:16:12 AM		Created function
+		/// DLGenerator			1/3/2015 2:37:33 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -1,7 +1,7 @@
 //
 // Class	:	ADRolePrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:02 PM
+// Date		:	1/3/2015 2:21:04 AM
 //
 	
 using System;
