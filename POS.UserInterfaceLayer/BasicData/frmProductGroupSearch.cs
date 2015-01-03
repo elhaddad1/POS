@@ -5,15 +5,35 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using POS.BusinessLayer;
+using POS.BusinessLayer.Wrapper;
 
 namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class frmProductGroupSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
+        private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
+
         public frmProductGroupSearch()
         {
+            InitiateGide();
             InitializeComponent();
             base.lbl_FormHeader.Text = "بحث";
+        }
+
+        private void InitiateGide()
+        {
+
+            GrbSearch.Height = 150;
+            
+            DgvResult.Size = new Size(10, 250);
+
+            List<BDProductGroup> ProductGroup = _bdProductGroupWrapper.SelectAll();
+
+            DgvResult.DataSource = ProductGroup;
+
+            addColumnToGrid("ProductGroupID", "ProductGroupID", 120, false);
+            addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);
         }
 
         /// <summary>
