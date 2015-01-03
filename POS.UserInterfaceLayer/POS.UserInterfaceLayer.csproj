@@ -50,6 +50,12 @@
     <Compile Include="Administration\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\frmUserGroupSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
+      <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\FrmCustomerAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>

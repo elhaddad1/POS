@@ -1,7 +1,7 @@
 //
 // Class	:	VUserRole.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	1/2/2015 2:16:12 AM
+// Date		:	1/3/2015 2:37:33 AM
 //
 using System;
 using System.Runtime.Serialization;

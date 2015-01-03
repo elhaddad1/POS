@@ -1,7 +1,7 @@
 //
 // Class	:	ADRoleBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:02 PM
+// Date		:	1/3/2015 2:21:04 AM
 //
 
 using System;
@@ -26,6 +26,7 @@ namespace POS.DataLayer
 		public const string RoleID                    = "RoleID";
 		public const string RoleName                  = "RoleName";
 		public const string RolePath                  = "RolePath";
+		public const string MenuButton                = "MenuButton";
 	}
 	
 	/// <summary>
@@ -42,6 +43,7 @@ namespace POS.DataLayer
 		private int?           	_roleIDNonDefault        	= null;
 		private string         	_roleNameNonDefault      	= null;
 		private string         	_rolePathNonDefault      	= null;
+		private string         	_menuButtonNonDefault    	= null;
 		
 		#endregion
 		
@@ -77,7 +79,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "RoleName" field. Length must be between 0 and 50 characters. 
+		/// This property is mapped to the "RoleName" field. Length must be between 0 and 50 characters. Mandatory.
 		/// </summary>
 		public string RoleName
 		{
@@ -88,7 +90,9 @@ namespace POS.DataLayer
 			}
 			set 
 			{
-			    if (value != null && value.Length > 50)
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 50)
 					throw new ArgumentException("RoleName length must be between 0 and 50 characters.");
 
 				
@@ -104,7 +108,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "RolePath" field. Length must be between 0 and 255 characters. 
+		/// This property is mapped to the "RolePath" field. Length must be between 0 and 255 characters. Mandatory.
 		/// </summary>
 		public string RolePath
 		{
@@ -115,7 +119,9 @@ namespace POS.DataLayer
 			}
 			set 
 			{
-			    if (value != null && value.Length > 255)
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 255)
 					throw new ArgumentException("RolePath length must be between 0 and 255 characters.");
 
 				
@@ -126,6 +132,35 @@ namespace POS.DataLayer
 				else
 				{		           
 					_rolePathNonDefault = value.Trim(); 
+				}
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "MenuButton" field. Length must be between 0 and 50 characters. Mandatory.
+		/// </summary>
+		public string MenuButton
+		{
+			get 
+			{ 
+				if(_menuButtonNonDefault==null)return _menuButtonNonDefault;
+				else return _menuButtonNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 50)
+					throw new ArgumentException("MenuButton length must be between 0 and 50 characters.");
+
+				
+				if(value ==null)
+				{
+					_menuButtonNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_menuButtonNonDefault = value.Trim(); 
 				}
 			}
 		}
@@ -144,7 +179,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -166,6 +201,12 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@RolePath", _rolePathNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@RolePath", DBNull.Value );
+			  
+			// Pass the value of '_menuButton' as parameter 'MenuButton' of the stored procedure.
+			if(_menuButtonNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MenuButton", _menuButtonNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MenuButton", DBNull.Value );
 			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -197,7 +238,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -218,6 +259,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@RolePath", _rolePathNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@RolePath", DBNull.Value );
+			// Pass the value of '_menuButton' as parameter 'MenuButton' of the stored procedure.
+			if(_menuButtonNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MenuButton", _menuButtonNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MenuButton", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -237,7 +283,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -256,6 +302,9 @@ namespace POS.DataLayer
 			
 			// Pass the value of '_rolePath' as parameter 'RolePath' of the stored procedure.
 			oDatabaseHelper.AddParameter("@RolePath", _rolePathNonDefault );
+			
+			// Pass the value of '_menuButton' as parameter 'MenuButton' of the stored procedure.
+			oDatabaseHelper.AddParameter("@MenuButton", _menuButtonNonDefault );
 			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -276,7 +325,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -313,7 +362,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -352,7 +401,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -387,7 +436,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -435,7 +484,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -472,7 +521,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -514,7 +563,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -560,7 +609,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -601,7 +650,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -638,7 +687,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -675,7 +724,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -685,16 +734,9 @@ namespace POS.DataLayer
 		{
 
 			obj.RoleID = rdr.GetInt32(rdr.GetOrdinal(ADRoleFields.RoleID));
-			if (!rdr.IsDBNull(rdr.GetOrdinal(ADRoleFields.RoleName)))
-			{
-				obj.RoleName = rdr.GetString(rdr.GetOrdinal(ADRoleFields.RoleName));
-			}
-			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(ADRoleFields.RolePath)))
-			{
-				obj.RolePath = rdr.GetString(rdr.GetOrdinal(ADRoleFields.RolePath));
-			}
-			
+			obj.RoleName = rdr.GetString(rdr.GetOrdinal(ADRoleFields.RoleName));
+			obj.RolePath = rdr.GetString(rdr.GetOrdinal(ADRoleFields.RolePath));
+			obj.MenuButton = rdr.GetString(rdr.GetOrdinal(ADRoleFields.MenuButton));
 
 		}
 
@@ -710,7 +752,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -742,7 +784,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:02 PM		Created function
+		/// DLGenerator			1/3/2015 2:21:04 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

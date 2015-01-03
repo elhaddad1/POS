@@ -1,8 +1,9 @@
 //
 // Class	:	VUserRoleServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	1/2/2015 2:16:12 AM
+// Date		:	1/3/2015 2:37:33 AM
 //
+
 
 using POS.DataLayer;
 
@@ -16,7 +17,15 @@ namespace POS.BusinessLayer
 		private VUserRole _vUserRoleWCF;
 		private POS.DataLayer.VUserRole _vUserRole;
 		
-		
+
+
+		/// <summary>
+		/// This method will return an object representing the record matching the primary key information specified.
+		/// </summary>
+		///
+		/// <param name="pk" type="VUserRolePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class VUserRole</returns>
 		public VUserRole SelectOne(VUserRolePrimaryKey pk)
 		{
 			_vUserRoleWCF = new VUserRole();
@@ -28,6 +37,7 @@ namespace POS.BusinessLayer
 				_vUserRoleWCF.RoleName = _vUserRole.RoleName;
 				_vUserRoleWCF.RolePath = _vUserRole.RolePath;
 				_vUserRoleWCF.Expr1 = _vUserRole.Expr1;
+				_vUserRoleWCF.MenuButton = _vUserRole.MenuButton;
 				
 			return _vUserRoleWCF;
 		}
@@ -50,6 +60,7 @@ namespace POS.BusinessLayer
 				_vUserRoleWCF.RoleName = _vUserRole.RoleName;
 				_vUserRoleWCF.RolePath = _vUserRole.RolePath;
 				_vUserRoleWCF.Expr1 = _vUserRole.Expr1;
+				_vUserRoleWCF.MenuButton = _vUserRole.MenuButton;
 				
 				vUserRoleCollection.Add(_vUserRoleWCF);
 			}
@@ -89,11 +100,14 @@ namespace POS.BusinessLayer
 				_vUserRoleWCF.RoleName = _vUserRole.RoleName;
 				_vUserRoleWCF.RolePath = _vUserRole.RolePath;
 				_vUserRoleWCF.Expr1 = _vUserRole.Expr1;
+				_vUserRoleWCF.MenuButton = _vUserRole.MenuButton;
 				
 				vUserRoleCollection.Add(_vUserRoleWCF);
 			}
 			return vUserRoleCollection;
-		}		
+		}
+	
+		
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -116,6 +130,7 @@ namespace POS.BusinessLayer
 				_vUserRoleWCF.RoleName = _vUserRole.RoleName;
 				_vUserRoleWCF.RolePath = _vUserRole.RolePath;
 				_vUserRoleWCF.Expr1 = _vUserRole.Expr1;
+				_vUserRoleWCF.MenuButton = _vUserRole.MenuButton;
 				
 				vUserRoleCollection.Add(_vUserRoleWCF);
 			}
@@ -149,11 +164,12 @@ namespace POS.BusinessLayer
 				_vUserRoleWCF.RoleName = _vUserRole.RoleName;
 				_vUserRoleWCF.RolePath = _vUserRole.RolePath;
 				_vUserRoleWCF.Expr1 = _vUserRole.Expr1;
+				_vUserRoleWCF.MenuButton = _vUserRole.MenuButton;
 				
 				vUserRoleCollection.Add(_vUserRoleWCF);
 			}
 			return vUserRoleCollection;
 		}
-
+	
 	} 
 }
