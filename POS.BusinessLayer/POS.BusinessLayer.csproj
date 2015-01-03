@@ -208,6 +208,7 @@
     <Compile Include="Service\SALSalesReturnLineService.svc.cs" />
     <Compile Include="Service\VUserRoleService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
+    <Compile Include="Wrapper\ADGroupWrapper.cs" />
     <Compile Include="Wrapper\ADUserWrapper.cs" />
     <Compile Include="Wrapper\BDCustomerWrapper.cs" />
     <Compile Include="Wrapper\BDProductGroupWrapper.cs" />

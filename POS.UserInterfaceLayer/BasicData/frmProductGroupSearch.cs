@@ -24,13 +24,13 @@ namespace POS.UserInterfaceLayer.BasicData
         private void InitiateGide()
         {
 
-            GrbSearch.Height = 150;
-            
-            DgvResult.Size = new Size(10, 250);
+            dgrid_Result.Height = 150;
+
+            dgrid_Result.Size = new Size(10, 250);
 
             List<BDProductGroup> ProductGroup = _bdProductGroupWrapper.SelectAll();
 
-            DgvResult.DataSource = ProductGroup;
+            dgrid_Result.DataSource = ProductGroup;
 
             addColumnToGrid("ProductGroupID", "ProductGroupID", 120, false);
             addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);

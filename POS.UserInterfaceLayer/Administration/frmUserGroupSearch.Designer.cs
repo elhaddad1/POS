@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmUserGroupSearch
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(590, 421);
+            this.Name = "frmUserGroupSearch";
+            this.Text = "مجموعات المستخدمين";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

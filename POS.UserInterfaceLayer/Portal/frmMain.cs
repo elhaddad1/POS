@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.BusinessLayer.Utility;
+using POS.UserInterfaceLayer.Administration;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -18,23 +19,35 @@ namespace POS.UserInterfaceLayer.Portal
             InitializeComponent();
         }
 
+        // Events
+        //
         private void frmMain_Load(object sender, EventArgs e)
         {
             ApplyingUserPriviliges();
 
         }
+        private void mnuItem_UserGroups_Click(object sender, EventArgs e)
+        {
+            frmUserGroupSearch frm = new frmUserGroupSearch();
+            frm.ShowDialog();
+        }
 
-        /// Methods
+        /// private Methods
         /// 
         private void ApplyingUserPriviliges()
         {
             lbl_Welcome.Text = GlobalVariables.CurrentUser.UserFullName;
-            foreach (KeyValuePair<string, string> roles in GlobalVariables.CurrentUser.UserRoles)
+            foreach (string roles in GlobalVariables.CurrentUser.UserRoles)
             {
-                mnu_MainMenu.Items[roles.Key].Visible = true;
-                mnu_MainMenu.Items.Find(roles.Value, true).FirstOrDefault().Visible = true;
+                string[] arr = roles.Split('/');
+                foreach (string element in arr)
+                {
+                    mnu_MainMenu.Items.Find(element, true).FirstOrDefault().Visible = true;
+                }
             }
         }
+
+
 
 
     }

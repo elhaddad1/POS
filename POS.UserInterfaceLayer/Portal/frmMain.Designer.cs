@@ -29,50 +29,57 @@
         private void InitializeComponent()
         {
             this.mnu_MainMenu = new System.Windows.Forms.MenuStrip();
-            this.BasicData = new System.Windows.Forms.ToolStripMenuItem();
-            this.Customers = new System.Windows.Forms.ToolStripMenuItem();
-            this.Administration = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_BasicData = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Administration = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_UserGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_Welcome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.mnuItem_UserGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnu_MainMenu
             // 
             this.mnu_MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.BasicData,
-            this.Administration});
+            this.mnuItem_BasicData,
+            this.mnuItem_Administration});
             this.mnu_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnu_MainMenu.Name = "mnu_MainMenu";
             this.mnu_MainMenu.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.mnu_MainMenu.Size = new System.Drawing.Size(1251, 24);
+            this.mnu_MainMenu.Size = new System.Drawing.Size(1251, 25);
             this.mnu_MainMenu.TabIndex = 0;
             this.mnu_MainMenu.Text = "menuStrip1";
             // 
-            // BasicData
+            // mnuItem_BasicData
             // 
-            this.BasicData.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Customers});
-            this.BasicData.Name = "BasicData";
-            this.BasicData.Size = new System.Drawing.Size(95, 19);
-            this.BasicData.Text = "البيانات الرئيسية";
-            this.BasicData.Visible = false;
+            this.mnuItem_BasicData.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_Customers});
+            this.mnuItem_BasicData.Name = "mnuItem_BasicData";
+            this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 19);
+            this.mnuItem_BasicData.Text = "البيانات الرئيسية";
+            this.mnuItem_BasicData.Visible = false;
             // 
-            // Customers
+            // mnuItem_Customers
             // 
-            this.Customers.Name = "Customers";
-            this.Customers.Size = new System.Drawing.Size(152, 22);
-            this.Customers.Text = "بيانات العملاء";
+            this.mnuItem_Customers.Name = "mnuItem_Customers";
+            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Customers.Text = "بيانات العملاء";
             // 
-            // Administration
+            // mnuItem_Administration
             // 
-            this.Administration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_Administration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItem_UserGroups});
-            this.Administration.Name = "Administration";
-            this.Administration.Size = new System.Drawing.Size(71, 19);
-            this.Administration.Text = "المستخدمين";
-            this.Administration.Visible = false;
+            this.mnuItem_Administration.Name = "mnuItem_Administration";
+            this.mnuItem_Administration.Size = new System.Drawing.Size(71, 19);
+            this.mnuItem_Administration.Text = "المستخدمين";
+            this.mnuItem_Administration.Visible = false;
+            // 
+            // mnuItem_UserGroups
+            // 
+            this.mnuItem_UserGroups.Name = "mnuItem_UserGroups";
+            this.mnuItem_UserGroups.Size = new System.Drawing.Size(164, 22);
+            this.mnuItem_UserGroups.Text = "مجموعة المستخدمين";
+            this.mnuItem_UserGroups.Click += new System.EventHandler(this.mnuItem_UserGroups_Click);
             // 
             // lbl_Welcome
             // 
@@ -99,12 +106,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "مرحبا ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mnuItem_UserGroups
-            // 
-            this.mnuItem_UserGroups.Name = "mnuItem_UserGroups";
-            this.mnuItem_UserGroups.Size = new System.Drawing.Size(164, 22);
-            this.mnuItem_UserGroups.Text = "مجموعة المستخدمين";
             // 
             // frmMain
             // 
@@ -136,9 +137,9 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mnu_MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem BasicData;
-        private System.Windows.Forms.ToolStripMenuItem Customers;
-        private System.Windows.Forms.ToolStripMenuItem Administration;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_BasicData;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Customers;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Administration;
         private System.Windows.Forms.Label lbl_Welcome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_UserGroups;

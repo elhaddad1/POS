@@ -109,6 +109,9 @@
     <EmbeddedResource Include="Administration\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
+      <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmCustomerAddEdit.resx">
       <DependentUpon>FrmCustomerAddEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,7 +167,6 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
