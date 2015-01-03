@@ -12,17 +12,17 @@ namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class FrmCustomerSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        DBCustomerWrapper bDCustomerWrapper;
+        BDCustomerWrapper  _bDCustomerWrapper;
         public FrmCustomerSearch()
         {
             InitializeComponent();
-            bDCustomerWrapper = new BDCustomerWrapper();
+            _bDCustomerWrapper = new BDCustomerWrapper();
         }
         private void FrmCustomerSearch_Load(object sender, EventArgs e)
         {
            // grb_Search.Height = 150;
             dgrid_Result .Size = new Size(10, 250);
-            dgrid_Result.DataSource = bDCustomerWrapper.SelectAll();
+            dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
              addColumnToGrid("رقم العميل", "CustomerID", 120, false );
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);
             addColumnToGrid("إسم العميل", "CustomerName", 120, true);
