@@ -13,6 +13,7 @@ namespace POS.UserInterfaceLayer.BasicData
     public partial class frmBDProductAddEdit : POS.UserInterfaceLayer.Portal.frmBaseAddEditForm
     {
         private BDProductWrapper _bdProductWrapper = new BDProductWrapper();
+        private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
         private int _productId = 0;
         private BDProduct _bdProduct = new BDProduct();
 
@@ -33,9 +34,17 @@ namespace POS.UserInterfaceLayer.BasicData
 
         private void initEntity(int productId)
         {
-            BDProductPrimaryKey pk = new BDProductPrimaryKey();
-            pk.ProductID = productId;
-            _bdProduct = _bdProductWrapper.SelectOne(pk);
+            try
+            {
+                BDProductPrimaryKey pk = new BDProductPrimaryKey();
+                pk.ProductID = productId;
+                _bdProduct = _bdProductWrapper.SelectOne(pk);
+                loadUI();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private bool frmValidation()
@@ -51,22 +60,63 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="e"></param>
         /// 
         public override void btn_Save_Click(object sender, EventArgs e) {
-            if (!frmValidation())
+            try
             {
-                MessageBox.Show("لابد من ادخال اسم المجموعة");
-                return;
+                if (!frmValidation())
+                {
+                    MessageBox.Show("لابد من ادخال اسم المجموعة");
+                    return;
+                }
+                saveChanges();
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void saveChanges()
+        {
 
             _bdProduct.ProductName = txt_ProductName.Text;
             _bdProduct.Notes = txt_Notes.Text;
-            if(_productId==0)
+            _bdProduct.DescountRatio = (double)nmr_DescountRatio.Value;
+            _bdProduct.DiscountAmount = (decimal)nmr_DiscountAmount.Value;
+            _bdProduct.HasDiscount = chk_HasDiscount.Checked;
+            _bdProduct.IsAcceptBatch = chk_IsAcceptBatch.Checked;
+            _bdProduct.IsActive = chk_IsActive.Checked;
+            _bdProduct.IsFixedPrice = chk_IsFixedPrice.Checked;
+            _bdProduct.ProductCode = txt_ProductCode.Text;
+            _bdProduct.ProductGroupID = int.Parse(ddl_ProductGroupID.SelectedValue.ToString()); 
+            _bdProduct.ProductPrice = (decimal)nmr_ProductPrice.Value;
+            if (_productId == 0)
                 _bdProductWrapper.Insert(_bdProduct);
             else
                 _bdProductWrapper.Update(_bdProduct);
-            this.Close();
-        
         }
 
+        private void loadUI()
+        {
+            loadResourcses();
+            txt_ProductName.Text = _bdProduct.ProductName;
+            txt_Notes.Text = _bdProduct.Notes;
+            nmr_DescountRatio.Value = (decimal)_bdProduct.DescountRatio.Value;
+            nmr_DiscountAmount.Value = _bdProduct.DiscountAmount.Value;
+            chk_HasDiscount.Checked = _bdProduct.HasDiscount.Value;
+            chk_IsAcceptBatch.Checked = _bdProduct.IsAcceptBatch.Value;
+            chk_IsActive.Checked = _bdProduct.IsActive.Value;
+            chk_IsFixedPrice.Checked = _bdProduct.IsFixedPrice.Value;
+            txt_ProductCode.Text = _bdProduct.ProductCode;
+            ddl_ProductGroupID.SelectedValue = _bdProduct.ProductGroupID;
+            nmr_ProductPrice.Value = _bdProduct.ProductPrice.Value;
+        }
+        private void loadResourcses()
+        {
+            ddl_ProductGroupID.DataSource = _bdProductGroupWrapper.SelectAll();
+            ddl_ProductGroupID.DisplayMember = "ProductGroupName";
+            ddl_ProductGroupID.ValueMember = "ProductGroupID";
+        }
         public override void btn_Back_Click(object sender, EventArgs e) {
 
             this.Close();

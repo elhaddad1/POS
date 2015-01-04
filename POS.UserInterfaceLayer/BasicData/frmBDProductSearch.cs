@@ -32,8 +32,8 @@ namespace POS.UserInterfaceLayer.BasicData
 
             dgrid_Result.DataSource = ProductGroup;
 
-            addColumnToGrid("ProductGroupID", "ProductGroupID", 120, false);
-            addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);
+            addColumnToGrid("ProductGroupID", "ProductID", 120, false);
+            addColumnToGrid("إسم المجموعة", "ProductName", 120, true);
         }
 
         /// <summary>
@@ -46,7 +46,21 @@ namespace POS.UserInterfaceLayer.BasicData
             frmProductGroupAddEdit frm = new frmProductGroupAddEdit();
             frm.ShowDialog();
         }
-        public override void btn_Edit_Click(object sender, EventArgs e) { }
+        public override void btn_Edit_Click(object sender, EventArgs e) {
+
+            int productID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductID"].Value != null)
+            {
+                productID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductID"].Value);
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار صنف");
+            }
+            frmBDProductAddEdit frm = new frmBDProductAddEdit(productID);
+            frm.ShowDialog();
+
+        }
         public override void btn_Delete_Click(object sender, EventArgs e) { }
         public override void btn_Back_Click(object sender, EventArgs e) { }
     }

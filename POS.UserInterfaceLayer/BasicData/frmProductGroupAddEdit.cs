@@ -36,6 +36,8 @@ namespace POS.UserInterfaceLayer.BasicData
             BDProductGroupPrimaryKey pk = new BDProductGroupPrimaryKey();
             pk.ProductGroupID = groupId;
             _bdProductGroup = _bdProductGroupWrapper.SelectOne(pk);
+            txt_GroupName.Text =_bdProductGroup.ProductGroupName;
+            txt_Notes.Text = _bdProductGroup.Notes;
         }
 
         private bool frmValidation()
@@ -56,15 +58,20 @@ namespace POS.UserInterfaceLayer.BasicData
                 MessageBox.Show("لابد من ادخال اسم المجموعة");
                 return;
             }
+            saveChanges();
+            this.Close();
+        
+        }
+
+        private void saveChanges()
+        {
 
             _bdProductGroup.ProductGroupName = txt_GroupName.Text;
             _bdProductGroup.Notes = txt_Notes.Text;
-            if(_groupId==0)
+            if (_groupId == 0)
                 _bdProductGroupWrapper.Insert(_bdProductGroup);
             else
                 _bdProductGroupWrapper.Update(_bdProductGroup);
-            this.Close();
-        
         }
 
         public override void btn_Back_Click(object sender, EventArgs e) {

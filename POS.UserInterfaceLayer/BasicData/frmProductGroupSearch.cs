@@ -46,7 +46,22 @@ namespace POS.UserInterfaceLayer.BasicData
             frmProductGroupAddEdit frm = new frmProductGroupAddEdit();
             frm.ShowDialog();
         }
-        public override void btn_Edit_Click(object sender, EventArgs e) { }
+        public override void btn_Edit_Click(object sender, EventArgs e)
+        {
+            int productGroupID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value != null)
+            {
+                productGroupID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value);
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار مجموعة");
+            }
+            frmProductGroupAddEdit frm = new frmProductGroupAddEdit(productGroupID);
+            frm.ShowDialog();
+        
+        
+        }
         public override void btn_Delete_Click(object sender, EventArgs e) { }
         public override void btn_Back_Click(object sender, EventArgs e) { }
     }
