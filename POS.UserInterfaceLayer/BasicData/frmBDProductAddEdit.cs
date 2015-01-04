@@ -10,37 +10,37 @@ using System.Windows.Forms;
 
 namespace POS.UserInterfaceLayer.BasicData
 {
-    public partial class frmProductGroupAddEdit : POS.UserInterfaceLayer.Portal.frmBaseAddEditForm
+    public partial class frmBDProductAddEdit : POS.UserInterfaceLayer.Portal.frmBaseAddEditForm
     {
-        private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
-        private int _groupId = 0;
-        private BDProductGroup _bdProductGroup = new BDProductGroup();
+        private BDProductWrapper _bdProductWrapper = new BDProductWrapper();
+        private int _productId = 0;
+        private BDProduct _bdProduct = new BDProduct();
 
-        public frmProductGroupAddEdit()
+        public frmBDProductAddEdit()
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "أضافة";
         }
 
-        public frmProductGroupAddEdit(int groupId)
+        public frmBDProductAddEdit(int productId)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "تعديل";
-            this._groupId = groupId;
-            initEntity(groupId);
+            this._productId = productId;
+            initEntity(productId);
         }
 
 
-        private void initEntity(int groupId)
+        private void initEntity(int productId)
         {
-            BDProductGroupPrimaryKey pk = new BDProductGroupPrimaryKey();
-            pk.ProductGroupID = groupId;
-            _bdProductGroup = _bdProductGroupWrapper.SelectOne(pk);
+            BDProductPrimaryKey pk = new BDProductPrimaryKey();
+            pk.ProductID = productId;
+            _bdProduct = _bdProductWrapper.SelectOne(pk);
         }
 
         private bool frmValidation()
         {
-            return !string.IsNullOrEmpty(txt_GroupName.Text);
+            return !string.IsNullOrEmpty(txt_ProductName.Text);
         }
 
 
@@ -57,12 +57,12 @@ namespace POS.UserInterfaceLayer.BasicData
                 return;
             }
 
-            _bdProductGroup.ProductGroupName = txt_GroupName.Text;
-            _bdProductGroup.Notes = txt_Notes.Text;
-            if(_groupId==0)
-                _bdProductGroupWrapper.Insert(_bdProductGroup);
+            _bdProduct.ProductName = txt_ProductName.Text;
+            _bdProduct.Notes = txt_Notes.Text;
+            if(_productId==0)
+                _bdProductWrapper.Insert(_bdProduct);
             else
-                _bdProductGroupWrapper.Update(_bdProductGroup);
+                _bdProductWrapper.Update(_bdProduct);
             this.Close();
         
         }
