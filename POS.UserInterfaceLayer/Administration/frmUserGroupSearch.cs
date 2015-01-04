@@ -30,25 +30,34 @@ namespace POS.UserInterfaceLayer.Administration
         public override void btn_Add_Click(object sender, EventArgs e)
         {
             frmUserGroupAddEdit frm = new frmUserGroupAddEdit();
+            frm.FormClosed += frmUserGroupAddEditClosed;
             frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
-            ADGroup _aDGroup = _aDGroupWrapper.SelectOneByID(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString()));
-            frmUserGroupAddEdit frm = new frmUserGroupAddEdit(_aDGroup);
+            frmUserGroupAddEdit frm = new frmUserGroupAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString()));
+            frm.FormClosed += frmUserGroupAddEditClosed;
             frm.ShowDialog();
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (_aDGroupWrapper.DeleteByPrimaryKey(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString())))
+            ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
+            pk.GroupID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString());
+            if (_aDGroupWrapper.Delete(pk))
             {
                 MessageBox.Show("تم الحذف");
-                InitiateGrid();
+                BindGrid();
             }
 
         }
-        public override void btn_Back_Click(object sender, EventArgs e) { }
-
+        public override void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void frmUserGroupAddEditClosed(object sender, FormClosedEventArgs e)
+        {
+            BindGrid();
+        }
         ///<summary>
         ///private methods
         /// </summary>
@@ -60,7 +69,12 @@ namespace POS.UserInterfaceLayer.Administration
             dgrid_Result.DataSource = null;
             dgrid_Result.DataSource = _aDGroupWrapper.SelectAll();
             addColumnToGrid("رقم المجموعه", "GroupID", 20, false);
-            addColumnToGrid("أسم المجموعة", "GroupName", 80, true);
+            addColumnToGrid("أسم المجموعة", "GroupName", 200, true);
+        }
+        private void BindGrid()
+        {
+            dgrid_Result.DataSource = null;
+            dgrid_Result.DataSource = _aDGroupWrapper.SelectAll();
         }
 
     }

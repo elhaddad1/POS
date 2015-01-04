@@ -13,7 +13,7 @@ namespace POS.BusinessLayer.Wrapper
         private POS.DataLayer.ADUser _aDUserDa;
         private POS.BusinessLayer.VUserRoleCollection _vUserRoleCollection;
 
-        public bool SelectByUserNameAndPassword(string userName, string password)
+        public bool SelectByUserNameAndPassword(string userName, string password, out string Message)
         {
             _aDUserDa = POS.DataLayer.ADUser.SelectByUserNameAndPassword(userName, password);
             if (_aDUserDa != null)
@@ -28,10 +28,16 @@ namespace POS.BusinessLayer.Wrapper
                     {
                         GlobalVariables.CurrentUser.UserRoles.Add(userRole.RolePath);
                     }
+                    Message = "success";
                     return true;
                 }
-                else { return false; }
+                else
+                {
+                    Message = "هذا المستخدم ليس له صلاحيات";
+                    return false;
+                }
             }
+            Message = "خطا فى بيانات الدخول";
             return false;
         }
     }
