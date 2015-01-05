@@ -12,28 +12,39 @@ namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class frmBDProductSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
+        private BDProductWrapper _bdProductWrapper = new BDProductWrapper();
 
         public frmBDProductSearch()
         {
-            InitiateGide();
+            InitiateGrid();
             InitializeComponent();
             base.lbl_FormHeader.Text = "بحث";
         }
 
-        private void InitiateGide()
+        public void InitiateGrid()
         {
+            dgrid_Result.Columns.Clear();
+
+            dgrid_Result.AutoGenerateColumns = false;
 
             dgrid_Result.Height = 150;
 
             dgrid_Result.Size = new Size(10, 250);
 
-            List<BDProductGroup> ProductGroup = _bdProductGroupWrapper.SelectAll();
+            addColumnToGrid("ProductID", "ProductID", 120, false);
+            
+            addColumnToGrid("إسم الصنف", "ProductName", 120, true);
+            
+            addColumnToGrid("رقم الصنف", "ProductCode", 120, true);
+            
+            addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
 
-            dgrid_Result.DataSource = ProductGroup;
 
-            addColumnToGrid("ProductGroupID", "ProductID", 120, false);
-            addColumnToGrid("إسم المجموعة", "ProductName", 120, true);
+            List<BDProduct> Product = _bdProductWrapper.SelectAll();
+
+            dgrid_Result.DataSource = Product;
+
+
         }
 
         /// <summary>
@@ -43,7 +54,7 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="e"></param>
         public override void btn_Add_Click(object sender, EventArgs e)
         {
-            frmProductGroupAddEdit frm = new frmProductGroupAddEdit();
+            frmBDProductAddEdit frm = new frmBDProductAddEdit(this);
             frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e) {
@@ -57,7 +68,7 @@ namespace POS.UserInterfaceLayer.BasicData
             {
                 MessageBox.Show("لابد من اختيار صنف");
             }
-            frmBDProductAddEdit frm = new frmBDProductAddEdit(productID);
+            frmBDProductAddEdit frm = new frmBDProductAddEdit(productID,this);
             frm.ShowDialog();
 
         }

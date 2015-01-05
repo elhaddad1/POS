@@ -15,19 +15,22 @@ namespace POS.UserInterfaceLayer.BasicData
         private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
         private int _groupId = 0;
         private BDProductGroup _bdProductGroup = new BDProductGroup();
+        private frmProductGroupSearch _frmProductGroupSearch = new frmProductGroupSearch();
 
-        public frmProductGroupAddEdit()
+        public frmProductGroupAddEdit(frmProductGroupSearch frmProductGroupSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "أضافة";
+            this._frmProductGroupSearch = frmProductGroupSearch;
         }
 
-        public frmProductGroupAddEdit(int groupId)
+        public frmProductGroupAddEdit(int groupId, frmProductGroupSearch frmProductGroupSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "تعديل";
             this._groupId = groupId;
             initEntity(groupId);
+            this._frmProductGroupSearch = frmProductGroupSearch;
         }
 
 
@@ -53,14 +56,21 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="e"></param>
         /// 
         public override void btn_Save_Click(object sender, EventArgs e) {
-            if (!frmValidation())
+            try
             {
-                MessageBox.Show("لابد من ادخال اسم المجموعة");
-                return;
+                if (!frmValidation())
+                {
+                    MessageBox.Show("لابد من ادخال اسم المجموعة");
+                    return;
+                }
+                saveChanges();
+                this._frmProductGroupSearch.InitiateGrid();
+                this.Close();
             }
-            saveChanges();
-            this.Close();
-        
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void saveChanges()

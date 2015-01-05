@@ -53,7 +53,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2072, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2234, 9);
             // 
             // lbl_ProductName
             // 
@@ -125,6 +125,11 @@
             // nmr_ProductPrice
             // 
             this.nmr_ProductPrice.Location = new System.Drawing.Point(142, 213);
+            this.nmr_ProductPrice.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
             this.nmr_ProductPrice.Name = "nmr_ProductPrice";
             this.nmr_ProductPrice.Size = new System.Drawing.Size(188, 22);
             this.nmr_ProductPrice.TabIndex = 11;
@@ -132,6 +137,11 @@
             // nmr_DiscountAmount
             // 
             this.nmr_DiscountAmount.Location = new System.Drawing.Point(142, 254);
+            this.nmr_DiscountAmount.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
             this.nmr_DiscountAmount.Name = "nmr_DiscountAmount";
             this.nmr_DiscountAmount.Size = new System.Drawing.Size(188, 22);
             this.nmr_DiscountAmount.TabIndex = 12;

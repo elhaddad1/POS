@@ -16,19 +16,23 @@ namespace POS.UserInterfaceLayer.BasicData
         private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
         private int _productId = 0;
         private BDProduct _bdProduct = new BDProduct();
+        private frmBDProductSearch _frmBDProductSearch = null;
 
-        public frmBDProductAddEdit()
+        public frmBDProductAddEdit(frmBDProductSearch frmBDProductSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "أضافة";
+            loadResourcses();
+            this._frmBDProductSearch = frmBDProductSearch;
         }
 
-        public frmBDProductAddEdit(int productId)
+        public frmBDProductAddEdit(int productId, frmBDProductSearch frmBDProductSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "تعديل";
             this._productId = productId;
             initEntity(productId);
+            this._frmBDProductSearch = frmBDProductSearch;
         }
 
 
@@ -68,6 +72,7 @@ namespace POS.UserInterfaceLayer.BasicData
                     return;
                 }
                 saveChanges();
+                this._frmBDProductSearch.InitiateGrid();
                 this.Close();
             }
             catch (Exception ex)
