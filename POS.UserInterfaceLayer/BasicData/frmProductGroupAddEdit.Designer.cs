@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblGroupName = new System.Windows.Forms.Label();
-            this.lblNotes = new System.Windows.Forms.Label();
-            this.txtGroupName = new System.Windows.Forms.TextBox();
-            this.txtNotes = new System.Windows.Forms.TextBox();
+            this.lbl_GroupName = new System.Windows.Forms.Label();
+            this.lbl_Notes = new System.Windows.Forms.Label();
+            this.txt_GroupName = new System.Windows.Forms.TextBox();
+            this.txt_Notes = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(810, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(938, 9);
             // 
-            // lblGroupName
+            // lbl_GroupName
             // 
-            this.lblGroupName.AutoSize = true;
-            this.lblGroupName.Location = new System.Drawing.Point(144, 110);
-            this.lblGroupName.Name = "lblGroupName";
-            this.lblGroupName.Size = new System.Drawing.Size(69, 16);
-            this.lblGroupName.TabIndex = 2;
-            this.lblGroupName.Text = "اسم المجموعة";
+            this.lbl_GroupName.AutoSize = true;
+            this.lbl_GroupName.Location = new System.Drawing.Point(144, 110);
+            this.lbl_GroupName.Name = "lbl_GroupName";
+            this.lbl_GroupName.Size = new System.Drawing.Size(69, 16);
+            this.lbl_GroupName.TabIndex = 2;
+            this.lbl_GroupName.Text = "اسم المجموعة";
             // 
-            // lblNotes
+            // lbl_Notes
             // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(144, 154);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(51, 16);
-            this.lblNotes.TabIndex = 3;
-            this.lblNotes.Text = "الملاحظات";
+            this.lbl_Notes.AutoSize = true;
+            this.lbl_Notes.Location = new System.Drawing.Point(144, 154);
+            this.lbl_Notes.Name = "lbl_Notes";
+            this.lbl_Notes.Size = new System.Drawing.Size(51, 16);
+            this.lbl_Notes.TabIndex = 3;
+            this.lbl_Notes.Text = "الملاحظات";
             // 
-            // txtGroupName
+            // txt_GroupName
             // 
-            this.txtGroupName.Location = new System.Drawing.Point(270, 104);
-            this.txtGroupName.Name = "txtGroupName";
-            this.txtGroupName.Size = new System.Drawing.Size(420, 22);
-            this.txtGroupName.TabIndex = 4;
+            this.txt_GroupName.Location = new System.Drawing.Point(270, 104);
+            this.txt_GroupName.Name = "txt_GroupName";
+            this.txt_GroupName.Size = new System.Drawing.Size(420, 22);
+            this.txt_GroupName.TabIndex = 4;
             // 
-            // txtNotes
+            // txt_Notes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(270, 154);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(420, 97);
-            this.txtNotes.TabIndex = 5;
+            this.txt_Notes.Location = new System.Drawing.Point(270, 154);
+            this.txt_Notes.Multiline = true;
+            this.txt_Notes.Name = "txt_Notes";
+            this.txt_Notes.Size = new System.Drawing.Size(420, 97);
+            this.txt_Notes.TabIndex = 5;
             // 
             // frmProductGroupAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(883, 322);
-            this.Controls.Add(this.txtNotes);
-            this.Controls.Add(this.txtGroupName);
-            this.Controls.Add(this.lblNotes);
-            this.Controls.Add(this.lblGroupName);
+            this.Controls.Add(this.txt_Notes);
+            this.Controls.Add(this.txt_GroupName);
+            this.Controls.Add(this.lbl_Notes);
+            this.Controls.Add(this.lbl_GroupName);
             this.Name = "frmProductGroupAddEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مجموعات الأصناف";
-            this.Controls.SetChildIndex(this.lblGroupName, 0);
-            this.Controls.SetChildIndex(this.lblNotes, 0);
-            this.Controls.SetChildIndex(this.txtGroupName, 0);
-            this.Controls.SetChildIndex(this.txtNotes, 0);
+            this.Controls.SetChildIndex(this.lbl_GroupName, 0);
+            this.Controls.SetChildIndex(this.lbl_Notes, 0);
+            this.Controls.SetChildIndex(this.txt_GroupName, 0);
+            this.Controls.SetChildIndex(this.txt_Notes, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,10 +93,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblGroupName;
-        private System.Windows.Forms.Label lblNotes;
-        private System.Windows.Forms.TextBox txtGroupName;
-        private System.Windows.Forms.TextBox txtNotes;
+        private System.Windows.Forms.Label lbl_GroupName;
+        private System.Windows.Forms.Label lbl_Notes;
+        private System.Windows.Forms.TextBox txt_GroupName;
+        private System.Windows.Forms.TextBox txt_Notes;
 
     }
 }

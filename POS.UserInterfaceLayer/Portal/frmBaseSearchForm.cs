@@ -44,15 +44,16 @@ namespace POS.UserInterfaceLayer.Portal
             col.Name = dataField;
             col.HeaderText = header;
             col.DataPropertyName = dataField;
-            col.Visible = visible;
             if (visible)
             {
                 col.Width = width;
             }
            
             Dgrid_Result.Columns.Add(col);
-        }
 
+            dgrid_Result.Columns[dataField].Visible = visible;
+
+        }
         #endregion
 
 
