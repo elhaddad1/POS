@@ -15,6 +15,12 @@ namespace POS.UserInterfaceLayer.BasicData
         int? CustomerID;
         BDCustomerWrapper customerWrapper;
         BDCustomer customer;
+        public FrmCustomerAddEdit()
+        {
+            InitializeComponent();
+            customerWrapper = new BDCustomerWrapper();
+           
+        }
         public FrmCustomerAddEdit(int? CustomerId)
         {
             InitializeComponent();
@@ -33,38 +39,44 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public override void btn_Save_Click(object sender, EventArgs e)
         {
-            if (txtName.Text != "")
+            if (tbx_Name.Text != "")
             {
                 customer = new BDCustomer();
                 BDCustomerService customerService = new BDCustomerService();
                 if (CustomerID == null)//new customer
                 {
-                    customer.CustomerCode = txtCode.Text;
-                    customer.CustomerName = txtName.Text;
-                    customer.Phone1 = txtPone1.Text;
-                    customer.Phone2 = txtphone2.Text;
-                    customer.Mobile1 = txtMobile1.Text;
-                    customer.Mobile2 = txtMobile2.Text;
-                    customer.Email = txtEmail.Text;
-                    customer.IsActive = chkIsActive.Checked;
+                    customer.CustomerCode = tbx_Code.Text;
+                    customer.CustomerName = tbx_Name.Text;
+                    customer.Address = tbx_Address.Text;
+                    customer.Phone1 = tbx_Pone1.Text;
+                    customer.Phone2 = tbx_phone2.Text;
+                    customer.Mobile1 = tbx_Mobile1.Text;
+                    customer.Mobile2 = tbx_Mobile2.Text;
+                    customer.Email = tbx_Email.Text;
+                    customer.IsActive = chk_IsActive.Checked;
                     customerService.Insert(customer);
+                    ClearControls(); 
+                    MessageBox.Show("تم الحفظ بنجاح");
                 }
                 else
                 {
                     BDCustomerPrimaryKey pk = new BDCustomerPrimaryKey();
                     pk.CustomerID = CustomerID;
                     customer = customerService.SelectOne(pk);
-                    customer.CustomerCode = txtCode.Text;
-                    customer.CustomerName = txtName.Text;
-                    customer.Phone1 = txtPone1.Text;
-                    customer.Phone2 = txtphone2.Text;
-                    customer.Mobile1 = txtMobile1.Text;
-                    customer.Mobile2 = txtMobile2.Text;
-                    customer.Email = txtEmail.Text;
-                    customer.IsActive = chkIsActive.Checked;
+                    customer.CustomerCode = tbx_Code.Text;
+                    customer.CustomerName = tbx_Name.Text;
+                    customer.Address = tbx_Address.Text;
+                    customer.Phone1 = tbx_Pone1.Text;
+                    customer.Phone2 = tbx_phone2.Text;
+                    customer.Mobile1 = tbx_Mobile1.Text;
+                    customer.Mobile2 = tbx_Mobile2.Text;
+                    customer.Email = tbx_Email.Text;
+                    customer.IsActive = chk_IsActive.Checked;
+                   customerService.Update(customer);
+                   MessageBox.Show("تم التعديل بنجاح");
                 }
-                customerService.Update(customer);
-                 MessageBox.Show("تم الحفظ بنجاح");
+                
+               
             
             }
             else
@@ -84,15 +96,28 @@ namespace POS.UserInterfaceLayer.BasicData
             BDCustomerPrimaryKey pk = new BDCustomerPrimaryKey();
             pk.CustomerID = CustomerID;
             customer = customerWrapper.SelectOne(pk);
-            txtCode.Text = customer.CustomerCode != null ? customer.CustomerCode : "";
-            txtName.Text = customer.CustomerName;
-            txtPone1.Text = customer.Phone1 != null ? customer.Phone1 : "";
-            txtphone2.Text = customer.Phone2 != null ? customer.Phone2 : "";
-            txtMobile1.Text = customer.Mobile1 != null ? customer.Mobile1 : "";
-            txtMobile2.Text = customer.Mobile2 != null ? customer.Mobile2 : "";
-            txtEmail.Text = customer.Email != null ? customer.Email : "";
-            chkIsActive.Checked = customer.IsActive != null ? (bool)customer.IsActive : true;
-        } 
+            tbx_Code.Text = customer.CustomerCode != null ? customer.CustomerCode : "";
+            tbx_Name.Text = customer.CustomerName;
+            tbx_Address.Text = customer.Address != null ? customer.Address : "";
+            tbx_Pone1.Text = customer.Phone1 != null ? customer.Phone1 : "";
+            tbx_phone2.Text = customer.Phone2 != null ? customer.Phone2 : "";
+            tbx_Mobile1.Text = customer.Mobile1 != null ? customer.Mobile1 : "";
+            tbx_Mobile2.Text = customer.Mobile2 != null ? customer.Mobile2 : "";
+            tbx_Email.Text = customer.Email != null ? customer.Email : "";
+            chk_IsActive.Checked = customer.IsActive != null ? (bool)customer.IsActive : true;
+        }
+        private void ClearControls()
+        {
+            tbx_Code.Text =  "";
+            tbx_Name.Text = "";
+            tbx_Address.Text =  "";
+            tbx_Pone1.Text =  "";
+            tbx_phone2.Text =  "";
+            tbx_Mobile1.Text ="";
+            tbx_Mobile2.Text =  "";
+            tbx_Email.Text = "";
+            chk_IsActive.Checked = true;
+        }
         #endregion
     }
 }

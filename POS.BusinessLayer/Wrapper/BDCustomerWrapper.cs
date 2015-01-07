@@ -8,13 +8,30 @@ namespace POS.BusinessLayer.Wrapper
 {
     public class BDCustomerWrapper : BDCustomerService
     {
-        private BDCustomer _bDCustomerBl;
-        private POS.DataLayer.BDCustomer _bDCustomerDl;
-        public BDCustomerCollection SelectAll()
+        private BDCustomer _bDCustomerWCF;
+        public BDCustomerCollection SearchByCriteria(string CustomerName,string CustomerCode )
         {
-            return base.SelectAll();
-        }
+            BDCustomerCollection bDCustomerCollection = new BDCustomerCollection();
+            foreach (POS.DataLayer.BDCustomer _bDCustomer in POS.DataLayer.BDCustomer.SearcByCriteria(CustomerName,CustomerCode ))
+            {
+                _bDCustomerWCF = new BDCustomer();
 
+                _bDCustomerWCF.CustomerID = _bDCustomer.CustomerID;
+                _bDCustomerWCF.CustomerName = _bDCustomer.CustomerName;
+                _bDCustomerWCF.CustomerCode = _bDCustomer.CustomerCode;
+                _bDCustomerWCF.Address = _bDCustomer.Address;
+                _bDCustomerWCF.Phone1 = _bDCustomer.Phone1;
+                _bDCustomerWCF.Phone2 = _bDCustomer.Phone2;
+                _bDCustomerWCF.Mobile1 = _bDCustomer.Mobile1;
+                _bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
+                _bDCustomerWCF.Email = _bDCustomer.Email;
+                _bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+
+                bDCustomerCollection.Add(_bDCustomerWCF);
+            }
+            return bDCustomerCollection;
+        }
+		
 
 
     }

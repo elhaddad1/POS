@@ -30,16 +30,16 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.grb_search = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
+            this.tbx_cusomerName = new System.Windows.Forms.TextBox();
+            this.tbx_customerCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(280, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(302, 20);
             this.lbl_FormHeader.Size = new System.Drawing.Size(73, 19);
             this.lbl_FormHeader.Text = "بحث العملاء";
             // 
@@ -55,8 +55,8 @@
             // grb_search
             // 
             this.grb_search.Controls.Add(this.btn_Search);
-            this.grb_search.Controls.Add(this.textBox2);
-            this.grb_search.Controls.Add(this.textBox1);
+            this.grb_search.Controls.Add(this.tbx_cusomerName);
+            this.grb_search.Controls.Add(this.tbx_customerCode);
             this.grb_search.Controls.Add(this.label2);
             this.grb_search.Controls.Add(this.label1);
             this.grb_search.Dock = System.Windows.Forms.DockStyle.Top;
@@ -67,29 +67,6 @@
             this.grb_search.TabStop = false;
             this.grb_search.Text = "بحث العملاء";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(569, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 16);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "إسم العميل";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(352, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 22);
-            this.textBox1.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(352, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 22);
-            this.textBox2.TabIndex = 9;
-            // 
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(28, 65);
@@ -98,7 +75,30 @@
             this.btn_Search.TabIndex = 10;
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = true;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click_1);
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // tbx_cusomerName
+            // 
+            this.tbx_cusomerName.Location = new System.Drawing.Point(352, 59);
+            this.tbx_cusomerName.Name = "tbx_cusomerName";
+            this.tbx_cusomerName.Size = new System.Drawing.Size(184, 22);
+            this.tbx_cusomerName.TabIndex = 9;
+            // 
+            // tbx_customerCode
+            // 
+            this.tbx_customerCode.Location = new System.Drawing.Point(352, 30);
+            this.tbx_customerCode.Name = "tbx_customerCode";
+            this.tbx_customerCode.Size = new System.Drawing.Size(184, 22);
+            this.tbx_customerCode.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(569, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 16);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "إسم العميل";
             // 
             // FrmCustomerSearch
             // 
@@ -120,8 +120,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grb_search;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbx_cusomerName;
+        private System.Windows.Forms.TextBox tbx_customerCode;
         private System.Windows.Forms.Label label2;
 
     }

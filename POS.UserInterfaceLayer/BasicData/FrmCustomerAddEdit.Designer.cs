@@ -36,20 +36,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.chkIsActive = new System.Windows.Forms.CheckBox();
-            this.txtCode = new System.Windows.Forms.TextBox();
-            this.txtMobile1 = new System.Windows.Forms.TextBox();
-            this.txtphone2 = new System.Windows.Forms.TextBox();
-            this.txtPone1 = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtMobile2 = new System.Windows.Forms.TextBox();
+            this.chk_IsActive = new System.Windows.Forms.CheckBox();
+            this.tbx_Code = new System.Windows.Forms.TextBox();
+            this.tbx_Mobile1 = new System.Windows.Forms.TextBox();
+            this.tbx_phone2 = new System.Windows.Forms.TextBox();
+            this.tbx_Pone1 = new System.Windows.Forms.TextBox();
+            this.tbx_Address = new System.Windows.Forms.TextBox();
+            this.tbx_Name = new System.Windows.Forms.TextBox();
+            this.tbx_Email = new System.Windows.Forms.TextBox();
+            this.tbx_Mobile2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(199, 22);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(194, 19);
             this.lbl_FormHeader.Size = new System.Drawing.Size(106, 19);
             this.lbl_FormHeader.Text = "إضافه /تعديل عميل";
             // 
@@ -125,86 +125,88 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "الإيميل";
             // 
-            // chkIsActive
+            // chk_IsActive
             // 
-            this.chkIsActive.AutoSize = true;
-            this.chkIsActive.Location = new System.Drawing.Point(36, 343);
-            this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(47, 20);
-            this.chkIsActive.TabIndex = 10;
-            this.chkIsActive.Text = "مفعل";
-            this.chkIsActive.UseVisualStyleBackColor = true;
+            this.chk_IsActive.AutoSize = true;
+            this.chk_IsActive.Checked = true;
+            this.chk_IsActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_IsActive.Location = new System.Drawing.Point(36, 343);
+            this.chk_IsActive.Name = "chk_IsActive";
+            this.chk_IsActive.Size = new System.Drawing.Size(47, 20);
+            this.chk_IsActive.TabIndex = 9;
+            this.chk_IsActive.Text = "مفعل";
+            this.chk_IsActive.UseVisualStyleBackColor = true;
             // 
-            // txtCode
+            // tbx_Code
             // 
-            this.txtCode.Location = new System.Drawing.Point(126, 91);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(144, 22);
-            this.txtCode.TabIndex = 11;
+            this.tbx_Code.Location = new System.Drawing.Point(126, 91);
+            this.tbx_Code.Name = "tbx_Code";
+            this.tbx_Code.Size = new System.Drawing.Size(144, 22);
+            this.tbx_Code.TabIndex = 1;
             // 
-            // txtMobile1
+            // tbx_Mobile1
             // 
-            this.txtMobile1.Location = new System.Drawing.Point(126, 264);
-            this.txtMobile1.Name = "txtMobile1";
-            this.txtMobile1.Size = new System.Drawing.Size(144, 22);
-            this.txtMobile1.TabIndex = 12;
+            this.tbx_Mobile1.Location = new System.Drawing.Point(126, 264);
+            this.tbx_Mobile1.Name = "tbx_Mobile1";
+            this.tbx_Mobile1.Size = new System.Drawing.Size(144, 22);
+            this.tbx_Mobile1.TabIndex = 6;
             // 
-            // txtphone2
+            // tbx_phone2
             // 
-            this.txtphone2.Location = new System.Drawing.Point(393, 225);
-            this.txtphone2.Name = "txtphone2";
-            this.txtphone2.Size = new System.Drawing.Size(144, 22);
-            this.txtphone2.TabIndex = 13;
+            this.tbx_phone2.Location = new System.Drawing.Point(393, 225);
+            this.tbx_phone2.Name = "tbx_phone2";
+            this.tbx_phone2.Size = new System.Drawing.Size(144, 22);
+            this.tbx_phone2.TabIndex = 5;
             // 
-            // txtPone1
+            // tbx_Pone1
             // 
-            this.txtPone1.Location = new System.Drawing.Point(126, 222);
-            this.txtPone1.Name = "txtPone1";
-            this.txtPone1.Size = new System.Drawing.Size(144, 22);
-            this.txtPone1.TabIndex = 14;
+            this.tbx_Pone1.Location = new System.Drawing.Point(126, 222);
+            this.tbx_Pone1.Name = "tbx_Pone1";
+            this.tbx_Pone1.Size = new System.Drawing.Size(144, 22);
+            this.tbx_Pone1.TabIndex = 4;
             // 
-            // txtAddress
+            // tbx_Address
             // 
-            this.txtAddress.Location = new System.Drawing.Point(126, 166);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(411, 39);
-            this.txtAddress.TabIndex = 15;
+            this.tbx_Address.Location = new System.Drawing.Point(126, 166);
+            this.tbx_Address.Multiline = true;
+            this.tbx_Address.Name = "tbx_Address";
+            this.tbx_Address.Size = new System.Drawing.Size(411, 39);
+            this.tbx_Address.TabIndex = 3;
             // 
-            // txtName
+            // tbx_Name
             // 
-            this.txtName.Location = new System.Drawing.Point(126, 127);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(411, 22);
-            this.txtName.TabIndex = 16;
+            this.tbx_Name.Location = new System.Drawing.Point(126, 127);
+            this.tbx_Name.Name = "tbx_Name";
+            this.tbx_Name.Size = new System.Drawing.Size(411, 22);
+            this.tbx_Name.TabIndex = 2;
             // 
-            // txtEmail
+            // tbx_Email
             // 
-            this.txtEmail.Location = new System.Drawing.Point(126, 303);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(411, 22);
-            this.txtEmail.TabIndex = 17;
+            this.tbx_Email.Location = new System.Drawing.Point(126, 303);
+            this.tbx_Email.Name = "tbx_Email";
+            this.tbx_Email.Size = new System.Drawing.Size(411, 22);
+            this.tbx_Email.TabIndex = 8;
             // 
-            // txtMobile2
+            // tbx_Mobile2
             // 
-            this.txtMobile2.Location = new System.Drawing.Point(393, 261);
-            this.txtMobile2.Name = "txtMobile2";
-            this.txtMobile2.Size = new System.Drawing.Size(144, 22);
-            this.txtMobile2.TabIndex = 18;
+            this.tbx_Mobile2.Location = new System.Drawing.Point(393, 261);
+            this.tbx_Mobile2.Name = "tbx_Mobile2";
+            this.tbx_Mobile2.Size = new System.Drawing.Size(144, 22);
+            this.tbx_Mobile2.TabIndex = 7;
             // 
             // FrmCustomerAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(570, 446);
-            this.Controls.Add(this.txtMobile2);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtPone1);
-            this.Controls.Add(this.txtphone2);
-            this.Controls.Add(this.txtMobile1);
-            this.Controls.Add(this.txtCode);
-            this.Controls.Add(this.chkIsActive);
+            this.Controls.Add(this.tbx_Mobile2);
+            this.Controls.Add(this.tbx_Email);
+            this.Controls.Add(this.tbx_Name);
+            this.Controls.Add(this.tbx_Address);
+            this.Controls.Add(this.tbx_Pone1);
+            this.Controls.Add(this.tbx_phone2);
+            this.Controls.Add(this.tbx_Mobile1);
+            this.Controls.Add(this.tbx_Code);
+            this.Controls.Add(this.chk_IsActive);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -224,15 +226,15 @@
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label8, 0);
-            this.Controls.SetChildIndex(this.chkIsActive, 0);
-            this.Controls.SetChildIndex(this.txtCode, 0);
-            this.Controls.SetChildIndex(this.txtMobile1, 0);
-            this.Controls.SetChildIndex(this.txtphone2, 0);
-            this.Controls.SetChildIndex(this.txtPone1, 0);
-            this.Controls.SetChildIndex(this.txtAddress, 0);
-            this.Controls.SetChildIndex(this.txtName, 0);
-            this.Controls.SetChildIndex(this.txtEmail, 0);
-            this.Controls.SetChildIndex(this.txtMobile2, 0);
+            this.Controls.SetChildIndex(this.chk_IsActive, 0);
+            this.Controls.SetChildIndex(this.tbx_Code, 0);
+            this.Controls.SetChildIndex(this.tbx_Mobile1, 0);
+            this.Controls.SetChildIndex(this.tbx_phone2, 0);
+            this.Controls.SetChildIndex(this.tbx_Pone1, 0);
+            this.Controls.SetChildIndex(this.tbx_Address, 0);
+            this.Controls.SetChildIndex(this.tbx_Name, 0);
+            this.Controls.SetChildIndex(this.tbx_Email, 0);
+            this.Controls.SetChildIndex(this.tbx_Mobile2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,14 +250,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox chkIsActive;
-        private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.TextBox txtMobile1;
-        private System.Windows.Forms.TextBox txtphone2;
-        private System.Windows.Forms.TextBox txtPone1;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtMobile2;
+        private System.Windows.Forms.CheckBox chk_IsActive;
+        private System.Windows.Forms.TextBox tbx_Code;
+        private System.Windows.Forms.TextBox tbx_Mobile1;
+        private System.Windows.Forms.TextBox tbx_phone2;
+        private System.Windows.Forms.TextBox tbx_Pone1;
+        private System.Windows.Forms.TextBox tbx_Address;
+        private System.Windows.Forms.TextBox tbx_Name;
+        private System.Windows.Forms.TextBox tbx_Email;
+        private System.Windows.Forms.TextBox tbx_Mobile2;
     }
 }
