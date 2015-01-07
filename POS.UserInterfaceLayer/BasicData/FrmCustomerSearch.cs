@@ -25,7 +25,7 @@ namespace POS.UserInterfaceLayer.BasicData
             dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
              addColumnToGrid("رقم العميل", "CustomerID", 120, false );
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);
-            addColumnToGrid("إسم العميل", "CustomerName", 160, true);
+            addColumnToGrid("إسم العميل", "CustomerName", 200, true);
             addColumnToGrid(" رقم تليفون ", "CustomerPhone1", 100, true);
             addColumnToGrid("رقم موبيل", "CustomerMobile1", 100, true);
             Search();

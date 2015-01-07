@@ -17,7 +17,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCustomerSearch());
+            Application.Run(new FrmSupplierSearch());
         }
     }
 }
