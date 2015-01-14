@@ -15,19 +15,22 @@ namespace POS.UserInterfaceLayer.BasicData
         private BDProductGroupWrapper _bdProductGroupWrapper = new BDProductGroupWrapper();
         private int _groupId = 0;
         private BDProductGroup _bdProductGroup = new BDProductGroup();
+        private frmProductGroupSearch _frmProductGroupSearch = new frmProductGroupSearch();
 
-        public frmProductGroupAddEdit()
+        public frmProductGroupAddEdit(frmProductGroupSearch frmProductGroupSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "أضافة";
+            this._frmProductGroupSearch = frmProductGroupSearch;
         }
 
-        public frmProductGroupAddEdit(int groupId)
+        public frmProductGroupAddEdit(int groupId, frmProductGroupSearch frmProductGroupSearch)
         {
             InitializeComponent();
             base.lbl_FormHeader.Text = "تعديل";
             this._groupId = groupId;
             initEntity(groupId);
+            this._frmProductGroupSearch = frmProductGroupSearch;
         }
 
 
@@ -36,6 +39,8 @@ namespace POS.UserInterfaceLayer.BasicData
             BDProductGroupPrimaryKey pk = new BDProductGroupPrimaryKey();
             pk.ProductGroupID = groupId;
             _bdProductGroup = _bdProductGroupWrapper.SelectOne(pk);
+            txt_GroupName.Text =_bdProductGroup.ProductGroupName;
+            txt_Notes.Text = _bdProductGroup.Notes;
         }
 
         private bool frmValidation()
@@ -51,20 +56,32 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="e"></param>
         /// 
         public override void btn_Save_Click(object sender, EventArgs e) {
-            if (!frmValidation())
+            try
             {
-                MessageBox.Show("لابد من ادخال اسم المجموعة");
-                return;
+                if (!frmValidation())
+                {
+                    MessageBox.Show("لابد من ادخال اسم المجموعة");
+                    return;
+                }
+                saveChanges();
+                this._frmProductGroupSearch.InitiateGrid();
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void saveChanges()
+        {
 
             _bdProductGroup.ProductGroupName = txt_GroupName.Text;
             _bdProductGroup.Notes = txt_Notes.Text;
-            if(_groupId==0)
+            if (_groupId == 0)
                 _bdProductGroupWrapper.Insert(_bdProductGroup);
             else
                 _bdProductGroupWrapper.Update(_bdProductGroup);
-            this.Close();
-        
         }
 
         public override void btn_Back_Click(object sender, EventArgs e) {

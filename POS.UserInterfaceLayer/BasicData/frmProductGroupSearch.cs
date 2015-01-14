@@ -16,13 +16,16 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public frmProductGroupSearch()
         {
-            InitiateGide();
+            InitiateGrid();
             InitializeComponent();
             base.lbl_FormHeader.Text = "بحث";
         }
 
-        private void InitiateGide()
+        public void InitiateGrid()
         {
+            dgrid_Result.Columns.Clear();
+
+            dgrid_Result.AutoGenerateColumns = false;
 
             dgrid_Result.Height = 150;
 
@@ -43,10 +46,25 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="e"></param>
         public override void btn_Add_Click(object sender, EventArgs e)
         {
-            frmProductGroupAddEdit frm = new frmProductGroupAddEdit();
+            frmProductGroupAddEdit frm = new frmProductGroupAddEdit(this);
             frm.ShowDialog();
         }
-        public override void btn_Edit_Click(object sender, EventArgs e) { }
+        public override void btn_Edit_Click(object sender, EventArgs e)
+        {
+            int productGroupID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value != null)
+            {
+                productGroupID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value);
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار مجموعة");
+            }
+            frmProductGroupAddEdit frm = new frmProductGroupAddEdit(productGroupID,this);
+            frm.ShowDialog();
+        
+        
+        }
         public override void btn_Delete_Click(object sender, EventArgs e) { }
         public override void btn_Back_Click(object sender, EventArgs e) { }
     }

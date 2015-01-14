@@ -45,6 +45,7 @@
             this.nmr_DescountRatio = new System.Windows.Forms.NumericUpDown();
             this.lbl_DescountRatio = new System.Windows.Forms.Label();
             this.chk_IsAcceptBatch = new System.Windows.Forms.CheckBox();
+            this.chk_IsActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_ProductPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DiscountAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DescountRatio)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(1910, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2234, 9);
             // 
             // lbl_ProductName
             // 
@@ -124,6 +125,11 @@
             // nmr_ProductPrice
             // 
             this.nmr_ProductPrice.Location = new System.Drawing.Point(142, 213);
+            this.nmr_ProductPrice.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
             this.nmr_ProductPrice.Name = "nmr_ProductPrice";
             this.nmr_ProductPrice.Size = new System.Drawing.Size(188, 22);
             this.nmr_ProductPrice.TabIndex = 11;
@@ -131,6 +137,11 @@
             // nmr_DiscountAmount
             // 
             this.nmr_DiscountAmount.Location = new System.Drawing.Point(142, 254);
+            this.nmr_DiscountAmount.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
             this.nmr_DiscountAmount.Name = "nmr_DiscountAmount";
             this.nmr_DiscountAmount.Size = new System.Drawing.Size(188, 22);
             this.nmr_DiscountAmount.TabIndex = 12;
@@ -198,10 +209,21 @@
             this.chk_IsAcceptBatch.Text = "له رقم تشغيله";
             this.chk_IsAcceptBatch.UseVisualStyleBackColor = true;
             // 
+            // chk_IsActive
+            // 
+            this.chk_IsActive.AutoSize = true;
+            this.chk_IsActive.Location = new System.Drawing.Point(142, 180);
+            this.chk_IsActive.Name = "chk_IsActive";
+            this.chk_IsActive.Size = new System.Drawing.Size(47, 20);
+            this.chk_IsActive.TabIndex = 22;
+            this.chk_IsActive.Text = "مفعل";
+            this.chk_IsActive.UseVisualStyleBackColor = true;
+            // 
             // frmBDProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(951, 480);
+            this.Controls.Add(this.chk_IsActive);
             this.Controls.Add(this.chk_IsAcceptBatch);
             this.Controls.Add(this.nmr_DescountRatio);
             this.Controls.Add(this.lbl_DescountRatio);
@@ -239,6 +261,7 @@
             this.Controls.SetChildIndex(this.lbl_DescountRatio, 0);
             this.Controls.SetChildIndex(this.nmr_DescountRatio, 0);
             this.Controls.SetChildIndex(this.chk_IsAcceptBatch, 0);
+            this.Controls.SetChildIndex(this.chk_IsActive, 0);
             ((System.ComponentModel.ISupportInitialize)(this.nmr_ProductPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DiscountAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DescountRatio)).EndInit();
@@ -266,6 +289,7 @@
         private System.Windows.Forms.NumericUpDown nmr_DescountRatio;
         private System.Windows.Forms.Label lbl_DescountRatio;
         private System.Windows.Forms.CheckBox chk_IsAcceptBatch;
+        private System.Windows.Forms.CheckBox chk_IsActive;
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS.UserInterfaceLayer.BasicData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Administration.frmLogin());
+            Application.Run(new FrmSupplierSearch());
         }
     }
 }

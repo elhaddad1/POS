@@ -44,6 +44,25 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
+        public static BDSupplierCollection SearcByCriteria(string SupplierName, string SupplierCode)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@SupplierName", SupplierName);
+            oDatabaseHelper.AddParameter("@SupplierCode", SupplierCode);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_BDSupplier_SearchByCriteria", ref ExecutionState);
+            BDSupplierCollection BDSupplierCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return BDSupplierCollection;
+
+        }
 
 		#endregion
 		

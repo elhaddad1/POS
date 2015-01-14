@@ -44,6 +44,25 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
+        public static BDCustomerCollection SearcByCriteria(string CustomerName,string CustomerCode)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
+            oDatabaseHelper.AddParameter("@CustomerCode", CustomerCode);
+          
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_BDCustomer_SearchByCriteria", ref ExecutionState);
+            BDCustomerCollection BDCustomerCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return BDCustomerCollection;
+
+        }
 
 		#endregion
 		
