@@ -1,6 +1,6 @@
 ﻿namespace POS.UserInterfaceLayer.Administration
 {
-    partial class frmUserGroupSearch
+    partial class frmGroupPriviliges
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // lbl_FormHeader
-            // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(235, 20);
-            // 
-            // frmUserGroupSearch
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(503, 327);
-            this.Name = "frmUserGroupSearch";
-            this.Text = "مجموعات المستخدمين";
-            this.ResumeLayout(false);
-
+            this.components = new System.ComponentModel.Container();
         }
 
         #endregion

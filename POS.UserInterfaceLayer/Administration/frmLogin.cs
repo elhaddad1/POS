@@ -27,13 +27,14 @@ namespace POS.UserInterfaceLayer.Administration
             {
                 if (Validate())
                 {
-                    if (ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text))
+                    string _message;
+                    if (ADUserService.SelectByUserNameAndPassword(tbx_UserName.Text, tbx_Password.Text, out _message))
                     {
                         frmMain frm = new frmMain();
                         frm.ShowDialog();
                     }
                     else
-                        MessageBox.Show("خطأ فى اسم المستخدم او رمز الدخول");
+                        MessageBox.Show(_message);
                 }
             }
             catch (Exception ex)

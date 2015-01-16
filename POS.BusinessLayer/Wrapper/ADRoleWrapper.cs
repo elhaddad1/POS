@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace POS.BusinessLayer.Wrapper
 {
-    public class ADGroupWrapper : ADGroupService
-    {      
+    public class ADRoleWrapper : ADRoleService
+    {
+
     }
 }
