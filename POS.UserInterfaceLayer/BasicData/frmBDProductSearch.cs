@@ -12,7 +12,7 @@ namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class frmBDProductSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        private BDProductWrapper _bdProductWrapper = new BDProductWrapper();
+        private BDVProductWrapper _bdVProductWrapper = new BDVProductWrapper();
 
         public frmBDProductSearch()
         {
@@ -39,10 +39,11 @@ namespace POS.UserInterfaceLayer.BasicData
             
             addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
 
+            addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);
 
-            List<BDProduct> Product = _bdProductWrapper.SelectAll();
+            List<VProduct> productList = _bdVProductWrapper.SelectAll();
 
-            dgrid_Result.DataSource = Product;
+            dgrid_Result.DataSource = productList;
 
 
         }
