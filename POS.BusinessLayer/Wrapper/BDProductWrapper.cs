@@ -8,6 +8,5 @@ namespace POS.BusinessLayer.Wrapper
 {
     public class BDProductWrapper : BDProductService
     {
-
     }
 }

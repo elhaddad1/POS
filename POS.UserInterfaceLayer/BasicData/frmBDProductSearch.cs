@@ -13,6 +13,7 @@ namespace POS.UserInterfaceLayer.BasicData
     public partial class frmBDProductSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
         private BDVProductWrapper _bdVProductWrapper = new BDVProductWrapper();
+        private BDProductWrapper _bdProductWrapper = new BDProductWrapper();
 
         public frmBDProductSearch()
         {
@@ -73,7 +74,31 @@ namespace POS.UserInterfaceLayer.BasicData
             frm.ShowDialog();
 
         }
-        public override void btn_Delete_Click(object sender, EventArgs e) { }
-        public override void btn_Back_Click(object sender, EventArgs e) { }
+        public override void btn_Delete_Click(object sender, EventArgs e)
+        {
+            int? productID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductID"].Value != null)
+            {
+                if (MessageBox.Show("هل نت متأكد من حذف الصنف؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    productID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductID"].Value);
+                    BDProductPrimaryKey productPK = new BDProductPrimaryKey();
+                    productPK.ProductID = productID;
+                    _bdProductWrapper.Delete(productPK);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار الصنف");
+            }
+            InitiateGrid();
+        }
+        public override void btn_Back_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
