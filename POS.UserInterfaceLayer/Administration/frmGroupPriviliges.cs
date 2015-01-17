@@ -20,6 +20,7 @@ namespace POS.UserInterfaceLayer.Administration
             _aDRoleWrapper = new ADRoleWrapper();
             _aDGroupRoleWrapper = new ADGroupRoleWrapper();
             lbl_FormHeader.Text = "صلاحيات مجموعة المستخدمين";
+
             FillRolesDataGrid();
             GetGroupRoles(groupID);
         }
@@ -28,6 +29,7 @@ namespace POS.UserInterfaceLayer.Administration
         /// 
         public override void btn_Save_Click(object sender, EventArgs e)
         {
+            // bool b=(bool)dgrid_Roles.Rows[0].Cells["Check"].Value;
             //if (!Valdation()) { return; }
             //CollectScreenData();
             try
@@ -49,6 +51,9 @@ namespace POS.UserInterfaceLayer.Administration
         {
             this.Close();
         }
+
+
+
 
         /// methods
         /// 
@@ -73,27 +78,34 @@ namespace POS.UserInterfaceLayer.Administration
             ADGroupRoleCollection _aDGroupRoleCollection = _aDGroupRoleWrapper.SelectByGroupID(groupID);
             foreach (ADGroupRole _aDGroupRole in _aDGroupRoleCollection)
             {
-                foreach (DataGridViewRow row in dgrid_Roles.Rows)
+                for (int i = 0; i < dgrid_Roles.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
-                    {
-                        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditedFormattedValue = true;
-                        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditingCellFormattedValue = true;
-                        //ck.EditingCellFormattedValue = true;
-                        //row.Cells["Check"].Selected = false;
-                        //chk.TrueValue = true;
-                        //chk.Value = 1;
-                    }
+                    CheckBox check = new CheckBox();
+                    dgrid_Roles.Rows[i].Cells["Check"].Value = true;
+                    dgrid_Roles.RefreshEdit();
                 }
+                //foreach (DataGridViewRow row in dgrid_Roles.Rows)
+                //{
+                //    if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
+                //    {
+                //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditedFormattedValue = true;
+                //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditingCellFormattedValue = true;
+                //        //ck.EditingCellFormattedValue = true;
+                //        //row.Cells["Check"].Selected = false;
+                //        //chk.TrueValue = true;
+                //        //chk.Value = 1;
+
+                //    }
+                //}
             }
         }
 
         private void test()
         {
-            foreach (DataGridViewRow row in dgrid_Roles.Rows)
-            {
-                DataGridViewCheckBoxCell x = (DataGridViewCheckBoxCell)row.Cells["Check"];
-            }
+            //foreach (DataGridViewRow row in dgrid_Roles.Rows)
+            //{
+            //    DataGridViewCheckBoxCell x = (DataGridViewCheckBoxCell)row.Cells["Check"];
+            //}
 
         }
     }

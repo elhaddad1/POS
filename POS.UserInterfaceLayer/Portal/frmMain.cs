@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.BusinessLayer.Utility;
 using POS.UserInterfaceLayer.Administration;
+using POS.UserInterfaceLayer.BasicData;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -17,13 +18,14 @@ namespace POS.UserInterfaceLayer.Portal
         public frmMain()
         {
             InitializeComponent();
+            ApplyingUserPriviliges();
         }
 
         // Events
         //
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ApplyingUserPriviliges();
+            
 
         }
         private void mnuItem_UserGroups_Click(object sender, EventArgs e)
@@ -31,36 +33,56 @@ namespace POS.UserInterfaceLayer.Portal
             frmUserGroupSearch frm = new frmUserGroupSearch();
             frm.ShowDialog();
         }
+        private void mnuItem_Customers_Click(object sender, EventArgs e)
+        {
+            FrmCustomerSearch frm = new FrmCustomerSearch();
+            frm.ShowDialog();
+        }
+        private void mnuItem_Products_Click(object sender, EventArgs e)
+        {
+            frmProductGroupSearch frm = new frmProductGroupSearch();
+            frm.ShowDialog();
+        }
 
+        private void mnuItem_ProductGroup_Click(object sender, EventArgs e)
+        {
+            frmProductGroupSearch frm = new frmProductGroupSearch();
+            frm.ShowDialog();
+        }
+
+        private void mnuItem_Suppliers_Click(object sender, EventArgs e)
+        {
+            FrmSupplierSearch frm = new FrmSupplierSearch();
+            frm.ShowDialog();
+        }
         /// private Methods
         /// 
         private void ApplyingUserPriviliges()
         {
+
             lbl_Welcome.Text = GlobalVariables.CurrentUser.UserFullName;
-            foreach (string roles in GlobalVariables.CurrentUser.UserRoles)
+            try
             {
-                string[] arr = roles.Split('/');
-                foreach (string element in arr)
+                foreach (string roles in GlobalVariables.CurrentUser.UserRoles)
                 {
-                    mnu_MainMenu.Items.Find(element, true).FirstOrDefault().Visible = true;
+                    string[] arr = roles.Split('/');
+                    foreach (string element in arr)
+                    {
+                        mnu_MainMenu.Items.Find(element, true).FirstOrDefault().Enabled = true;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void mnu_MainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
 
-        private void mnuItem_Customers_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void بياناتالموزعينToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 

@@ -37,7 +37,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(169, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(230, 17);
             // 
             // dgrid_Roles
             // 
@@ -46,15 +46,14 @@
             this.RoleID,
             this.Check,
             this.RoleName});
-            this.dgrid_Roles.Location = new System.Drawing.Point(32, 59);
+            this.dgrid_Roles.Location = new System.Drawing.Point(143, 69);
             this.dgrid_Roles.Name = "dgrid_Roles";
-            this.dgrid_Roles.RowHeadersVisible = false;
-            this.dgrid_Roles.Size = new System.Drawing.Size(440, 204);
+            this.dgrid_Roles.Size = new System.Drawing.Size(320, 150);
             this.dgrid_Roles.TabIndex = 2;
             // 
             // RoleID
             // 
-            this.RoleID.HeaderText = "Column1";
+            this.RoleID.HeaderText = "RoleID";
             this.RoleID.Name = "RoleID";
             this.RoleID.Visible = false;
             // 
@@ -62,14 +61,11 @@
             // 
             this.Check.HeaderText = "";
             this.Check.Name = "Check";
-            this.Check.Width = 20;
             // 
             // RoleName
             // 
             this.RoleName.HeaderText = "الصلاحيات";
             this.RoleName.Name = "RoleName";
-            this.RoleName.ReadOnly = true;
-            this.RoleName.Width = 400;
             // 
             // frmGroupPriviliges
             // 
@@ -89,5 +85,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleID;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+
     }
 }

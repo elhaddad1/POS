@@ -52,7 +52,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(298, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(291, 17);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(45, 19);
             this.lbl_FormHeader.TabIndex = 0;
