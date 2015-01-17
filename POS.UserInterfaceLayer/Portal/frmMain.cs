@@ -47,6 +47,21 @@ namespace POS.UserInterfaceLayer.Portal
             }
         }
 
+        private void mnu_MainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void mnuItem_Customers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void بياناتالموزعينToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

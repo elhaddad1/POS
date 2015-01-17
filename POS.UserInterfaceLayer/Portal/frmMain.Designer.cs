@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.mnu_MainMenu = new System.Windows.Forms.MenuStrip();
-            this.mnuItem_BasicData = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Administration = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_UserGroups = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_BasicData = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_Welcome = new System.Windows.Forms.Label();
+            this.mnuItem_Products = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_ProductGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.بياناتالموزعينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,21 +52,7 @@
             this.mnu_MainMenu.Size = new System.Drawing.Size(776, 24);
             this.mnu_MainMenu.TabIndex = 0;
             this.mnu_MainMenu.Text = "menuStrip1";
-            // 
-            // mnuItem_BasicData
-            // 
-            this.mnuItem_BasicData.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItem_Customers});
-            this.mnuItem_BasicData.Name = "mnuItem_BasicData";
-            this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 19);
-            this.mnuItem_BasicData.Text = "البيانات الرئيسية";
-            this.mnuItem_BasicData.Visible = false;
-            // 
-            // mnuItem_Customers
-            // 
-            this.mnuItem_Customers.Name = "mnuItem_Customers";
-            this.mnuItem_Customers.Size = new System.Drawing.Size(133, 22);
-            this.mnuItem_Customers.Text = "بيانات العملاء";
+            this.mnu_MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnu_MainMenu_ItemClicked);
             // 
             // mnuItem_Administration
             // 
@@ -80,6 +69,25 @@
             this.mnuItem_UserGroups.Size = new System.Drawing.Size(170, 22);
             this.mnuItem_UserGroups.Text = "مجموعات المستخدمين";
             this.mnuItem_UserGroups.Click += new System.EventHandler(this.mnuItem_UserGroups_Click);
+            // 
+            // mnuItem_BasicData
+            // 
+            this.mnuItem_BasicData.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_Customers,
+            this.mnuItem_Products,
+            this.mnuItem_ProductGroup,
+            this.بياناتالموزعينToolStripMenuItem});
+            this.mnuItem_BasicData.Name = "mnuItem_BasicData";
+            this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 19);
+            this.mnuItem_BasicData.Text = "البيانات الرئيسية";
+            this.mnuItem_BasicData.Visible = false;
+            // 
+            // mnuItem_Customers
+            // 
+            this.mnuItem_Customers.Name = "mnuItem_Customers";
+            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Customers.Text = "بيانات العملاء";
+            this.mnuItem_Customers.Click += new System.EventHandler(this.mnuItem_Customers_Click);
             // 
             // label1
             // 
@@ -106,6 +114,25 @@
             this.lbl_Welcome.TabIndex = 3;
             this.lbl_Welcome.Text = "مرحبا ";
             this.lbl_Welcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mnuItem_Products
+            // 
+            this.mnuItem_Products.Name = "mnuItem_Products";
+            this.mnuItem_Products.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Products.Text = "الاصناف";
+            // 
+            // mnuItem_ProductGroup
+            // 
+            this.mnuItem_ProductGroup.Name = "mnuItem_ProductGroup";
+            this.mnuItem_ProductGroup.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_ProductGroup.Text = "مجموعة الاصناف";
+            // 
+            // بياناتالموزعينToolStripMenuItem
+            // 
+            this.بياناتالموزعينToolStripMenuItem.Name = "بياناتالموزعينToolStripMenuItem";
+            this.بياناتالموزعينToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.بياناتالموزعينToolStripMenuItem.Text = "بيانات الموردين";
+            this.بياناتالموزعينToolStripMenuItem.Click += new System.EventHandler(this.بياناتالموزعينToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -143,5 +170,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_UserGroups;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_Welcome;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Products;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_ProductGroup;
+        private System.Windows.Forms.ToolStripMenuItem بياناتالموزعينToolStripMenuItem;
     }
 }
