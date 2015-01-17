@@ -7,6 +7,17 @@ using System.Threading.Tasks;
 namespace POS.BusinessLayer.Wrapper
 {
     public class ADGroupWrapper : ADGroupService
-    {      
+    {
+        public bool AddGroupWithRoles(ADGroup aDGroup, ADGroupRoleCollection aDGroupRoleCollection)
+        {
+            // Insert(aDGroup)
+            return true;
+        }
+
+        public bool UpdateGroupWithRoles(ADGroup aDGroup, ADGroupRoleCollection aDGroupRoleCollection)
+        {
+            // Insert(aDGroup)
+            return true;
+        }
     }
 }

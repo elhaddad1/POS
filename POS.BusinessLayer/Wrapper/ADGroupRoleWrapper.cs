@@ -11,7 +11,8 @@ namespace POS.BusinessLayer.Wrapper
         public ADGroupRoleCollection SelectByGroupID(int groupID)
         {
             return base.SelectByField("GroupID", groupID, null, DataLayer.TypeOperation.Equal);
-
         }
+
+       
     }
 }

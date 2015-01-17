@@ -28,22 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btn_Priviligies = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(235, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(291, 20);
+            // 
+            // btn_Priviligies
+            // 
+            this.btn_Priviligies.Location = new System.Drawing.Point(514, 71);
+            this.btn_Priviligies.Name = "btn_Priviligies";
+            this.btn_Priviligies.Size = new System.Drawing.Size(99, 57);
+            this.btn_Priviligies.TabIndex = 6;
+            this.btn_Priviligies.Text = "صلاحيات المجموعة";
+            this.btn_Priviligies.UseVisualStyleBackColor = true;
+            this.btn_Priviligies.Click += new System.EventHandler(this.btn_Priviligies_Click);
             // 
             // frmUserGroupSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(503, 327);
+            this.ClientSize = new System.Drawing.Size(646, 327);
+            this.Controls.Add(this.btn_Priviligies);
             this.Name = "frmUserGroupSearch";
             this.Text = "مجموعات المستخدمين";
+            this.Controls.SetChildIndex(this.btn_Priviligies, 0);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_Priviligies;
     }
 }

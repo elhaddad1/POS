@@ -142,6 +142,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
+      <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
