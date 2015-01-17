@@ -35,24 +35,42 @@ namespace POS.UserInterfaceLayer.Administration
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
-            frmUserGroupAddEdit frm = new frmUserGroupAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString()));
-            frm.FormClosed += frmUserGroupAddEditClosed;
-            frm.ShowDialog();
+            if (dgrid_Result.SelectedRows.Count != 0)
+            {
+                frmUserGroupAddEdit frm = new frmUserGroupAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString()));
+                frm.FormClosed += frmUserGroupAddEditClosed;
+                frm.ShowDialog();
+            }
+            else { MessageBox.Show("اختر عنصر اولا"); }
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
-            ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
-            pk.GroupID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString());
-            if (_aDGroupWrapper.Delete(pk))
+            if (dgrid_Result.SelectedRows.Count != 0)
             {
-                MessageBox.Show("تم الحذف");
-                BindGrid();
+                ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
+                pk.GroupID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value);
+                if (_aDGroupWrapper.Delete(pk))
+                {
+                    MessageBox.Show("تم الحذف");
+                    BindGrid();
+                }
             }
+            else { MessageBox.Show("اختر عنصر اولا"); }
 
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void btn_Priviligies_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+            {
+                frmGroupPriviliges frm = new frmGroupPriviliges(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value));
+                frm.ShowDialog();
+            }
+            else { MessageBox.Show("اختر عنصر اولا"); }
+
         }
         private void frmUserGroupAddEditClosed(object sender, FormClosedEventArgs e)
         {
@@ -76,6 +94,10 @@ namespace POS.UserInterfaceLayer.Administration
             dgrid_Result.DataSource = null;
             dgrid_Result.DataSource = _aDGroupWrapper.SelectAll();
         }
+
+
+
+
 
     }
 }
