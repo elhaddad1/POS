@@ -40,7 +40,7 @@ namespace POS.UserInterfaceLayer.Portal
         }
         private void mnuItem_Products_Click(object sender, EventArgs e)
         {
-            frmProductGroupSearch frm = new frmProductGroupSearch();
+            frmBDProductSearch frm = new frmBDProductSearch();
             frm.ShowDialog();
         }
 

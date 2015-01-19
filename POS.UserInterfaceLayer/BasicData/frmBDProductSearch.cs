@@ -49,6 +49,14 @@ namespace POS.UserInterfaceLayer.BasicData
 
         }
 
+        private void Search()
+        {
+            dgrid_Result.DataSource = null;
+            string productName = tbx_productName.Text != "" ? tbx_productName.Text : null;
+            string productCode = tbx_productCode.Text != "" ? tbx_productCode.Text : null;
+            List<VProduct> productList = _bdVProductWrapper.SearchByCriteria(productName, productCode);
+            dgrid_Result.DataSource = productList;
+        }
         /// <summary>
         /// Events Override
         /// </summary>
@@ -99,6 +107,11 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         public override void btn_Back_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            Search();
         }
     }
 }

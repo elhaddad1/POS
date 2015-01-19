@@ -50,6 +50,25 @@ namespace POS.DataLayer
 
 		#endregion
 
-	}
+
+        public static IEnumerable<VProduct> SearcByCriteria(string productName, string productCode)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@ProductName", productName);
+            oDatabaseHelper.AddParameter("@ProductCode", productCode);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_BDProduct_SearchByCriteria", ref ExecutionState);
+            VProductCollection BDProductCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return BDProductCollection;
+        }
+    }
 	
 }
