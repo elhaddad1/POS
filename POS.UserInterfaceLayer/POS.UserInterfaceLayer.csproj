@@ -68,6 +68,18 @@
     <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\frmInventoryAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmInventoryAddEdit.Designer.cs">
+      <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData\frmInventorySearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmInventorySearch.Designer.cs">
+      <DependentUpon>frmInventorySearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmBDProductAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmInventoryAddEdit.resx">
+      <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmInventorySearch.resx">
+      <DependentUpon>frmInventorySearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmBDProductAddEdit.resx">
       <DependentUpon>frmBDProductAddEdit.cs</DependentUpon>

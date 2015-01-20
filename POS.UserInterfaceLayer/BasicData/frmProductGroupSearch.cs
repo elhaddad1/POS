@@ -89,6 +89,10 @@ namespace POS.UserInterfaceLayer.BasicData
             InitiateGrid();
         
         }
-        public override void btn_Back_Click(object sender, EventArgs e) { }
+        public override void btn_Back_Click(object sender, EventArgs e) {
+
+            this.Close();
+
+        }
     }
 }

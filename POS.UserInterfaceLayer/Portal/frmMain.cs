@@ -15,6 +15,7 @@ namespace POS.UserInterfaceLayer.Portal
 {
     public partial class frmMain : Form
     {
+        Form activeForm;
         public frmMain()
         {
             InitializeComponent();
@@ -31,36 +32,52 @@ namespace POS.UserInterfaceLayer.Portal
         private void mnuItem_UserGroups_Click(object sender, EventArgs e)
         {
             frmUserGroupSearch frm = new frmUserGroupSearch();
-            frm.ShowDialog();
+            switchForm(frm);
         }
         private void mnuItem_Customers_Click(object sender, EventArgs e)
         {
             FrmCustomerSearch frm = new FrmCustomerSearch();
-            frm.ShowDialog();
+            switchForm(frm);
         }
         private void mnuItem_Products_Click(object sender, EventArgs e)
         {
             frmBDProductSearch frm = new frmBDProductSearch();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_ProductGroup_Click(object sender, EventArgs e)
         {
             frmProductGroupSearch frm = new frmProductGroupSearch();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_Suppliers_Click(object sender, EventArgs e)
         {
             FrmSupplierSearch frm = new FrmSupplierSearch();
-            frm.ShowDialog();
+            switchForm(frm);
+        }
+
+
+        private void mnuItem_Inventory_Click(object sender, EventArgs e)
+        {
+            frmInventorySearch frm = new frmInventorySearch();
+            switchForm(frm);
+
+        }
+        private void switchForm(Form frm)
+        {
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.Dock = DockStyle.Fill;
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(frm);
+            frm.Show();
+            activeForm = frm;
         }
         /// private Methods
         /// 
         private void ApplyingUserPriviliges()
         {
-
-            lbl_Welcome.Text = GlobalVariables.CurrentUser.UserFullName;
             try
             {
                 foreach (string roles in GlobalVariables.CurrentUser.UserRoles)
@@ -78,6 +95,7 @@ namespace POS.UserInterfaceLayer.Portal
                 MessageBox.Show(ex.Message);
             }
         }
+
 
 
 
