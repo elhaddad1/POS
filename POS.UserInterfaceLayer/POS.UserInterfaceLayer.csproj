@@ -56,6 +56,12 @@
     <Compile Include="Administration\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\frmSearchUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\frmSearchUsers.Designer.cs">
+      <DependentUpon>frmSearchUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\frmUserGroupAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\frmSearchUsers.resx">
+      <DependentUpon>frmSearchUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmUserGroupAddEdit.resx">
       <DependentUpon>frmUserGroupAddEdit.cs</DependentUpon>
