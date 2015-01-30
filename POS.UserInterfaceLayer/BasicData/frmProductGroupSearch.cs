@@ -94,5 +94,18 @@ namespace POS.UserInterfaceLayer.BasicData
             this.Close();
 
         }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void Search()
+        {
+            dgrid_Result.DataSource = null;
+            string productGroupName = tbx_Name.Text != "" ? tbx_Name.Text : null;
+            BDProductGroupCollection productGroups = _bdProductGroupWrapper.SearchByCriteria(productGroupName);
+            dgrid_Result.DataSource = productGroups;
+        }
     }
 }
