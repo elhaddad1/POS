@@ -45,6 +45,24 @@ namespace POS.DataLayer
 
 		#region Methods (Public)
 
+        public static INVInventoryCollection SearcByCriteria(string InventoryName)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@InventoryName", InventoryName);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_Inventory_SearchByCriteria", ref ExecutionState);
+            INVInventoryCollection INVInventoryCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return INVInventoryCollection;
+
+        }
 		#endregion
 		
 		#region Methods (Private)
