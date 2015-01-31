@@ -116,6 +116,12 @@
     <Compile Include="BasicData\FrmSupplierSearch.Designer.cs">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\frmStockInquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmStockInquiry.Designer.cs">
+      <DependentUpon>frmStockInquiry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portal\frmBaseAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
+      <DependentUpon>frmStockInquiry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portal\frmBaseAddEditForm.resx">
       <DependentUpon>frmBaseAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +227,7 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

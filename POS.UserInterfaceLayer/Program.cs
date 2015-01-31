@@ -1,4 +1,5 @@
 ﻿using POS.UserInterfaceLayer.BasicData;
+using POS.UserInterfaceLayer.Inventory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSupplierSearch());
+            Application.Run(new frmStockInquiry());
         }
     }
 }
