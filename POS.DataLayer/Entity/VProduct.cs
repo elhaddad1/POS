@@ -1,7 +1,7 @@
 //
-// Class	:	INVInventory.cs
+// Class	:	VProduct.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:16 PM
+// Date		:	1/13/2015 9:43:39 PM
 //
 
 using System;
@@ -17,10 +17,10 @@ namespace POS.DataLayer
 {
 	
 	/// <summary>
-	/// Data access class for the "INVInventory" table.
+	/// Data access class for the "VProducts" table.
 	/// </summary>
 	[Serializable]
-	public class INVInventory : INVInventoryBase
+	public class VProduct : VProductBase
 	{
 	
 		#region Class Level Variables
@@ -33,7 +33,7 @@ namespace POS.DataLayer
 
 		#region Constructors / Destructors 
 		
-		public INVInventory() : base()
+		public VProduct() : base()
 		{
 		}
 
@@ -44,31 +44,31 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
-
-        public static INVInventoryCollection SearcByCriteria(string InventoryName)
-        {
-            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-            bool ExecutionState = false;
-
-            // Pass the specified field and its value to the stored procedure.
-            oDatabaseHelper.AddParameter("@InventoryName", InventoryName);
-
-            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-
-            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_Inventory_SearchByCriteria", ref ExecutionState);
-            INVInventoryCollection INVInventoryCollection = PopulateObjectsFromReader(dr);
-            dr.Close();
-            oDatabaseHelper.Dispose();
-            return INVInventoryCollection;
-
-        }
-		#endregion
+   		#endregion
 		
 		#region Methods (Private)
 
 		#endregion
 
-	}
+
+        public static IEnumerable<VProduct> SearcByCriteria(string productName, string productCode)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@ProductName", productName);
+            oDatabaseHelper.AddParameter("@ProductCode", productCode);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_BDProduct_SearchByCriteria", ref ExecutionState);
+            VProductCollection BDProductCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return BDProductCollection;
+        }
+    }
 	
 }

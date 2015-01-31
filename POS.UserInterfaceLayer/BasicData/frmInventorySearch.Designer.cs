@@ -1,6 +1,6 @@
 ﻿namespace POS.UserInterfaceLayer.BasicData
 {
-    partial class frmProductGroupSearch
+    partial class frmInventorySearch
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(258, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(274, 9);
             // 
             // grb_search
             // 
@@ -47,10 +47,10 @@
             this.grb_search.Dock = System.Windows.Forms.DockStyle.Top;
             this.grb_search.Location = new System.Drawing.Point(0, 53);
             this.grb_search.Name = "grb_search";
-            this.grb_search.Size = new System.Drawing.Size(609, 100);
-            this.grb_search.TabIndex = 9;
+            this.grb_search.Size = new System.Drawing.Size(613, 100);
+            this.grb_search.TabIndex = 10;
             this.grb_search.TabStop = false;
-            this.grb_search.Text = "بحث مجموعات الاصناف";
+            this.grb_search.Text = "بحث المخازن";
             // 
             // btn_Search
             // 
@@ -74,18 +74,18 @@
             this.lbl_name.AutoSize = true;
             this.lbl_name.Location = new System.Drawing.Point(528, 40);
             this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(69, 16);
+            this.lbl_name.Size = new System.Drawing.Size(59, 16);
             this.lbl_name.TabIndex = 7;
-            this.lbl_name.Text = "إسم المجموعة";
+            this.lbl_name.Text = "إسم المخزن";
             // 
-            // frmProductGroupSearch
+            // frmInventorySearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(609, 427);
+            this.ClientSize = new System.Drawing.Size(613, 427);
             this.Controls.Add(this.grb_search);
-            this.Name = "frmProductGroupSearch";
+            this.Name = "frmInventorySearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مجموعات الأصناف";
+            this.Text = "المخازن";
             this.Controls.SetChildIndex(this.grb_search, 0);
             this.grb_search.ResumeLayout(false);
             this.grb_search.PerformLayout();

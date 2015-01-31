@@ -65,7 +65,47 @@ namespace POS.UserInterfaceLayer.BasicData
         
         
         }
-        public override void btn_Delete_Click(object sender, EventArgs e) { }
-        public override void btn_Back_Click(object sender, EventArgs e) { }
+        public override void btn_Delete_Click(object sender, EventArgs e)
+        {
+            int? productGroupID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value != null)
+            {
+                if (MessageBox.Show("هل نت متأكد من حذف المجموعة؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    productGroupID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductGroupID"].Value);
+                    BDProductGroupPrimaryKey productGroupPK = new BDProductGroupPrimaryKey();
+                    productGroupPK.ProductGroupID = productGroupID;
+                    _bdProductGroupWrapper.Delete(productGroupPK);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار مجموعة");
+            }
+            InitiateGrid();
+        
+        }
+        public override void btn_Back_Click(object sender, EventArgs e) {
+
+            this.Close();
+
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void Search()
+        {
+            dgrid_Result.DataSource = null;
+            string productGroupName = tbx_Name.Text != "" ? tbx_Name.Text : null;
+            BDProductGroupCollection productGroups = _bdProductGroupWrapper.SearchByCriteria(productGroupName);
+            dgrid_Result.DataSource = productGroups;
+        }
     }
 }

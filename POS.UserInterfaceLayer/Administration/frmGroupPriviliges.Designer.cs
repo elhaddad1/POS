@@ -28,9 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgrid_Roles = new System.Windows.Forms.DataGridView();
+            this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_Roles)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // lbl_FormHeader
+            // 
+            this.lbl_FormHeader.Location = new System.Drawing.Point(230, 17);
+            // 
+            // dgrid_Roles
+            // 
+            this.dgrid_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_Roles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RoleID,
+            this.Check,
+            this.RoleName});
+            this.dgrid_Roles.Location = new System.Drawing.Point(143, 69);
+            this.dgrid_Roles.Name = "dgrid_Roles";
+            this.dgrid_Roles.Size = new System.Drawing.Size(320, 150);
+            this.dgrid_Roles.TabIndex = 2;
+            // 
+            // RoleID
+            // 
+            this.RoleID.HeaderText = "RoleID";
+            this.RoleID.Name = "RoleID";
+            this.RoleID.Visible = false;
+            // 
+            // Check
+            // 
+            this.Check.HeaderText = "";
+            this.Check.Name = "Check";
+            // 
+            // RoleName
+            // 
+            this.RoleName.HeaderText = "الصلاحيات";
+            this.RoleName.Name = "RoleName";
+            // 
+            // frmGroupPriviliges
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.ClientSize = new System.Drawing.Size(504, 327);
+            this.Controls.Add(this.dgrid_Roles);
+            this.Name = "frmGroupPriviliges";
+            this.Controls.SetChildIndex(this.dgrid_Roles, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_Roles)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgrid_Roles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleName;
+
     }
 }

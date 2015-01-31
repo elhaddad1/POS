@@ -56,6 +56,12 @@
     <Compile Include="Administration\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\frmSearchUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\frmSearchUsers.Designer.cs">
+      <DependentUpon>frmSearchUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\frmUserGroupAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,18 @@
     </Compile>
     <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData\frmInventoryAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmInventoryAddEdit.Designer.cs">
+      <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData\frmInventorySearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmInventorySearch.Designer.cs">
+      <DependentUpon>frmInventorySearch.cs</DependentUpon>
     </Compile>
     <Compile Include="BasicData\frmBDProductAddEdit.cs">
       <SubType>Form</SubType>
@@ -148,14 +166,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
+      <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\frmSearchUsers.resx">
+      <DependentUpon>frmSearchUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmUserGroupAddEdit.resx">
       <DependentUpon>frmUserGroupAddEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmInventoryAddEdit.resx">
+      <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmInventorySearch.resx">
+      <DependentUpon>frmInventorySearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmBDProductAddEdit.resx">
       <DependentUpon>frmBDProductAddEdit.cs</DependentUpon>
