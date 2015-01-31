@@ -223,6 +223,7 @@
     <Compile Include="Wrapper\BDSupplierWrapper.cs" />
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />
+    <Compile Include="Wrapper\INVProductStockWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.DataLayer\POS.DataLayer.csproj">

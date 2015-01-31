@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using POS.BusinessLayer.Utility;
 using POS.UserInterfaceLayer.Administration;
 using POS.UserInterfaceLayer.BasicData;
+using POS.UserInterfaceLayer.Inventory;
+using POS.UserInterfaceLayer.Purcase;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -95,6 +97,44 @@ namespace POS.UserInterfaceLayer.Portal
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void mnuItem_AdjustReason_Click(object sender, EventArgs e)
+        {
+            FrmAdjustmentReasons frm = new FrmAdjustmentReasons();
+            switchForm(frm);
+        }
+
+        private void mnuItem_StockInquiry_Click(object sender, EventArgs e)
+        {
+            frmStockInquiry frm = new frmStockInquiry();
+            switchForm(frm);
+        }
+
+        private void mnuItem_PurchaseReturn_Click(object sender, EventArgs e)
+        {
+            FrmReturnPurchaseOrder frm = new FrmReturnPurchaseOrder();
+            switchForm(frm);
+        }
+
+        private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
+        {
+             FrmPurchaseOrder frm = new FrmPurchaseOrder();
+            switchForm(frm);
+        }
+
+        private void mnuItem_OpenTakingInventory_Click(object sender, EventArgs e)
+        {
+            FrmOpenTakingInventory frm = new FrmOpenTakingInventory();
+             switchForm(frm);
+        }
+
+        private void mnuItem_CloseTakingInventory_Click(object sender, EventArgs e)
+        {
+            FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
+            switchForm(frm);
+        }
+
+       
 
 
 
