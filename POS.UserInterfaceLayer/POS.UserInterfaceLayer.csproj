@@ -196,6 +196,12 @@
     <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
       <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\frmSalesOrderSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmSalesOrderSearch.Designer.cs">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +274,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
