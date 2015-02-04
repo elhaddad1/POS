@@ -50,9 +50,11 @@ namespace POS.DataLayer
             oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
             int purchaseHeaderID;
-            oDatabaseHelper.BeginTransaction();
             if (InsertHeader(oDatabaseHelper, pURPurchaseHeader, out purchaseHeaderID))
-                if (InsertDetails(oDatabaseHelper, pURPurchaseLineCollection)) { oDatabaseHelper.CommitTransaction(); ExecutionState = true; }
+                if (InsertDetails(oDatabaseHelper))
+                {
+                    oDatabaseHelper.CommitTransaction(); ExecutionState = true;
+                }
                 else { oDatabaseHelper.RollbackTransaction(); ExecutionState = false; }
             return ExecutionState;
         }
@@ -63,7 +65,7 @@ namespace POS.DataLayer
         private bool InsertHeader(DatabaseHelper oDatabaseHelper, PURPurchaseHeader pURPurchaseHeader, out int pK)
         {
             bool ExecutionState = false;
-            pK = -1;
+            //   pK = -1;
 
 
             // Pass the value of '_purchaseDate' as parameter 'PurchaseDate' of the stored procedure.
@@ -189,13 +191,13 @@ namespace POS.DataLayer
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            pK = (int)oDatabaseHelper.ExecuteScalar("gsp_PURPurchaseHeader_Insert", ref ExecutionState);
-            oDatabaseHelper.Dispose();
+            pK = (int)oDatabaseHelper.ExecuteScalar("gsp_PURPurchaseHeader_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            //  oDatabaseHelper.Dispose();
             return ExecutionState;
 
         }
 
-        private bool InsertDetails(DatabaseHelper oDatabaseHelper, PURPurchaseLineCollection pURPurchaseLineCollection)
+        private bool InsertDetails(DatabaseHelper oDatabaseHelper)
         { return false; }
         #endregion
 
