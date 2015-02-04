@@ -12,6 +12,7 @@ using POS.UserInterfaceLayer.Administration;
 using POS.UserInterfaceLayer.BasicData;
 using POS.UserInterfaceLayer.Inventory;
 using POS.UserInterfaceLayer.Purcase;
+using POS.UserInterfaceLayer.Transfer;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -131,6 +132,12 @@ namespace POS.UserInterfaceLayer.Portal
         private void mnuItem_CloseTakingInventory_Click(object sender, EventArgs e)
         {
             FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
+            switchForm(frm);
+        }
+
+        private void mnuItem_TransferOrder_Click(object sender, EventArgs e)
+        {
+            FrmTransferOrder frm = new FrmTransferOrder();
             switchForm(frm);
         }
 
