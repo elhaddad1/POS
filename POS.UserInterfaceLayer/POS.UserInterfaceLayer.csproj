@@ -196,6 +196,12 @@
     <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
       <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\frmSalesOrderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmSalesOrderAddEdit.Designer.cs">
+      <DependentUpon>frmSalesOrderAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmSalesOrderSearch.cs">
       <SubType>Form</SubType>
     </Compile>

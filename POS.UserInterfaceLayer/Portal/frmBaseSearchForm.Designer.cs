@@ -31,12 +31,12 @@
             this.panl_Header = new System.Windows.Forms.Panel();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Footer = new System.Windows.Forms.Panel();
+            this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_Add = new System.Windows.Forms.Button();
             this.Dgrid_Result = new System.Windows.Forms.DataGridView();
-            this.btn_Close = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgrid_Result)).BeginInit();
@@ -75,6 +75,20 @@
             this.panl_Footer.Name = "panl_Footer";
             this.panl_Footer.Size = new System.Drawing.Size(554, 62);
             this.panl_Footer.TabIndex = 1;
+            // 
+            // btn_Close
+            // 
+            this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Close.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Close.Location = new System.Drawing.Point(121, 5);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(99, 55);
+            this.btn_Close.TabIndex = 5;
+            this.btn_Close.Text = "أغلاق";
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // btn_Back
             // 
@@ -133,19 +147,6 @@
             this.Dgrid_Result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgrid_Result.Size = new System.Drawing.Size(554, 212);
             this.Dgrid_Result.TabIndex = 5;
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Close.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(121, 5);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(99, 55);
-            this.btn_Close.TabIndex = 5;
-            this.btn_Close.Text = "أغلاق";
-            this.btn_Close.UseVisualStyleBackColor = true;
-            this.btn_Close.Visible = false;
             // 
             // frmBaseSearchForm
             // 
