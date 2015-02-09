@@ -206,6 +206,14 @@
     <Compile Include="Sales\frmSalesOrderSearch.Designer.cs">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transfer\FrmAddEditTransferOrder.cs" />
+    <Compile Include="Transfer\FrmAddEditTransferOrder.Designer.cs">
+      <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer\FrmTransferOrder.cs" />
+    <Compile Include="Transfer\FrmTransferOrder.Designer.cs">
+      <DependentUpon>FrmTransferOrder.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>
