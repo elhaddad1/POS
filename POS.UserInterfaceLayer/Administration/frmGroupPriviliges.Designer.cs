@@ -32,12 +32,31 @@
             this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Roles)).BeginInit();
             this.SuspendLayout();
             // 
+            // panl_Header
+            // 
+            this.panl_Header.Size = new System.Drawing.Size(360, 53);
+            // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(230, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(161, 17);
+            // 
+            // panl_Footer
+            // 
+            this.panl_Footer.Location = new System.Drawing.Point(0, 210);
+            this.panl_Footer.Size = new System.Drawing.Size(360, 62);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(215, 4);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(110, 4);
             // 
             // dgrid_Roles
             // 
@@ -46,9 +65,9 @@
             this.RoleID,
             this.Check,
             this.RoleName});
-            this.dgrid_Roles.Location = new System.Drawing.Point(143, 69);
+            this.dgrid_Roles.Location = new System.Drawing.Point(0, 59);
             this.dgrid_Roles.Name = "dgrid_Roles";
-            this.dgrid_Roles.Size = new System.Drawing.Size(320, 150);
+            this.dgrid_Roles.Size = new System.Drawing.Size(357, 150);
             this.dgrid_Roles.TabIndex = 2;
             // 
             // RoleID
@@ -70,10 +89,15 @@
             // frmGroupPriviliges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(504, 327);
+            this.ClientSize = new System.Drawing.Size(360, 272);
             this.Controls.Add(this.dgrid_Roles);
             this.Name = "frmGroupPriviliges";
+            this.Controls.SetChildIndex(this.panl_Header, 0);
+            this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.dgrid_Roles, 0);
+            this.panl_Header.ResumeLayout(false);
+            this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Roles)).EndInit();
             this.ResumeLayout(false);
 

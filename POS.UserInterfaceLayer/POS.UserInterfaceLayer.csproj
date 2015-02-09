@@ -196,6 +196,12 @@
     <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
       <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\frmSalesOrderSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmSalesOrderSearch.Designer.cs">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transfer\FrmAddEditTransferOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,11 @@
     </Compile>
     <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferOrder.resx">
+      <DependentUpon>FrmTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -305,9 +316,7 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sales\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

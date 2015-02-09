@@ -80,6 +80,7 @@
             // 
             this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Close.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn_Close.Enabled = false;
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Close.Location = new System.Drawing.Point(121, 5);
             this.btn_Close.Name = "btn_Close";
@@ -141,7 +142,6 @@
             // Dgrid_Result
             // 
             this.Dgrid_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgrid_Result.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Dgrid_Result.Location = new System.Drawing.Point(0, 147);
             this.Dgrid_Result.Name = "Dgrid_Result";
             this.Dgrid_Result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
