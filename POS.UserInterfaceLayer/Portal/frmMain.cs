@@ -137,7 +137,7 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_TransferOrder_Click(object sender, EventArgs e)
         {
-            FrmTransferOrder frm = new FrmTransferOrder();
+            FrmTransferOrderSearch frm = new FrmTransferOrderSearch();
             switchForm(frm);
         }
 
