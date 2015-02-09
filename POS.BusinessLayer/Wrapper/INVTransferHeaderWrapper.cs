@@ -50,7 +50,7 @@ namespace POS.BusinessLayer.Wrapper
                               join fromInv in invinventoryService.SelectAll() on item.FromInventoryID equals fromInv.InventoryID
                               join toInv in invinventoryService.SelectAll() on item.ToInventoryID equals toInv.InventoryID
                               join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
-                              where(
+                              where (
                               (!invtransferHeader.FromInventoryID.HasValue || item.FromInventoryID == invtransferHeader.FromInventoryID)
                               && (!invtransferHeader.ToInventoryID.HasValue || item.ToInventoryID == invtransferHeader.ToInventoryID)
                               && (!invtransferHeader.CreateDate.HasValue || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))

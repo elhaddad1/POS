@@ -196,21 +196,15 @@
     <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
       <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\frmSalesOrderAddEdit.cs" />
-    <Compile Include="Sales\frmSalesOrderAddEdit.Designer.cs">
-      <DependentUpon>frmSalesOrderAddEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\frmSalesOrderSearch.cs">
+    <Compile Include="Transfer\FrmAddEditTransferOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\frmSalesOrderSearch.Designer.cs">
-      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Transfer\FrmAddEditTransferOrder.cs" />
     <Compile Include="Transfer\FrmAddEditTransferOrder.Designer.cs">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transfer\FrmTransferOrder.cs" />
+    <Compile Include="Transfer\FrmTransferOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transfer\FrmTransferOrder.Designer.cs">
       <DependentUpon>FrmTransferOrder.cs</DependentUpon>
     </Compile>
@@ -289,9 +283,6 @@
     <EmbeddedResource Include="Transfer\FrmTransferOrder.resx">
       <DependentUpon>FrmTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
-      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -314,7 +305,9 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Sales\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
