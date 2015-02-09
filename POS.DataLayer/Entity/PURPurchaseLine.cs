@@ -50,12 +50,18 @@ namespace POS.DataLayer
             oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
             int purchaseHeaderID;
+            oDatabaseHelper.BeginTransaction();
             if (InsertHeader(oDatabaseHelper, pURPurchaseHeader, out purchaseHeaderID))
                 if (InsertDetails(oDatabaseHelper))
                 {
                     oDatabaseHelper.CommitTransaction(); ExecutionState = true;
                 }
-                else { oDatabaseHelper.RollbackTransaction(); ExecutionState = false; }
+                else
+                {
+                    oDatabaseHelper.RollbackTransaction();
+                    ExecutionState = false;
+                }
+
             return ExecutionState;
         }
 
@@ -66,8 +72,6 @@ namespace POS.DataLayer
         {
             bool ExecutionState = false;
             //   pK = -1;
-
-
             // Pass the value of '_purchaseDate' as parameter 'PurchaseDate' of the stored procedure.
             if (pURPurchaseHeader.PurchaseDate != null)
                 oDatabaseHelper.AddParameter("@PurchaseDate", pURPurchaseHeader.PurchaseDate);
