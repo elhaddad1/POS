@@ -44,7 +44,7 @@
             this.panl_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(627, 53);
+            this.panl_Header.Size = new System.Drawing.Size(245, 53);
             this.panl_Header.TabIndex = 0;
             // 
             // lbl_FormHeader
@@ -52,7 +52,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(291, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(100, 17);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(45, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -63,16 +63,16 @@
             this.panl_Footer.Controls.Add(this.btn_Back);
             this.panl_Footer.Controls.Add(this.btn_Save);
             this.panl_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panl_Footer.Location = new System.Drawing.Point(0, 260);
+            this.panl_Footer.Location = new System.Drawing.Point(0, 71);
             this.panl_Footer.Name = "panl_Footer";
-            this.panl_Footer.Size = new System.Drawing.Size(627, 62);
+            this.panl_Footer.Size = new System.Drawing.Size(245, 62);
             this.panl_Footer.TabIndex = 1;
             // 
             // btn_Back
             // 
             this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(192, 4);
+            this.btn_Back.Location = new System.Drawing.Point(21, 4);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(97, 55);
             this.btn_Back.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(309, 4);
+            this.btn_Save.Location = new System.Drawing.Point(126, 4);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(97, 55);
             this.btn_Save.TabIndex = 0;
@@ -98,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(627, 322);
+            this.ClientSize = new System.Drawing.Size(245, 133);
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,10 +119,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panl_Header;
-        public System.Windows.Forms.Label lbl_FormHeader;
-        private System.Windows.Forms.Panel panl_Footer;
-        private System.Windows.Forms.Button btn_Save;
-        private System.Windows.Forms.Button btn_Back;
+        protected System.Windows.Forms.Panel panl_Header;
+        protected System.Windows.Forms.Label lbl_FormHeader;
+        protected System.Windows.Forms.Panel panl_Footer;
+        protected System.Windows.Forms.Button btn_Save;
+        protected System.Windows.Forms.Button btn_Back;
     }
 }

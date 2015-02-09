@@ -56,6 +56,13 @@ namespace POS.UserInterfaceLayer.Portal
             dgrid_Result.Columns[dataField].Visible = visible;
 
         }
+        public void toggelButton(Button button)
+        {
+            if (button.Enabled)
+                button.Enabled = false;
+            else
+                button.Enabled = true;
+        }
         #endregion
 
 

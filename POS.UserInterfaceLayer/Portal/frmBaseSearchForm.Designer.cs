@@ -142,7 +142,6 @@
             // Dgrid_Result
             // 
             this.Dgrid_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgrid_Result.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Dgrid_Result.Location = new System.Drawing.Point(0, 147);
             this.Dgrid_Result.Name = "Dgrid_Result";
             this.Dgrid_Result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
