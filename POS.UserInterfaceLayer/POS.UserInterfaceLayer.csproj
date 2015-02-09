@@ -288,11 +288,9 @@
     </Compile>
     <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmTransferOrder.resx">
-      <DependentUpon>FrmTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
