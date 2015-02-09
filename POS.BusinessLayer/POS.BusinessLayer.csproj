@@ -222,6 +222,7 @@
     <Compile Include="Wrapper\BDProductWrapper.cs" />
     <Compile Include="Wrapper\BDSupplierWrapper.cs" />
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
+    <Compile Include="Wrapper\INVTransferHeaderWrapper.cs" />
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />
     <Compile Include="Wrapper\INVProductStockWrapper.cs" />
   </ItemGroup>
