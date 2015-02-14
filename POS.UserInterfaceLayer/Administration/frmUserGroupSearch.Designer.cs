@@ -39,44 +39,37 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(310, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(418, 20);
             // 
             // panl_Footer
             // 
-            this.panl_Footer.Controls.Add(this.btn_Priviligies);
-            this.panl_Footer.Location = new System.Drawing.Point(0, 265);
+            this.panl_Footer.Location = new System.Drawing.Point(0, 337);
             this.panl_Footer.Size = new System.Drawing.Size(665, 62);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Delete, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Back, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Close, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Priviligies, 0);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(443, 5);
+            this.btn_Add.Location = new System.Drawing.Point(551, 5);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(15, 5);
+            this.btn_Back.Location = new System.Drawing.Point(123, 5);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(229, 5);
+            this.btn_Delete.Location = new System.Drawing.Point(337, 5);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(336, 5);
+            this.btn_Edit.Location = new System.Drawing.Point(444, 5);
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(122, 5);
+            this.btn_Close.Location = new System.Drawing.Point(230, 5);
             // 
             // btn_Priviligies
             // 
             this.btn_Priviligies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Priviligies.Location = new System.Drawing.Point(550, 3);
+            this.btn_Priviligies.Location = new System.Drawing.Point(554, 153);
             this.btn_Priviligies.Name = "btn_Priviligies";
             this.btn_Priviligies.Size = new System.Drawing.Size(99, 57);
             this.btn_Priviligies.TabIndex = 6;
@@ -87,9 +80,13 @@
             // frmUserGroupSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(665, 327);
+            this.ClientSize = new System.Drawing.Size(665, 399);
+            this.Controls.Add(this.btn_Priviligies);
             this.Name = "frmUserGroupSearch";
             this.Text = "مجموعات المستخدمين";
+            this.Controls.SetChildIndex(this.panl_Header, 0);
+            this.Controls.SetChildIndex(this.panl_Footer, 0);
+            this.Controls.SetChildIndex(this.btn_Priviligies, 0);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);

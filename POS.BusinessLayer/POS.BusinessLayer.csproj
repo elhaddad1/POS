@@ -225,6 +225,7 @@
     <Compile Include="Wrapper\INVTransferHeaderWrapper.cs" />
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />
     <Compile Include="Wrapper\INVProductStockWrapper.cs" />
+    <Compile Include="Wrapper\SALSalesHeaderWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.DataLayer\POS.DataLayer.csproj">
