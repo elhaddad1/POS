@@ -295,6 +295,9 @@
     <EmbeddedResource Include="Sales\frmSalesOrderAddEdit.resx">
       <DependentUpon>frmSalesOrderAddEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
+      <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
