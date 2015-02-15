@@ -71,7 +71,7 @@
             this.panl_Footer.Controls.Add(this.btn_Edit);
             this.panl_Footer.Controls.Add(this.btn_Add);
             this.panl_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panl_Footer.Location = new System.Drawing.Point(0, 359);
+            this.panl_Footer.Location = new System.Drawing.Point(0, 341);
             this.panl_Footer.Name = "panl_Footer";
             this.panl_Footer.Size = new System.Drawing.Size(554, 62);
             this.panl_Footer.TabIndex = 1;
@@ -139,9 +139,13 @@
             // 
             // Dgrid_Result
             // 
+            this.Dgrid_Result.AllowUserToAddRows = false;
+            this.Dgrid_Result.AllowUserToDeleteRows = false;
             this.Dgrid_Result.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgrid_Result.Location = new System.Drawing.Point(0, 147);
+            this.Dgrid_Result.Location = new System.Drawing.Point(0, 123);
             this.Dgrid_Result.Name = "Dgrid_Result";
+            this.Dgrid_Result.ReadOnly = true;
+            this.Dgrid_Result.RowHeadersVisible = false;
             this.Dgrid_Result.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dgrid_Result.Size = new System.Drawing.Size(554, 212);
             this.Dgrid_Result.TabIndex = 5;
@@ -152,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(554, 421);
+            this.ClientSize = new System.Drawing.Size(554, 403);
             this.Controls.Add(this.Dgrid_Result);
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
@@ -182,7 +186,7 @@
         protected System.Windows.Forms.Button btn_Back;
         protected System.Windows.Forms.Button btn_Delete;
         protected System.Windows.Forms.Button btn_Edit;
-        protected System.Windows.Forms.DataGridView Dgrid_Result;
+        private System.Windows.Forms.DataGridView Dgrid_Result;
         protected System.Windows.Forms.Button btn_Close;
     }
 }

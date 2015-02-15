@@ -39,24 +39,24 @@
             // 
             // panl_Header
             // 
-            this.panl_Header.Size = new System.Drawing.Size(360, 53);
+            this.panl_Header.Size = new System.Drawing.Size(381, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(161, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(229, 17);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 210);
-            this.panl_Footer.Size = new System.Drawing.Size(360, 62);
+            this.panl_Footer.Size = new System.Drawing.Size(381, 62);
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(215, 4);
+            this.btn_Save.Location = new System.Drawing.Point(283, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(110, 4);
+            this.btn_Back.Location = new System.Drawing.Point(178, 4);
             // 
             // dgrid_Roles
             // 
@@ -89,7 +89,7 @@
             // frmGroupPriviliges
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(360, 272);
+            this.ClientSize = new System.Drawing.Size(381, 272);
             this.Controls.Add(this.dgrid_Roles);
             this.Name = "frmGroupPriviliges";
             this.Controls.SetChildIndex(this.panl_Header, 0);
