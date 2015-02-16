@@ -23,6 +23,7 @@ namespace POS.UserInterfaceLayer.Sales
 
         }
         #region --Events
+     
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
             FrmCustomerAddEdit frm = new FrmCustomerAddEdit();

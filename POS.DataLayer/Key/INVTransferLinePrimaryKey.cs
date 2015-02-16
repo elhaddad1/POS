@@ -1,5 +1,5 @@
 //
-// Class	:	SALSalesLineBatchPrimaryKey.cs
+// Class	:	INVTransferLinePrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
 // Date		:	2/16/2015 7:27:49 PM
 //
@@ -11,11 +11,11 @@ using System.Collections.Specialized;
 
 namespace POS.DataLayer
 {
-	public class SALSalesLineBatchPrimaryKey
+	public class INVTransferLinePrimaryKey
 	{
 
 	#region Class Level Variables
-			private int?           	_salesLineBatchIDNonDefault	= null;
+			private int?           	_transferLineIDNonDefault	= null;
 	#endregion
 
 	#region Constants
@@ -27,11 +27,11 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public SALSalesLineBatchPrimaryKey(int? salesLineBatchID) 
+		public INVTransferLinePrimaryKey(int? transferLineID) 
 		{
 	
 			
-			this._salesLineBatchIDNonDefault = salesLineBatchID;
+			this._transferLineIDNonDefault = transferLineID;
 
 		}
 
@@ -40,18 +40,18 @@ namespace POS.DataLayer
 	#region Properties
 
 		/// <summary>
-		/// This property is mapped to the "SalesLineBatchID" field.  Mandatory.
+		/// This property is mapped to the "TransferLineID" field.  Mandatory.
 		/// </summary>
-		public int? SalesLineBatchID
+		public int? TransferLineID
 		{
 			get 
 			{ 
-				return _salesLineBatchIDNonDefault;
+				return _transferLineIDNonDefault;
 			}
 			set 
 			{
 			
-				_salesLineBatchIDNonDefault = value; 
+				_transferLineIDNonDefault = value; 
 			}
 		}
 
@@ -79,7 +79,7 @@ namespace POS.DataLayer
 		{
 			NameValueCollection nvc=new NameValueCollection();
 			
-			nvc.Add("SalesLineBatchID",_salesLineBatchIDNonDefault.ToString());
+			nvc.Add("TransferLineID",_transferLineIDNonDefault.ToString());
 			return nvc;
 			
 		}

@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesLineBatchBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:05 PM
+// Date		:	2/16/2015 7:27:49 PM
 //
 
 using System;
@@ -26,6 +26,7 @@ namespace POS.DataLayer
 		public const string SalesLineBatchID          = "SalesLineBatchID";
 		public const string SalesLineID               = "SalesLineID";
 		public const string BatchID                   = "BatchID";
+		public const string Qty                       = "Qty";
 	}
 	
 	/// <summary>
@@ -42,6 +43,7 @@ namespace POS.DataLayer
 		private int?           	_salesLineBatchIDNonDefault	= null;
 		private int?           	_salesLineIDNonDefault   	= null;
 		private int?           	_batchIDNonDefault       	= null;
+		private decimal?       	_qtyNonDefault           	= null;
 		
 		#endregion
 		
@@ -108,6 +110,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "Qty" field.  
+		/// </summary>
+		public decimal? Qty
+		{
+			get 
+			{ 
+				return _qtyNonDefault;
+			}
+			set 
+			{
+			
+				_qtyNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -122,7 +140,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -144,6 +162,12 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@BatchID", _batchIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@BatchID", DBNull.Value );
+			  
+			// Pass the value of '_qty' as parameter 'Qty' of the stored procedure.
+			if(_qtyNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Qty", _qtyNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Qty", DBNull.Value );
 			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -175,7 +199,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -196,6 +220,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@BatchID", _batchIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@BatchID", DBNull.Value );
+			// Pass the value of '_qty' as parameter 'Qty' of the stored procedure.
+			if(_qtyNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Qty", _qtyNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Qty", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -215,7 +244,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -234,6 +263,9 @@ namespace POS.DataLayer
 			
 			// Pass the value of '_batchID' as parameter 'BatchID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@BatchID", _batchIDNonDefault );
+			
+			// Pass the value of '_qty' as parameter 'Qty' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Qty", _qtyNonDefault );
 			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -254,7 +286,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -291,7 +323,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -330,7 +362,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -365,7 +397,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -413,7 +445,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -450,7 +482,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -492,7 +524,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -538,7 +570,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -579,7 +611,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -612,7 +644,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -660,7 +692,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -708,7 +740,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -750,7 +782,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -798,7 +830,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -846,7 +878,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -890,7 +922,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -927,7 +959,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -947,6 +979,11 @@ namespace POS.DataLayer
 				obj.BatchID = rdr.GetInt32(rdr.GetOrdinal(SALSalesLineBatchFields.BatchID));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(SALSalesLineBatchFields.Qty)))
+			{
+				obj.Qty = rdr.GetDecimal(rdr.GetOrdinal(SALSalesLineBatchFields.Qty));
+			}
+			
 
 		}
 
@@ -962,7 +999,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -994,7 +1031,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:05 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

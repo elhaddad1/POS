@@ -36,9 +36,9 @@
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Header = new System.Windows.Forms.Panel();
             this.cbx_Customer = new System.Windows.Forms.ComboBox();
-            this.cbs_PaymentType = new System.Windows.Forms.ComboBox();
+            this.cbx_PaymentType = new System.Windows.Forms.ComboBox();
             this.num_Paied = new System.Windows.Forms.NumericUpDown();
-            this.mum_Remaining = new System.Windows.Forms.NumericUpDown();
+            this.num_Remaining = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtb_LastTimeToPay = new System.Windows.Forms.DateTimePicker();
@@ -59,11 +59,19 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.num_OtherPayments = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Paied)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mum_Remaining)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Remaining)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_OtherPayments)).BeginInit();
             this.SuspendLayout();
             // 
             // dtb_Date
@@ -134,19 +142,21 @@
             // 
             // cbx_Customer
             // 
+            this.cbx_Customer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbx_Customer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbx_Customer.FormattingEnabled = true;
             this.cbx_Customer.Location = new System.Drawing.Point(98, 93);
             this.cbx_Customer.Name = "cbx_Customer";
             this.cbx_Customer.Size = new System.Drawing.Size(241, 21);
             this.cbx_Customer.TabIndex = 6;
             // 
-            // cbs_PaymentType
+            // cbx_PaymentType
             // 
-            this.cbs_PaymentType.FormattingEnabled = true;
-            this.cbs_PaymentType.Location = new System.Drawing.Point(455, 93);
-            this.cbs_PaymentType.Name = "cbs_PaymentType";
-            this.cbs_PaymentType.Size = new System.Drawing.Size(241, 21);
-            this.cbs_PaymentType.TabIndex = 7;
+            this.cbx_PaymentType.FormattingEnabled = true;
+            this.cbx_PaymentType.Location = new System.Drawing.Point(455, 93);
+            this.cbx_PaymentType.Name = "cbx_PaymentType";
+            this.cbx_PaymentType.Size = new System.Drawing.Size(241, 21);
+            this.cbx_PaymentType.TabIndex = 7;
             // 
             // num_Paied
             // 
@@ -155,12 +165,13 @@
             this.num_Paied.Size = new System.Drawing.Size(78, 20);
             this.num_Paied.TabIndex = 8;
             // 
-            // mum_Remaining
+            // num_Remaining
             // 
-            this.mum_Remaining.Location = new System.Drawing.Point(260, 122);
-            this.mum_Remaining.Name = "mum_Remaining";
-            this.mum_Remaining.Size = new System.Drawing.Size(78, 20);
-            this.mum_Remaining.TabIndex = 10;
+            this.num_Remaining.Location = new System.Drawing.Point(260, 122);
+            this.num_Remaining.Name = "num_Remaining";
+            this.num_Remaining.Size = new System.Drawing.Size(78, 20);
+            this.num_Remaining.TabIndex = 10;
+            this.num_Remaining.Leave += new System.EventHandler(this.num_Remaining_Leave);
             // 
             // label5
             // 
@@ -235,6 +246,7 @@
             this.btn_AddLine.TabIndex = 36;
             this.btn_AddLine.Text = "أضافة";
             this.btn_AddLine.UseVisualStyleBackColor = true;
+            this.btn_AddLine.Click += new System.EventHandler(this.btn_AddLine_Click);
             // 
             // btn_DeleteLine
             // 
@@ -244,6 +256,7 @@
             this.btn_DeleteLine.TabIndex = 35;
             this.btn_DeleteLine.Text = "حذف";
             this.btn_DeleteLine.UseVisualStyleBackColor = true;
+            this.btn_DeleteLine.Click += new System.EventHandler(this.btn_DeleteLine_Click);
             // 
             // btn_Minus
             // 
@@ -253,6 +266,7 @@
             this.btn_Minus.TabIndex = 34;
             this.btn_Minus.Text = "-";
             this.btn_Minus.UseVisualStyleBackColor = true;
+            this.btn_Minus.Click += new System.EventHandler(this.btn_Minus_Click);
             // 
             // btn_Plus
             // 
@@ -262,12 +276,24 @@
             this.btn_Plus.TabIndex = 33;
             this.btn_Plus.Text = "+";
             this.btn_Plus.UseVisualStyleBackColor = true;
+            this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
             // dgrd_OrderLines
             // 
+            this.dgrd_OrderLines.AllowUserToAddRows = false;
+            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
             this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.Qty,
+            this.Bonus,
+            this.UnitPrice,
+            this.Sale});
             this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 52);
             this.dgrd_OrderLines.Name = "dgrd_OrderLines";
+            this.dgrd_OrderLines.ReadOnly = true;
+            this.dgrd_OrderLines.RowHeadersVisible = false;
+            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
             this.dgrd_OrderLines.TabIndex = 32;
             // 
@@ -287,6 +313,7 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 30;
+            this.textBox3.Text = "0";
             // 
             // label9
             // 
@@ -304,6 +331,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 28;
+            this.textBox2.Text = "%0";
             // 
             // textBox1
             // 
@@ -312,6 +340,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 27;
+            this.textBox1.Text = "0";
             // 
             // label8
             // 
@@ -332,6 +361,7 @@
             this.btn_ClosePrint.TabIndex = 16;
             this.btn_ClosePrint.Text = "أغلاق وطباعة";
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
+            this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click);
             // 
             // btn_Save
             // 
@@ -343,6 +373,7 @@
             this.btn_Save.TabIndex = 17;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
@@ -354,6 +385,56 @@
             this.btn_Cancel.TabIndex = 18;
             this.btn_Cancel.Text = "ألغاء";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // num_OtherPayments
+            // 
+            this.num_OtherPayments.Location = new System.Drawing.Point(453, 151);
+            this.num_OtherPayments.Name = "num_OtherPayments";
+            this.num_OtherPayments.Size = new System.Drawing.Size(78, 20);
+            this.num_OtherPayments.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(367, 155);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "مدفوعات آخرى";
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "أسم المنتج";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Width = 210;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "الكمية";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 90;
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "أضافى";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.ReadOnly = true;
+            this.Bonus.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "سعر الوحدة";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            // 
+            // Sale
+            // 
+            this.Sale.HeaderText = "الخصم";
+            this.Sale.Name = "Sale";
+            this.Sale.ReadOnly = true;
             // 
             // frmSalesOrderAddEdit
             // 
@@ -362,6 +443,8 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(703, 532);
             this.ControlBox = false;
+            this.Controls.Add(this.num_OtherPayments);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_ClosePrint);
@@ -370,10 +453,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtb_LastTimeToPay);
-            this.Controls.Add(this.mum_Remaining);
+            this.Controls.Add(this.num_Remaining);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.num_Paied);
-            this.Controls.Add(this.cbs_PaymentType);
+            this.Controls.Add(this.cbx_PaymentType);
             this.Controls.Add(this.cbx_Customer);
             this.Controls.Add(this.panl_Header);
             this.Controls.Add(this.label4);
@@ -388,10 +471,11 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Paied)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mum_Remaining)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Remaining)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_OtherPayments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -407,9 +491,9 @@
         protected System.Windows.Forms.Label lbl_FormHeader;
         protected System.Windows.Forms.Panel panl_Header;
         private System.Windows.Forms.ComboBox cbx_Customer;
-        private System.Windows.Forms.ComboBox cbs_PaymentType;
+        private System.Windows.Forms.ComboBox cbx_PaymentType;
         private System.Windows.Forms.NumericUpDown num_Paied;
-        private System.Windows.Forms.NumericUpDown mum_Remaining;
+        private System.Windows.Forms.NumericUpDown num_Remaining;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtb_LastTimeToPay;
@@ -430,5 +514,12 @@
         private System.Windows.Forms.Button btn_ClosePrint;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.NumericUpDown num_OtherPayments;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sale;
     }
 }

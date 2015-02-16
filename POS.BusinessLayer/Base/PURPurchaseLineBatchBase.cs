@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseLineBatchBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:15 PM
+// Date		:	2/16/2015 7:27:52 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -27,6 +27,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? BatchID {get;set;}
+
+		[DataMember]
+		public decimal? Qty {get;set;}
 
 		
 		#endregion

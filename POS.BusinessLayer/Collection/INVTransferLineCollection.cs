@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseLineBatchCollection.cs
+// Class	:	INVTransferLineCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:52 PM
+// Date		:	2/16/2015 7:27:50 PM
 //
 
 using System.Runtime.Serialization;
@@ -11,7 +11,7 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 	[CollectionDataContract(Namespace = "POS.BusinessLayer")]
-	public class PURPurchaseLineBatchCollection : List<PURPurchaseLineBatch>
+	public class INVTransferLineCollection : List<INVTransferLine>
 	{
 	}
 }

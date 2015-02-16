@@ -1,7 +1,7 @@
 //
 // Class	:	BDProductServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:09 PM
+// Date		:	2/16/2015 7:27:51 PM
 //
 
 using POS.DataLayer;
@@ -62,6 +62,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 			return _bDProductWCF;
 		}
@@ -90,6 +92,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
@@ -135,6 +139,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
@@ -163,6 +169,8 @@ namespace POS.BusinessLayer
 			_bDProduct.DescountRatio=bDProduct.DescountRatio;
 			_bDProduct.IsActive=bDProduct.IsActive;
 			_bDProduct.Notes=bDProduct.Notes;
+			_bDProduct.MinPrice=bDProduct.MinPrice;
+			_bDProduct.MaxPrice=bDProduct.MaxPrice;
 			
 			return _bDProduct.Insert();
 		}
@@ -205,6 +213,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
@@ -240,16 +250,14 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
 			return bDProductCollection;
 		}
-			
 		
-		
-		
-		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
 		///
@@ -277,6 +285,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
@@ -316,6 +326,8 @@ namespace POS.BusinessLayer
 				_bDProductWCF.DescountRatio = _bDProduct.DescountRatio;
 				_bDProductWCF.IsActive = _bDProduct.IsActive;
 				_bDProductWCF.Notes = _bDProduct.Notes;
+				_bDProductWCF.MinPrice = _bDProduct.MinPrice;
+				_bDProductWCF.MaxPrice = _bDProduct.MaxPrice;
 				
 				bDProductCollection.Add(_bDProductWCF);
 			}
@@ -343,6 +355,8 @@ namespace POS.BusinessLayer
 			_bDProduct.DescountRatio=bDProduct.DescountRatio;
 			_bDProduct.IsActive=bDProduct.IsActive;
 			_bDProduct.Notes=bDProduct.Notes;
+			_bDProduct.MinPrice=bDProduct.MinPrice;
+			_bDProduct.MaxPrice=bDProduct.MaxPrice;
 			
 			return _bDProduct.Update();
 		}

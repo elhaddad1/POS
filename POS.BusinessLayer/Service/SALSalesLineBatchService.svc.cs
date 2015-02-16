@@ -1,9 +1,8 @@
 //
 // Class	:	SALSalesLineBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:06 PM
+// Date		:	2/16/2015 7:27:49 PM
 //
-
 
 using POS.DataLayer;
 
@@ -54,6 +53,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 			return _sALSalesLineBatchWCF;
 		}
@@ -73,6 +73,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -109,6 +110,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -128,6 +130,7 @@ namespace POS.BusinessLayer
 			_sALSalesLineBatch.SalesLineBatchID=sALSalesLineBatch.SalesLineBatchID;
 			_sALSalesLineBatch.SalesLineID=sALSalesLineBatch.SalesLineID;
 			_sALSalesLineBatch.BatchID=sALSalesLineBatch.BatchID;
+			_sALSalesLineBatch.Qty=sALSalesLineBatch.Qty;
 			
 			return _sALSalesLineBatch.Insert();
 		}
@@ -161,6 +164,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -187,6 +191,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -222,6 +227,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -248,6 +254,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -273,6 +280,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -303,6 +311,7 @@ namespace POS.BusinessLayer
 				_sALSalesLineBatchWCF.SalesLineBatchID = _sALSalesLineBatch.SalesLineBatchID;
 				_sALSalesLineBatchWCF.SalesLineID = _sALSalesLineBatch.SalesLineID;
 				_sALSalesLineBatchWCF.BatchID = _sALSalesLineBatch.BatchID;
+				_sALSalesLineBatchWCF.Qty = _sALSalesLineBatch.Qty;
 				
 				sALSalesLineBatchCollection.Add(_sALSalesLineBatchWCF);
 			}
@@ -321,6 +330,7 @@ namespace POS.BusinessLayer
 			
 			_sALSalesLineBatch.SalesLineID=sALSalesLineBatch.SalesLineID;
 			_sALSalesLineBatch.BatchID=sALSalesLineBatch.BatchID;
+			_sALSalesLineBatch.Qty=sALSalesLineBatch.Qty;
 			
 			return _sALSalesLineBatch.Update();
 		}
