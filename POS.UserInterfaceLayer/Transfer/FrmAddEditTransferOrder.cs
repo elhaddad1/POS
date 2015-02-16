@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.UserInterfaceLayer.Transfer
+namespace POS.UserInterfaceLayer.Sales
 {
     public partial class FrmAddEditTransferOrder : Form
     {

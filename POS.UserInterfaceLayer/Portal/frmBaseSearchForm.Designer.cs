@@ -93,7 +93,6 @@
             // 
             // btn_Back
             // 
-            this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Back.Location = new System.Drawing.Point(14, 5);
             this.btn_Back.Name = "btn_Back";
@@ -129,7 +128,6 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.Location = new System.Drawing.Point(442, 5);
             this.btn_Add.Name = "btn_Add";
