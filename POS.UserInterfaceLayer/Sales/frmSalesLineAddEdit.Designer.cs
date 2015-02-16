@@ -58,9 +58,9 @@
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_FormHeader.Location = new System.Drawing.Point(316, 20);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
-            this.lbl_FormHeader.Size = new System.Drawing.Size(72, 19);
+            this.lbl_FormHeader.Size = new System.Drawing.Size(109, 19);
             this.lbl_FormHeader.TabIndex = 0;
-            this.lbl_FormHeader.Text = "فاتورة جديده";
+            this.lbl_FormHeader.Text = "أضافة منتج لفاتورة";
             // 
             // panl_Header
             // 
