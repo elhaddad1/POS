@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:49 PM
+// Date		:	2/18/2015 10:55:37 PM
 //
 
 using System;
@@ -56,6 +56,8 @@ namespace POS.DataLayer
 		private bool?          	_isDeletedNonDefault     	= null;
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deletedDateNonDefault   	= null;
+
+		private INVTransferLineBatchCollection _iNVTransferLineBatchCollectionTransferLineID = null;
 		
 		#endregion
 		
@@ -234,6 +236,26 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// Provides access to the related table 'INVTransferLineBatch'
+		/// </summary>
+		public INVTransferLineBatchCollection INVTransferLineBatchCollectionUsingTransferLineID
+		{
+			get 
+			{
+				if (_iNVTransferLineBatchCollectionTransferLineID == null)
+				{
+					_iNVTransferLineBatchCollectionTransferLineID = new INVTransferLineBatchCollection();
+					_iNVTransferLineBatchCollectionTransferLineID = INVTransferLineBatch.SelectByField("TransferLineID",TransferLineID, null, TypeOperation.Equal);
+				}                
+				return _iNVTransferLineBatchCollectionTransferLineID; 
+			}
+			set 
+			{
+				  _iNVTransferLineBatchCollectionTransferLineID = value;
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -248,7 +270,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -343,7 +365,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -418,7 +440,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -478,7 +500,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,7 +537,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -554,7 +576,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -589,7 +611,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -637,7 +659,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -674,7 +696,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -716,7 +738,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -762,7 +784,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -803,7 +825,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -828,6 +850,58 @@ namespace POS.DataLayer
 		/// along with the details of the child table.
 		/// </summary>
 		///
+		/// <param name="pk" type="INVTransferLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVTransferLine</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVTransferLine SelectOneWithINVTransferLineBatchUsingTransferLineID(INVTransferLinePrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVTransferLine obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVTransferLine_SelectOneWithINVTransferLineBatchUsingTransferLineID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new INVTransferLine();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.INVTransferLineBatchCollectionUsingTransferLineID=INVTransferLineBatch.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
 		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
 		///
 		/// <returns>object of class INVTransferLineCollection</returns>
@@ -836,7 +910,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -884,7 +958,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -932,7 +1006,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -974,7 +1048,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1022,7 +1096,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1070,7 +1144,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1114,7 +1188,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1151,7 +1225,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1221,7 +1295,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1253,7 +1327,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM		Created function
+		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
