@@ -40,8 +40,8 @@ namespace POS.UserInterfaceLayer.Sales
 
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            frmSalesLineAddEdit frm = new frmSalesLineAddEdit();
-            frm.ShowDialog();
+            //frmSalesLineAddEdit frm = new frmSalesLineAddEdit();
+            //frm.ShowDialog();
         }
 
         private void btn_DeleteLine_Click(object sender, EventArgs e)
