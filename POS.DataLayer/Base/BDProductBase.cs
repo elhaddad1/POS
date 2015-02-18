@@ -1,7 +1,7 @@
 //
 // Class	:	BDProductBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:09 PM
+// Date		:	2/16/2015 7:27:50 PM
 //
 
 using System;
@@ -35,6 +35,8 @@ namespace POS.DataLayer
 		public const string DescountRatio             = "DescountRatio";
 		public const string IsActive                  = "IsActive";
 		public const string Notes                     = "Notes";
+		public const string MinPrice                  = "MinPrice";
+		public const string MaxPrice                  = "MaxPrice";
 	}
 	
 	/// <summary>
@@ -54,13 +56,16 @@ namespace POS.DataLayer
 		private string         	_productCodeNonDefault   	= null;
 		private bool?          	_isAcceptBatchNonDefault 	= false;
 		private decimal?       	_productPriceNonDefault  	= null;
-		private bool?          	_isFixedPriceNonDefault  	= null;
-		private bool?          	_hasDiscountNonDefault   	= null;
+		private bool?          	_isFixedPriceNonDefault  	= true;
+		private bool?          	_hasDiscountNonDefault   	= false;
 		private decimal?       	_discountAmountNonDefault	= null;
 		private double?        	_descountRatioNonDefault 	= null;
-		private bool?          	_isActiveNonDefault      	= null;
+		private bool?          	_isActiveNonDefault      	= true;
 		private string         	_notesNonDefault         	= null;
+		private decimal?       	_minPriceNonDefault      	= null;
+		private decimal?       	_maxPriceNonDefault      	= null;
 
+		private INVTransferLineCollection _iNVTransferLineCollectionProductID = null;
 		private INVAdjustStockCollection _iNVAdjustStockCollectionProductID = null;
 		private PURPurchaseLineCollection _pURPurchaseLineCollectionProductID = null;
 		
@@ -202,7 +207,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "IsFixedPrice" field.  
+		/// This property is mapped to the "IsFixedPrice" field.  Mandatory.
 		/// </summary>
 		public bool? IsFixedPrice
 		{
@@ -218,7 +223,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "HasDiscount" field.  
+		/// This property is mapped to the "HasDiscount" field.  Mandatory.
 		/// </summary>
 		public bool? HasDiscount
 		{
@@ -266,7 +271,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "IsActive" field.  
+		/// This property is mapped to the "IsActive" field.  Mandatory.
 		/// </summary>
 		public bool? IsActive
 		{
@@ -305,6 +310,58 @@ namespace POS.DataLayer
 				{		           
 					_notesNonDefault = value.Trim(); 
 				}
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "MinPrice" field.  
+		/// </summary>
+		public decimal? MinPrice
+		{
+			get 
+			{ 
+				return _minPriceNonDefault;
+			}
+			set 
+			{
+			
+				_minPriceNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "MaxPrice" field.  
+		/// </summary>
+		public decimal? MaxPrice
+		{
+			get 
+			{ 
+				return _maxPriceNonDefault;
+			}
+			set 
+			{
+			
+				_maxPriceNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// Provides access to the related table 'INVTransferLine'
+		/// </summary>
+		public INVTransferLineCollection INVTransferLineCollectionUsingProductID
+		{
+			get 
+			{
+				if (_iNVTransferLineCollectionProductID == null)
+				{
+					_iNVTransferLineCollectionProductID = new INVTransferLineCollection();
+					_iNVTransferLineCollectionProductID = INVTransferLine.SelectByField("ProductID",ProductID, null, TypeOperation.Equal);
+				}                
+				return _iNVTransferLineCollectionProductID; 
+			}
+			set 
+			{
+				  _iNVTransferLineCollectionProductID = value;
 			}
 		}
 
@@ -362,7 +419,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -439,6 +496,18 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
 			  
+			// Pass the value of '_minPrice' as parameter 'MinPrice' of the stored procedure.
+			if(_minPriceNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MinPrice", _minPriceNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MinPrice", DBNull.Value );
+			  
+			// Pass the value of '_maxPrice' as parameter 'MaxPrice' of the stored procedure.
+			if(_maxPriceNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MaxPrice", _maxPriceNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MaxPrice", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -469,7 +538,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -535,6 +604,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@Notes", _notesNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
+			// Pass the value of '_minPrice' as parameter 'MinPrice' of the stored procedure.
+			if(_minPriceNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MinPrice", _minPriceNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MinPrice", DBNull.Value );
+			// Pass the value of '_maxPrice' as parameter 'MaxPrice' of the stored procedure.
+			if(_maxPriceNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@MaxPrice", _maxPriceNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@MaxPrice", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -554,7 +633,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -601,6 +680,12 @@ namespace POS.DataLayer
 			// Pass the value of '_notes' as parameter 'Notes' of the stored procedure.
 			oDatabaseHelper.AddParameter("@Notes", _notesNonDefault );
 			
+			// Pass the value of '_minPrice' as parameter 'MinPrice' of the stored procedure.
+			oDatabaseHelper.AddParameter("@MinPrice", _minPriceNonDefault );
+			
+			// Pass the value of '_maxPrice' as parameter 'MaxPrice' of the stored procedure.
+			oDatabaseHelper.AddParameter("@MaxPrice", _maxPriceNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -620,7 +705,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -657,7 +742,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -696,7 +781,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -731,7 +816,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -779,7 +864,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -816,7 +901,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -858,7 +943,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -904,7 +989,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -945,7 +1030,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -978,7 +1063,59 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static BDProduct SelectOneWithINVTransferLineUsingProductID(BDProductPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			BDProduct obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectOneWithINVTransferLineUsingProductID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new BDProduct();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.INVTransferLineCollectionUsingProductID=INVTransferLine.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class BDProduct</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1030,7 +1167,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1082,7 +1219,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1130,7 +1267,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1178,7 +1315,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1207,27 +1344,6 @@ namespace POS.DataLayer
 
 
 
-		
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductGroupPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		
 
 		#endregion	
 		
@@ -1246,7 +1362,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1283,7 +1399,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1294,11 +1410,7 @@ namespace POS.DataLayer
 
 			obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductID));
 			obj.ProductName = rdr.GetString(rdr.GetOrdinal(BDProductFields.ProductName));
-			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.ProductGroupID)))
-			{
-				obj.ProductGroupID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductGroupID));
-			}
-			
+			obj.ProductGroupID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductGroupID));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.ProductCode)))
 			{
 				obj.ProductCode = rdr.GetString(rdr.GetOrdinal(BDProductFields.ProductCode));
@@ -1310,16 +1422,8 @@ namespace POS.DataLayer
 				obj.ProductPrice = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.ProductPrice));
 			}
 			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.IsFixedPrice)))
-			{
-				obj.IsFixedPrice = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsFixedPrice));
-			}
-			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.HasDiscount)))
-			{
-				obj.HasDiscount = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.HasDiscount));
-			}
-			
+			obj.IsFixedPrice = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsFixedPrice));
+			obj.HasDiscount = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.HasDiscount));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.DiscountAmount)))
 			{
 				obj.DiscountAmount = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.DiscountAmount));
@@ -1330,14 +1434,20 @@ namespace POS.DataLayer
 				obj.DescountRatio = rdr.GetDouble(rdr.GetOrdinal(BDProductFields.DescountRatio));
 			}
 			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.IsActive)))
-			{
-				obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsActive));
-			}
-			
+			obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsActive));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.Notes)))
 			{
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(BDProductFields.Notes));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.MinPrice)))
+			{
+				obj.MinPrice = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.MinPrice));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.MaxPrice)))
+			{
+				obj.MaxPrice = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.MaxPrice));
 			}
 			
 
@@ -1355,7 +1465,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1387,7 +1497,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -15,7 +15,11 @@ namespace POS.BusinessLayer
 	/// </summary>
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class SALSalesHeader : SALSalesHeaderBase
-	{
-	}
+    {
+        #region Data Contract (Business Object Interface To Service)
+        [DataMember]
+        public string CustomerName { get; set; }
+        #endregion
+    }
 }
 			

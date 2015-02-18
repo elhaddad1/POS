@@ -1,9 +1,8 @@
 //
 // Class	:	PURPurchaseLineBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:15 PM
+// Date		:	2/16/2015 7:27:52 PM
 //
-
 
 using POS.DataLayer;
 
@@ -54,6 +53,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 			return _pURPurchaseLineBatchWCF;
 		}
@@ -73,6 +73,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -109,6 +110,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -128,6 +130,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseLineBatch.PurchaseLineBatchID=pURPurchaseLineBatch.PurchaseLineBatchID;
 			_pURPurchaseLineBatch.PurchaseLineID=pURPurchaseLineBatch.PurchaseLineID;
 			_pURPurchaseLineBatch.BatchID=pURPurchaseLineBatch.BatchID;
+			_pURPurchaseLineBatch.Qty=pURPurchaseLineBatch.Qty;
 			
 			return _pURPurchaseLineBatch.Insert();
 		}
@@ -161,6 +164,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -187,6 +191,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -222,6 +227,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -248,6 +254,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -273,6 +280,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -303,6 +311,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineBatchWCF.PurchaseLineBatchID = _pURPurchaseLineBatch.PurchaseLineBatchID;
 				_pURPurchaseLineBatchWCF.PurchaseLineID = _pURPurchaseLineBatch.PurchaseLineID;
 				_pURPurchaseLineBatchWCF.BatchID = _pURPurchaseLineBatch.BatchID;
+				_pURPurchaseLineBatchWCF.Qty = _pURPurchaseLineBatch.Qty;
 				
 				pURPurchaseLineBatchCollection.Add(_pURPurchaseLineBatchWCF);
 			}
@@ -321,6 +330,7 @@ namespace POS.BusinessLayer
 			
 			_pURPurchaseLineBatch.PurchaseLineID=pURPurchaseLineBatch.PurchaseLineID;
 			_pURPurchaseLineBatch.BatchID=pURPurchaseLineBatch.BatchID;
+			_pURPurchaseLineBatch.Qty=pURPurchaseLineBatch.Qty;
 			
 			return _pURPurchaseLineBatch.Update();
 		}

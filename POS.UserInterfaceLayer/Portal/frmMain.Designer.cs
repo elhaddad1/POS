@@ -40,13 +40,17 @@
             this.mnuItem_AdjustReason = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_ = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_StockInquiry = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.mnuItem_takingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_OpenTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_CloseTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.المشترياتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurcaseOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurchaseReturn = new System.Windows.Forms.ToolStripMenuItem();
+            this.التحويلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_TransferOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.mnuItem_Sales = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_SalesOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +60,9 @@
             this.mnuItem_Administration,
             this.mnuItem_BasicData,
             this.mnuItem_,
-            this.المشترياتToolStripMenuItem});
+            this.المشترياتToolStripMenuItem,
+            this.التحويلToolStripMenuItem,
+            this.mnuItem_Sales});
             this.mnu_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnu_MainMenu.Name = "mnu_MainMenu";
             this.mnu_MainMenu.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
@@ -158,14 +164,6 @@
             this.mnuItem_StockInquiry.Text = "إستعلام عن مخزون";
             this.mnuItem_StockInquiry.Click += new System.EventHandler(this.mnuItem_StockInquiry_Click);
             // 
-            // pnlContent
-            // 
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(0, 25);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(776, 403);
-            this.pnlContent.TabIndex = 6;
-            // 
             // mnuItem_takingInventory
             // 
             this.mnuItem_takingInventory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,14 +176,14 @@
             // mnuItem_OpenTakingInventory
             // 
             this.mnuItem_OpenTakingInventory.Name = "mnuItem_OpenTakingInventory";
-            this.mnuItem_OpenTakingInventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_OpenTakingInventory.Size = new System.Drawing.Size(125, 22);
             this.mnuItem_OpenTakingInventory.Text = "فتح جرد";
             this.mnuItem_OpenTakingInventory.Click += new System.EventHandler(this.mnuItem_OpenTakingInventory_Click);
             // 
             // mnuItem_CloseTakingInventory
             // 
             this.mnuItem_CloseTakingInventory.Name = "mnuItem_CloseTakingInventory";
-            this.mnuItem_CloseTakingInventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_CloseTakingInventory.Size = new System.Drawing.Size(125, 22);
             this.mnuItem_CloseTakingInventory.Text = "أغلاق الجرد";
             this.mnuItem_CloseTakingInventory.Click += new System.EventHandler(this.mnuItem_CloseTakingInventory_Click);
             // 
@@ -211,6 +209,46 @@
             this.mnuItem_PurchaseReturn.Size = new System.Drawing.Size(163, 22);
             this.mnuItem_PurchaseReturn.Text = "أمر مرتجع مشتريات";
             this.mnuItem_PurchaseReturn.Click += new System.EventHandler(this.mnuItem_PurchaseReturn_Click);
+            // 
+            // التحويلToolStripMenuItem
+            // 
+            this.التحويلToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_TransferOrder});
+            this.التحويلToolStripMenuItem.Name = "التحويلToolStripMenuItem";
+            this.التحويلToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
+            this.التحويلToolStripMenuItem.Text = "التحويل";
+            // 
+            // mnuItem_TransferOrder
+            // 
+            this.mnuItem_TransferOrder.Name = "mnuItem_TransferOrder";
+            this.mnuItem_TransferOrder.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_TransferOrder.Text = "امر تحويل";
+            this.mnuItem_TransferOrder.Click += new System.EventHandler(this.mnuItem_TransferOrder_Click);
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 25);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(776, 403);
+            this.pnlContent.TabIndex = 6;
+            // 
+            // mnuItem_Sales
+            // 
+            this.mnuItem_Sales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_SalesOrders});
+            this.mnuItem_Sales.Enabled = false;
+            this.mnuItem_Sales.Name = "mnuItem_Sales";
+            this.mnuItem_Sales.Size = new System.Drawing.Size(40, 19);
+            this.mnuItem_Sales.Text = "البيع";
+            // 
+            // mnuItem_SalesOrders
+            // 
+            this.mnuItem_SalesOrders.Enabled = false;
+            this.mnuItem_SalesOrders.Name = "mnuItem_SalesOrders";
+            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_SalesOrders.Text = "فواتير العملاء";
+            this.mnuItem_SalesOrders.Click += new System.EventHandler(this.mnuItem_SalesOrders_Click);
             // 
             // frmMain
             // 
@@ -259,5 +297,9 @@
         private System.Windows.Forms.ToolStripMenuItem المشترياتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_PurcaseOrder;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_PurchaseReturn;
+        private System.Windows.Forms.ToolStripMenuItem التحويلToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_TransferOrder;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Sales;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesOrders;
     }
 }

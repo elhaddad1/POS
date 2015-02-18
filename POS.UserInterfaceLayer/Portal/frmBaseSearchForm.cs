@@ -35,6 +35,8 @@ namespace POS.UserInterfaceLayer.Portal
         public virtual void btn_Edit_Click(object sender, EventArgs e) { }
         public virtual void btn_Delete_Click(object sender, EventArgs e) { }
         public virtual void btn_Back_Click(object sender, EventArgs e) { }
+        public virtual void btn_Close_Click(object sender, EventArgs e) { }
+
         #region MyRegion
         public void addColumnToGrid(string header, string dataField, int width, bool visible)//you can overload this method if u need additional parameters
         {
@@ -48,13 +50,22 @@ namespace POS.UserInterfaceLayer.Portal
             {
                 col.Width = width;
             }
-           
+
             Dgrid_Result.Columns.Add(col);
 
             dgrid_Result.Columns[dataField].Visible = visible;
 
         }
+        public void toggelButton(Button button)
+        {
+            if (button.Enabled)
+                button.Enabled = false;
+            else
+                button.Enabled = true;
+        }
         #endregion
+
+
 
 
     }

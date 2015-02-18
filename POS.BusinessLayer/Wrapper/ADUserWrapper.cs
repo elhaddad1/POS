@@ -21,7 +21,7 @@ namespace POS.BusinessLayer.Wrapper
                 _vUserRoleCollection = _vUserRoleService.SelectByField("UserID", _aDUserDa.UserID, null, DataLayer.TypeOperation.Equal);
                 if (_vUserRoleCollection.Count != 0)
                 {
-                    GlobalVariables.CurrentUser.UserID = _aDUserDa.UserID;
+                    GlobalVariables.CurrentUser.UserID = (int)_aDUserDa.UserID;
                     GlobalVariables.CurrentUser.UserFullName = _aDUserDa.UserFullName;
                     GlobalVariables.CurrentUser.UserName = _aDUserDa.UserName;
                     foreach (VUserRole userRole in _vUserRoleCollection)

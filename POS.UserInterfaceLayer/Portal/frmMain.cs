@@ -12,6 +12,8 @@ using POS.UserInterfaceLayer.Administration;
 using POS.UserInterfaceLayer.BasicData;
 using POS.UserInterfaceLayer.Inventory;
 using POS.UserInterfaceLayer.Purcase;
+using POS.UserInterfaceLayer.Sales;
+using POS.UserInterfaceLayer.Transfer;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -28,7 +30,7 @@ namespace POS.UserInterfaceLayer.Portal
         //
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+
 
         }
         private void mnuItem_UserGroups_Click(object sender, EventArgs e)
@@ -118,14 +120,14 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
         {
-             FrmPurchaseOrder frm = new FrmPurchaseOrder();
+            FrmPurchaseOrder frm = new FrmPurchaseOrder();
             switchForm(frm);
         }
 
         private void mnuItem_OpenTakingInventory_Click(object sender, EventArgs e)
         {
             FrmOpenTakingInventory frm = new FrmOpenTakingInventory();
-             switchForm(frm);
+            switchForm(frm);
         }
 
         private void mnuItem_CloseTakingInventory_Click(object sender, EventArgs e)
@@ -134,7 +136,19 @@ namespace POS.UserInterfaceLayer.Portal
             switchForm(frm);
         }
 
-       
+        private void mnuItem_TransferOrder_Click(object sender, EventArgs e)
+        {
+            FrmTransferOrderSearch frm = new FrmTransferOrderSearch();
+            switchForm(frm);
+        }
+
+        private void mnuItem_SalesOrders_Click(object sender, EventArgs e)
+        {
+            frmSalesOrderSearch frm = new frmSalesOrderSearch();
+            frm.ShowDialog();
+        }
+
+
 
 
 

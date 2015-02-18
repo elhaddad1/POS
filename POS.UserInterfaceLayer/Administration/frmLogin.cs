@@ -15,6 +15,7 @@ namespace POS.UserInterfaceLayer.Administration
     public partial class frmLogin : Form
     {
         ADUserWrapper ADUserService;
+
         public frmLogin()
         {
             InitializeComponent();
