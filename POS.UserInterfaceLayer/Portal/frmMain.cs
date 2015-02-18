@@ -70,7 +70,7 @@ namespace POS.UserInterfaceLayer.Portal
         {
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
+            frm.Dock = DockStyle.None;
             pnlContent.Controls.Clear();
             pnlContent.Controls.Add(frm);
             frm.Show();

@@ -80,6 +80,12 @@
     <Compile Include="BasicData\FrmAdjustmentReasons.Designer.cs">
       <DependentUpon>FrmAdjustmentReasons.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\FrmAdjustReasonAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\FrmAdjustReasonAddEdit.Designer.cs">
+      <DependentUpon>FrmAdjustReasonAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmInventoryAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmAdjustmentReasons.resx">
       <DependentUpon>FrmAdjustmentReasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\FrmAdjustReasonAddEdit.resx">
+      <DependentUpon>FrmAdjustReasonAddEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmInventoryAddEdit.resx">
       <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>

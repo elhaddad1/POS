@@ -39,12 +39,13 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(288, 18);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(275, 20);
             this.lbl_FormHeader.Size = new System.Drawing.Size(73, 19);
             this.lbl_FormHeader.Text = "بحث العملاء";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(569, 30);
             this.label1.Name = "label1";
@@ -79,6 +80,7 @@
             // 
             // tbx_cusomerName
             // 
+            this.tbx_cusomerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbx_cusomerName.Location = new System.Drawing.Point(352, 59);
             this.tbx_cusomerName.Name = "tbx_cusomerName";
             this.tbx_cusomerName.Size = new System.Drawing.Size(184, 22);
@@ -86,6 +88,7 @@
             // 
             // tbx_customerCode
             // 
+            this.tbx_customerCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tbx_customerCode.Location = new System.Drawing.Point(352, 30);
             this.tbx_customerCode.Name = "tbx_customerCode";
             this.tbx_customerCode.Size = new System.Drawing.Size(184, 22);
@@ -93,6 +96,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(569, 65);
             this.label2.Name = "label2";

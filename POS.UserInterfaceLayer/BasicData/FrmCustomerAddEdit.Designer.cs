@@ -49,7 +49,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(217, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(228, 19);
             this.lbl_FormHeader.Size = new System.Drawing.Size(106, 19);
             this.lbl_FormHeader.Text = "إضافه /تعديل عميل";
             // 
