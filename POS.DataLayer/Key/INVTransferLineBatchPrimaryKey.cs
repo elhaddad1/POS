@@ -1,7 +1,7 @@
 //
-// Class	:	INVTransferLinePrimaryKey.cs
+// Class	:	INVTransferLineBatchPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:37 PM
+// Date		:	2/18/2015 10:55:38 PM
 //
 
 using System;
@@ -11,11 +11,11 @@ using System.Collections.Specialized;
 
 namespace POS.DataLayer
 {
-	public class INVTransferLinePrimaryKey
+	public class INVTransferLineBatchPrimaryKey
 	{
 
 	#region Class Level Variables
-			private int?           	_transferLineIDNonDefault	= null;
+			private int?           	_transferLineBatchIDNonDefault	= null;
 	#endregion
 
 	#region Constants
@@ -27,11 +27,11 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public INVTransferLinePrimaryKey(int? transferLineID) 
+		public INVTransferLineBatchPrimaryKey(int? transferLineBatchID) 
 		{
 	
 			
-			this._transferLineIDNonDefault = transferLineID;
+			this._transferLineBatchIDNonDefault = transferLineBatchID;
 
 		}
 
@@ -40,18 +40,18 @@ namespace POS.DataLayer
 	#region Properties
 
 		/// <summary>
-		/// This property is mapped to the "TransferLineID" field.  Mandatory.
+		/// This property is mapped to the "TransferLineBatchID" field.  Mandatory.
 		/// </summary>
-		public int? TransferLineID
+		public int? TransferLineBatchID
 		{
 			get 
 			{ 
-				return _transferLineIDNonDefault;
+				return _transferLineBatchIDNonDefault;
 			}
 			set 
 			{
 			
-				_transferLineIDNonDefault = value; 
+				_transferLineBatchIDNonDefault = value; 
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/18/2015 10:55:38 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -79,7 +79,7 @@ namespace POS.DataLayer
 		{
 			NameValueCollection nvc=new NameValueCollection();
 			
-			nvc.Add("TransferLineID",_transferLineIDNonDefault.ToString());
+			nvc.Add("TransferLineBatchID",_transferLineBatchIDNonDefault.ToString());
 			return nvc;
 			
 		}

@@ -34,8 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Header = new System.Windows.Forms.Panel();
-            this.cbx_Customer = new System.Windows.Forms.ComboBox();
-            this.cbs_PaymentType = new System.Windows.Forms.ComboBox();
+            this.cbx_StoreFrom = new System.Windows.Forms.ComboBox();
+            this.cbx_StoreTo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_AddLine = new System.Windows.Forms.Button();
             this.btn_DeleteLine = new System.Windows.Forms.Button();
@@ -107,21 +107,21 @@
             this.panl_Header.Size = new System.Drawing.Size(703, 53);
             this.panl_Header.TabIndex = 5;
             // 
-            // cbx_Customer
+            // cbx_StoreFrom
             // 
-            this.cbx_Customer.FormattingEnabled = true;
-            this.cbx_Customer.Location = new System.Drawing.Point(98, 93);
-            this.cbx_Customer.Name = "cbx_Customer";
-            this.cbx_Customer.Size = new System.Drawing.Size(241, 21);
-            this.cbx_Customer.TabIndex = 6;
+            this.cbx_StoreFrom.FormattingEnabled = true;
+            this.cbx_StoreFrom.Location = new System.Drawing.Point(98, 93);
+            this.cbx_StoreFrom.Name = "cbx_StoreFrom";
+            this.cbx_StoreFrom.Size = new System.Drawing.Size(241, 21);
+            this.cbx_StoreFrom.TabIndex = 6;
             // 
-            // cbs_PaymentType
+            // cbx_StoreTo
             // 
-            this.cbs_PaymentType.FormattingEnabled = true;
-            this.cbs_PaymentType.Location = new System.Drawing.Point(455, 93);
-            this.cbs_PaymentType.Name = "cbs_PaymentType";
-            this.cbs_PaymentType.Size = new System.Drawing.Size(241, 21);
-            this.cbs_PaymentType.TabIndex = 7;
+            this.cbx_StoreTo.FormattingEnabled = true;
+            this.cbx_StoreTo.Location = new System.Drawing.Point(455, 93);
+            this.cbx_StoreTo.Name = "cbx_StoreTo";
+            this.cbx_StoreTo.Size = new System.Drawing.Size(241, 21);
+            this.cbx_StoreTo.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -225,8 +225,8 @@
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_ClosePrint);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cbs_PaymentType);
-            this.Controls.Add(this.cbx_Customer);
+            this.Controls.Add(this.cbx_StoreTo);
+            this.Controls.Add(this.cbx_StoreFrom);
             this.Controls.Add(this.panl_Header);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -253,8 +253,8 @@
         private System.Windows.Forms.Label label3;
         protected System.Windows.Forms.Label lbl_FormHeader;
         protected System.Windows.Forms.Panel panl_Header;
-        private System.Windows.Forms.ComboBox cbx_Customer;
-        private System.Windows.Forms.ComboBox cbs_PaymentType;
+        private System.Windows.Forms.ComboBox cbx_StoreFrom;
+        private System.Windows.Forms.ComboBox cbx_StoreTo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_AddLine;
         private System.Windows.Forms.Button btn_DeleteLine;

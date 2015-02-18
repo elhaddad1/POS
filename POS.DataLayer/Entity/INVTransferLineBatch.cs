@@ -1,7 +1,7 @@
 //
-// Class	:	INVTransferLine.cs
+// Class	:	INVTransferLineBatch.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:37 PM
+// Date		:	2/18/2015 10:55:38 PM
 //
 
 using System;
@@ -17,10 +17,10 @@ namespace POS.DataLayer
 {
 	
 	/// <summary>
-	/// Data access class for the "INVTransferLine" table.
+	/// Data access class for the "INVTransferLineBatch" table.
 	/// </summary>
 	[Serializable]
-	public class INVTransferLine : INVTransferLineBase
+	public class INVTransferLineBatch : INVTransferLineBatchBase
 	{
 	
 		#region Class Level Variables
@@ -33,7 +33,7 @@ namespace POS.DataLayer
 
 		#region Constructors / Destructors 
 		
-		public INVTransferLine() : base()
+		public INVTransferLineBatch() : base()
 		{
 		}
 

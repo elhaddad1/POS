@@ -1,7 +1,7 @@
 //
-// Class	:	INVTransferLineCollection.cs
+// Class	:	INVTransferLineBatchCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:37 PM
+// Date		:	2/18/2015 10:55:38 PM
 //
 
 using System;
@@ -12,7 +12,7 @@ using System.Reflection;
 
 namespace POS.DataLayer
 {
-	public class INVTransferLineCollection :Collection<INVTransferLine>, IEnumerable<INVTransferLine>, IComparer
+	public class INVTransferLineBatchCollection :Collection<INVTransferLineBatch>, IEnumerable<INVTransferLineBatch>, IComparer
 	{
 	
 		 #region Inner Types
@@ -25,9 +25,9 @@ namespace POS.DataLayer
 		 {
 			
 			private int position = -1;
-			private INVTransferLineCollection t;
+			private INVTransferLineBatchCollection t;
 
-			public Enumerator (INVTransferLineCollection t)
+			public Enumerator (INVTransferLineBatchCollection t)
 			{
 				this.t = t;
 			}
@@ -116,12 +116,12 @@ namespace POS.DataLayer
 			if(this.Items.Count==0)
 				return;
 			PrepareSorting( sortingExpression);
-			INVTransferLine[] elements =new INVTransferLine[this.Items.Count];
+			INVTransferLineBatch[] elements =new INVTransferLineBatch[this.Items.Count];
 			this.Items.CopyTo(elements,0);
 			Array.Sort(elements,this);
 			//clear old order and copy new order here
 			this.Items.Clear();
-			foreach(INVTransferLine item in elements)
+			foreach(INVTransferLineBatch item in elements)
 				this.Items.Add(item);
 		}
 		
@@ -131,7 +131,7 @@ namespace POS.DataLayer
 		/// <returns>the associated enumerator</returns>
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return new INVTransferLineCollection.Enumerator(this);
+			return new INVTransferLineBatchCollection.Enumerator(this);
 		}
 		
 		/// <summary>

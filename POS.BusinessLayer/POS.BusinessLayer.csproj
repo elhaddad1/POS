@@ -96,6 +96,7 @@
     <Compile Include="Collection\INVTakingInventoryLineBatchCollection.cs" />
     <Compile Include="Collection\INVTakingInventoryLineCollection.cs" />
     <Compile Include="Collection\INVTransferHeaderCollection.cs" />
+    <Compile Include="Collection\INVTransferLineBatchCollection.cs" />
     <Compile Include="Collection\INVTransferLineCollection.cs" />
     <Compile Include="Collection\PaymentTypeCollection.cs" />
     <Compile Include="Collection\PURPurchaseHeaderCollection.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Entity\INVTakingInventoryLineBatch.cs" />
     <Compile Include="Entity\INVTransferHeader.cs" />
     <Compile Include="Entity\INVTransferLine.cs" />
+    <Compile Include="Entity\INVTransferLineBatch.cs" />
     <Compile Include="Entity\PaymentType.cs" />
     <Compile Include="Entity\PURPurchaseHeader.cs" />
     <Compile Include="Entity\PURPurchaseLine.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Key\INVTakingInventoryLinePrimaryKey.cs" />
     <Compile Include="Key\INVTakingInventoryPrimaryKey.cs" />
     <Compile Include="Key\INVTransferHeaderPrimaryKey.cs" />
+    <Compile Include="Key\INVTransferLineBatchPrimaryKey.cs" />
     <Compile Include="Key\INVTransferLinePrimaryKey.cs" />
     <Compile Include="Key\PaymentTypePrimaryKey.cs" />
     <Compile Include="Key\PURPurchaseHeaderPrimaryKey.cs" />
@@ -203,7 +206,8 @@
     <Compile Include="Service\INVTakingInventoryLineService.svc.cs" />
     <Compile Include="Service\INVTakingInventoryService.svc.cs" />
     <Compile Include="Service\INVTransferHeaderService.svc.cs" />
-    <Compile Include="Service\INVTransferLineService.svc.cs" />
+    <Compile Include="Service\INVTransferLineBatchService.cs" />
+    <Compile Include="Service\INVTransferLineService.cs" />
     <Compile Include="Service\PaymentTypeService.svc.cs" />
     <Compile Include="Service\PURPurchaseHeaderService.svc.cs" />
     <Compile Include="Service\PURPurchaseLineBatchService.svc.cs" />

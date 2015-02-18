@@ -1,9 +1,14 @@
 //
 // Class	:	INVTransferLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:50 PM
+// Date		:	2/18/2015 10:55:38 PM
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
