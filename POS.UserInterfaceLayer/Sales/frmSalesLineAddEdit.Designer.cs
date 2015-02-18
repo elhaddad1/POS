@@ -38,17 +38,17 @@
             this.tbx_Price = new System.Windows.Forms.TextBox();
             this.lbl_MinPriceHeader = new System.Windows.Forms.Label();
             this.lbl_MinPriceValue = new System.Windows.Forms.Label();
-            this.num_Bonus = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
             this.num_Quantity = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tbx_Discount = new System.Windows.Forms.TextBox();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Finish = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.num_Bonus = new System.Windows.Forms.NumericUpDown();
             this.panl_Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
@@ -152,24 +152,6 @@
             this.lbl_MinPriceValue.Text = "0";
             this.lbl_MinPriceValue.Visible = false;
             // 
-            // num_Bonus
-            // 
-            this.num_Bonus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.num_Bonus.Location = new System.Drawing.Point(254, 92);
-            this.num_Bonus.Name = "num_Bonus";
-            this.num_Bonus.Size = new System.Drawing.Size(78, 20);
-            this.num_Bonus.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(205, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "أضافى";
-            // 
             // num_Quantity
             // 
             this.num_Quantity.Location = new System.Drawing.Point(90, 92);
@@ -228,6 +210,26 @@
             this.btn_Finish.UseVisualStyleBackColor = true;
             this.btn_Finish.Click += new System.EventHandler(this.btn_Finish_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(205, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "أضافى";
+            this.label5.Visible = false;
+            // 
+            // num_Bonus
+            // 
+            this.num_Bonus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.num_Bonus.Location = new System.Drawing.Point(254, 92);
+            this.num_Bonus.Name = "num_Bonus";
+            this.num_Bonus.Size = new System.Drawing.Size(78, 20);
+            this.num_Bonus.TabIndex = 18;
+            this.num_Bonus.Visible = false;
+            // 
             // frmSalesLineAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,8 +260,8 @@
             this.Text = "منتج";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,13 +279,13 @@
         private System.Windows.Forms.TextBox tbx_Price;
         private System.Windows.Forms.Label lbl_MinPriceHeader;
         private System.Windows.Forms.Label lbl_MinPriceValue;
-        private System.Windows.Forms.NumericUpDown num_Bonus;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown num_Quantity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbx_Discount;
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Button btn_Finish;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown num_Bonus;
     }
 }
