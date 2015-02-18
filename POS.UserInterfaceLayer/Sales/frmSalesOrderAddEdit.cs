@@ -7,27 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POS.BusinessLayer;
 using POS.BusinessLayer.Wrapper;
 
 namespace POS.UserInterfaceLayer.Sales
 {
     public partial class frmSalesOrderAddEdit : Form
     {
-        BDTaxTypeWrapper _bDTaxTypeWrapper;
-        PaymentTypeWrapper _paymentTypeWrapper;
-        BDCustomerWrapper _bDCustomerWrapper;
+        private BDTaxTypeWrapper _bDTaxTypeWrapper;
+        private PaymentTypeWrapper _paymentTypeWrapper;
+        private BDCustomerWrapper _bDCustomerWrapper;
+        public SALSalesLineCollection sALSalesLineCollection;
+
         public frmSalesOrderAddEdit()
         {
             InitializeComponent();
             _bDTaxTypeWrapper = new BDTaxTypeWrapper();
             _paymentTypeWrapper = new PaymentTypeWrapper();
             _bDCustomerWrapper = new BDCustomerWrapper();
+            sALSalesLineCollection = new SALSalesLineCollection();
             FillCustomerCBX();
             FillPaymentTypeCBX();
             FillTaxTypeCBX();
         }
 
-        #region -- Events 
+        #region -- Events
 
         private void num_Remaining_Leave(object sender, EventArgs e)
         {
@@ -40,8 +44,10 @@ namespace POS.UserInterfaceLayer.Sales
 
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            frmSalesLineAddEdit frm = new frmSalesLineAddEdit();
+            frmSalesLineAddEdit frm = new frmSalesLineAddEdit(this);
+            frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
             frm.ShowDialog();
+
         }
 
         private void btn_DeleteLine_Click(object sender, EventArgs e)
@@ -56,9 +62,12 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
-                Qty++;
-                dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
+                //Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value);
+                //Qty++;
+                //dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value = Qty;
+                sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
+
+                BindGrid();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -68,9 +77,11 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
-                Qty--;
-                dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
+                //int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
+                //Qty--;
+                //dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
+                sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
+                BindGrid();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -89,6 +100,11 @@ namespace POS.UserInterfaceLayer.Sales
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmSalesOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BindGrid();
         }
         #endregion
 
@@ -109,7 +125,7 @@ namespace POS.UserInterfaceLayer.Sales
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -125,7 +141,7 @@ namespace POS.UserInterfaceLayer.Sales
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -141,12 +157,24 @@ namespace POS.UserInterfaceLayer.Sales
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
-
+        private void BindGrid()
+        {
+            dgrd_OrderLines.DataSource = null;
+            dgrd_OrderLines.AutoGenerateColumns = false;
+            dgrd_OrderLines.DataSource = sALSalesLineCollection;
+            dgrd_OrderLines.Columns[0].DataPropertyName = "ProductID";
+            dgrd_OrderLines.Columns[1].DataPropertyName = "ProductName";
+            dgrd_OrderLines.Columns[2].DataPropertyName = "TotalQty";
+            dgrd_OrderLines.Columns[3].DataPropertyName = "UnitPrice";
+            dgrd_OrderLines.Columns[4].DataPropertyName = "DiscountRatio";
+        }
         #endregion
+
+
 
 
     }

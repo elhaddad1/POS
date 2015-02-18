@@ -62,10 +62,10 @@
             this.num_OtherPayments = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscountRatio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Paied)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Remaining)).BeginInit();
@@ -285,10 +285,10 @@
             this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductID,
-            this.Qty,
-            this.Bonus,
+            this.ProductName,
+            this.TotalQty,
             this.UnitPrice,
-            this.Sale});
+            this.DiscountRatio});
             this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 52);
             this.dgrd_OrderLines.Name = "dgrd_OrderLines";
             this.dgrd_OrderLines.ReadOnly = true;
@@ -405,24 +405,24 @@
             // 
             // ProductID
             // 
-            this.ProductID.HeaderText = "أسم المنتج";
+            this.ProductID.HeaderText = "";
             this.ProductID.Name = "ProductID";
             this.ProductID.ReadOnly = true;
-            this.ProductID.Width = 210;
+            this.ProductID.Visible = false;
             // 
-            // Qty
+            // ProductName
             // 
-            this.Qty.HeaderText = "الكمية";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            this.Qty.Width = 90;
+            this.ProductName.HeaderText = "أسم المنتج";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            this.ProductName.Width = 210;
             // 
-            // Bonus
+            // TotalQty
             // 
-            this.Bonus.HeaderText = "أضافى";
-            this.Bonus.Name = "Bonus";
-            this.Bonus.ReadOnly = true;
-            this.Bonus.Width = 90;
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.ReadOnly = true;
+            this.TotalQty.Width = 90;
             // 
             // UnitPrice
             // 
@@ -430,11 +430,11 @@
             this.UnitPrice.Name = "UnitPrice";
             this.UnitPrice.ReadOnly = true;
             // 
-            // Sale
+            // DiscountRatio
             // 
-            this.Sale.HeaderText = "الخصم";
-            this.Sale.Name = "Sale";
-            this.Sale.ReadOnly = true;
+            this.DiscountRatio.HeaderText = "الخصم";
+            this.DiscountRatio.Name = "DiscountRatio";
+            this.DiscountRatio.ReadOnly = true;
             // 
             // frmSalesOrderAddEdit
             // 
@@ -468,6 +468,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "شاشة البيع";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSalesOrderAddEdit_FormClosed);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Paied)).EndInit();
@@ -517,9 +518,9 @@
         private System.Windows.Forms.NumericUpDown num_OtherPayments;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiscountRatio;
     }
 }

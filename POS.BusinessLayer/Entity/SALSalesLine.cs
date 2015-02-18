@@ -16,6 +16,8 @@ namespace POS.BusinessLayer
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class SALSalesLine : SALSalesLineBase
 	{
+        [DataMember]
+        public string ProductName { get; set; }
 	}
 }
 			

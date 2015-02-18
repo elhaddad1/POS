@@ -24,7 +24,7 @@ namespace POS.DataLayer
 	{
 	
 		#region Class Level Variables
-
+        private string _productNameNonDefault = null;
 		#endregion
 		
 		#region Constants
@@ -40,7 +40,18 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Properties
+        public string ProductName
+        {
+            get
+            {
+                return _productNameNonDefault;
+            }
+            set
+            {
 
+                _productNameNonDefault = value;
+            }
+        }
 		#endregion
 
 		#region Methods (Public)
