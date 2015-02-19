@@ -1,4 +1,5 @@
-﻿using POS.BusinessLayer.Wrapper;
+﻿using POS.BusinessLayer;
+using POS.BusinessLayer.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,24 @@ namespace POS.UserInterfaceLayer.Sales
 {
     public partial class FrmAddEditTransferOrder : Form
     {
-        BDTaxTypeWrapper _bDTaxTypeWrapper;
-        INVInventoryWrapper _inventoryWrapper;
-        BDCustomerWrapper _bDCustomerWrapper;
+        private INVInventoryWrapper _inventoryWrapper;
+        private BDTaxTypeWrapper _bDTaxTypeWrapper;
+        private PaymentTypeWrapper _paymentTypeWrapper;
+        private BDCustomerWrapper _bDCustomerWrapper;
+        public INVTransferLineCollection transferLineCollection;
+
         public FrmAddEditTransferOrder()
         {
             InitializeComponent();
-            _bDTaxTypeWrapper = new BDTaxTypeWrapper();
-            _inventoryWrapper = new INVInventoryWrapper();
-            _bDCustomerWrapper = new BDCustomerWrapper();
-            FillCustomerCBX();
+            this._bDTaxTypeWrapper = new BDTaxTypeWrapper();
+            this._paymentTypeWrapper = new PaymentTypeWrapper();
+            this._bDCustomerWrapper = new BDCustomerWrapper();
+            this.transferLineCollection = new INVTransferLineCollection();
+            this._inventoryWrapper = new INVInventoryWrapper();
             FillStokeCBX();
         }
 
-        #region -- Events 
+        #region -- Events
 
         private void num_Remaining_Leave(object sender, EventArgs e)
         {
@@ -39,14 +44,21 @@ namespace POS.UserInterfaceLayer.Sales
 
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            //frmSalesLineAddEdit frm = new frmSalesLineAddEdit();
-            //frm.ShowDialog();
+            FrmTransferLineAddEdit frm = new FrmTransferLineAddEdit(this);
+            frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
+            frm.ShowDialog();
+
         }
 
         private void btn_DeleteLine_Click(object sender, EventArgs e)
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
-                dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+            {
+                transferLineCollection.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                BindGrid();
+
+            }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
         }
@@ -55,9 +67,8 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
-                Qty++;
-                dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
+                //transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
+                BindGrid();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -67,9 +78,8 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
-                Qty--;
-                dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
+                //transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
+                BindGrid();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -89,6 +99,11 @@ namespace POS.UserInterfaceLayer.Sales
         {
             this.Close();
         }
+
+        private void frmSalesOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BindGrid();
+        }
         #endregion
 
         #region -- Public Methods
@@ -96,23 +111,6 @@ namespace POS.UserInterfaceLayer.Sales
         #endregion
 
         #region -- Private Methods
-        private void FillCustomerCBX()
-        {
-
-            try
-            {
-                cbx_StoreFrom.DataSource = _bDCustomerWrapper.SelectAll().OrderBy(a => a.CustomerName).ToList();
-                cbx_StoreFrom.DisplayMember = "CustomerName";
-                cbx_StoreFrom.ValueMember = "CustomerID";
-                cbx_StoreFrom.SelectedIndex = -1;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-        }
-
         private void FillStokeCBX()
         {
 
@@ -129,11 +127,25 @@ namespace POS.UserInterfaceLayer.Sales
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
+        private void BindGrid()
+        {
+            dgrd_OrderLines.DataSource = null;
+            dgrd_OrderLines.AutoGenerateColumns = false;
+            dgrd_OrderLines.DataSource = transferLineCollection;
+            dgrd_OrderLines.Columns[0].DataPropertyName = "ProductID";
+            dgrd_OrderLines.Columns[1].DataPropertyName = "ProductName";
+            dgrd_OrderLines.Columns[2].DataPropertyName = "TotalQty";
+            dgrd_OrderLines.Columns[3].DataPropertyName = "UnitPrice";
+           
+        }
+
         #endregion
+
+
     }
 }
