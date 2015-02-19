@@ -36,9 +36,13 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (Validate())
             {
-                frmSalesOrderAddEditObj.sALSalesLineCollection.Add(CollectScreenData());
-                this.Close();
 
+                if ((frmSalesOrderAddEditObj.sALSalesLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).ToList().Count) == 0)
+                    frmSalesOrderAddEditObj.sALSalesLineCollection.Add(CollectScreenData());
+                else
+                    frmSalesOrderAddEditObj.sALSalesLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty++;
+
+                this.Close();
             }
         }
         private void btn_Back_Click(object sender, EventArgs e)
@@ -132,8 +136,8 @@ namespace POS.UserInterfaceLayer.Sales
         private SALSalesLine CollectScreenData()
         {
             sALSalesLine = new SALSalesLine();
-            sALSalesLine.DiscountAmount = (decimal)((float.Parse(tbx_Discount.Text.Trim(new char[] { '%' })) / 100) * float.Parse(tbx_Price.Text));
-            sALSalesLine.DiscountRatio = Convert.ToDecimal(float.Parse(tbx_Discount.Text.Trim(new char[] { '%' })) / 100);
+            sALSalesLine.DiscountAmount = 0;//(decimal)((float.Parse(tbx_Discount.Text.Trim(new char[] { '%' })) / 100) * float.Parse(tbx_Price.Text));
+            sALSalesLine.DiscountRatio = 0;//Convert.ToDecimal(float.Parse(tbx_Discount.Text.Trim(new char[] { '%' })) / 100);
             sALSalesLine.ProductID = Convert.ToInt32(cbx_Product.SelectedValue);
             sALSalesLine.ProductName = cbx_Product.Text;
             sALSalesLine.TotalBonus = 0;

@@ -53,7 +53,13 @@ namespace POS.UserInterfaceLayer.Sales
         private void btn_DeleteLine_Click(object sender, EventArgs e)
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
-                dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+            {
+                sALSalesLineCollection.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                BindGrid();
+                CalculateTotal();
+
+            }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
         }
@@ -62,12 +68,9 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                //Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value);
-                //Qty++;
-                //dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value = Qty;
                 sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
-
                 BindGrid();
+                CalculateTotal();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -77,11 +80,9 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                //int Qty = Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value);
-                //Qty--;
-                //dgrd_OrderLines.SelectedRows[0].Cells["Qty"].Value = Qty;
                 sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
                 BindGrid();
+                CalculateTotal();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -105,6 +106,7 @@ namespace POS.UserInterfaceLayer.Sales
         private void frmSalesOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
+            CalculateTotal();
         }
         #endregion
 
@@ -170,7 +172,18 @@ namespace POS.UserInterfaceLayer.Sales
             dgrd_OrderLines.Columns[1].DataPropertyName = "ProductName";
             dgrd_OrderLines.Columns[2].DataPropertyName = "TotalQty";
             dgrd_OrderLines.Columns[3].DataPropertyName = "UnitPrice";
-            dgrd_OrderLines.Columns[4].DataPropertyName = "DiscountRatio";
+           
+        }
+        private decimal CalculateTotal()
+        {
+            decimal Total = 0;
+            foreach (SALSalesLine q in sALSalesLineCollection)
+            {
+                Total += (decimal)(q.TotalQty * q.UnitPrice);
+ 
+            }
+            txt_Total.Text = Total.ToString();
+            return Total;
         }
         #endregion
 

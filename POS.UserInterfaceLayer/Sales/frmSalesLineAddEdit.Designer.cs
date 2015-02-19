@@ -40,12 +40,12 @@
             this.lbl_MinPriceValue = new System.Windows.Forms.Label();
             this.num_Quantity = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbx_Discount = new System.Windows.Forms.TextBox();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Finish = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.num_Bonus = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbx_Discount = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).BeginInit();
@@ -168,29 +168,11 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "الكمية";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "الخصم";
-            // 
-            // tbx_Discount
-            // 
-            this.tbx_Discount.Location = new System.Drawing.Point(90, 124);
-            this.tbx_Discount.Name = "tbx_Discount";
-            this.tbx_Discount.ReadOnly = true;
-            this.tbx_Discount.Size = new System.Drawing.Size(78, 20);
-            this.tbx_Discount.TabIndex = 32;
-            this.tbx_Discount.Text = "%0";
-            // 
             // btn_Back
             // 
             this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(336, 146);
+            this.btn_Back.Location = new System.Drawing.Point(333, 126);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(99, 55);
             this.btn_Back.TabIndex = 35;
@@ -202,7 +184,7 @@
             // 
             this.btn_Finish.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Finish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Finish.Location = new System.Drawing.Point(229, 146);
+            this.btn_Finish.Location = new System.Drawing.Point(226, 126);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(99, 55);
             this.btn_Finish.TabIndex = 34;
@@ -230,12 +212,32 @@
             this.num_Bonus.TabIndex = 18;
             this.num_Bonus.Visible = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "الخصم";
+            this.label10.Visible = false;
+            // 
+            // tbx_Discount
+            // 
+            this.tbx_Discount.Location = new System.Drawing.Point(90, 124);
+            this.tbx_Discount.Name = "tbx_Discount";
+            this.tbx_Discount.ReadOnly = true;
+            this.tbx_Discount.Size = new System.Drawing.Size(78, 20);
+            this.tbx_Discount.TabIndex = 32;
+            this.tbx_Discount.Text = "%0";
+            this.tbx_Discount.Visible = false;
+            // 
             // frmSalesLineAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(665, 206);
+            this.ClientSize = new System.Drawing.Size(665, 183);
             this.ControlBox = false;
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Finish);
@@ -257,6 +259,7 @@
             this.Name = "frmSalesLineAddEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "منتج";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
@@ -281,11 +284,11 @@
         private System.Windows.Forms.Label lbl_MinPriceValue;
         private System.Windows.Forms.NumericUpDown num_Quantity;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbx_Discount;
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Button btn_Finish;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown num_Bonus;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbx_Discount;
     }
 }

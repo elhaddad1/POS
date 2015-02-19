@@ -51,10 +51,10 @@
             this.btn_Plus = new System.Windows.Forms.Button();
             this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Total = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_DiscountRatio = new System.Windows.Forms.TextBox();
+            this.txt_DiscountAmount = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
@@ -65,7 +65,6 @@
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiscountRatio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Paied)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Remaining)).BeginInit();
@@ -226,10 +225,10 @@
             this.groupBox1.Controls.Add(this.btn_Plus);
             this.groupBox1.Controls.Add(this.dgrd_OrderLines);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txt_Total);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_DiscountRatio);
+            this.groupBox1.Controls.Add(this.txt_DiscountAmount);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 188);
             this.groupBox1.Name = "groupBox1";
@@ -287,8 +286,7 @@
             this.ProductID,
             this.ProductName,
             this.TotalQty,
-            this.UnitPrice,
-            this.DiscountRatio});
+            this.UnitPrice});
             this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 52);
             this.dgrd_OrderLines.Name = "dgrd_OrderLines";
             this.dgrd_OrderLines.ReadOnly = true;
@@ -306,41 +304,39 @@
             this.label10.TabIndex = 31;
             this.label10.Text = " نسبة الخصم الكلى";
             // 
-            // textBox3
+            // txt_Total
             // 
-            this.textBox3.Location = new System.Drawing.Point(435, 244);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 30;
-            this.textBox3.Text = "0";
+            this.txt_Total.Location = new System.Drawing.Point(435, 244);
+            this.txt_Total.Name = "txt_Total";
+            this.txt_Total.ReadOnly = true;
+            this.txt_Total.Size = new System.Drawing.Size(100, 20);
+            this.txt_Total.TabIndex = 30;
+            this.txt_Total.Text = "0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(338, 248);
+            this.label9.Location = new System.Drawing.Point(339, 248);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(89, 13);
             this.label9.TabIndex = 29;
             this.label9.Text = "قيمة الخصم الكلى ";
             // 
-            // textBox2
+            // txt_DiscountRatio
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 244);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.Text = "%0";
+            this.txt_DiscountRatio.Location = new System.Drawing.Point(23, 244);
+            this.txt_DiscountRatio.Name = "txt_DiscountRatio";
+            this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
+            this.txt_DiscountRatio.TabIndex = 28;
+            this.txt_DiscountRatio.Text = "%0";
             // 
-            // textBox1
+            // txt_DiscountAmount
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 244);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 27;
-            this.textBox1.Text = "0";
+            this.txt_DiscountAmount.Location = new System.Drawing.Point(230, 244);
+            this.txt_DiscountAmount.Name = "txt_DiscountAmount";
+            this.txt_DiscountAmount.Size = new System.Drawing.Size(100, 20);
+            this.txt_DiscountAmount.TabIndex = 27;
+            this.txt_DiscountAmount.Text = "0";
             // 
             // label8
             // 
@@ -430,12 +426,6 @@
             this.UnitPrice.Name = "UnitPrice";
             this.UnitPrice.ReadOnly = true;
             // 
-            // DiscountRatio
-            // 
-            this.DiscountRatio.HeaderText = "الخصم";
-            this.DiscountRatio.Name = "DiscountRatio";
-            this.DiscountRatio.ReadOnly = true;
-            // 
             // frmSalesOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +457,7 @@
             this.Name = "frmSalesOrderAddEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "شاشة البيع";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSalesOrderAddEdit_FormClosed);
             this.panl_Header.ResumeLayout(false);
@@ -507,10 +498,10 @@
         private System.Windows.Forms.Button btn_Plus;
         private System.Windows.Forms.DataGridView dgrd_OrderLines;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_DiscountRatio;
+        private System.Windows.Forms.TextBox txt_DiscountAmount;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_ClosePrint;
         private System.Windows.Forms.Button btn_Save;
@@ -521,6 +512,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiscountRatio;
     }
 }
