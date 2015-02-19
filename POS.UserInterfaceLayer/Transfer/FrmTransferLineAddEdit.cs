@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using POS.BusinessLayer;
 using POS.BusinessLayer.Wrapper;
 
-namespace POS.UserInterfaceLayer.Sales
+namespace POS.UserInterfaceLayer.Transfer
 {
     public partial class FrmTransferLineAddEdit : Form
     {

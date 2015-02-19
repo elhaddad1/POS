@@ -1,4 +1,4 @@
-﻿namespace POS.UserInterfaceLayer.Sales
+﻿namespace POS.UserInterfaceLayer.Transfer
 {
     partial class FrmAddEditTransferOrder
     {
@@ -145,6 +145,7 @@
             this.btn_AddLine.TabIndex = 36;
             this.btn_AddLine.Text = "أضافة";
             this.btn_AddLine.UseVisualStyleBackColor = true;
+            this.btn_AddLine.Click += new System.EventHandler(this.btn_AddLine_Click);
             // 
             // btn_DeleteLine
             // 
@@ -154,6 +155,7 @@
             this.btn_DeleteLine.TabIndex = 35;
             this.btn_DeleteLine.Text = "حذف";
             this.btn_DeleteLine.UseVisualStyleBackColor = true;
+            this.btn_DeleteLine.Click += new System.EventHandler(this.btn_DeleteLine_Click);
             // 
             // btn_Minus
             // 
@@ -163,6 +165,7 @@
             this.btn_Minus.TabIndex = 34;
             this.btn_Minus.Text = "-";
             this.btn_Minus.UseVisualStyleBackColor = true;
+            this.btn_Minus.Click += new System.EventHandler(this.btn_Minus_Click);
             // 
             // btn_Plus
             // 
@@ -172,6 +175,7 @@
             this.btn_Plus.TabIndex = 33;
             this.btn_Plus.Text = "+";
             this.btn_Plus.UseVisualStyleBackColor = true;
+            this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
             // dgrd_OrderLines
             // 
@@ -202,6 +206,7 @@
             this.btn_Save.TabIndex = 17;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
@@ -213,6 +218,7 @@
             this.btn_Cancel.TabIndex = 18;
             this.btn_Cancel.Text = "ألغاء";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // FrmAddEditTransferOrder
             // 

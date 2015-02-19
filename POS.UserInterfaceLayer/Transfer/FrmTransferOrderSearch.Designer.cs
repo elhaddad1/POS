@@ -37,34 +37,39 @@
             this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panl_Header
+            // 
+            this.panl_Header.Size = new System.Drawing.Size(854, 53);
+            // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(1015, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(1164, 20);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 423);
-            this.panl_Footer.Size = new System.Drawing.Size(557, 67);
+            this.panl_Footer.Size = new System.Drawing.Size(854, 67);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(806, 6);
+            this.btn_Add.Location = new System.Drawing.Point(486, 12);
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click_1);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(386, 7);
+            this.btn_Back.Location = new System.Drawing.Point(12, 9);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(596, 9);
+            this.btn_Delete.Location = new System.Drawing.Point(381, 12);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(701, 6);
+            this.btn_Edit.Location = new System.Drawing.Point(850, 6);
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(491, -11);
+            this.btn_Close.Location = new System.Drawing.Point(266, 9);
             // 
             // lbl_StoreName
             // 
@@ -112,7 +117,7 @@
             // FrmTransferOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(557, 490);
+            this.ClientSize = new System.Drawing.Size(854, 490);
             this.Controls.Add(this.dtp_TransferDate);
             this.Controls.Add(this.ddl_InventoryName);
             this.Controls.Add(this.btn_search);
@@ -129,7 +134,6 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
-            this.panl_Footer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

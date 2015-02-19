@@ -71,5 +71,11 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             search();
         }
+
+        private void btn_Add_Click_1(object sender, EventArgs e)
+        {
+            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this);
+            frm.ShowDialog();
+        }
     }
 }

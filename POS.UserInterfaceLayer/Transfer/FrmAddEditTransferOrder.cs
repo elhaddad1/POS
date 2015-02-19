@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace POS.UserInterfaceLayer.Sales
+namespace POS.UserInterfaceLayer.Transfer
 {
     public partial class FrmAddEditTransferOrder : Form
     {
@@ -18,9 +18,10 @@ namespace POS.UserInterfaceLayer.Sales
         private BDTaxTypeWrapper _bDTaxTypeWrapper;
         private PaymentTypeWrapper _paymentTypeWrapper;
         private BDCustomerWrapper _bDCustomerWrapper;
+        private FrmTransferOrderSearch _frmTransferOrderSearch;
         public INVTransferLineCollection transferLineCollection;
 
-        public FrmAddEditTransferOrder()
+        public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch)
         {
             InitializeComponent();
             this._bDTaxTypeWrapper = new BDTaxTypeWrapper();
@@ -28,6 +29,7 @@ namespace POS.UserInterfaceLayer.Sales
             this._bDCustomerWrapper = new BDCustomerWrapper();
             this.transferLineCollection = new INVTransferLineCollection();
             this._inventoryWrapper = new INVInventoryWrapper();
+            this._frmTransferOrderSearch = frmTransferOrderSearch;
             FillStokeCBX();
         }
 
