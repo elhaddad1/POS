@@ -34,28 +34,34 @@
             this.ddl_InventoryName = new System.Windows.Forms.ComboBox();
             this.dtp_TransferDate = new System.Windows.Forms.DateTimePicker();
             this.panl_Header.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panl_Header
-            // 
-            this.panl_Header.Location = new System.Drawing.Point(0, 119);
-            this.panl_Header.Size = new System.Drawing.Size(854, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(1242, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(1015, 20);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 423);
-            this.panl_Footer.Size = new System.Drawing.Size(854, 67);
+            this.panl_Footer.Size = new System.Drawing.Size(557, 67);
             // 
-            // groupBox2
+            // btn_Add
             // 
-            this.groupBox2.Controls.Add(this.btn_search);
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Size = new System.Drawing.Size(854, 119);
+            this.btn_Add.Location = new System.Drawing.Point(806, 6);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(386, 7);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(596, 9);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(701, 6);
+            
             // 
             // lbl_StoreName
             // 
@@ -77,7 +83,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(98, 21);
+            this.btn_search.Location = new System.Drawing.Point(12, 126);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(99, 55);
             this.btn_search.TabIndex = 8;
@@ -103,22 +109,24 @@
             // FrmTransferOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(854, 490);
+            this.ClientSize = new System.Drawing.Size(557, 490);
             this.Controls.Add(this.dtp_TransferDate);
             this.Controls.Add(this.ddl_InventoryName);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.lbl_TransferDate);
             this.Controls.Add(this.lbl_StoreName);
             this.Name = "FrmTransferOrderSearch";
-            this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.lbl_StoreName, 0);
             this.Controls.SetChildIndex(this.lbl_TransferDate, 0);
+            this.Controls.SetChildIndex(this.btn_search, 0);
             this.Controls.SetChildIndex(this.ddl_InventoryName, 0);
             this.Controls.SetChildIndex(this.dtp_TransferDate, 0);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.panl_Footer.ResumeLayout(false);
+            this.panl_Footer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

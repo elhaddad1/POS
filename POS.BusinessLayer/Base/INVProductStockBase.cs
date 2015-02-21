@@ -1,7 +1,7 @@
 //
 // Class	:	INVProductStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:07 PM
+// Date		:	2/20/2015 7:03:51 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -48,6 +48,12 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? UpdatedBy {get;set;}
+
+		[DataMember]
+		public int? InventoryID {get;set;}
+
+		[DataMember]
+		public bool? IsBlocked {get;set;}
 
 		
 		#endregion

@@ -1,7 +1,7 @@
 //
 // Class	:	INVProductStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:07 PM
+// Date		:	2/20/2015 7:03:50 PM
 //
 
 using System;
@@ -33,6 +33,8 @@ namespace POS.DataLayer
 		public const string CreatedBy                 = "CreatedBy";
 		public const string UpdateDate                = "UpdateDate";
 		public const string UpdatedBy                 = "UpdatedBy";
+		public const string InventoryID               = "InventoryID";
+		public const string IsBlocked                 = "IsBlocked";
 	}
 	
 	/// <summary>
@@ -56,6 +58,8 @@ namespace POS.DataLayer
 		private int?           	_createdByNonDefault     	= null;
 		private DateTime?      	_updateDateNonDefault    	= null;
 		private int?           	_updatedByNonDefault     	= null;
+		private int?           	_inventoryIDNonDefault   	= null;
+		private bool?          	_isBlockedNonDefault     	= null;
 
 		private INVProductStockBatchCollection _iNVProductStockBatchCollectionProductStockID = null;
 		
@@ -237,6 +241,38 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// The foreign key connected with another persistent object.
+		/// </summary>
+		public int? InventoryID
+		{
+			get 
+			{ 
+				return _inventoryIDNonDefault;
+			}
+			set 
+			{
+			
+				_inventoryIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "IsBlocked" field.  
+		/// </summary>
+		public bool? IsBlocked
+		{
+			get 
+			{ 
+				return _isBlockedNonDefault;
+			}
+			set 
+			{
+			
+				_isBlockedNonDefault = value; 
+			}
+		}
+
+		/// <summary>
 		/// Provides access to the related table 'INVProductStockBatch'
 		/// </summary>
 		public INVProductStockBatchCollection INVProductStockBatchCollectionUsingProductStockID
@@ -270,7 +306,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -335,6 +371,18 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
 			  
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			  
+			// Pass the value of '_isBlocked' as parameter 'IsBlocked' of the stored procedure.
+			if(_isBlockedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsBlocked", _isBlockedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsBlocked", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -365,7 +413,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -421,6 +469,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			// Pass the value of '_isBlocked' as parameter 'IsBlocked' of the stored procedure.
+			if(_isBlockedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsBlocked", _isBlockedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsBlocked", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -440,7 +498,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -481,6 +539,12 @@ namespace POS.DataLayer
 			// Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
 			oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault );
 			
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault );
+			
+			// Pass the value of '_isBlocked' as parameter 'IsBlocked' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsBlocked", _isBlockedNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -500,7 +564,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -537,7 +601,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -576,7 +640,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -611,7 +675,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -659,7 +723,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -696,7 +760,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -738,7 +802,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -784,7 +848,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -825,7 +889,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -858,7 +922,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM				Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -896,6 +960,144 @@ namespace POS.DataLayer
 			return obj;
 			
 		}
+        
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVProductStockCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVProductStockCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVProductStockCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVProductStock_SelectAllByForeignKeyInventoryID", ref ExecutionState);
+			obj = new INVProductStockCollection();
+			obj = INVProductStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class INVProductStockCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVProductStockCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVProductStockCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVProductStock_SelectAllByForeignKeyInventoryIDPaged", ref ExecutionState);
+			obj = new INVProductStockCollection();
+			obj = INVProductStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_INVProductStock_DeleteAllByForeignKeyInventoryID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
+			
+		}
+
+
 
 		/// <summary>
 		/// This method will get row(s) from the database using the value of the field specified 
@@ -910,7 +1112,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM				Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -958,7 +1160,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM				Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1006,7 +1208,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM				Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1050,7 +1252,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1087,7 +1289,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1126,6 +1328,16 @@ namespace POS.DataLayer
 				obj.UpdatedBy = rdr.GetInt32(rdr.GetOrdinal(INVProductStockFields.UpdatedBy));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVProductStockFields.InventoryID)))
+			{
+				obj.InventoryID = rdr.GetInt32(rdr.GetOrdinal(INVProductStockFields.InventoryID));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVProductStockFields.IsBlocked)))
+			{
+				obj.IsBlocked = rdr.GetBoolean(rdr.GetOrdinal(INVProductStockFields.IsBlocked));
+			}
+			
 
 		}
 
@@ -1141,7 +1353,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1173,7 +1385,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:07 PM		Created function
+		/// DLGenerator			2/20/2015 7:03:50 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

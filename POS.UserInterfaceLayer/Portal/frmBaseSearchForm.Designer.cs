@@ -34,7 +34,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
-            this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.Dgrid_Result = new System.Windows.Forms.DataGridView();
@@ -68,6 +67,10 @@
             // 
             // panl_Footer
             // 
+            this.panl_Footer.Controls.Add(this.btn_Back);
+            this.panl_Footer.Controls.Add(this.btn_Delete);
+            this.panl_Footer.Controls.Add(this.btn_Edit);
+            this.panl_Footer.Controls.Add(this.btn_Add);
             this.panl_Footer.Controls.Add(this.tableLayoutPanel1);
             this.panl_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panl_Footer.Location = new System.Drawing.Point(0, 341);
@@ -118,23 +121,11 @@
             this.btn_Back.UseVisualStyleBackColor = true;
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
-            // btn_Close
-            // 
-            this.btn_Close.Enabled = false;
-            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(281, 3);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(99, 55);
-            this.btn_Close.TabIndex = 5;
-            this.btn_Close.Text = "أغلاق";
-            this.btn_Close.UseVisualStyleBackColor = true;
-            this.btn_Close.Visible = false;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
-            // 
+            
             // btn_Delete
             // 
             this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(386, 3);
+            this.btn_Delete.Location = new System.Drawing.Point(228, 5);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(99, 55);
             this.btn_Delete.TabIndex = 3;
@@ -145,13 +136,24 @@
             // btn_Edit
             // 
             this.btn_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Edit.Location = new System.Drawing.Point(491, 3);
+            this.btn_Edit.Location = new System.Drawing.Point(335, 5);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(99, 55);
             this.btn_Edit.TabIndex = 4;
             this.btn_Edit.Text = "تعديل";
             this.btn_Edit.UseVisualStyleBackColor = true;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Location = new System.Drawing.Point(442, 5);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(99, 55);
+            this.btn_Add.TabIndex = 0;
+            this.btn_Add.Text = "أضافة";
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // Dgrid_Result
             // 

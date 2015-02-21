@@ -32,6 +32,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.ReportSource.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Shared.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -220,23 +236,11 @@
     <Compile Include="Transfer\FrmAddEditTransferOrder.Designer.cs">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transfer\FrmTransferLineAddEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transfer\FrmTransferLineAddEdit.Designer.cs">
-      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Transfer\FrmTransferOrderSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Transfer\_FrmTransferOrderSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transfer\_FrmTransferOrderSearch.Designer.cs">
-      <DependentUpon>_FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
@@ -319,18 +323,13 @@
     <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
-      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\_FrmTransferOrderSearch.resx">
-      <DependentUpon>_FrmTransferOrderSearch.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

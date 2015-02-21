@@ -48,10 +48,16 @@ namespace POS.BusinessLayer.Wrapper
             return sALSalesHeaderCollection;
         }
 
-        public bool DeleteOrder()
+        public bool DeleteOrder(int SalesHeaderID)
         {
             //int x = Utility.GlobalVariables.CurrentUser.UserID;
-            return POS.DataLayer.SALSalesHeader.DeleteOrder(Utility.GlobalVariables.CurrentUser.UserID);
+            return POS.DataLayer.SALSalesHeader.DeleteOrder(SalesHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
+        }
+
+        public bool CloseOrder(int SalesHeaderID)
+        {
+            return POS.DataLayer.SALSalesHeader.CloseOrder(SalesHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
+
         }
     }
 }
