@@ -15,7 +15,9 @@ namespace POS.BusinessLayer
 	/// </summary>
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class INVTransferLine : INVTransferLineBase
-	{
+    {
+        [DataMember]
+        public string ProductName { get; set; }
 	}
 }
 			
