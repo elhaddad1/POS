@@ -41,10 +41,14 @@
             this.btn_DeleteLine = new System.Windows.Forms.Button();
             this.btn_Minus = new System.Windows.Forms.Button();
             this.btn_Plus = new System.Windows.Forms.Button();
-            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -125,11 +129,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgrd_OrderLines);
             this.groupBox1.Controls.Add(this.btn_AddLine);
             this.groupBox1.Controls.Add(this.btn_DeleteLine);
             this.groupBox1.Controls.Add(this.btn_Minus);
             this.groupBox1.Controls.Add(this.btn_Plus);
-            this.groupBox1.Controls.Add(this.dgrd_OrderLines);
             this.groupBox1.Location = new System.Drawing.Point(12, 134);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(678, 328);
@@ -177,14 +181,6 @@
             this.btn_Plus.UseVisualStyleBackColor = true;
             this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
-            // dgrd_OrderLines
-            // 
-            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 52);
-            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
-            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 270);
-            this.dgrd_OrderLines.TabIndex = 32;
-            // 
             // btn_ClosePrint
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -219,6 +215,51 @@
             this.btn_Cancel.Text = "ألغاء";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // dgrd_OrderLines
+            // 
+            this.dgrd_OrderLines.AllowUserToAddRows = false;
+            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
+            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.TotalQty,
+            this.UnitPrice});
+            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 56);
+            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
+            this.dgrd_OrderLines.ReadOnly = true;
+            this.dgrd_OrderLines.RowHeadersVisible = false;
+            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
+            this.dgrd_OrderLines.TabIndex = 37;
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "أسم المنتج";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            this.ProductName.Width = 210;
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.ReadOnly = true;
+            this.TotalQty.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "سعر الوحدة";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
             // 
             // FrmAddEditTransferOrder
             // 
@@ -266,9 +307,13 @@
         private System.Windows.Forms.Button btn_DeleteLine;
         private System.Windows.Forms.Button btn_Minus;
         private System.Windows.Forms.Button btn_Plus;
-        private System.Windows.Forms.DataGridView dgrd_OrderLines;
         private System.Windows.Forms.Button btn_ClosePrint;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.DataGridView dgrd_OrderLines;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
     }
 }
