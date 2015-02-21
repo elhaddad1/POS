@@ -34,25 +34,27 @@
             this.tbx_OrderSerial = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.btn_AddCustomer = new System.Windows.Forms.Button();
+            this.btn_Close = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
             // 
-            this.panl_Header.Size = new System.Drawing.Size(602, 53);
+            this.panl_Header.Size = new System.Drawing.Size(682, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(463, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(626, 20);
             // 
             // panl_Footer
             // 
             this.panl_Footer.AllowDrop = true;
             this.panl_Footer.AutoSize = true;
+            this.panl_Footer.Controls.Add(this.btn_Close);
             this.panl_Footer.Controls.Add(this.btn_AddCustomer);
             this.panl_Footer.Location = new System.Drawing.Point(0, 347);
-            this.panl_Footer.Size = new System.Drawing.Size(602, 64);
+            this.panl_Footer.Size = new System.Drawing.Size(682, 64);
             this.panl_Footer.Controls.SetChildIndex(this.btn_AddCustomer, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
@@ -62,24 +64,20 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(505, 4);
+            this.btn_Add.Location = new System.Drawing.Point(573, 4);
             this.btn_Add.Text = "فتح فاتورة";
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(77, 4);
+            this.btn_Back.Location = new System.Drawing.Point(134, 5);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(291, 4);
+            this.btn_Delete.Location = new System.Drawing.Point(369, 5);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(398, 4);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Location = new System.Drawing.Point(184, 4);
+            this.btn_Edit.Location = new System.Drawing.Point(474, 5);
             // 
             // label1
             // 
@@ -134,10 +132,21 @@
             this.btn_AddCustomer.UseVisualStyleBackColor = true;
             this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
             // 
+            // btn_Close
+            // 
+            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Close.Location = new System.Drawing.Point(254, 5);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(99, 55);
+            this.btn_Close.TabIndex = 7;
+            this.btn_Close.Text = "أغلاق";
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            // 
             // frmSalesOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(602, 411);
+            this.ClientSize = new System.Drawing.Size(682, 411);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tbx_OrderSerial);
             this.Controls.Add(this.tbx_CustomerName);
@@ -167,5 +176,6 @@
         private System.Windows.Forms.TextBox tbx_OrderSerial;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.Button btn_AddCustomer;
+        private System.Windows.Forms.Button btn_Close;
     }
 }

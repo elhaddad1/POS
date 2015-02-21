@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using POS.BusinessLayer.Utility;
 using POS.BusinessLayer.Wrapper;
 using POS.UserInterfaceLayer.BasicData;
 
@@ -16,14 +17,13 @@ namespace POS.UserInterfaceLayer.Sales
         public frmSalesOrderSearch()
         {
             InitializeComponent();
-            base.toggelButton(base.btn_Close);
+            // base.toggelButton(base.btn_Close);
             base.lbl_FormHeader.Text = "فواتير البيع";
             sALSalesHeaderWrapper = new SALSalesHeaderWrapper();
             InitiateGrid();
 
         }
         #region --Events
-     
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
             FrmCustomerAddEdit frm = new FrmCustomerAddEdit();
@@ -32,22 +32,26 @@ namespace POS.UserInterfaceLayer.Sales
         public override void btn_Add_Click(object sender, EventArgs e)
         {
             frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
+            frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
             frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
             if (dgrid_Result.SelectedRows.Count != 0)
-                if (Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
-                { }
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+
+                }
                 else
                     MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
             if (dgrid_Result.SelectedRows.Count != 0)
-                if (Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    sALSalesHeaderWrapper.DeleteOrder();
+                    sALSalesHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    BindGrid();
                 }
                 else
                     MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
@@ -60,11 +64,21 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
-                { }
+                {
+                    if (sALSalesHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
+                    {
+                        BindGrid();
+                        // Utility.Print(null, 1); 
+                    }
+                }
                 else
-                    MessageBox.Show("لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
+                    MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
         }
         private void btn_Search_Click(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+        private void frmSalesOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
         }
@@ -87,7 +101,6 @@ namespace POS.UserInterfaceLayer.Sales
         private void BindGrid()
         {
             dgrid_Result.DataSource = null;
-
             dgrid_Result.DataSource = sALSalesHeaderWrapper.HeaderSearch(tbx_CustomerName.Text, tbx_OrderSerial.Text);
         }
         #endregion

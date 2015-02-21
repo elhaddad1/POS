@@ -10,12 +10,14 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 
-	/// <summary>
-	/// This class describes the attributes of a BDProduct and is the public interface for this service.
-	/// </summary>
-	[DataContract(Namespace = "POS.BusinessLayer")]
-	public class BDProduct : BDProductBase
-	{
-	}
+    /// <summary>
+    /// This class describes the attributes of a BDProduct and is the public interface for this service.
+    /// </summary>
+    [DataContract(Namespace = "POS.BusinessLayer")]
+    public class BDProduct : BDProductBase
+    {
+        [DataMember]
+        public int? TotalQty { get; set; }
+    }
 }
-			
+

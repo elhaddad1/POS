@@ -15,42 +15,54 @@ using System.Data.Common;
 
 namespace POS.DataLayer
 {
-	
-	/// <summary>
-	/// Data access class for the "BDProduct" table.
-	/// </summary>
-	[Serializable]
-	public class BDProduct : BDProductBase
-	{
-	
-		#region Class Level Variables
 
-		#endregion
-		
-		#region Constants
-		
-		#endregion
+    /// <summary>
+    /// Data access class for the "BDProduct" table.
+    /// </summary>
+    [Serializable]
+    public class BDProduct : BDProductBase
+    {
 
-		#region Constructors / Destructors 
-		
-		public BDProduct() : base()
-		{
-		}
+        #region Class Level Variables
+        private int? _basicQtyNonDefault = null;
+        #endregion
 
-		#endregion
+        #region Constants
 
-		#region Properties
+        #endregion
 
-		#endregion
+        #region Constructors / Destructors
 
-		#region Methods (Public)
+        public BDProduct()
+            : base()
+        {
+        }
 
-		#endregion
-		
-		#region Methods (Private)
+        #endregion
 
-		#endregion
+        #region Properties
+        public int? TotalQty
+        {
+            get
+            {
+                return _basicQtyNonDefault;
+            }
+            set
+            {
 
-	}
-	
+                _basicQtyNonDefault = value;
+            }
+        }
+        #endregion
+
+        #region Methods (Public)
+
+        #endregion
+
+        #region Methods (Private)
+
+        #endregion
+
+    }
+
 }

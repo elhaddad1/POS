@@ -1,9 +1,8 @@
 //
 // Class	:	INVInventoryServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:17 PM
+// Date		:	2/20/2015 7:03:50 PM
 //
-
 
 using POS.DataLayer;
 
@@ -54,6 +53,7 @@ namespace POS.BusinessLayer
 				_iNVInventoryWCF.InventoryID = _iNVInventory.InventoryID;
 				_iNVInventoryWCF.InventoryName = _iNVInventory.InventoryName;
 				_iNVInventoryWCF.Notes = _iNVInventory.Notes;
+				_iNVInventoryWCF.IsBasic = _iNVInventory.IsBasic;
 				
 			return _iNVInventoryWCF;
 		}
@@ -73,6 +73,7 @@ namespace POS.BusinessLayer
 				_iNVInventoryWCF.InventoryID = _iNVInventory.InventoryID;
 				_iNVInventoryWCF.InventoryName = _iNVInventory.InventoryName;
 				_iNVInventoryWCF.Notes = _iNVInventory.Notes;
+				_iNVInventoryWCF.IsBasic = _iNVInventory.IsBasic;
 				
 				iNVInventoryCollection.Add(_iNVInventoryWCF);
 			}
@@ -109,6 +110,7 @@ namespace POS.BusinessLayer
 				_iNVInventoryWCF.InventoryID = _iNVInventory.InventoryID;
 				_iNVInventoryWCF.InventoryName = _iNVInventory.InventoryName;
 				_iNVInventoryWCF.Notes = _iNVInventory.Notes;
+				_iNVInventoryWCF.IsBasic = _iNVInventory.IsBasic;
 				
 				iNVInventoryCollection.Add(_iNVInventoryWCF);
 			}
@@ -128,6 +130,7 @@ namespace POS.BusinessLayer
 			_iNVInventory.InventoryID=iNVInventory.InventoryID;
 			_iNVInventory.InventoryName=iNVInventory.InventoryName;
 			_iNVInventory.Notes=iNVInventory.Notes;
+			_iNVInventory.IsBasic=iNVInventory.IsBasic;
 			
 			return _iNVInventory.Insert();
 		}
@@ -151,6 +154,7 @@ namespace POS.BusinessLayer
 				_iNVInventoryWCF.InventoryID = _iNVInventory.InventoryID;
 				_iNVInventoryWCF.InventoryName = _iNVInventory.InventoryName;
 				_iNVInventoryWCF.Notes = _iNVInventory.Notes;
+				_iNVInventoryWCF.IsBasic = _iNVInventory.IsBasic;
 				
 				iNVInventoryCollection.Add(_iNVInventoryWCF);
 			}
@@ -181,6 +185,7 @@ namespace POS.BusinessLayer
 				_iNVInventoryWCF.InventoryID = _iNVInventory.InventoryID;
 				_iNVInventoryWCF.InventoryName = _iNVInventory.InventoryName;
 				_iNVInventoryWCF.Notes = _iNVInventory.Notes;
+				_iNVInventoryWCF.IsBasic = _iNVInventory.IsBasic;
 				
 				iNVInventoryCollection.Add(_iNVInventoryWCF);
 			}
@@ -199,6 +204,7 @@ namespace POS.BusinessLayer
 			
 			_iNVInventory.InventoryName=iNVInventory.InventoryName;
 			_iNVInventory.Notes=iNVInventory.Notes;
+			_iNVInventory.IsBasic=iNVInventory.IsBasic;
 			
 			return _iNVInventory.Update();
 		}

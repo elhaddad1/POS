@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.BusinessLayer;
+using POS.BusinessLayer.Utility;
 using POS.BusinessLayer.Wrapper;
 
 namespace POS.UserInterfaceLayer.Sales
@@ -63,6 +64,14 @@ namespace POS.UserInterfaceLayer.Sales
                 AdjustScreenControls();
             }
         }
+        private void num_Quantity_ValueChanged(object sender, EventArgs e)
+        {
+            if (cbx_Product.SelectedIndex == -1)
+            {
+                num_Quantity.Text = "0";
+                MessageBox.Show("لابد من أختيار منتج أولا");
+            }
+        }
         #endregion
 
         #region -- Public Methods
@@ -116,7 +125,7 @@ namespace POS.UserInterfaceLayer.Sales
                 lbl_MinPriceValue.Visible = true;
                 tbx_Price.Enabled = true;
                 tbx_Price.ReadOnly = false;
-                tbx_Price.Text = "";
+                tbx_Price.Text = "0";
                 lbl_MinPriceValue.Text = _bDProduct.MinPrice.ToString();
             }
             else
@@ -141,18 +150,26 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesLine.ProductID = Convert.ToInt32(cbx_Product.SelectedValue);
             sALSalesLine.ProductName = cbx_Product.Text;
             sALSalesLine.TotalBonus = 0;
-            sALSalesLine.TotalQty = num_Quantity.Value;
+            sALSalesLine.TotalQty = Convert.ToInt32(num_Quantity.Text);
             sALSalesLine.UnitPrice = Convert.ToDecimal(tbx_Price.Text);
+            sALSalesLine.CreatedBy = GlobalVariables.CurrentUser.UserID;
+
+
             return sALSalesLine;
         }
         private bool Validate()
         {
+            if (string.IsNullOrEmpty(tbx_Price.Text))
+            {
+                MessageBox.Show("برجاء أدهال سعر المنتج");
+                return false;
+            }
             if (Convert.ToDecimal(tbx_Price.Text == "" ? "0" : tbx_Price.Text) < Convert.ToDecimal(lbl_MinPriceValue.Text == "" ? "0" : lbl_MinPriceValue.Text))
             {
                 MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
                 return false;
             }
-            if (num_Quantity.Value == 0)
+            if (Convert.ToInt32(num_Quantity.Text) == 0)
             {
                 MessageBox.Show("أدخل كميه مناسبه");
                 return false;
@@ -160,6 +177,8 @@ namespace POS.UserInterfaceLayer.Sales
             return true;
         }
         #endregion
+
+
 
 
 

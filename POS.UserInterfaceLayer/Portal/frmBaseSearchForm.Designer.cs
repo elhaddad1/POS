@@ -31,7 +31,6 @@
             this.panl_Header = new System.Windows.Forms.Panel();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Footer = new System.Windows.Forms.Panel();
-            this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
@@ -65,7 +64,6 @@
             // 
             // panl_Footer
             // 
-            this.panl_Footer.Controls.Add(this.btn_Close);
             this.panl_Footer.Controls.Add(this.btn_Back);
             this.panl_Footer.Controls.Add(this.btn_Delete);
             this.panl_Footer.Controls.Add(this.btn_Edit);
@@ -76,25 +74,10 @@
             this.panl_Footer.Size = new System.Drawing.Size(554, 62);
             this.panl_Footer.TabIndex = 1;
             // 
-            // btn_Close
-            // 
-            this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Close.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btn_Close.Enabled = false;
-            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(121, 5);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(99, 55);
-            this.btn_Close.TabIndex = 5;
-            this.btn_Close.Text = "أغلاق";
-            this.btn_Close.UseVisualStyleBackColor = true;
-            this.btn_Close.Visible = false;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
-            // 
             // btn_Back
             // 
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(14, 5);
+            this.btn_Back.Location = new System.Drawing.Point(67, 5);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(99, 55);
             this.btn_Back.TabIndex = 2;
@@ -106,7 +89,7 @@
             // 
             this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(228, 5);
+            this.btn_Delete.Location = new System.Drawing.Point(174, 5);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(99, 55);
             this.btn_Delete.TabIndex = 3;
@@ -118,7 +101,7 @@
             // 
             this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Edit.Location = new System.Drawing.Point(335, 5);
+            this.btn_Edit.Location = new System.Drawing.Point(281, 5);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(99, 55);
             this.btn_Edit.TabIndex = 4;
@@ -129,7 +112,7 @@
             // btn_Add
             // 
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(442, 5);
+            this.btn_Add.Location = new System.Drawing.Point(388, 5);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(99, 55);
             this.btn_Add.TabIndex = 0;
@@ -187,6 +170,5 @@
         protected System.Windows.Forms.Button btn_Delete;
         protected System.Windows.Forms.Button btn_Edit;
         private System.Windows.Forms.DataGridView Dgrid_Result;
-        protected System.Windows.Forms.Button btn_Close;
     }
 }

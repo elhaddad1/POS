@@ -61,10 +61,7 @@
             // btn_Edit
             // 
             this.btn_Edit.Location = new System.Drawing.Point(444, 5);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Location = new System.Drawing.Point(230, 5);
+
             // 
             // btn_Priviligies
             // 
