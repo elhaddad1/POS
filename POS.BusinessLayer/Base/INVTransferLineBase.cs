@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:50 PM
+// Date		:	2/22/2015 7:27:21 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -39,6 +39,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? UpdatedBy {get;set;}
+
+		[DataMember]
+		public DateTime? UpdateDate {get;set;}
 
 		[DataMember]
 		public bool? IsDeleted {get;set;}

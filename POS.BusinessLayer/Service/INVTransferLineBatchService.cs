@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:38 PM
+// Date		:	2/22/2015 7:27:21 PM
 //
 
 using System;
@@ -58,6 +58,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 			return _iNVTransferLineBatchWCF;
 		}
@@ -77,6 +78,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -113,6 +115,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -132,6 +135,7 @@ namespace POS.BusinessLayer
 			_iNVTransferLineBatch.TransferLineBatchID=iNVTransferLineBatch.TransferLineBatchID;
 			_iNVTransferLineBatch.TransferLineID=iNVTransferLineBatch.TransferLineID;
 			_iNVTransferLineBatch.BatchID=iNVTransferLineBatch.BatchID;
+			_iNVTransferLineBatch.Qty=iNVTransferLineBatch.Qty;
 			
 			return _iNVTransferLineBatch.Insert();
 		}
@@ -165,6 +169,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -191,6 +196,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -216,6 +222,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -246,6 +253,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
 				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
 				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
+				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
 				
 				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
 			}
@@ -264,6 +272,7 @@ namespace POS.BusinessLayer
 			
 			_iNVTransferLineBatch.TransferLineID=iNVTransferLineBatch.TransferLineID;
 			_iNVTransferLineBatch.BatchID=iNVTransferLineBatch.BatchID;
+			_iNVTransferLineBatch.Qty=iNVTransferLineBatch.Qty;
 			
 			return _iNVTransferLineBatch.Update();
 		}

@@ -236,6 +236,12 @@
     <Compile Include="Transfer\FrmAddEditTransferOrder.Designer.cs">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transfer\FrmTransferLineAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\FrmTransferLineAddEdit.Designer.cs">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transfer\FrmTransferOrderSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,12 +329,16 @@
     <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
-      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
+      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\_FrmTransferOrderSearch.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

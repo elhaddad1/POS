@@ -138,6 +138,7 @@ namespace POS.UserInterfaceLayer.Transfer
             transferLine = new INVTransferLine();
             transferLine.ProductID = Convert.ToInt32(cbx_Product.SelectedValue);
             transferLine.ProductName = cbx_Product.Text;
+            transferLine.Qty = Convert.ToInt32(num_Quantity.Text);
             return transferLine;
         }
         private bool Validate()

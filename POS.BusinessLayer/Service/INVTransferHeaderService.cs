@@ -1,10 +1,14 @@
 //
 // Class	:	INVTransferHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:57 PM
+// Date		:	2/22/2015 7:27:20 PM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -55,9 +59,15 @@ namespace POS.BusinessLayer
 				_iNVTransferHeaderWCF.TransferDate = _iNVTransferHeader.TransferDate;
 				_iNVTransferHeaderWCF.FromInventoryID = _iNVTransferHeader.FromInventoryID;
 				_iNVTransferHeaderWCF.ToInventoryID = _iNVTransferHeader.ToInventoryID;
+				_iNVTransferHeaderWCF.InvoiceNumber = _iNVTransferHeader.InvoiceNumber;
+				_iNVTransferHeaderWCF.InvoiceDate = _iNVTransferHeader.InvoiceDate;
+				_iNVTransferHeaderWCF.IsVoid = _iNVTransferHeader.IsVoid;
+				_iNVTransferHeaderWCF.IsPrinted = _iNVTransferHeader.IsPrinted;
+				_iNVTransferHeaderWCF.IsClosed = _iNVTransferHeader.IsClosed;
 				_iNVTransferHeaderWCF.CreatedBy = _iNVTransferHeader.CreatedBy;
 				_iNVTransferHeaderWCF.CreateDate = _iNVTransferHeader.CreateDate;
 				_iNVTransferHeaderWCF.UpdatedBy = _iNVTransferHeader.UpdatedBy;
+				_iNVTransferHeaderWCF.UpdateDate = _iNVTransferHeader.UpdateDate;
 				_iNVTransferHeaderWCF.IsDeleted = _iNVTransferHeader.IsDeleted;
 				_iNVTransferHeaderWCF.DeletedBy = _iNVTransferHeader.DeletedBy;
 				_iNVTransferHeaderWCF.DeletedDate = _iNVTransferHeader.DeletedDate;
@@ -81,9 +91,15 @@ namespace POS.BusinessLayer
 				_iNVTransferHeaderWCF.TransferDate = _iNVTransferHeader.TransferDate;
 				_iNVTransferHeaderWCF.FromInventoryID = _iNVTransferHeader.FromInventoryID;
 				_iNVTransferHeaderWCF.ToInventoryID = _iNVTransferHeader.ToInventoryID;
+				_iNVTransferHeaderWCF.InvoiceNumber = _iNVTransferHeader.InvoiceNumber;
+				_iNVTransferHeaderWCF.InvoiceDate = _iNVTransferHeader.InvoiceDate;
+				_iNVTransferHeaderWCF.IsVoid = _iNVTransferHeader.IsVoid;
+				_iNVTransferHeaderWCF.IsPrinted = _iNVTransferHeader.IsPrinted;
+				_iNVTransferHeaderWCF.IsClosed = _iNVTransferHeader.IsClosed;
 				_iNVTransferHeaderWCF.CreatedBy = _iNVTransferHeader.CreatedBy;
 				_iNVTransferHeaderWCF.CreateDate = _iNVTransferHeader.CreateDate;
 				_iNVTransferHeaderWCF.UpdatedBy = _iNVTransferHeader.UpdatedBy;
+				_iNVTransferHeaderWCF.UpdateDate = _iNVTransferHeader.UpdateDate;
 				_iNVTransferHeaderWCF.IsDeleted = _iNVTransferHeader.IsDeleted;
 				_iNVTransferHeaderWCF.DeletedBy = _iNVTransferHeader.DeletedBy;
 				_iNVTransferHeaderWCF.DeletedDate = _iNVTransferHeader.DeletedDate;
@@ -124,9 +140,15 @@ namespace POS.BusinessLayer
 				_iNVTransferHeaderWCF.TransferDate = _iNVTransferHeader.TransferDate;
 				_iNVTransferHeaderWCF.FromInventoryID = _iNVTransferHeader.FromInventoryID;
 				_iNVTransferHeaderWCF.ToInventoryID = _iNVTransferHeader.ToInventoryID;
+				_iNVTransferHeaderWCF.InvoiceNumber = _iNVTransferHeader.InvoiceNumber;
+				_iNVTransferHeaderWCF.InvoiceDate = _iNVTransferHeader.InvoiceDate;
+				_iNVTransferHeaderWCF.IsVoid = _iNVTransferHeader.IsVoid;
+				_iNVTransferHeaderWCF.IsPrinted = _iNVTransferHeader.IsPrinted;
+				_iNVTransferHeaderWCF.IsClosed = _iNVTransferHeader.IsClosed;
 				_iNVTransferHeaderWCF.CreatedBy = _iNVTransferHeader.CreatedBy;
 				_iNVTransferHeaderWCF.CreateDate = _iNVTransferHeader.CreateDate;
 				_iNVTransferHeaderWCF.UpdatedBy = _iNVTransferHeader.UpdatedBy;
+				_iNVTransferHeaderWCF.UpdateDate = _iNVTransferHeader.UpdateDate;
 				_iNVTransferHeaderWCF.IsDeleted = _iNVTransferHeader.IsDeleted;
 				_iNVTransferHeaderWCF.DeletedBy = _iNVTransferHeader.DeletedBy;
 				_iNVTransferHeaderWCF.DeletedDate = _iNVTransferHeader.DeletedDate;
@@ -150,9 +172,15 @@ namespace POS.BusinessLayer
 			_iNVTransferHeader.TransferDate=iNVTransferHeader.TransferDate;
 			_iNVTransferHeader.FromInventoryID=iNVTransferHeader.FromInventoryID;
 			_iNVTransferHeader.ToInventoryID=iNVTransferHeader.ToInventoryID;
+			_iNVTransferHeader.InvoiceNumber=iNVTransferHeader.InvoiceNumber;
+			_iNVTransferHeader.InvoiceDate=iNVTransferHeader.InvoiceDate;
+			_iNVTransferHeader.IsVoid=iNVTransferHeader.IsVoid;
+			_iNVTransferHeader.IsPrinted=iNVTransferHeader.IsPrinted;
+			_iNVTransferHeader.IsClosed=iNVTransferHeader.IsClosed;
 			_iNVTransferHeader.CreatedBy=iNVTransferHeader.CreatedBy;
 			_iNVTransferHeader.CreateDate=iNVTransferHeader.CreateDate;
 			_iNVTransferHeader.UpdatedBy=iNVTransferHeader.UpdatedBy;
+			_iNVTransferHeader.UpdateDate=iNVTransferHeader.UpdateDate;
 			_iNVTransferHeader.IsDeleted=iNVTransferHeader.IsDeleted;
 			_iNVTransferHeader.DeletedBy=iNVTransferHeader.DeletedBy;
 			_iNVTransferHeader.DeletedDate=iNVTransferHeader.DeletedDate;
@@ -180,9 +208,15 @@ namespace POS.BusinessLayer
 				_iNVTransferHeaderWCF.TransferDate = _iNVTransferHeader.TransferDate;
 				_iNVTransferHeaderWCF.FromInventoryID = _iNVTransferHeader.FromInventoryID;
 				_iNVTransferHeaderWCF.ToInventoryID = _iNVTransferHeader.ToInventoryID;
+				_iNVTransferHeaderWCF.InvoiceNumber = _iNVTransferHeader.InvoiceNumber;
+				_iNVTransferHeaderWCF.InvoiceDate = _iNVTransferHeader.InvoiceDate;
+				_iNVTransferHeaderWCF.IsVoid = _iNVTransferHeader.IsVoid;
+				_iNVTransferHeaderWCF.IsPrinted = _iNVTransferHeader.IsPrinted;
+				_iNVTransferHeaderWCF.IsClosed = _iNVTransferHeader.IsClosed;
 				_iNVTransferHeaderWCF.CreatedBy = _iNVTransferHeader.CreatedBy;
 				_iNVTransferHeaderWCF.CreateDate = _iNVTransferHeader.CreateDate;
 				_iNVTransferHeaderWCF.UpdatedBy = _iNVTransferHeader.UpdatedBy;
+				_iNVTransferHeaderWCF.UpdateDate = _iNVTransferHeader.UpdateDate;
 				_iNVTransferHeaderWCF.IsDeleted = _iNVTransferHeader.IsDeleted;
 				_iNVTransferHeaderWCF.DeletedBy = _iNVTransferHeader.DeletedBy;
 				_iNVTransferHeaderWCF.DeletedDate = _iNVTransferHeader.DeletedDate;
@@ -217,9 +251,15 @@ namespace POS.BusinessLayer
 				_iNVTransferHeaderWCF.TransferDate = _iNVTransferHeader.TransferDate;
 				_iNVTransferHeaderWCF.FromInventoryID = _iNVTransferHeader.FromInventoryID;
 				_iNVTransferHeaderWCF.ToInventoryID = _iNVTransferHeader.ToInventoryID;
+				_iNVTransferHeaderWCF.InvoiceNumber = _iNVTransferHeader.InvoiceNumber;
+				_iNVTransferHeaderWCF.InvoiceDate = _iNVTransferHeader.InvoiceDate;
+				_iNVTransferHeaderWCF.IsVoid = _iNVTransferHeader.IsVoid;
+				_iNVTransferHeaderWCF.IsPrinted = _iNVTransferHeader.IsPrinted;
+				_iNVTransferHeaderWCF.IsClosed = _iNVTransferHeader.IsClosed;
 				_iNVTransferHeaderWCF.CreatedBy = _iNVTransferHeader.CreatedBy;
 				_iNVTransferHeaderWCF.CreateDate = _iNVTransferHeader.CreateDate;
 				_iNVTransferHeaderWCF.UpdatedBy = _iNVTransferHeader.UpdatedBy;
+				_iNVTransferHeaderWCF.UpdateDate = _iNVTransferHeader.UpdateDate;
 				_iNVTransferHeaderWCF.IsDeleted = _iNVTransferHeader.IsDeleted;
 				_iNVTransferHeaderWCF.DeletedBy = _iNVTransferHeader.DeletedBy;
 				_iNVTransferHeaderWCF.DeletedDate = _iNVTransferHeader.DeletedDate;
@@ -242,9 +282,15 @@ namespace POS.BusinessLayer
 			_iNVTransferHeader.TransferDate=iNVTransferHeader.TransferDate;
 			_iNVTransferHeader.FromInventoryID=iNVTransferHeader.FromInventoryID;
 			_iNVTransferHeader.ToInventoryID=iNVTransferHeader.ToInventoryID;
+			_iNVTransferHeader.InvoiceNumber=iNVTransferHeader.InvoiceNumber;
+			_iNVTransferHeader.InvoiceDate=iNVTransferHeader.InvoiceDate;
+			_iNVTransferHeader.IsVoid=iNVTransferHeader.IsVoid;
+			_iNVTransferHeader.IsPrinted=iNVTransferHeader.IsPrinted;
+			_iNVTransferHeader.IsClosed=iNVTransferHeader.IsClosed;
 			_iNVTransferHeader.CreatedBy=iNVTransferHeader.CreatedBy;
 			_iNVTransferHeader.CreateDate=iNVTransferHeader.CreateDate;
 			_iNVTransferHeader.UpdatedBy=iNVTransferHeader.UpdatedBy;
+			_iNVTransferHeader.UpdateDate=iNVTransferHeader.UpdateDate;
 			_iNVTransferHeader.IsDeleted=iNVTransferHeader.IsDeleted;
 			_iNVTransferHeader.DeletedBy=iNVTransferHeader.DeletedBy;
 			_iNVTransferHeader.DeletedDate=iNVTransferHeader.DeletedDate;

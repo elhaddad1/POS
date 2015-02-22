@@ -15,6 +15,7 @@ namespace POS.UserInterfaceLayer.Transfer
     public partial class FrmAddEditTransferOrder : Form
     {
         private INVInventoryWrapper _inventoryWrapper;
+        private INVTransferHeaderWrapper _transferHeaderWrapper;
         private BDTaxTypeWrapper _bDTaxTypeWrapper;
         private PaymentTypeWrapper _paymentTypeWrapper;
         private BDCustomerWrapper _bDCustomerWrapper;
@@ -94,7 +95,21 @@ namespace POS.UserInterfaceLayer.Transfer
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
+            if (Validate())
+            {
+                try
+                {
+                    if (_transferHeaderWrapper.SaveTransferOrder(CollectHeaderData(), transferLineCollection))
+                    {
+                        MessageBox.Show("تمت العلية");
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                }
+            }
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -141,11 +156,42 @@ namespace POS.UserInterfaceLayer.Transfer
             dgrd_OrderLines.DataSource = transferLineCollection;
             dgrd_OrderLines.Columns[0].DataPropertyName = "ProductID";
             dgrd_OrderLines.Columns[1].DataPropertyName = "ProductName";
-            dgrd_OrderLines.Columns[2].DataPropertyName = "TotalQty";
-            dgrd_OrderLines.Columns[3].DataPropertyName = "UnitPrice";
+            dgrd_OrderLines.Columns[2].DataPropertyName = "Qty";
            
         }
 
+
+        private INVTransferHeader CollectHeaderData()
+        {
+            INVTransferHeader _INVTransferHeader = new INVTransferHeader();
+            _INVTransferHeader.FromInventoryID = Convert.ToInt32(cbx_StoreFrom.SelectedValue);
+            _INVTransferHeader.ToInventoryID = Convert.ToInt32(cbx_StoreTo.SelectedValue);
+            _INVTransferHeader.TransferDate = DateTime.Now;
+            return _INVTransferHeader;
+        }
+
+        private bool Validate()
+        {
+            if (cbx_StoreFrom.SelectedIndex == -1)
+            {
+                MessageBox.Show("اختار المخزن المحول منه");
+                return false;
+            }
+            if (cbx_StoreTo.SelectedIndex == -1)
+            {
+                MessageBox.Show("اختار المخزن المحول اليه");
+                return false;
+            }
+            if (cbx_StoreFrom.SelectedIndex == cbx_StoreTo.SelectedIndex)
+            {
+                MessageBox.Show("اختار اختيار مخزن مختلف عن المخزن المحول منه");
+                return false;
+            }
+
+
+
+            return true;
+        }
         #endregion
 
 

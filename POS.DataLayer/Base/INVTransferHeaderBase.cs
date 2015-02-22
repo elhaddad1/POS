@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:57 PM
+// Date		:	2/22/2015 7:27:20 PM
 //
 
 using System;
@@ -27,9 +27,15 @@ namespace POS.DataLayer
 		public const string TransferDate              = "TransferDate";
 		public const string FromInventoryID           = "FromInventoryID";
 		public const string ToInventoryID             = "ToInventoryID";
+		public const string InvoiceNumber             = "InvoiceNumber";
+		public const string InvoiceDate               = "InvoiceDate";
+		public const string IsVoid                    = "IsVoid";
+		public const string IsPrinted                 = "IsPrinted";
+		public const string IsClosed                  = "IsClosed";
 		public const string CreatedBy                 = "CreatedBy";
 		public const string CreateDate                = "CreateDate";
 		public const string UpdatedBy                 = "UpdatedBy";
+		public const string UpdateDate                = "UpdateDate";
 		public const string IsDeleted                 = "IsDeleted";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string DeletedDate               = "DeletedDate";
@@ -50,12 +56,20 @@ namespace POS.DataLayer
 		private DateTime?      	_transferDateNonDefault  	= null;
 		private int?           	_fromInventoryIDNonDefault	= null;
 		private int?           	_toInventoryIDNonDefault 	= null;
+		private string         	_invoiceNumberNonDefault 	= null;
+		private DateTime?      	_invoiceDateNonDefault   	= null;
+		private bool?          	_isVoidNonDefault        	= false;
+		private bool?          	_isPrintedNonDefault     	= false;
+		private bool?          	_isClosedNonDefault      	= false;
 		private int?           	_createdByNonDefault     	= null;
 		private DateTime?      	_createDateNonDefault    	= null;
 		private int?           	_updatedByNonDefault     	= null;
+		private DateTime?      	_updateDateNonDefault    	= null;
 		private bool?          	_isDeletedNonDefault     	= false;
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deletedDateNonDefault   	= null;
+
+		private INVTransferLineCollection _iNVTransferLineCollectionTransferHeaderID = null;
 		
 		#endregion
 		
@@ -139,6 +153,97 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// This property is mapped to the "InvoiceNumber" field. Length must be between 0 and 50 characters. 
+		/// </summary>
+		public string InvoiceNumber
+		{
+			get 
+			{ 
+				if(_invoiceNumberNonDefault==null)return _invoiceNumberNonDefault;
+				else return _invoiceNumberNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value != null && value.Length > 50)
+					throw new ArgumentException("InvoiceNumber length must be between 0 and 50 characters.");
+
+				
+				if(value ==null)
+				{
+					_invoiceNumberNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_invoiceNumberNonDefault = value.Trim(); 
+				}
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "InvoiceDate" field.  Mandatory.
+		/// </summary>
+		public DateTime? InvoiceDate
+		{
+			get 
+			{ 
+				return _invoiceDateNonDefault;
+			}
+			set 
+			{
+			
+				_invoiceDateNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "IsVoid" field.  Mandatory.
+		/// </summary>
+		public bool? IsVoid
+		{
+			get 
+			{ 
+				return _isVoidNonDefault;
+			}
+			set 
+			{
+			
+				_isVoidNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "IsPrinted" field.  Mandatory.
+		/// </summary>
+		public bool? IsPrinted
+		{
+			get 
+			{ 
+				return _isPrintedNonDefault;
+			}
+			set 
+			{
+			
+				_isPrintedNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "IsClosed" field.  Mandatory.
+		/// </summary>
+		public bool? IsClosed
+		{
+			get 
+			{ 
+				return _isClosedNonDefault;
+			}
+			set 
+			{
+			
+				_isClosedNonDefault = value; 
+			}
+		}
+
+		/// <summary>
 		/// This property is mapped to the "CreatedBy" field.  
 		/// </summary>
 		public int? CreatedBy
@@ -183,6 +288,22 @@ namespace POS.DataLayer
 			{
 			
 				_updatedByNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "UpdateDate" field.  
+		/// </summary>
+		public DateTime? UpdateDate
+		{
+			get 
+			{ 
+				return _updateDateNonDefault;
+			}
+			set 
+			{
+			
+				_updateDateNonDefault = value; 
 			}
 		}
 
@@ -234,6 +355,26 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// Provides access to the related table 'INVTransferLine'
+		/// </summary>
+		public INVTransferLineCollection INVTransferLineCollectionUsingTransferHeaderID
+		{
+			get 
+			{
+				if (_iNVTransferLineCollectionTransferHeaderID == null)
+				{
+					_iNVTransferLineCollectionTransferHeaderID = new INVTransferLineCollection();
+					_iNVTransferLineCollectionTransferHeaderID = INVTransferLine.SelectByField("TransferHeaderID",INVTransferHeaderID, null, TypeOperation.Equal);
+				}                
+				return _iNVTransferLineCollectionTransferHeaderID; 
+			}
+			set 
+			{
+				  _iNVTransferLineCollectionTransferHeaderID = value;
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -248,7 +389,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -277,6 +418,36 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@ToInventoryID", DBNull.Value );
 			  
+			// Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
+			if(_invoiceNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceNumber", _invoiceNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value );
+			  
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			if(_invoiceDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
+			  
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			if(_isVoidNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value );
+			  
+			// Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
+			if(_isPrintedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsPrinted", _isPrintedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsPrinted", DBNull.Value );
+			  
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			if(_isClosedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value );
+			  
 			// Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
 			if(_createdByNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@CreatedBy", _createdByNonDefault);
@@ -294,6 +465,12 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
+			  
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			if(_updateDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value );
 			  
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			if(_isDeletedNonDefault!=null)
@@ -343,7 +520,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -369,6 +546,31 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@ToInventoryID", _toInventoryIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@ToInventoryID", DBNull.Value );
+			// Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
+			if(_invoiceNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceNumber", _invoiceNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value );
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			if(_invoiceDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			if(_isVoidNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value );
+			// Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
+			if(_isPrintedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsPrinted", _isPrintedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsPrinted", DBNull.Value );
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			if(_isClosedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value );
 			// Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
 			if(_createdByNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@CreatedBy", _createdByNonDefault);
@@ -384,6 +586,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			if(_updateDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value );
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			if(_isDeletedNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@IsDeleted", _isDeletedNonDefault);
@@ -418,7 +625,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -441,6 +648,21 @@ namespace POS.DataLayer
 			// Pass the value of '_toInventoryID' as parameter 'ToInventoryID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@ToInventoryID", _toInventoryIDNonDefault );
 			
+			// Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InvoiceNumber", _invoiceNumberNonDefault );
+			
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault );
+			
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault );
+			
+			// Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsPrinted", _isPrintedNonDefault );
+			
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault );
+			
 			// Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
 			oDatabaseHelper.AddParameter("@CreatedBy", _createdByNonDefault );
 			
@@ -449,6 +671,9 @@ namespace POS.DataLayer
 			
 			// Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
 			oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault );
+			
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault );
 			
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			oDatabaseHelper.AddParameter("@IsDeleted", _isDeletedNonDefault );
@@ -478,7 +703,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,7 +740,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -554,7 +779,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -589,7 +814,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -637,7 +862,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -674,7 +899,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -716,7 +941,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -762,7 +987,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -803,7 +1028,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -820,6 +1045,58 @@ namespace POS.DataLayer
 			int count = Convert.ToInt32(dr);		
 			oDatabaseHelper.Dispose();
 			return count;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVTransferHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVTransferHeader</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVTransferHeader SelectOneWithINVTransferLineUsingTransferHeaderID(INVTransferHeaderPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVTransferHeader obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVTransferHeader_SelectOneWithINVTransferLineUsingTransferHeaderID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new INVTransferHeader();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.INVTransferLineCollectionUsingTransferHeaderID=INVTransferLine.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
 			
 		}
 
@@ -840,7 +1117,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -877,7 +1154,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -890,6 +1167,15 @@ namespace POS.DataLayer
 			obj.TransferDate = rdr.GetDateTime(rdr.GetOrdinal(INVTransferHeaderFields.TransferDate));
 			obj.FromInventoryID = rdr.GetInt32(rdr.GetOrdinal(INVTransferHeaderFields.FromInventoryID));
 			obj.ToInventoryID = rdr.GetInt32(rdr.GetOrdinal(INVTransferHeaderFields.ToInventoryID));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferHeaderFields.InvoiceNumber)))
+			{
+				obj.InvoiceNumber = rdr.GetString(rdr.GetOrdinal(INVTransferHeaderFields.InvoiceNumber));
+			}
+			
+			obj.InvoiceDate = rdr.GetDateTime(rdr.GetOrdinal(INVTransferHeaderFields.InvoiceDate));
+			obj.IsVoid = rdr.GetBoolean(rdr.GetOrdinal(INVTransferHeaderFields.IsVoid));
+			obj.IsPrinted = rdr.GetBoolean(rdr.GetOrdinal(INVTransferHeaderFields.IsPrinted));
+			obj.IsClosed = rdr.GetBoolean(rdr.GetOrdinal(INVTransferHeaderFields.IsClosed));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferHeaderFields.CreatedBy)))
 			{
 				obj.CreatedBy = rdr.GetInt32(rdr.GetOrdinal(INVTransferHeaderFields.CreatedBy));
@@ -903,6 +1189,11 @@ namespace POS.DataLayer
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferHeaderFields.UpdatedBy)))
 			{
 				obj.UpdatedBy = rdr.GetInt32(rdr.GetOrdinal(INVTransferHeaderFields.UpdatedBy));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferHeaderFields.UpdateDate)))
+			{
+				obj.UpdateDate = rdr.GetDateTime(rdr.GetOrdinal(INVTransferHeaderFields.UpdateDate));
 			}
 			
 			obj.IsDeleted = rdr.GetBoolean(rdr.GetOrdinal(INVTransferHeaderFields.IsDeleted));
@@ -931,7 +1222,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -963,7 +1254,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:57 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

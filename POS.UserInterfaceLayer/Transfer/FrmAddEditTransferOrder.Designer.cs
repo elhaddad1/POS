@@ -37,6 +37,7 @@
             this.cbx_StoreFrom = new System.Windows.Forms.ComboBox();
             this.cbx_StoreTo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.btn_AddLine = new System.Windows.Forms.Button();
             this.btn_DeleteLine = new System.Windows.Forms.Button();
             this.btn_Minus = new System.Windows.Forms.Button();
@@ -44,11 +45,9 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -141,6 +140,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الفاتورة";
             // 
+            // dgrd_OrderLines
+            // 
+            this.dgrd_OrderLines.AllowUserToAddRows = false;
+            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
+            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.TotalQty});
+            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 56);
+            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
+            this.dgrd_OrderLines.ReadOnly = true;
+            this.dgrd_OrderLines.RowHeadersVisible = false;
+            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
+            this.dgrd_OrderLines.TabIndex = 37;
+            // 
             // btn_AddLine
             // 
             this.btn_AddLine.Location = new System.Drawing.Point(545, 15);
@@ -216,24 +232,6 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // dgrd_OrderLines
-            // 
-            this.dgrd_OrderLines.AllowUserToAddRows = false;
-            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
-            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductID,
-            this.ProductName,
-            this.TotalQty,
-            this.UnitPrice});
-            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 56);
-            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
-            this.dgrd_OrderLines.ReadOnly = true;
-            this.dgrd_OrderLines.RowHeadersVisible = false;
-            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
-            this.dgrd_OrderLines.TabIndex = 37;
-            // 
             // ProductID
             // 
             this.ProductID.HeaderText = "";
@@ -254,12 +252,6 @@
             this.TotalQty.Name = "TotalQty";
             this.TotalQty.ReadOnly = true;
             this.TotalQty.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "سعر الوحدة";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
             // 
             // FrmAddEditTransferOrder
             // 
@@ -314,6 +306,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
     }
 }

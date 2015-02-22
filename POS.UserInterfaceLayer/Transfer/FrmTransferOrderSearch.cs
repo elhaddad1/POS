@@ -42,7 +42,7 @@ namespace POS.UserInterfaceLayer.Transfer
 
             List<INVTransferHeaderModel> transferList = new List<INVTransferHeaderModel>();
 
-            if (invtransferHeader==null)
+            if (invtransferHeader == null)
                 transferList = invtransferHeaderWrapper.getAllTransferTransaction();
             else
                 transferList = invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader);
@@ -56,10 +56,10 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             INVTransferHeader invtransferHeader = new INVTransferHeader();
             invtransferHeader.CreateDate = dtp_TransferDate.Value;
-            int fromInv = 0, toInv=0;
+            int fromInv = 0, toInv = 0;
             int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out fromInv);
             int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out toInv);
-            if(fromInv>0)
+            if (fromInv > 0)
                 invtransferHeader.FromInventoryID = fromInv;
             if (toInv > 0)
                 invtransferHeader.ToInventoryID = toInv;
@@ -72,7 +72,7 @@ namespace POS.UserInterfaceLayer.Transfer
             search();
         }
 
-        private void btn_Add_Click_1(object sender, EventArgs e)
+        public override void btn_Add_Click(object sender, EventArgs e)
         {
             FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this);
             frm.ShowDialog();
