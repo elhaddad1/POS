@@ -169,7 +169,7 @@ namespace POS.UserInterfaceLayer.Sales
                 MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
                 return false;
             }
-            if (Convert.ToInt32(num_Quantity.Text) == 0)
+            if (Convert.ToInt32(num_Quantity.Text) <= 0)
             {
                 MessageBox.Show("أدخل كميه مناسبه");
                 return false;
