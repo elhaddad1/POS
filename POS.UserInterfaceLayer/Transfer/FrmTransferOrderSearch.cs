@@ -74,8 +74,48 @@ namespace POS.UserInterfaceLayer.Transfer
 
         public override void btn_Add_Click(object sender, EventArgs e)
         {
-            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this);
+            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,0);
             frm.ShowDialog();
+        }
+        public override void btn_Edit_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    frm.ShowDialog();
+                }
+                else
+                    MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
+        }
+        public override void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    invtransferHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    InitiateGrid(null);
+                }
+                else
+                    MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
+        }
+        public override void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public void btn_Close_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    if (invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
+                    {
+                        InitiateGrid(null);
+                        // Utility.Print(null, 1); 
+                    }
+                }
+                else
+                    MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
         }
     }
 }

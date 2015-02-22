@@ -21,8 +21,9 @@ namespace POS.UserInterfaceLayer.Transfer
         private BDCustomerWrapper _bDCustomerWrapper;
         private FrmTransferOrderSearch _frmTransferOrderSearch;
         public INVTransferLineCollection transferLineCollection;
+        private INVTransferHeader _transferHeader;
 
-        public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch)
+        public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch, int transferHeaderID)
         {
             InitializeComponent();
             this._bDTaxTypeWrapper = new BDTaxTypeWrapper();
@@ -32,6 +33,8 @@ namespace POS.UserInterfaceLayer.Transfer
             this._inventoryWrapper = new INVInventoryWrapper();
             this._frmTransferOrderSearch = frmTransferOrderSearch;
             FillStokeCBX();
+            if (transferHeaderID > 0)
+                GetTransferOrderData(transferHeaderID);
         }
 
         #region -- Events
@@ -160,6 +163,14 @@ namespace POS.UserInterfaceLayer.Transfer
            
         }
 
+
+        private void GetTransferOrderData(int salesHeaderID)
+        {
+            INVTransferHeaderPrimaryKey pk = new INVTransferHeaderPrimaryKey();
+            pk.INVTransferHeaderID = salesHeaderID;
+            _transferHeader = _transferHeaderWrapper.SelectOne(pk);
+            transferLineCollection = _transferHeaderWrapper.SelectByField(salesHeaderID);
+        }
 
         private INVTransferHeader CollectHeaderData()
         {
