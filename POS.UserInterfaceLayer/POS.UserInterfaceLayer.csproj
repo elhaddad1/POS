@@ -338,6 +338,16 @@
     <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
+      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\_FrmTransferOrderSearch.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

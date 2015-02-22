@@ -81,6 +81,7 @@
     <Compile Include="Base\INVTakingInventoryLineBatchBase.cs" />
     <Compile Include="Base\INVTransferHeaderBase.cs" />
     <Compile Include="Base\INVTransferLineBase.cs" />
+    <Compile Include="Base\INVTransferLineBatchBase.cs" />
     <Compile Include="Base\PaymentTypeBase.cs" />
     <Compile Include="Base\PURPurchaseHeaderBase.cs" />
     <Compile Include="Base\PURPurchaseLineBase.cs" />
@@ -224,7 +225,7 @@
     <Compile Include="Service\INVTakingInventoryLineBatchService.svc.cs" />
     <Compile Include="Service\INVTakingInventoryLineService.svc.cs" />
     <Compile Include="Service\INVTakingInventoryService.svc.cs" />
-    <Compile Include="Service\INVTransferHeaderService.svc.cs" />
+    <Compile Include="Service\INVTransferHeaderService.cs" />
     <Compile Include="Service\INVTransferLineBatchService.cs" />
     <Compile Include="Service\INVTransferLineService.cs" />
     <Compile Include="Service\PaymentTypeService.svc.cs" />
@@ -241,7 +242,6 @@
     <Compile Include="Service\VProductService.svc.cs" />
     <Compile Include="Service\VUserRoleService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
-    <Compile Include="Utility\Utility.cs" />
     <Compile Include="Wrapper\ADGroupRoleWrapper.cs" />
     <Compile Include="Wrapper\ADGroupWrapper.cs" />
     <Compile Include="Wrapper\ADRoleWrapper.cs" />

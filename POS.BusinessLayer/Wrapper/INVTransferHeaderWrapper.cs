@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS.BusinessLayer.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -71,6 +72,78 @@ namespace POS.BusinessLayer.Wrapper
             }
             return resultList;
         }
+
+        /////
+
+        public bool SaveTransferOrder(INVTransferHeader transferHeader, INVTransferLineCollection sALSalesLineCollection)
+        {
+            POS.DataLayer.INVTransferHeader _transferHeader = new POS.DataLayer.INVTransferHeader();
+            _transferHeader.TransferDate = DateTime.Now;
+            _transferHeader.FromInventoryID = transferHeader.FromInventoryID;
+            _transferHeader.ToInventoryID = transferHeader.ToInventoryID;
+            //_transferHeader.IsClosed = false;
+            _transferHeader.CreatedBy = GlobalVariables.CurrentUser.UserID;
+            _transferHeader.CreateDate = DateTime.Now;
+            _transferHeader.UpdatedBy = null;
+            //_transferHeader.UpdateDate = null;
+            _transferHeader.IsDeleted = false;
+            _transferHeader.DeletedBy = null;
+            _transferHeader.DeletedDate = null;
+
+            POS.DataLayer.INVTransferLineCollection _sALSalesLineCollection = new DataLayer.INVTransferLineCollection();
+            foreach (INVTransferLine sALSalesLine in sALSalesLineCollection)
+            {
+                POS.DataLayer.INVTransferLine _sALSalesLine = new POS.DataLayer.INVTransferLine();
+                _sALSalesLine.ProductID = sALSalesLine.ProductID;
+                _sALSalesLine.Qty = sALSalesLine.Qty;
+                _sALSalesLine.CreatedBy = GlobalVariables.CurrentUser.UserID;
+                _sALSalesLine.CreateDate = DateTime.Now;
+                _sALSalesLine.UpdatedBy = null;
+                //_sALSalesLine.UpdateDate = null;
+                _sALSalesLine.IsDeleted = false;
+                _sALSalesLine.DeletedBy = null;
+                _sALSalesLine.DeletedDate = null;
+                _sALSalesLineCollection.Add(_sALSalesLine);
+            }
+            POS.DataLayer.INVTransferLine transferLineObj = new DataLayer.INVTransferLine();
+            return transferLineObj.SaveTransaction(_transferHeader, _sALSalesLineCollection);
+        }
+        public bool SaveCloseTransferOrder(INVTransferHeader transferHeader, INVTransferLineCollection sALSalesLineCollection)
+        {
+            POS.DataLayer.INVTransferHeader _transferHeader = new POS.DataLayer.INVTransferHeader();
+
+            _transferHeader.TransferDate = DateTime.Now;
+            _transferHeader.FromInventoryID = transferHeader.FromInventoryID;
+            _transferHeader.ToInventoryID = transferHeader.ToInventoryID;
+            //_transferHeader.IsClosed = false;
+            _transferHeader.CreatedBy = GlobalVariables.CurrentUser.UserID;
+            _transferHeader.CreateDate = DateTime.Now;
+            _transferHeader.UpdatedBy = null;
+            //_transferHeader.UpdateDate = null;
+            _transferHeader.IsDeleted = false;
+            _transferHeader.DeletedBy = null;
+            _transferHeader.DeletedDate = null;
+
+            POS.DataLayer.INVTransferLineCollection _sALSalesLineCollection = new DataLayer.INVTransferLineCollection();
+            foreach (INVTransferLine sALSalesLine in sALSalesLineCollection)
+            {
+                POS.DataLayer.INVTransferLine _sALSalesLine = new POS.DataLayer.INVTransferLine();
+                _sALSalesLine.ProductID = sALSalesLine.ProductID;
+                _sALSalesLine.Qty = sALSalesLine.Qty;
+                _sALSalesLine.CreatedBy = GlobalVariables.CurrentUser.UserID;
+                _sALSalesLine.CreateDate = DateTime.Now;
+                _sALSalesLine.UpdatedBy = null;
+                //_sALSalesLine.UpdateDate = null;
+                _sALSalesLine.IsDeleted = false;
+                _sALSalesLine.DeletedBy = null;
+                _sALSalesLine.DeletedDate = null;
+                _sALSalesLineCollection.Add(_sALSalesLine);
+            }
+            POS.DataLayer.INVTransferLine transferLineObj = new DataLayer.INVTransferLine();
+            return transferLineObj.SaveTransaction(_transferHeader, _sALSalesLineCollection);
+        }
+
+
 
     }
 

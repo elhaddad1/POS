@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:38 PM
+// Date		:	2/22/2015 7:27:21 PM
 //
 
 using System;
@@ -62,6 +62,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -88,6 +89,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -131,6 +133,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -157,6 +160,7 @@ namespace POS.BusinessLayer
 			_iNVTransferLine.CreatedBy=iNVTransferLine.CreatedBy;
 			_iNVTransferLine.CreateDate=iNVTransferLine.CreateDate;
 			_iNVTransferLine.UpdatedBy=iNVTransferLine.UpdatedBy;
+			_iNVTransferLine.UpdateDate=iNVTransferLine.UpdateDate;
 			_iNVTransferLine.IsDeleted=iNVTransferLine.IsDeleted;
 			_iNVTransferLine.DeletedBy=iNVTransferLine.DeletedBy;
 			_iNVTransferLine.DeletedDate=iNVTransferLine.DeletedDate;
@@ -197,6 +201,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -230,6 +235,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -272,6 +278,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -305,6 +312,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -337,6 +345,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -374,6 +383,7 @@ namespace POS.BusinessLayer
 				_iNVTransferLineWCF.CreatedBy = _iNVTransferLine.CreatedBy;
 				_iNVTransferLineWCF.CreateDate = _iNVTransferLine.CreateDate;
 				_iNVTransferLineWCF.UpdatedBy = _iNVTransferLine.UpdatedBy;
+				_iNVTransferLineWCF.UpdateDate = _iNVTransferLine.UpdateDate;
 				_iNVTransferLineWCF.IsDeleted = _iNVTransferLine.IsDeleted;
 				_iNVTransferLineWCF.DeletedBy = _iNVTransferLine.DeletedBy;
 				_iNVTransferLineWCF.DeletedDate = _iNVTransferLine.DeletedDate;
@@ -399,6 +409,7 @@ namespace POS.BusinessLayer
 			_iNVTransferLine.CreatedBy=iNVTransferLine.CreatedBy;
 			_iNVTransferLine.CreateDate=iNVTransferLine.CreateDate;
 			_iNVTransferLine.UpdatedBy=iNVTransferLine.UpdatedBy;
+			_iNVTransferLine.UpdateDate=iNVTransferLine.UpdateDate;
 			_iNVTransferLine.IsDeleted=iNVTransferLine.IsDeleted;
 			_iNVTransferLine.DeletedBy=iNVTransferLine.DeletedBy;
 			_iNVTransferLine.DeletedDate=iNVTransferLine.DeletedDate;

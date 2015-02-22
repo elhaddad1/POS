@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLinePrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:37 PM
+// Date		:	2/22/2015 7:27:20 PM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

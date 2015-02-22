@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:37 PM
+// Date		:	2/22/2015 7:27:20 PM
 //
 
 using System;
@@ -30,6 +30,7 @@ namespace POS.DataLayer
 		public const string CreatedBy                 = "CreatedBy";
 		public const string CreateDate                = "CreateDate";
 		public const string UpdatedBy                 = "UpdatedBy";
+		public const string UpdateDate                = "UpdateDate";
 		public const string IsDeleted                 = "IsDeleted";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string DeletedDate               = "DeletedDate";
@@ -49,10 +50,11 @@ namespace POS.DataLayer
 		private int?           	_transferLineIDNonDefault	= null;
 		private int?           	_transferHeaderIDNonDefault	= null;
 		private int?           	_productIDNonDefault     	= null;
-		private decimal?       	_qtyNonDefault           	= null;
+		private decimal?       	_qtyNonDefault           	= 0;
 		private int?           	_createdByNonDefault     	= null;
 		private DateTime?      	_createDateNonDefault    	= null;
 		private int?           	_updatedByNonDefault     	= null;
+		private DateTime?      	_updateDateNonDefault    	= null;
 		private bool?          	_isDeletedNonDefault     	= null;
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deletedDateNonDefault   	= null;
@@ -125,7 +127,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "Qty" field.  
+		/// This property is mapped to the "Qty" field.  Mandatory.
 		/// </summary>
 		public decimal? Qty
 		{
@@ -185,6 +187,22 @@ namespace POS.DataLayer
 			{
 			
 				_updatedByNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "UpdateDate" field.  
+		/// </summary>
+		public DateTime? UpdateDate
+		{
+			get 
+			{ 
+				return _updateDateNonDefault;
+			}
+			set 
+			{
+			
+				_updateDateNonDefault = value; 
 			}
 		}
 
@@ -270,7 +288,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -316,6 +334,12 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
+			  
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			if(_updateDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value );
 			  
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			if(_isDeletedNonDefault!=null)
@@ -365,7 +389,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -406,6 +430,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value );
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			if(_updateDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value );
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			if(_isDeletedNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@IsDeleted", _isDeletedNonDefault);
@@ -440,7 +469,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -472,6 +501,9 @@ namespace POS.DataLayer
 			// Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
 			oDatabaseHelper.AddParameter("@UpdatedBy", _updatedByNonDefault );
 			
+			// Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+			oDatabaseHelper.AddParameter("@UpdateDate", _updateDateNonDefault );
+			
 			// Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
 			oDatabaseHelper.AddParameter("@IsDeleted", _isDeletedNonDefault );
 			
@@ -500,7 +532,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -537,7 +569,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -576,7 +608,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -611,7 +643,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -659,7 +691,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -696,7 +728,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -738,7 +770,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -784,7 +816,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -825,7 +857,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -858,7 +890,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -910,7 +942,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -958,7 +990,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1006,7 +1038,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1048,7 +1080,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1096,7 +1128,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1144,7 +1176,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM				Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1188,7 +1220,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1225,7 +1257,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1235,21 +1267,9 @@ namespace POS.DataLayer
 		{
 
 			obj.TransferLineID = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.TransferLineID));
-			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.TransferHeaderID)))
-			{
-				obj.TransferHeaderID = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.TransferHeaderID));
-			}
-			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.ProductID)))
-			{
-				obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.ProductID));
-			}
-			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.Qty)))
-			{
-				obj.Qty = rdr.GetDecimal(rdr.GetOrdinal(INVTransferLineFields.Qty));
-			}
-			
+			obj.TransferHeaderID = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.TransferHeaderID));
+			obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.ProductID));
+			obj.Qty = rdr.GetDecimal(rdr.GetOrdinal(INVTransferLineFields.Qty));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.CreatedBy)))
 			{
 				obj.CreatedBy = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.CreatedBy));
@@ -1263,6 +1283,11 @@ namespace POS.DataLayer
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.UpdatedBy)))
 			{
 				obj.UpdatedBy = rdr.GetInt32(rdr.GetOrdinal(INVTransferLineFields.UpdatedBy));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.UpdateDate)))
+			{
+				obj.UpdateDate = rdr.GetDateTime(rdr.GetOrdinal(INVTransferLineFields.UpdateDate));
 			}
 			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTransferLineFields.IsDeleted)))
@@ -1295,7 +1320,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1327,7 +1352,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/18/2015 10:55:37 PM		Created function
+		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
