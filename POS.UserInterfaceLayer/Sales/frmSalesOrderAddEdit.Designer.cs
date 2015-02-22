@@ -312,7 +312,7 @@
             this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
             this.txt_DiscountRatio.TabIndex = 28;
             this.txt_DiscountRatio.Text = "%0";
-            this.txt_DiscountRatio.Leave += new System.EventHandler(this.txt_DiscountRatio_Leave);
+            this.txt_DiscountRatio.TextChanged += new System.EventHandler(this.txt_DiscountRatio_TextChanged);
             // 
             // label8
             // 
@@ -375,6 +375,7 @@
             this.num_OtherPayments.Size = new System.Drawing.Size(78, 20);
             this.num_OtherPayments.TabIndex = 23;
             this.num_OtherPayments.Text = "0";
+            this.num_OtherPayments.TextChanged += new System.EventHandler(this.num_OtherPayments_TextChanged);
             // 
             // label4
             // 
