@@ -40,7 +40,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 if ((frmAddEditTransferOrder.transferLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).ToList().Count) == 0)
                     frmAddEditTransferOrder.transferLineCollection.Add(CollectScreenData());
                 //else
-                    //frmAddEditTransferOrder.transferLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty++;
+                //frmAddEditTransferOrder.transferLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty++;
 
                 this.Close();
             }
@@ -148,7 +148,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
                 return false;
             }
-            if (num_Quantity.Value == 0)
+            if (int.Parse(num_Quantity.Text) == 0)
             {
                 MessageBox.Show("أدخل كميه مناسبه");
                 return false;

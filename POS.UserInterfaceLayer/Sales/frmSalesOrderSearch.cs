@@ -60,7 +60,7 @@ namespace POS.UserInterfaceLayer.Sales
         {
             this.Close();
         }
-        public override void btn_Close_Click(object sender, EventArgs e)
+        public void btn_Close_Click(object sender, EventArgs e)
         {
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
