@@ -65,6 +65,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.num_Paied = new System.Windows.Forms.TextBox();
             this.num_Remaining = new System.Windows.Forms.TextBox();
+            this.cbx_Inventory = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -430,6 +432,23 @@
             this.num_Remaining.Text = "0";
             this.num_Remaining.TextChanged += new System.EventHandler(this.num_Remaining_TextChanged);
             // 
+            // cbx_Inventory
+            // 
+            this.cbx_Inventory.FormattingEnabled = true;
+            this.cbx_Inventory.Location = new System.Drawing.Point(455, 59);
+            this.cbx_Inventory.Name = "cbx_Inventory";
+            this.cbx_Inventory.Size = new System.Drawing.Size(241, 21);
+            this.cbx_Inventory.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(367, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "المخزن";
+            // 
             // frmSalesOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +456,8 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(703, 532);
             this.ControlBox = false;
+            this.Controls.Add(this.cbx_Inventory);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.num_OtherPayments);
             this.Controls.Add(this.num_Remaining);
             this.Controls.Add(this.num_Paied);
@@ -513,5 +534,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox num_Paied;
         private System.Windows.Forms.TextBox num_Remaining;
+        private System.Windows.Forms.ComboBox cbx_Inventory;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -326,9 +326,17 @@
     <EmbeddedResource Include="Sales\frmSalesOrderAddEdit.resx">
       <DependentUpon>frmSalesOrderAddEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
+      <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
+      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
       <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
     </EmbeddedResource>

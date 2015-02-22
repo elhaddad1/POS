@@ -302,7 +302,7 @@ namespace POS.DataLayer
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            oDatabaseHelper.ExecuteScalar("gsp_SALSalesLine_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("usp_SALSalesLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
             return ExecutionState;
         }
