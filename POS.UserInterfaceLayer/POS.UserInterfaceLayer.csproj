@@ -277,6 +277,9 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FrmOpenTakingInventory.resx">
+      <DependentUpon>FrmOpenTakingInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
       <DependentUpon>frmStockInquiry.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +316,7 @@
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\POS.BusinessLayer.INVInventory.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -335,7 +339,9 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
