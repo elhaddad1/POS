@@ -36,16 +36,24 @@
             this.btn_AddCustomer = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
             // 
+            this.panl_Header.Location = new System.Drawing.Point(0, 133);
             this.panl_Header.Size = new System.Drawing.Size(682, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(626, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(610, 20);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_Search);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Size = new System.Drawing.Size(682, 133);
             // 
             // panl_Footer
             // 
@@ -56,28 +64,7 @@
             this.panl_Footer.Location = new System.Drawing.Point(0, 347);
             this.panl_Footer.Size = new System.Drawing.Size(682, 64);
             this.panl_Footer.Controls.SetChildIndex(this.btn_AddCustomer, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Delete, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Back, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Close, 0);
-            // 
-            // btn_Add
-            // 
-            this.btn_Add.Location = new System.Drawing.Point(573, 4);
-            this.btn_Add.Text = "فتح فاتورة";
-            // 
-            // btn_Back
-            // 
-            this.btn_Back.Location = new System.Drawing.Point(134, 5);
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Location = new System.Drawing.Point(369, 5);
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Location = new System.Drawing.Point(474, 5);
             // 
             // label1
             // 
@@ -113,7 +100,7 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(449, 83);
+            this.btn_Search.Location = new System.Drawing.Point(155, 62);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(75, 40);
             this.btn_Search.TabIndex = 12;
@@ -147,21 +134,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(682, 411);
-            this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tbx_OrderSerial);
             this.Controls.Add(this.tbx_CustomerName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "frmSalesOrderSearch";
+            this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.tbx_CustomerName, 0);
             this.Controls.SetChildIndex(this.tbx_OrderSerial, 0);
-            this.Controls.SetChildIndex(this.btn_Search, 0);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.panl_Footer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

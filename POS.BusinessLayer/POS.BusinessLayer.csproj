@@ -242,6 +242,7 @@
     <Compile Include="Service\VProductService.svc.cs" />
     <Compile Include="Service\VUserRoleService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
+    <Compile Include="Utility\Utility.cs" />
     <Compile Include="Wrapper\ADGroupRoleWrapper.cs" />
     <Compile Include="Wrapper\ADGroupWrapper.cs" />
     <Compile Include="Wrapper\ADRoleWrapper.cs" />

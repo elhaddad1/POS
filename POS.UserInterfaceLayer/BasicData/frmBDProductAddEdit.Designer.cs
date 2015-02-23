@@ -61,24 +61,24 @@
             // 
             // panl_Header
             // 
-            this.panl_Header.Size = new System.Drawing.Size(951, 53);
+            this.panl_Header.Size = new System.Drawing.Size(693, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2587, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2811, 9);
             // 
             // panl_Footer
             // 
-            this.panl_Footer.Location = new System.Drawing.Point(0, 418);
-            this.panl_Footer.Size = new System.Drawing.Size(951, 62);
+            this.panl_Footer.Location = new System.Drawing.Point(0, 360);
+            this.panl_Footer.Size = new System.Drawing.Size(693, 62);
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(479, 4);
+            this.btn_Save.Location = new System.Drawing.Point(350, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(374, 4);
+            this.btn_Back.Location = new System.Drawing.Point(245, 3);
             // 
             // lbl_ProductName
             // 
@@ -92,7 +92,7 @@
             // lbl_Notes
             // 
             this.lbl_Notes.AutoSize = true;
-            this.lbl_Notes.Location = new System.Drawing.Point(16, 305);
+            this.lbl_Notes.Location = new System.Drawing.Point(16, 210);
             this.lbl_Notes.Name = "lbl_Notes";
             this.lbl_Notes.Size = new System.Drawing.Size(51, 16);
             this.lbl_Notes.TabIndex = 3;
@@ -100,14 +100,14 @@
             // 
             // txt_ProductName
             // 
-            this.txt_ProductName.Location = new System.Drawing.Point(142, 59);
+            this.txt_ProductName.Location = new System.Drawing.Point(92, 59);
             this.txt_ProductName.Name = "txt_ProductName";
-            this.txt_ProductName.Size = new System.Drawing.Size(188, 22);
+            this.txt_ProductName.Size = new System.Drawing.Size(238, 22);
             this.txt_ProductName.TabIndex = 4;
             // 
             // txt_Notes
             // 
-            this.txt_Notes.Location = new System.Drawing.Point(142, 305);
+            this.txt_Notes.Location = new System.Drawing.Point(92, 203);
             this.txt_Notes.Multiline = true;
             this.txt_Notes.Name = "txt_Notes";
             this.txt_Notes.Size = new System.Drawing.Size(420, 97);
@@ -115,24 +115,24 @@
             // 
             // txt_ProductCode
             // 
-            this.txt_ProductCode.Location = new System.Drawing.Point(142, 126);
+            this.txt_ProductCode.Location = new System.Drawing.Point(92, 95);
             this.txt_ProductCode.Name = "txt_ProductCode";
-            this.txt_ProductCode.Size = new System.Drawing.Size(188, 22);
+            this.txt_ProductCode.Size = new System.Drawing.Size(238, 22);
             this.txt_ProductCode.TabIndex = 7;
             // 
             // lbl_ProductCode
             // 
             this.lbl_ProductCode.AutoSize = true;
-            this.lbl_ProductCode.Location = new System.Drawing.Point(16, 132);
+            this.lbl_ProductCode.Location = new System.Drawing.Point(16, 101);
             this.lbl_ProductCode.Name = "lbl_ProductCode";
             this.lbl_ProductCode.Size = new System.Drawing.Size(57, 16);
             this.lbl_ProductCode.TabIndex = 6;
-            this.lbl_ProductCode.Text = "رقم الصنف";
+            this.lbl_ProductCode.Text = "كود الصنف";
             // 
             // lbl_ProductPrice
             // 
             this.lbl_ProductPrice.AutoSize = true;
-            this.lbl_ProductPrice.Location = new System.Drawing.Point(16, 219);
+            this.lbl_ProductPrice.Location = new System.Drawing.Point(16, 138);
             this.lbl_ProductPrice.Name = "lbl_ProductPrice";
             this.lbl_ProductPrice.Size = new System.Drawing.Size(61, 16);
             this.lbl_ProductPrice.TabIndex = 8;
@@ -141,27 +141,28 @@
             // lbl_DiscountAmount
             // 
             this.lbl_DiscountAmount.AutoSize = true;
-            this.lbl_DiscountAmount.Location = new System.Drawing.Point(16, 256);
+            this.lbl_DiscountAmount.Location = new System.Drawing.Point(12, 325);
             this.lbl_DiscountAmount.Name = "lbl_DiscountAmount";
             this.lbl_DiscountAmount.Size = new System.Drawing.Size(47, 16);
             this.lbl_DiscountAmount.TabIndex = 10;
             this.lbl_DiscountAmount.Text = "خصومات";
+            this.lbl_DiscountAmount.Visible = false;
             // 
             // nmr_ProductPrice
             // 
-            this.nmr_ProductPrice.Location = new System.Drawing.Point(142, 213);
+            this.nmr_ProductPrice.Location = new System.Drawing.Point(92, 132);
             this.nmr_ProductPrice.Maximum = new decimal(new int[] {
             1316134911,
             2328,
             0,
             0});
             this.nmr_ProductPrice.Name = "nmr_ProductPrice";
-            this.nmr_ProductPrice.Size = new System.Drawing.Size(188, 22);
+            this.nmr_ProductPrice.Size = new System.Drawing.Size(238, 22);
             this.nmr_ProductPrice.TabIndex = 11;
             // 
             // nmr_DiscountAmount
             // 
-            this.nmr_DiscountAmount.Location = new System.Drawing.Point(142, 254);
+            this.nmr_DiscountAmount.Location = new System.Drawing.Point(67, 323);
             this.nmr_DiscountAmount.Maximum = new decimal(new int[] {
             1316134911,
             2328,
@@ -170,11 +171,12 @@
             this.nmr_DiscountAmount.Name = "nmr_DiscountAmount";
             this.nmr_DiscountAmount.Size = new System.Drawing.Size(188, 22);
             this.nmr_DiscountAmount.TabIndex = 12;
+            this.nmr_DiscountAmount.Visible = false;
             // 
             // lbl_ProductGroupID
             // 
             this.lbl_ProductGroupID.AutoSize = true;
-            this.lbl_ProductGroupID.Location = new System.Drawing.Point(16, 94);
+            this.lbl_ProductGroupID.Location = new System.Drawing.Point(359, 62);
             this.lbl_ProductGroupID.Name = "lbl_ProductGroupID";
             this.lbl_ProductGroupID.Size = new System.Drawing.Size(69, 16);
             this.lbl_ProductGroupID.TabIndex = 13;
@@ -183,15 +185,17 @@
             // ddl_ProductGroupID
             // 
             this.ddl_ProductGroupID.FormattingEnabled = true;
-            this.ddl_ProductGroupID.Location = new System.Drawing.Point(141, 91);
+            this.ddl_ProductGroupID.Location = new System.Drawing.Point(452, 59);
             this.ddl_ProductGroupID.Name = "ddl_ProductGroupID";
-            this.ddl_ProductGroupID.Size = new System.Drawing.Size(188, 24);
+            this.ddl_ProductGroupID.Size = new System.Drawing.Size(238, 24);
             this.ddl_ProductGroupID.TabIndex = 14;
             // 
             // chk_IsFixedPrice
             // 
             this.chk_IsFixedPrice.AutoSize = true;
-            this.chk_IsFixedPrice.Location = new System.Drawing.Point(357, 217);
+            this.chk_IsFixedPrice.Checked = true;
+            this.chk_IsFixedPrice.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_IsFixedPrice.Location = new System.Drawing.Point(359, 134);
             this.chk_IsFixedPrice.Name = "chk_IsFixedPrice";
             this.chk_IsFixedPrice.Size = new System.Drawing.Size(69, 20);
             this.chk_IsFixedPrice.TabIndex = 17;
@@ -201,33 +205,36 @@
             // chk_HasDiscount
             // 
             this.chk_HasDiscount.AutoSize = true;
-            this.chk_HasDiscount.Location = new System.Drawing.Point(356, 253);
+            this.chk_HasDiscount.Location = new System.Drawing.Point(263, 322);
             this.chk_HasDiscount.Name = "chk_HasDiscount";
             this.chk_HasDiscount.Size = new System.Drawing.Size(69, 20);
             this.chk_HasDiscount.TabIndex = 18;
             this.chk_HasDiscount.Text = "لديه خصم";
             this.chk_HasDiscount.UseVisualStyleBackColor = true;
+            this.chk_HasDiscount.Visible = false;
             // 
             // nmr_DescountRatio
             // 
-            this.nmr_DescountRatio.Location = new System.Drawing.Point(592, 254);
+            this.nmr_DescountRatio.Location = new System.Drawing.Point(409, 323);
             this.nmr_DescountRatio.Name = "nmr_DescountRatio";
             this.nmr_DescountRatio.Size = new System.Drawing.Size(188, 22);
             this.nmr_DescountRatio.TabIndex = 20;
+            this.nmr_DescountRatio.Visible = false;
             // 
             // lbl_DescountRatio
             // 
             this.lbl_DescountRatio.AutoSize = true;
-            this.lbl_DescountRatio.Location = new System.Drawing.Point(466, 256);
+            this.lbl_DescountRatio.Location = new System.Drawing.Point(340, 325);
             this.lbl_DescountRatio.Name = "lbl_DescountRatio";
             this.lbl_DescountRatio.Size = new System.Drawing.Size(61, 16);
             this.lbl_DescountRatio.TabIndex = 19;
             this.lbl_DescountRatio.Text = "نسبة الخصم";
+            this.lbl_DescountRatio.Visible = false;
             // 
             // chk_IsAcceptBatch
             // 
             this.chk_IsAcceptBatch.AutoSize = true;
-            this.chk_IsAcceptBatch.Location = new System.Drawing.Point(356, 128);
+            this.chk_IsAcceptBatch.Location = new System.Drawing.Point(359, 101);
             this.chk_IsAcceptBatch.Name = "chk_IsAcceptBatch";
             this.chk_IsAcceptBatch.Size = new System.Drawing.Size(87, 20);
             this.chk_IsAcceptBatch.TabIndex = 21;
@@ -237,7 +244,9 @@
             // chk_IsActive
             // 
             this.chk_IsActive.AutoSize = true;
-            this.chk_IsActive.Location = new System.Drawing.Point(479, 128);
+            this.chk_IsActive.Checked = true;
+            this.chk_IsActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_IsActive.Location = new System.Drawing.Point(452, 101);
             this.chk_IsActive.Name = "chk_IsActive";
             this.chk_IsActive.Size = new System.Drawing.Size(47, 20);
             this.chk_IsActive.TabIndex = 22;
@@ -246,32 +255,32 @@
             // 
             // nmr_MaxPrice
             // 
-            this.nmr_MaxPrice.Location = new System.Drawing.Point(497, 168);
+            this.nmr_MaxPrice.Location = new System.Drawing.Point(452, 170);
             this.nmr_MaxPrice.Maximum = new decimal(new int[] {
             1316134911,
             2328,
             0,
             0});
             this.nmr_MaxPrice.Name = "nmr_MaxPrice";
-            this.nmr_MaxPrice.Size = new System.Drawing.Size(188, 22);
+            this.nmr_MaxPrice.Size = new System.Drawing.Size(238, 22);
             this.nmr_MaxPrice.TabIndex = 26;
             // 
             // nmr_MinPrice
             // 
-            this.nmr_MinPrice.Location = new System.Drawing.Point(141, 164);
+            this.nmr_MinPrice.Location = new System.Drawing.Point(92, 166);
             this.nmr_MinPrice.Maximum = new decimal(new int[] {
             1316134911,
             2328,
             0,
             0});
             this.nmr_MinPrice.Name = "nmr_MinPrice";
-            this.nmr_MinPrice.Size = new System.Drawing.Size(188, 22);
+            this.nmr_MinPrice.Size = new System.Drawing.Size(238, 22);
             this.nmr_MinPrice.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(371, 170);
+            this.label1.Location = new System.Drawing.Point(359, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 24;
@@ -280,7 +289,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 170);
+            this.label2.Location = new System.Drawing.Point(16, 172);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 23;
@@ -289,7 +298,7 @@
             // frmBDProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(951, 480);
+            this.ClientSize = new System.Drawing.Size(693, 422);
             this.Controls.Add(this.nmr_MaxPrice);
             this.Controls.Add(this.nmr_MinPrice);
             this.Controls.Add(this.label1);

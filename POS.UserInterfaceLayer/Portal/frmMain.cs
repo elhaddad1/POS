@@ -148,6 +148,12 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
+        private void mnuItem_SalesOrder_Click(object sender, EventArgs e)
+        {
+            frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
+            frm.ShowDialog();
+        }
+
 
 
 
