@@ -349,7 +349,7 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@UserID", UserID);
             oDatabaseHelper.AddParameter("@INVTransferHeaderID", INVTransferHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-            oDatabaseHelper.ExecuteScalar("usp_INVTransferLine_DeleteLines", ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("usp_TransferLine_DeleteLines", ref ExecutionState);
 
             return ExecutionState;
         }
