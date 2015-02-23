@@ -12,6 +12,7 @@ namespace POS.BusinessLayer.Utility
     {
         public static bool Print(ReportDocument doc, int copies)
         {
+           
             bool status = false;
             TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
             TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
