@@ -19,6 +19,7 @@ namespace POS.UserInterfaceLayer.Sales
             InitializeComponent();
             // base.toggelButton(base.btn_Close);
             base.lbl_FormHeader.Text = "فواتير البيع";
+            base.panl_Header.Dock = DockStyle.Top;
             sALSalesHeaderWrapper = new SALSalesHeaderWrapper();
             InitiateGrid();
 
@@ -40,7 +41,7 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    frmSalesOrderAddEdit frm=new frmSalesOrderAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
                     frm.ShowDialog();
                 }
                 else
@@ -103,6 +104,7 @@ namespace POS.UserInterfaceLayer.Sales
         {
             dgrid_Result.DataSource = null;
             dgrid_Result.DataSource = sALSalesHeaderWrapper.HeaderSearch(tbx_CustomerName.Text, tbx_OrderSerial.Text);
+
         }
         #endregion
 

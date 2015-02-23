@@ -46,6 +46,7 @@ namespace POS.UserInterfaceLayer.Sales
             _paymentTypeWrapper = new PaymentTypeWrapper();
             _bDCustomerWrapper = new BDCustomerWrapper();
             sALSalesLineCollection = new SALSalesLineCollection();
+            _sALSalesHeader = new SALSalesHeader();
             _sALSalesLinerWrapper = new SALSalesLinerWrapper();
             FillCustomerCBX();
             FillPaymentTypeCBX();
@@ -107,17 +108,28 @@ namespace POS.UserInterfaceLayer.Sales
             {
                 try
                 {
-                    if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(CollectHeaderData(), sALSalesLineCollection))
+                    if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        // print
-                        //  Utility.Print(null, 1);
-                        MessageBox.Show("تمت العلية");
-                        this.Close();
+                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        {
+                            //   Utility.Print();
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        if (_sALSalesLinerWrapper.UpdateCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        {
+                            //   Utility.Print();
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -127,10 +139,21 @@ namespace POS.UserInterfaceLayer.Sales
             {
                 try
                 {
-                    if (_sALSalesLinerWrapper.SaveSALSalesOrder(CollectHeaderData(), sALSalesLineCollection))
+                    if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        MessageBox.Show("تمت العلية");
-                        this.Close();
+                        if (_sALSalesLinerWrapper.SaveSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        {
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        if (_sALSalesLinerWrapper.UpdateSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        {
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -241,9 +264,9 @@ namespace POS.UserInterfaceLayer.Sales
 
             return _total;
         }
-        private SALSalesHeader CollectHeaderData()
+        private void CollectHeaderData()
         {
-            SALSalesHeader _sALSalesHeader = new SALSalesHeader();
+
             _sALSalesHeader.CustomerID = Convert.ToInt32(cbx_Customer.SelectedValue);
             _sALSalesHeader.InvoiceDate = dtb_Date.Value.Date;
             _sALSalesHeader.LastDayToPay = Convert.ToDecimal(num_Remaining.Text) >= 0 ? null : (DateTime?)dtb_LastTimeToPay.Value.Date;
@@ -258,9 +281,9 @@ namespace POS.UserInterfaceLayer.Sales
             _sALSalesHeader.TotalDiscountRatio = (double)discountRatio;
             _sALSalesHeader.TotalPrice = Convert.ToDecimal(txt_Total.Text);
 
-            return _sALSalesHeader;
+
         }
-        private bool Validate()
+        new private bool Validate()
         {
             if (cbx_Customer.SelectedIndex == -1)
             {
