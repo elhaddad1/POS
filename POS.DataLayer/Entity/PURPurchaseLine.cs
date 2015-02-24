@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseLine.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:11 PM
+// Date		:	2/24/2015 10:40:54 AM
 //
 
 using System;
@@ -15,196 +15,472 @@ using System.Data.Common;
 
 namespace POS.DataLayer
 {
+	
+	/// <summary>
+	/// Data access class for the "PURPurchaseLine" table.
+	/// </summary>
+	[Serializable]
+	public class PURPurchaseLine : PURPurchaseLineBase
+	{
+	
+		#region Class Level Variables
+        private DatabaseHelper oDatabaseHelper;
+        private string _productNameNonDefault = null;
+		#endregion
+		
+		#region Constants
+		
+		#endregion
 
-    /// <summary>
-    /// Data access class for the "PURPurchaseLine" table.
-    /// </summary>
-    [Serializable]
-    public class PURPurchaseLine : PURPurchaseLineBase
-    {
+		#region Constructors / Destructors 
+		
+		public PURPurchaseLine() : base()
+		{
+		}
 
-        #region Class Level Variables
-        private DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-        #endregion
+		#endregion
 
-        #region Constants
-
-        #endregion
-
-        #region Constructors / Destructors
-
-        public PURPurchaseLine()
-            : base()
+		#region Properties
+        public string ProductName
         {
+            get
+            {
+                return _productNameNonDefault;
+            }
+            set
+            {
+
+                _productNameNonDefault = value;
+            }
         }
+		#endregion
 
-        #endregion
-
-        #region Properties
-
-        #endregion
-
-        #region Methods (Public)
-        public bool InsertTransaction(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
+		#region Methods (Public)
+        public bool SaveTransaction(PURPurchaseHeader sALPurchaseHeader, PURPurchaseLineCollection sALPurchaseLineCollection)
         {
             oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
-            int purchaseHeaderID;
+            int salesHeaderID;
             oDatabaseHelper.BeginTransaction();
-            if (InsertHeader(oDatabaseHelper, pURPurchaseHeader, out purchaseHeaderID))
-                if (InsertDetails(oDatabaseHelper))
+            if (InsertHeader(oDatabaseHelper, sALPurchaseHeader, out salesHeaderID))
+            {
+                foreach (PURPurchaseLine sALPurchaseLine in sALPurchaseLineCollection)
                 {
-                    oDatabaseHelper.CommitTransaction(); ExecutionState = true;
+                    if (!InsertDetails(oDatabaseHelper, sALPurchaseLine, salesHeaderID))
+                    {
+                        ExecutionState = false;
+                        break;
+                    }
+                    else
+                        ExecutionState = true;
                 }
+                if (ExecutionState)
+                    oDatabaseHelper.CommitTransaction();
                 else
-                {
                     oDatabaseHelper.RollbackTransaction();
-                    ExecutionState = false;
-                }
-
+            }
             return ExecutionState;
         }
 
-        #endregion
+        public bool UpdateTransaction(PURPurchaseHeader sALPurchaseHeader, PURPurchaseLineCollection sALPurchaseLineCollection)
+        {
+            oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+            oDatabaseHelper.BeginTransaction();
+            if (UpdateHeader(oDatabaseHelper, sALPurchaseHeader))
+            {
+                if (DeleteDetails(oDatabaseHelper, (int)sALPurchaseHeader.PurcaseHeaderID, (int)sALPurchaseHeader.CreatedBy))
+                {
+                    foreach (PURPurchaseLine sALPurchaseLine in sALPurchaseLineCollection)
+                    {
+                        if (!InsertDetails(oDatabaseHelper, sALPurchaseLine, (int)sALPurchaseHeader.PurcaseHeaderID))
+                        {
+                            ExecutionState = false;
+                            break;
+                        }
+                        else
+                            ExecutionState = true;
+                    }
+                    if (ExecutionState)
+                        oDatabaseHelper.CommitTransaction();
+                    else
+                        oDatabaseHelper.RollbackTransaction();
+                }
+                else
+                    ExecutionState = false;
+            }
+            else
+                ExecutionState = false;
+            return ExecutionState;
+        }
 
-        #region Methods (Private)
-        private bool InsertHeader(DatabaseHelper oDatabaseHelper, PURPurchaseHeader pURPurchaseHeader, out int pK)
+		#endregion
+		
+		#region Methods (Private)
+        private bool InsertHeader(DatabaseHelper oDatabaseHelper, PURPurchaseHeader sALPurchaseHeader, out int pK)
         {
             bool ExecutionState = false;
-            //   pK = -1;
-            // Pass the value of '_purchaseDate' as parameter 'PurchaseDate' of the stored procedure.
-            if (pURPurchaseHeader.PurchaseDate != null)
-                oDatabaseHelper.AddParameter("@PurchaseDate", pURPurchaseHeader.PurchaseDate);
-            else
-                oDatabaseHelper.AddParameter("@PurchaseDate", DBNull.Value);
-            // Pass the value of '_paymentTypeID' as parameter 'PaymentTypeID' of the stored procedure.
-            if (pURPurchaseHeader.PaymentTypeID != null)
-                oDatabaseHelper.AddParameter("@PaymentTypeID", pURPurchaseHeader.PaymentTypeID);
-            else
-                oDatabaseHelper.AddParameter("@PaymentTypeID", DBNull.Value);
-            // Pass the value of '_supplierID' as parameter 'SupplierID' of the stored procedure.
-            if (pURPurchaseHeader.SupplierID != null)
-                oDatabaseHelper.AddParameter("@SupplierID", pURPurchaseHeader.SupplierID);
+            // Pass the value of '_salesDate' as parameter 'PurchaseDate' of the stored procedure.
+
+            oDatabaseHelper.AddParameter("@PurchaseDate", sALPurchaseHeader.PurchaseDate);
+            // Pass the value of '_customerID' as parameter 'SupplierID' of the stored procedure.
+            if (sALPurchaseHeader.SupplierID != null)
+                oDatabaseHelper.AddParameter("@SupplierID", sALPurchaseHeader.SupplierID);
             else
                 oDatabaseHelper.AddParameter("@SupplierID", DBNull.Value);
             // Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
-            if (pURPurchaseHeader.InvoiceNumber != null)
-                oDatabaseHelper.AddParameter("@InvoiceNumber", pURPurchaseHeader.InvoiceNumber);
+
+            oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value);
+            // Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+            if (sALPurchaseHeader.InvoiceDate != null)
+                oDatabaseHelper.AddParameter("@InvoiceDate", sALPurchaseHeader.InvoiceDate);
             else
-                oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value);
-            // Pass the value of '_createDate' as parameter 'CreateDate' of the stored procedure.
-            if (pURPurchaseHeader.CreateDate != null)
-                oDatabaseHelper.AddParameter("@CreateDate", pURPurchaseHeader.CreateDate);
+                oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value);
+            // Pass the value of '_sellerID' as parameter 'SellerID' of the stored procedure.
+            //if (sALPurchaseHeader.SellerID != null)
+            //    oDatabaseHelper.AddParameter("@SellerID", sALPurchaseHeader.SellerID);
+            //else
+            //    oDatabaseHelper.AddParameter("@SellerID", DBNull.Value);
+            // Pass the value of '_paymentTypeID' as parameter 'PaymentTypeID' of the stored procedure.
+            if (sALPurchaseHeader.PaymentTypeID != null)
+                oDatabaseHelper.AddParameter("@PaymentTypeID", sALPurchaseHeader.PaymentTypeID);
             else
-                oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
-            // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
-            if (pURPurchaseHeader.CreatedBy != null)
-                oDatabaseHelper.AddParameter("@CreatedBy", pURPurchaseHeader.CreatedBy);
-            else
-                oDatabaseHelper.AddParameter("@CreatedBy", DBNull.Value);
-            // Pass the value of '_updateDate' as parameter 'updateDate' of the stored procedure.
-            if (pURPurchaseHeader.updateDate != null)
-                oDatabaseHelper.AddParameter("@updateDate", pURPurchaseHeader.updateDate);
-            else
-                oDatabaseHelper.AddParameter("@updateDate", DBNull.Value);
-            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
-            if (pURPurchaseHeader.UpdatedBy != null)
-                oDatabaseHelper.AddParameter("@UpdatedBy", pURPurchaseHeader.UpdatedBy);
-            else
-                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
-            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
-            if (pURPurchaseHeader.IsDeleted != null)
-                oDatabaseHelper.AddParameter("@IsDeleted", pURPurchaseHeader.IsDeleted);
-            else
-                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
-            // Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
-            if (pURPurchaseHeader.DeleteDate != null)
-                oDatabaseHelper.AddParameter("@DeleteDate", pURPurchaseHeader.DeleteDate);
-            else
-                oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value);
+                oDatabaseHelper.AddParameter("@PaymentTypeID", DBNull.Value);
             // Pass the value of '_totalPrice' as parameter 'TotalPrice' of the stored procedure.
-            if (pURPurchaseHeader.TotalPrice != null)
-                oDatabaseHelper.AddParameter("@TotalPrice", pURPurchaseHeader.TotalPrice);
+            if (sALPurchaseHeader.TotalPrice != null)
+                oDatabaseHelper.AddParameter("@TotalPrice", sALPurchaseHeader.TotalPrice);
             else
                 oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
-            // Pass the value of '_servicePrice' as parameter 'ServicePrice' of the stored procedure.
-            if (pURPurchaseHeader.ServicePrice != null)
-                oDatabaseHelper.AddParameter("@ServicePrice", pURPurchaseHeader.ServicePrice);
-            else
-                oDatabaseHelper.AddParameter("@ServicePrice", DBNull.Value);
             // Pass the value of '_paidAmount' as parameter 'PaidAmount' of the stored procedure.
-            if (pURPurchaseHeader.PaidAmount != null)
-                oDatabaseHelper.AddParameter("@PaidAmount", pURPurchaseHeader.PaidAmount);
+            if (sALPurchaseHeader.PaidAmount != null)
+                oDatabaseHelper.AddParameter("@PaidAmount", sALPurchaseHeader.PaidAmount);
             else
                 oDatabaseHelper.AddParameter("@PaidAmount", DBNull.Value);
-            // Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
-            if (pURPurchaseHeader.IsClosed != null)
-                oDatabaseHelper.AddParameter("@IsClosed", pURPurchaseHeader.IsClosed);
+            // Pass the value of '_remainingAmount' as parameter 'RemainingAmount' of the stored procedure.
+            if (sALPurchaseHeader.RemainingAmount != null)
+                oDatabaseHelper.AddParameter("@RemainingAmount", sALPurchaseHeader.RemainingAmount);
             else
-                oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value);
-            // Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
-            if (pURPurchaseHeader.IsVoid != null)
-                oDatabaseHelper.AddParameter("@IsVoid", pURPurchaseHeader.IsVoid);
+                oDatabaseHelper.AddParameter("@RemainingAmount", DBNull.Value);
+            // Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
+            if (sALPurchaseHeader.LastDayToPay != null)
+                oDatabaseHelper.AddParameter("@LastDayToPay", sALPurchaseHeader.LastDayToPay);
             else
-                oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value);
-            // Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
-            if (pURPurchaseHeader.IsPrinted != null)
-                oDatabaseHelper.AddParameter("@IsPrinted", pURPurchaseHeader.IsPrinted);
-            else
-                oDatabaseHelper.AddParameter("@IsPrinted", DBNull.Value);
-            // Pass the value of '_refuseReasonID' as parameter 'RefuseReasonID' of the stored procedure.
-            if (pURPurchaseHeader.RefuseReasonID != null)
-                oDatabaseHelper.AddParameter("@RefuseReasonID", pURPurchaseHeader.RefuseReasonID);
-            else
-                oDatabaseHelper.AddParameter("@RefuseReasonID", DBNull.Value);
+                oDatabaseHelper.AddParameter("@LastDayToPay", DBNull.Value);
             // Pass the value of '_totalDiscountAmount' as parameter 'TotalDiscountAmount' of the stored procedure.
-            if (pURPurchaseHeader.TotalDiscountAmount != null)
-                oDatabaseHelper.AddParameter("@TotalDiscountAmount", pURPurchaseHeader.TotalDiscountAmount);
+            if (sALPurchaseHeader.TotalDiscountAmount != null)
+                oDatabaseHelper.AddParameter("@TotalDiscountAmount", sALPurchaseHeader.TotalDiscountAmount);
             else
                 oDatabaseHelper.AddParameter("@TotalDiscountAmount", DBNull.Value);
             // Pass the value of '_totalDiscountRatio' as parameter 'TotalDiscountRatio' of the stored procedure.
-            if (pURPurchaseHeader.TotalDiscountRatio != null)
-                oDatabaseHelper.AddParameter("@TotalDiscountRatio", pURPurchaseHeader.TotalDiscountRatio);
+            if (sALPurchaseHeader.TotalDiscountRatio != null)
+                oDatabaseHelper.AddParameter("@TotalDiscountRatio", sALPurchaseHeader.TotalDiscountRatio);
             else
                 oDatabaseHelper.AddParameter("@TotalDiscountRatio", DBNull.Value);
+            // Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+            if (sALPurchaseHeader.IsClosed != null)
+                oDatabaseHelper.AddParameter("@IsClosed", sALPurchaseHeader.IsClosed);
+            else
+                oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value);
+            // Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+            if (sALPurchaseHeader.IsVoid != null)
+                oDatabaseHelper.AddParameter("@IsVoid", sALPurchaseHeader.IsVoid);
+            else
+                oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value);
+            // Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
+            if (sALPurchaseHeader.IsPrinted != null)
+                oDatabaseHelper.AddParameter("@IsPrinted", sALPurchaseHeader.IsPrinted);
+            else
+                oDatabaseHelper.AddParameter("@IsPrinted", DBNull.Value);
+            // Pass the value of '_servicePrice' as parameter 'ServicePrice' of the stored procedure.
+            if (sALPurchaseHeader.ServicePrice != null)
+                oDatabaseHelper.AddParameter("@ServicePrice", sALPurchaseHeader.ServicePrice);
+            else
+                oDatabaseHelper.AddParameter("@ServicePrice", DBNull.Value);
             // Pass the value of '_taxTypeID' as parameter 'TaxTypeID' of the stored procedure.
-            if (pURPurchaseHeader.TaxTypeID != null)
-                oDatabaseHelper.AddParameter("@TaxTypeID", pURPurchaseHeader.TaxTypeID);
+            if (sALPurchaseHeader.TaxTypeID != null)
+                oDatabaseHelper.AddParameter("@TaxTypeID", sALPurchaseHeader.TaxTypeID);
             else
                 oDatabaseHelper.AddParameter("@TaxTypeID", DBNull.Value);
-            // Pass the value of '_renainingAmount' as parameter 'RenainingAmount' of the stored procedure.
-            if (pURPurchaseHeader.RenainingAmount != null)
-                oDatabaseHelper.AddParameter("@RenainingAmount", pURPurchaseHeader.RenainingAmount);
+            // Pass the value of '_refuseReasonID' as parameter 'RefuseReasonID' of the stored procedure.
+            if (sALPurchaseHeader.RefuseReasonID != null)
+                oDatabaseHelper.AddParameter("@RefuseReasonID", sALPurchaseHeader.RefuseReasonID);
             else
-                oDatabaseHelper.AddParameter("@RenainingAmount", DBNull.Value);
-            // Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
-            if (pURPurchaseHeader.LastDayToPay != null)
-                oDatabaseHelper.AddParameter("@LastDayToPay", pURPurchaseHeader.LastDayToPay);
+                oDatabaseHelper.AddParameter("@RefuseReasonID", DBNull.Value);
+            // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
+            if (sALPurchaseHeader.CreatedBy != null)
+                oDatabaseHelper.AddParameter("@CreatedBy", sALPurchaseHeader.CreatedBy);
             else
-                oDatabaseHelper.AddParameter("@LastDayToPay", DBNull.Value);
+                oDatabaseHelper.AddParameter("@CreatedBy", DBNull.Value);
+            // Pass the value of '_createDate' as parameter 'CreateDate' of the stored procedure.
+            if (sALPurchaseHeader.CreateDate != null)
+                oDatabaseHelper.AddParameter("@CreateDate", sALPurchaseHeader.CreateDate);
+            else
+                oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
+            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
+            if (sALPurchaseHeader.UpdatedBy != null)
+                oDatabaseHelper.AddParameter("@UpdatedBy", sALPurchaseHeader.UpdatedBy);
+            else
+                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
+            // Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+            if (sALPurchaseHeader.updateDate != null)
+                oDatabaseHelper.AddParameter("@UpdateDate", sALPurchaseHeader.updateDate);
+            else
+                oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value);
+            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
+            if (sALPurchaseHeader.IsDeleted != null)
+                oDatabaseHelper.AddParameter("@IsDeleted", sALPurchaseHeader.IsDeleted);
+            else
+                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
             // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
-            if (pURPurchaseHeader.DeletedBy != null)
-                oDatabaseHelper.AddParameter("@DeletedBy", pURPurchaseHeader.DeletedBy);
+            if (sALPurchaseHeader.DeletedBy != null)
+                oDatabaseHelper.AddParameter("@DeletedBy", sALPurchaseHeader.DeletedBy);
             else
                 oDatabaseHelper.AddParameter("@DeletedBy", DBNull.Value);
-            // Pass the value of '_notes' as parameter 'Notes' of the stored procedure.
-            if (pURPurchaseHeader.Notes != null)
-                oDatabaseHelper.AddParameter("@Notes", pURPurchaseHeader.Notes);
+            // Pass the value of '_deletDate' as parameter 'DeletDate' of the stored procedure.
+            if (sALPurchaseHeader.DeleteDate != null)
+                oDatabaseHelper.AddParameter("@DeletDate", sALPurchaseHeader.DeleteDate);
             else
-                oDatabaseHelper.AddParameter("@Notes", DBNull.Value);
+                oDatabaseHelper.AddParameter("@DeletDate", DBNull.Value);
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            pK = (int)oDatabaseHelper.ExecuteScalar("gsp_PURPurchaseHeader_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
-            //  oDatabaseHelper.Dispose();
+            try
+            {
+                pK = Convert.ToInt32(oDatabaseHelper.ExecuteScalar("usp_PURPurchaseHeader_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState));
+                //    oDatabaseHelper.Dispose();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return ExecutionState;
+        }
+        private bool InsertDetails(DatabaseHelper oDatabaseHelper, PURPurchaseLine sALPurchaseLine, int salesHeaderID)
+        {
+            bool ExecutionState = false;
+            // Pass the value of '_salesHeaderID' as parameter 'PurchaseHeaderID' of the stored procedure.
+            if (salesHeaderID != null)
+                oDatabaseHelper.AddParameter("@PurchaseHeaderID", salesHeaderID);
+            else
+                oDatabaseHelper.AddParameter("@PurchaseHeaderID", DBNull.Value);
+            // Pass the value of '_productID' as parameter 'ProductID' of the stored procedure.
+            if (sALPurchaseLine.ProductID != null)
+                oDatabaseHelper.AddParameter("@ProductID", sALPurchaseLine.ProductID);
+            else
+                oDatabaseHelper.AddParameter("@ProductID", DBNull.Value);
+            // Pass the value of '_totalQty' as parameter 'TotalQty' of the stored procedure.
+            if (sALPurchaseLine.TotalQty != null)
+                oDatabaseHelper.AddParameter("@TotalQty", sALPurchaseLine.TotalQty);
+            else
+                oDatabaseHelper.AddParameter("@TotalQty", DBNull.Value);
+            // Pass the value of '_totalBonus' as parameter 'TotalBonus' of the stored procedure.
+            if (sALPurchaseLine.BonusQty != null)
+                oDatabaseHelper.AddParameter("@TotalBonus", sALPurchaseLine.BonusQty);
+            else
+                oDatabaseHelper.AddParameter("@TotalBonus", DBNull.Value);
+            // Pass the value of '_discountAmount' as parameter 'DiscountAmount' of the stored procedure.
+            if (sALPurchaseLine.DiscountAmount != null)
+                oDatabaseHelper.AddParameter("@DiscountAmount", sALPurchaseLine.DiscountAmount);
+            else
+                oDatabaseHelper.AddParameter("@DiscountAmount", DBNull.Value);
+            // Pass the value of '_discountRatio' as parameter 'DiscountRatio' of the stored procedure.
+            if (sALPurchaseLine.DiscountRatio != null)
+                oDatabaseHelper.AddParameter("@DiscountRatio", sALPurchaseLine.DiscountRatio);
+            else
+                oDatabaseHelper.AddParameter("@DiscountRatio", DBNull.Value);
+            // Pass the value of '_unitPrice' as parameter 'UnitPrice' of the stored procedure.
+            if (sALPurchaseLine.Unitprice != null)
+                oDatabaseHelper.AddParameter("@UnitPrice", sALPurchaseLine.Unitprice);
+            else
+                oDatabaseHelper.AddParameter("@UnitPrice", DBNull.Value);
+            // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
+            if (sALPurchaseLine.CreatedBy != null)
+                oDatabaseHelper.AddParameter("@CreatedBy", sALPurchaseLine.CreatedBy);
+            else
+                oDatabaseHelper.AddParameter("@CreatedBy", DBNull.Value);
+            // Pass the value of '_createDate' as parameter 'CreateDate' of the stored procedure.
+            if (sALPurchaseLine.CreatedDate != null)
+                oDatabaseHelper.AddParameter("@CreateDate", sALPurchaseLine.CreatedDate);
+            else
+                oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
+            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
+            if (sALPurchaseLine.UpdatedBy != null)
+                oDatabaseHelper.AddParameter("@UpdatedBy", sALPurchaseLine.UpdatedBy);
+            else
+                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
+            // Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+            if (sALPurchaseLine.UpdateDate != null)
+                oDatabaseHelper.AddParameter("@UpdateDate", sALPurchaseLine.UpdateDate);
+            else
+                oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value);
+            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
+            if (sALPurchaseLine.IsDeleted != null)
+                oDatabaseHelper.AddParameter("@IsDeleted", sALPurchaseLine.IsDeleted);
+            else
+                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            if (sALPurchaseLine.DeletedBy != null)
+                oDatabaseHelper.AddParameter("@DeletedBy", sALPurchaseLine.DeletedBy);
+            else
+                oDatabaseHelper.AddParameter("@DeletedBy", DBNull.Value);
+            // Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
+            if (sALPurchaseLine.DeleteDate != null)
+                oDatabaseHelper.AddParameter("@DeleteDate", sALPurchaseLine.DeleteDate);
+            else
+                oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value);
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+
+            return ExecutionState;
+        }
+        private bool UpdateHeader(DatabaseHelper oDatabaseHelper, PURPurchaseHeader sALPurchaseHeader)
+        {
+            bool ExecutionState = false;
+            // Pass the value of '_salesHeaderID' as parameter 'PurchaseHeaderID' of the stored procedure.
+            oDatabaseHelper.AddParameter("@PurchaseDate", sALPurchaseHeader.PurchaseDate);
+            // Pass the value of '_customerID' as parameter 'SupplierID' of the stored procedure.
+            if (sALPurchaseHeader.SupplierID != null)
+                oDatabaseHelper.AddParameter("@SupplierID", sALPurchaseHeader.SupplierID);
+            else
+                oDatabaseHelper.AddParameter("@SupplierID", DBNull.Value);
+            // Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
+
+            oDatabaseHelper.AddParameter("@InvoiceNumber", sALPurchaseHeader.InvoiceNumber);
+            // Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+            if (sALPurchaseHeader.InvoiceDate != null)
+                oDatabaseHelper.AddParameter("@InvoiceDate", sALPurchaseHeader.InvoiceDate);
+            else
+                oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value);
+            // Pass the value of '_sellerID' as parameter 'SellerID' of the stored procedure.
+            //if (sALPurchaseHeader.SellerID != null)
+            //    oDatabaseHelper.AddParameter("@SellerID", sALPurchaseHeader.SellerID);
+            //else
+            //    oDatabaseHelper.AddParameter("@SellerID", DBNull.Value);
+            // Pass the value of '_paymentTypeID' as parameter 'PaymentTypeID' of the stored procedure.
+            if (sALPurchaseHeader.PaymentTypeID != null)
+                oDatabaseHelper.AddParameter("@PaymentTypeID", sALPurchaseHeader.PaymentTypeID);
+            else
+                oDatabaseHelper.AddParameter("@PaymentTypeID", DBNull.Value);
+            // Pass the value of '_totalPrice' as parameter 'TotalPrice' of the stored procedure.
+            if (sALPurchaseHeader.TotalPrice != null)
+                oDatabaseHelper.AddParameter("@TotalPrice", sALPurchaseHeader.TotalPrice);
+            else
+                oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
+            // Pass the value of '_paidAmount' as parameter 'PaidAmount' of the stored procedure.
+            if (sALPurchaseHeader.PaidAmount != null)
+                oDatabaseHelper.AddParameter("@PaidAmount", sALPurchaseHeader.PaidAmount);
+            else
+                oDatabaseHelper.AddParameter("@PaidAmount", DBNull.Value);
+            // Pass the value of '_remainingAmount' as parameter 'RemainingAmount' of the stored procedure.
+            if (sALPurchaseHeader.RemainingAmount != null)
+                oDatabaseHelper.AddParameter("@RemainingAmount", sALPurchaseHeader.RemainingAmount);
+            else
+                oDatabaseHelper.AddParameter("@RemainingAmount", DBNull.Value);
+            // Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
+            if (sALPurchaseHeader.LastDayToPay != null)
+                oDatabaseHelper.AddParameter("@LastDayToPay", sALPurchaseHeader.LastDayToPay);
+            else
+                oDatabaseHelper.AddParameter("@LastDayToPay", DBNull.Value);
+            // Pass the value of '_totalDiscountAmount' as parameter 'TotalDiscountAmount' of the stored procedure.
+            if (sALPurchaseHeader.TotalDiscountAmount != null)
+                oDatabaseHelper.AddParameter("@TotalDiscountAmount", sALPurchaseHeader.TotalDiscountAmount);
+            else
+                oDatabaseHelper.AddParameter("@TotalDiscountAmount", DBNull.Value);
+            // Pass the value of '_totalDiscountRatio' as parameter 'TotalDiscountRatio' of the stored procedure.
+            if (sALPurchaseHeader.TotalDiscountRatio != null)
+                oDatabaseHelper.AddParameter("@TotalDiscountRatio", sALPurchaseHeader.TotalDiscountRatio);
+            else
+                oDatabaseHelper.AddParameter("@TotalDiscountRatio", DBNull.Value);
+            // Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+            if (sALPurchaseHeader.IsClosed != null)
+                oDatabaseHelper.AddParameter("@IsClosed", sALPurchaseHeader.IsClosed);
+            else
+                oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value);
+            // Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+            if (sALPurchaseHeader.IsVoid != null)
+                oDatabaseHelper.AddParameter("@IsVoid", sALPurchaseHeader.IsVoid);
+            else
+                oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value);
+            // Pass the value of '_isPrinted' as parameter 'IsPrinted' of the stored procedure.
+            if (sALPurchaseHeader.IsPrinted != null)
+                oDatabaseHelper.AddParameter("@IsPrinted", sALPurchaseHeader.IsPrinted);
+            else
+                oDatabaseHelper.AddParameter("@IsPrinted", DBNull.Value);
+            // Pass the value of '_servicePrice' as parameter 'ServicePrice' of the stored procedure.
+            if (sALPurchaseHeader.ServicePrice != null)
+                oDatabaseHelper.AddParameter("@ServicePrice", sALPurchaseHeader.ServicePrice);
+            else
+                oDatabaseHelper.AddParameter("@ServicePrice", DBNull.Value);
+            // Pass the value of '_taxTypeID' as parameter 'TaxTypeID' of the stored procedure.
+            if (sALPurchaseHeader.TaxTypeID != null)
+                oDatabaseHelper.AddParameter("@TaxTypeID", sALPurchaseHeader.TaxTypeID);
+            else
+                oDatabaseHelper.AddParameter("@TaxTypeID", DBNull.Value);
+            // Pass the value of '_refuseReasonID' as parameter 'RefuseReasonID' of the stored procedure.
+            if (sALPurchaseHeader.RefuseReasonID != null)
+                oDatabaseHelper.AddParameter("@RefuseReasonID", sALPurchaseHeader.RefuseReasonID);
+            else
+                oDatabaseHelper.AddParameter("@RefuseReasonID", DBNull.Value);
+            // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
+            if (sALPurchaseHeader.CreatedBy != null)
+                oDatabaseHelper.AddParameter("@CreatedBy", sALPurchaseHeader.CreatedBy);
+            else
+                oDatabaseHelper.AddParameter("@CreatedBy", DBNull.Value);
+            // Pass the value of '_createDate' as parameter 'CreateDate' of the stored procedure.
+            if (sALPurchaseHeader.CreateDate != null)
+                oDatabaseHelper.AddParameter("@CreateDate", sALPurchaseHeader.CreateDate);
+            else
+                oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
+            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
+            if (sALPurchaseHeader.UpdatedBy != null)
+                oDatabaseHelper.AddParameter("@UpdatedBy", sALPurchaseHeader.UpdatedBy);
+            else
+                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
+            // Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+            if (sALPurchaseHeader.updateDate != null)
+                oDatabaseHelper.AddParameter("@UpdateDate", sALPurchaseHeader.updateDate);
+            else
+                oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value);
+            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
+            if (sALPurchaseHeader.IsDeleted != null)
+                oDatabaseHelper.AddParameter("@IsDeleted", sALPurchaseHeader.IsDeleted);
+            else
+                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            if (sALPurchaseHeader.DeletedBy != null)
+                oDatabaseHelper.AddParameter("@DeletedBy", sALPurchaseHeader.DeletedBy);
+            else
+                oDatabaseHelper.AddParameter("@DeletedBy", DBNull.Value);
+            // Pass the value of '_deletDate' as parameter 'DeletDate' of the stored procedure.
+            if (sALPurchaseHeader.DeleteDate != null)
+                oDatabaseHelper.AddParameter("@DeletDate", sALPurchaseHeader.DeleteDate);
+            else
+                oDatabaseHelper.AddParameter("@DeletDate", DBNull.Value);
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            oDatabaseHelper.ExecuteScalar("gsp_PURPurchaseHeader_Update", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+
             return ExecutionState;
 
         }
+        private bool DeleteDetails(DatabaseHelper oDatabaseHelper, int PurchaseHeaderID, int UserID)
+        {
+            bool ExecutionState = false;
 
-        private bool InsertDetails(DatabaseHelper oDatabaseHelper)
-        { return false; }
-        #endregion
+            oDatabaseHelper.AddParameter("@UserID", UserID);
+            oDatabaseHelper.AddParameter("@PurchaseHeaderID", PurchaseHeaderID);
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_DeleteLines", ref ExecutionState);
 
-    }
+            return ExecutionState;
+        }
+        
+		#endregion
 
+	}
+	
 }

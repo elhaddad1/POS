@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseLine.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:11 PM
+// Date		:	2/24/2015 10:40:54 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -16,6 +16,8 @@ namespace POS.BusinessLayer
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class PURPurchaseLine : PURPurchaseLineBase
 	{
+        [DataMember]
+        public string ProductName { get; set; }
 	}
 }
 			

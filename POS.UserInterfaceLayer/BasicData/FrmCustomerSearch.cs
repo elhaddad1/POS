@@ -22,6 +22,7 @@ namespace POS.UserInterfaceLayer.BasicData
         {
            // grb_Search.Height = 150;
             dgrid_Result .Size = new Size(10, 250);
+            //dgrid_Result.Anchor = AnchorStyles.Top;
             dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
              addColumnToGrid("رقم العميل", "CustomerID", 120, false );
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);

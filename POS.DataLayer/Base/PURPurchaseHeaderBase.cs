@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:06 PM
+// Date		:	2/24/2015 11:36:31 AM
 //
 
 using System;
@@ -44,10 +44,12 @@ namespace POS.DataLayer
 		public const string TotalDiscountAmount       = "TotalDiscountAmount";
 		public const string TotalDiscountRatio        = "TotalDiscountRatio";
 		public const string TaxTypeID                 = "TaxTypeID";
-		public const string RenainingAmount           = "RenainingAmount";
+		public const string RemainingAmount           = "RemainingAmount";
 		public const string LastDayToPay              = "LastDayToPay";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string Notes                     = "Notes";
+		public const string InventoryID               = "InventoryID";
+		public const string InvoiceDate               = "InvoiceDate";
 	}
 	
 	/// <summary>
@@ -82,10 +84,12 @@ namespace POS.DataLayer
 		private decimal?       	_totalDiscountAmountNonDefault	= 0;
 		private double?        	_totalDiscountRatioNonDefault	= 0;
 		private int?           	_taxTypeIDNonDefault     	= null;
-		private decimal?       	_renainingAmountNonDefault	= 0;
+		private decimal?       	_remainingAmountNonDefault	= 0;
 		private DateTime?      	_lastDayToPayNonDefault  	= null;
 		private int?           	_deletedByNonDefault     	= null;
 		private string         	_notesNonDefault         	= null;
+		private int?           	_inventoryIDNonDefault   	= null;
+		private DateTime?      	_invoiceDateNonDefault   	= null;
 
 		private PURPurchaseLineCollection _pURPurchaseLineCollectionPurchaseHeaderID = null;
 		private PURPurchaseReturnHeaderCollection _pURPurchaseReturnHeaderCollectionOriginalHeaderID = null;
@@ -455,18 +459,18 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "RenainingAmount" field.  Mandatory.
+		/// This property is mapped to the "RemainingAmount" field.  Mandatory.
 		/// </summary>
-		public decimal? RenainingAmount
+		public decimal? RemainingAmount
 		{
 			get 
 			{ 
-				return _renainingAmountNonDefault;
+				return _remainingAmountNonDefault;
 			}
 			set 
 			{
 			
-				_renainingAmountNonDefault = value; 
+				_remainingAmountNonDefault = value; 
 			}
 		}
 
@@ -530,6 +534,38 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// This property is mapped to the "InventoryID" field.  
+		/// </summary>
+		public int? InventoryID
+		{
+			get 
+			{ 
+				return _inventoryIDNonDefault;
+			}
+			set 
+			{
+			
+				_inventoryIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "InvoiceDate" field.  
+		/// </summary>
+		public DateTime? InvoiceDate
+		{
+			get 
+			{ 
+				return _invoiceDateNonDefault;
+			}
+			set 
+			{
+			
+				_invoiceDateNonDefault = value; 
+			}
+		}
+
+		/// <summary>
 		/// Provides access to the related table 'PURPurchaseLine'
 		/// </summary>
 		public PURPurchaseLineCollection PURPurchaseLineCollectionUsingPurchaseHeaderID
@@ -583,7 +619,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -714,11 +750,11 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@TaxTypeID", DBNull.Value );
 			  
-			// Pass the value of '_renainingAmount' as parameter 'RenainingAmount' of the stored procedure.
-			if(_renainingAmountNonDefault!=null)
-			  oDatabaseHelper.AddParameter("@RenainingAmount", _renainingAmountNonDefault);
+			// Pass the value of '_remainingAmount' as parameter 'RemainingAmount' of the stored procedure.
+			if(_remainingAmountNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@RemainingAmount", _remainingAmountNonDefault);
 			else
-			  oDatabaseHelper.AddParameter("@RenainingAmount", DBNull.Value );
+			  oDatabaseHelper.AddParameter("@RemainingAmount", DBNull.Value );
 			  
 			// Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
 			if(_lastDayToPayNonDefault!=null)
@@ -737,6 +773,18 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@Notes", _notesNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
+			  
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			  
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			if(_invoiceDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
 			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -768,7 +816,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -879,11 +927,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@TaxTypeID", _taxTypeIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@TaxTypeID", DBNull.Value );
-			// Pass the value of '_renainingAmount' as parameter 'RenainingAmount' of the stored procedure.
-			if(_renainingAmountNonDefault!=null)
-			  oDatabaseHelper.AddParameter("@RenainingAmount", _renainingAmountNonDefault);
+			// Pass the value of '_remainingAmount' as parameter 'RemainingAmount' of the stored procedure.
+			if(_remainingAmountNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@RemainingAmount", _remainingAmountNonDefault);
 			else
-			  oDatabaseHelper.AddParameter("@RenainingAmount", DBNull.Value );
+			  oDatabaseHelper.AddParameter("@RemainingAmount", DBNull.Value );
 			// Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
 			if(_lastDayToPayNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@LastDayToPay", _lastDayToPayNonDefault);
@@ -899,6 +947,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@Notes", _notesNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			if(_invoiceDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -918,7 +976,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -992,8 +1050,8 @@ namespace POS.DataLayer
 			// Pass the value of '_taxTypeID' as parameter 'TaxTypeID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@TaxTypeID", _taxTypeIDNonDefault );
 			
-			// Pass the value of '_renainingAmount' as parameter 'RenainingAmount' of the stored procedure.
-			oDatabaseHelper.AddParameter("@RenainingAmount", _renainingAmountNonDefault );
+			// Pass the value of '_remainingAmount' as parameter 'RemainingAmount' of the stored procedure.
+			oDatabaseHelper.AddParameter("@RemainingAmount", _remainingAmountNonDefault );
 			
 			// Pass the value of '_lastDayToPay' as parameter 'LastDayToPay' of the stored procedure.
 			oDatabaseHelper.AddParameter("@LastDayToPay", _lastDayToPayNonDefault );
@@ -1003,6 +1061,12 @@ namespace POS.DataLayer
 			
 			// Pass the value of '_notes' as parameter 'Notes' of the stored procedure.
 			oDatabaseHelper.AddParameter("@Notes", _notesNonDefault );
+			
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault );
+			
+			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault );
 			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -1023,7 +1087,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1060,7 +1124,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1099,7 +1163,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1134,7 +1198,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1182,7 +1246,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1219,7 +1283,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1261,7 +1325,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1307,7 +1371,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1348,7 +1412,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1381,7 +1445,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1433,7 +1497,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1485,7 +1549,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1533,7 +1597,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1581,7 +1645,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1623,7 +1687,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1671,7 +1735,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1719,7 +1783,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1761,7 +1825,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1809,7 +1873,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1857,7 +1921,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1899,7 +1963,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1947,7 +2011,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1995,7 +2059,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -2039,7 +2103,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -2076,7 +2140,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -2142,7 +2206,7 @@ namespace POS.DataLayer
 				obj.TaxTypeID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseHeaderFields.TaxTypeID));
 			}
 			
-			obj.RenainingAmount = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseHeaderFields.RenainingAmount));
+			obj.RemainingAmount = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseHeaderFields.RemainingAmount));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.LastDayToPay)))
 			{
 				obj.LastDayToPay = rdr.GetDateTime(rdr.GetOrdinal(PURPurchaseHeaderFields.LastDayToPay));
@@ -2156,6 +2220,16 @@ namespace POS.DataLayer
 			if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.Notes)))
 			{
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(PURPurchaseHeaderFields.Notes));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.InventoryID)))
+			{
+				obj.InventoryID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseHeaderFields.InventoryID));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.InvoiceDate)))
+			{
+				obj.InvoiceDate = rdr.GetDateTime(rdr.GetOrdinal(PURPurchaseHeaderFields.InvoiceDate));
 			}
 			
 
@@ -2173,7 +2247,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -2205,7 +2279,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:06 PM		Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

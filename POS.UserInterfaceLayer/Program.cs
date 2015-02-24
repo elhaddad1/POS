@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.UserInterfaceLayer.Portal;
 using POS.UserInterfaceLayer.Administration;
+using POS.UserInterfaceLayer.Inventory;
 
 namespace POS.UserInterfaceLayer
 {
@@ -19,7 +20,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmLogin  ());
         }
     }
 }
