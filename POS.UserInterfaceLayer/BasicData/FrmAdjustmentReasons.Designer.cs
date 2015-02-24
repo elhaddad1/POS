@@ -30,17 +30,27 @@
         {
             this.SuspendLayout();
             // 
+            // lbl_FormHeader
+            // 
+            this.lbl_FormHeader.Location = new System.Drawing.Point(270, 20);
+            this.lbl_FormHeader.Size = new System.Drawing.Size(85, 19);
+            this.lbl_FormHeader.Text = "اسباب التسويه";
+            // 
             // FrmAdjustmentReasons
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 402);
+            this.ClientSize = new System.Drawing.Size(585, 495);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAdjustmentReasons";
-            this.Text = "FrmAdjustmentReasons";
+            this.Text = "أسباب التسويه";
+            this.Load += new System.EventHandler(this.FrmAdjustmentReasons_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+
     }
 }

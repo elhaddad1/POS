@@ -48,7 +48,7 @@ namespace POS.DataLayer
 		#endregion
 		
 		#region Methods (Private)
-
+        
 		#endregion
 
 	}

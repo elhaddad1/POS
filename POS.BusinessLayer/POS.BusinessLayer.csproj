@@ -52,6 +52,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -256,6 +257,8 @@
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />
     <Compile Include="Wrapper\INVProductStockWrapper.cs" />
     <Compile Include="Wrapper\PaymentTypeWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseHeaderWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseLineWrapper.cs" />
     <Compile Include="Wrapper\SALSalesHeaderWrapper.cs" />
     <Compile Include="Wrapper\SALSalesLinerWrapper.cs" />
   </ItemGroup>
