@@ -17,7 +17,7 @@ namespace POS.BusinessLayer
     public class BDProduct : BDProductBase
     {
         [DataMember]
-        public int? TotalQty { get; set; }
+        public decimal? TotalQty { get; set; }
     }
 }
 

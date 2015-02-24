@@ -68,9 +68,14 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            frmSalesLineAddEdit frm = new frmSalesLineAddEdit(this);
-            frm.FormClosed += frmSalesLineAddEdit_FormClosed;
-            frm.ShowDialog();
+            if (cbx_Inventory.SelectedIndex != -1)
+            {
+                frmSalesLineAddEdit frm = new frmSalesLineAddEdit(Convert.ToInt32(cbx_Inventory.SelectedValue), this);
+                frm.FormClosed += frmSalesLineAddEdit_FormClosed;
+                frm.ShowDialog();
+            }
+            else
+                MessageBox.Show("برجاء أختيار مخزن أولا");
 
         }
         private void btn_DeleteLine_Click(object sender, EventArgs e)
