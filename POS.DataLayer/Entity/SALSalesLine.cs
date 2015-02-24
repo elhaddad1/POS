@@ -58,11 +58,11 @@ namespace POS.DataLayer
         #endregion
 
         #region Methods (Public)
-        public bool SaveTransaction(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
+        public int SaveTransaction(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
             oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
-            int salesHeaderID;
+            int salesHeaderID = -1;
             oDatabaseHelper.BeginTransaction();
             if (InsertHeader(oDatabaseHelper, sALSalesHeader, out salesHeaderID))
             {
@@ -81,7 +81,7 @@ namespace POS.DataLayer
                 else
                     oDatabaseHelper.RollbackTransaction();
             }
-            return ExecutionState;
+            return salesHeaderID;
         }
 
         public bool UpdateTransaction(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)

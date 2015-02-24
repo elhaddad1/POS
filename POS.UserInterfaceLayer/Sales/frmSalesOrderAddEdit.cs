@@ -116,7 +116,7 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection) != -1)
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
@@ -150,7 +150,7 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        if (_sALSalesLinerWrapper.SaveSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        if (_sALSalesLinerWrapper.SaveSALSalesOrder(_sALSalesHeader, sALSalesLineCollection) != -1)
                         {
                             MessageBox.Show("تمت العلية");
                             this.Close();

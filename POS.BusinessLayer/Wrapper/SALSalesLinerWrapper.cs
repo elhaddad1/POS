@@ -9,7 +9,7 @@ namespace POS.BusinessLayer.Wrapper
 {
     public class SALSalesLinerWrapper : SALSalesLineService
     {
-        public bool SaveSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
+        public int SaveSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
             POS.DataLayer.SALSalesHeader _sALSalesHeader = new POS.DataLayer.SALSalesHeader();
             //_sALSalesHeader.SalesHeaderID = sALSalesHeader.SalesHeaderID;
@@ -62,7 +62,7 @@ namespace POS.BusinessLayer.Wrapper
             POS.DataLayer.SALSalesLine sALSalesLineObj = new DataLayer.SALSalesLine();
             return sALSalesLineObj.SaveTransaction(_sALSalesHeader, _sALSalesLineCollection);
         }
-        public bool SaveCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
+        public int SaveCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
             POS.DataLayer.SALSalesHeader _sALSalesHeader = new POS.DataLayer.SALSalesHeader();
 
@@ -165,7 +165,7 @@ namespace POS.BusinessLayer.Wrapper
                 _sALSalesLineCollection.Add(_sALSalesLine);
             }
             POS.DataLayer.SALSalesLine sALSalesLineObj = new DataLayer.SALSalesLine();
-            return sALSalesLineObj.SaveTransaction(_sALSalesHeader, _sALSalesLineCollection);
+            return sALSalesLineObj.UpdateTransaction(_sALSalesHeader, _sALSalesLineCollection);
         }
         public bool UpdateCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
