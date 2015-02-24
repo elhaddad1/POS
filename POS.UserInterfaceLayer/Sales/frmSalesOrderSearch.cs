@@ -64,17 +64,7 @@ namespace POS.UserInterfaceLayer.Sales
         }
         public void btn_Close_Click(object sender, EventArgs e)
         {
-            if (dgrid_Result.SelectedRows.Count != 0)
-                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
-                {
-                    if (sALSalesHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
-                    {
-                        BindGrid();
-                        // Utility.Print(null, 1); 
-                    }
-                }
-                else
-                    MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
+
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {

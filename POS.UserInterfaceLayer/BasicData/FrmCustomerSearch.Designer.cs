@@ -43,7 +43,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(224, 18);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(192, 18);
             this.lbl_FormHeader.Size = new System.Drawing.Size(73, 19);
             this.lbl_FormHeader.Text = "بحث العملاء";
             // 
@@ -110,6 +110,7 @@
             // FrmCustomerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(635, 452);
             this.Name = "FrmCustomerSearch";
             this.Text = "العملاء";

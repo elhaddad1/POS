@@ -70,11 +70,11 @@ namespace POS.UserInterfaceLayer.Portal
         }
         private void switchForm(Form frm)
         {
-            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            frm.TopLevel = false;
-            frm.Dock = DockStyle.None;
-            pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(frm);
+            //frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //frm.TopLevel = false;
+            //frm.Dock = DockStyle.None;
+            //pnlContent.Controls.Clear();
+            //pnlContent.Controls.Add(frm);
             frm.Show();
             activeForm = frm;
         }
@@ -120,8 +120,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
         {
-            frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
-            switchForm(frm);
+            //frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
+            //switchForm(frm);
         }
 
         private void mnuItem_OpenTakingInventory_Click(object sender, EventArgs e)

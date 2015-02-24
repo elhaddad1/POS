@@ -28,141 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbx_CustomerName = new System.Windows.Forms.TextBox();
             this.tbx_OrderSerial = new System.Windows.Forms.TextBox();
+            this.tbx_CustomerName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.btn_AddCustomer = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
+            this.btn_AddCustomer = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panl_Header
-            // 
-            this.panl_Header.Location = new System.Drawing.Point(0, 133);
-            this.panl_Header.Size = new System.Drawing.Size(682, 53);
-            // 
-            // lbl_FormHeader
-            // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(610, 20);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_Close);
+            this.groupBox2.Controls.Add(this.btn_AddCustomer);
+            this.groupBox2.Controls.Add(this.tbx_OrderSerial);
+            this.groupBox2.Controls.Add(this.tbx_CustomerName);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Size = new System.Drawing.Size(682, 133);
+            this.groupBox2.Size = new System.Drawing.Size(698, 87);
             // 
-            // panl_Footer
+            // tbx_OrderSerial
             // 
-            this.panl_Footer.AllowDrop = true;
-            this.panl_Footer.AutoSize = true;
-            this.panl_Footer.Controls.Add(this.btn_Close);
-            this.panl_Footer.Controls.Add(this.btn_AddCustomer);
-            this.panl_Footer.Location = new System.Drawing.Point(0, 347);
-            this.panl_Footer.Size = new System.Drawing.Size(682, 64);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_AddCustomer, 0);
-            this.panl_Footer.Controls.SetChildIndex(this.btn_Close, 0);
+            this.tbx_OrderSerial.Location = new System.Drawing.Point(364, 43);
+            this.tbx_OrderSerial.Name = "tbx_OrderSerial";
+            this.tbx_OrderSerial.Size = new System.Drawing.Size(247, 22);
+            this.tbx_OrderSerial.TabIndex = 16;
             // 
-            // label1
+            // tbx_CustomerName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "أسم العميل";
+            this.tbx_CustomerName.Location = new System.Drawing.Point(364, 15);
+            this.tbx_CustomerName.Name = "tbx_CustomerName";
+            this.tbx_CustomerName.Size = new System.Drawing.Size(247, 22);
+            this.tbx_CustomerName.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 97);
+            this.label3.Location = new System.Drawing.Point(617, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
-            this.label3.TabIndex = 8;
+            this.label3.TabIndex = 14;
             this.label3.Text = "مسلسل الفاتورة";
             // 
-            // tbx_CustomerName
+            // label1
             // 
-            this.tbx_CustomerName.Location = new System.Drawing.Point(93, 59);
-            this.tbx_CustomerName.Name = "tbx_CustomerName";
-            this.tbx_CustomerName.Size = new System.Drawing.Size(247, 22);
-            this.tbx_CustomerName.TabIndex = 9;
-            // 
-            // tbx_OrderSerial
-            // 
-            this.tbx_OrderSerial.Location = new System.Drawing.Point(93, 94);
-            this.tbx_OrderSerial.Name = "tbx_OrderSerial";
-            this.tbx_OrderSerial.Size = new System.Drawing.Size(247, 22);
-            this.tbx_OrderSerial.TabIndex = 10;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(638, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "أسم العميل";
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(155, 62);
+            this.btn_Search.Location = new System.Drawing.Point(12, 13);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(75, 40);
-            this.btn_Search.TabIndex = 12;
+            this.btn_Search.Size = new System.Drawing.Size(75, 24);
+            this.btn_Search.TabIndex = 17;
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
-            // btn_AddCustomer
-            // 
-            this.btn_AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddCustomer.Location = new System.Drawing.Point(10, 6);
-            this.btn_AddCustomer.Name = "btn_AddCustomer";
-            this.btn_AddCustomer.Size = new System.Drawing.Size(99, 55);
-            this.btn_AddCustomer.TabIndex = 6;
-            this.btn_AddCustomer.Text = "أضافة عميل";
-            this.btn_AddCustomer.UseVisualStyleBackColor = true;
-            this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
-            // 
             // btn_Close
             // 
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(254, 5);
+            this.btn_Close.Location = new System.Drawing.Point(117, 43);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(99, 55);
-            this.btn_Close.TabIndex = 7;
+            this.btn_Close.Size = new System.Drawing.Size(99, 28);
+            this.btn_Close.TabIndex = 19;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // frmSalesOrderSearch
+            // btn_AddCustomer
+            // 
+            this.btn_AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddCustomer.Location = new System.Drawing.Point(12, 43);
+            this.btn_AddCustomer.Name = "btn_AddCustomer";
+            this.btn_AddCustomer.Size = new System.Drawing.Size(99, 28);
+            this.btn_AddCustomer.TabIndex = 18;
+            this.btn_AddCustomer.Text = "أضافة عميل";
+            this.btn_AddCustomer.UseVisualStyleBackColor = true;
+            this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
+            // 
+            // _frmSalesOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(682, 411);
-            this.Controls.Add(this.tbx_OrderSerial);
-            this.Controls.Add(this.tbx_CustomerName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Name = "frmSalesOrderSearch";
-            this.Controls.SetChildIndex(this.groupBox2, 0);
-            this.Controls.SetChildIndex(this.panl_Header, 0);
-            this.Controls.SetChildIndex(this.panl_Footer, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.tbx_CustomerName, 0);
-            this.Controls.SetChildIndex(this.tbx_OrderSerial, 0);
+            this.ClientSize = new System.Drawing.Size(698, 403);
+            this.Name = "_frmSalesOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.panl_Footer.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbx_CustomerName;
         private System.Windows.Forms.TextBox tbx_OrderSerial;
+        private System.Windows.Forms.TextBox tbx_CustomerName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.Button btn_AddCustomer;
         private System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.Button btn_AddCustomer;
     }
 }
