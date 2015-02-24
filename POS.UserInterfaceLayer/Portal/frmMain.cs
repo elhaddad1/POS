@@ -120,8 +120,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
         {
-            //frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
-            //switchForm(frm);
+            frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
+            switchForm(frm);
         }
 
         private void mnuItem_OpenTakingInventory_Click(object sender, EventArgs e)
