@@ -42,7 +42,7 @@ namespace POS.UserInterfaceLayer.Transfer
 
             List<INVTransferHeaderModel> transferList = new List<INVTransferHeaderModel>();
 
-            if (invtransferHeader==null)
+            if (invtransferHeader == null)
                 transferList = invtransferHeaderWrapper.getAllTransferTransaction();
             else
                 transferList = invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader);
@@ -56,10 +56,10 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             INVTransferHeader invtransferHeader = new INVTransferHeader();
             invtransferHeader.CreateDate = dtp_TransferDate.Value;
-            int fromInv = 0, toInv=0;
+            int fromInv = 0, toInv = 0;
             int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out fromInv);
             int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out toInv);
-            if(fromInv>0)
+            if (fromInv > 0)
                 invtransferHeader.FromInventoryID = fromInv;
             if (toInv > 0)
                 invtransferHeader.ToInventoryID = toInv;
@@ -72,10 +72,50 @@ namespace POS.UserInterfaceLayer.Transfer
             search();
         }
 
-        private void btn_Add_Click_1(object sender, EventArgs e)
+        public override void btn_Add_Click(object sender, EventArgs e)
         {
-            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this);
+            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,0);
             frm.ShowDialog();
+        }
+        public override void btn_Edit_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    frm.ShowDialog();
+                }
+                else
+                    MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
+        }
+        public override void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    invtransferHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    InitiateGrid(null);
+                }
+                else
+                    MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
+        }
+        public override void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public void btn_Close_Click(object sender, EventArgs e)
+        {
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    if (invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
+                    {
+                        InitiateGrid(null);
+                        // Utility.Print(null, 1); 
+                    }
+                }
+                else
+                    MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
         }
     }
 }

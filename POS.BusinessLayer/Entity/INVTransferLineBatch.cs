@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBatch.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/18/2015 10:55:38 PM
+// Date		:	2/22/2015 7:27:21 PM
 //
 using System;
 using System.Runtime.Serialization;

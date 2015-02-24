@@ -38,7 +38,6 @@
             this.tbx_Price = new System.Windows.Forms.TextBox();
             this.lbl_MinPriceHeader = new System.Windows.Forms.Label();
             this.lbl_MinPriceValue = new System.Windows.Forms.Label();
-            this.num_Quantity = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Finish = new System.Windows.Forms.Button();
@@ -46,8 +45,8 @@
             this.num_Bonus = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.tbx_Discount = new System.Windows.Forms.TextBox();
+            this.num_Quantity = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +127,7 @@
             this.tbx_Price.ReadOnly = true;
             this.tbx_Price.Size = new System.Drawing.Size(115, 20);
             this.tbx_Price.TabIndex = 12;
+            this.tbx_Price.Text = "0";
             this.tbx_Price.Leave += new System.EventHandler(this.tbx_Price_Leave);
             // 
             // lbl_MinPriceHeader
@@ -151,13 +151,6 @@
             this.lbl_MinPriceValue.TabIndex = 14;
             this.lbl_MinPriceValue.Text = "0";
             this.lbl_MinPriceValue.Visible = false;
-            // 
-            // num_Quantity
-            // 
-            this.num_Quantity.Location = new System.Drawing.Point(90, 92);
-            this.num_Quantity.Name = "num_Quantity";
-            this.num_Quantity.Size = new System.Drawing.Size(78, 20);
-            this.num_Quantity.TabIndex = 16;
             // 
             // label4
             // 
@@ -232,6 +225,14 @@
             this.tbx_Discount.Text = "%0";
             this.tbx_Discount.Visible = false;
             // 
+            // num_Quantity
+            // 
+            this.num_Quantity.Location = new System.Drawing.Point(92, 91);
+            this.num_Quantity.Name = "num_Quantity";
+            this.num_Quantity.Size = new System.Drawing.Size(100, 20);
+            this.num_Quantity.TabIndex = 36;
+            this.num_Quantity.Text = "0";
+            // 
             // frmSalesLineAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,13 +240,13 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(665, 183);
             this.ControlBox = false;
+            this.Controls.Add(this.num_Quantity);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Finish);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbx_Discount);
             this.Controls.Add(this.num_Bonus);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.num_Quantity);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_MinPriceValue);
             this.Controls.Add(this.lbl_MinPriceHeader);
@@ -263,7 +264,6 @@
             this.Text = "منتج";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -282,7 +282,6 @@
         private System.Windows.Forms.TextBox tbx_Price;
         private System.Windows.Forms.Label lbl_MinPriceHeader;
         private System.Windows.Forms.Label lbl_MinPriceValue;
-        private System.Windows.Forms.NumericUpDown num_Quantity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Button btn_Finish;
@@ -290,5 +289,6 @@
         private System.Windows.Forms.NumericUpDown num_Bonus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbx_Discount;
+        private System.Windows.Forms.TextBox num_Quantity;
     }
 }

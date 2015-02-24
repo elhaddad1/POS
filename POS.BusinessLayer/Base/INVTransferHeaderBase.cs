@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:57 PM
+// Date		:	2/22/2015 7:27:20 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -32,6 +32,21 @@ namespace POS.BusinessLayer
 		public int? ToInventoryID {get;set;}
 
 		[DataMember]
+		public string InvoiceNumber {get;set;}
+
+		[DataMember]
+		public DateTime? InvoiceDate {get;set;}
+
+		[DataMember]
+		public bool? IsVoid {get;set;}
+
+		[DataMember]
+		public bool? IsPrinted {get;set;}
+
+		[DataMember]
+		public bool? IsClosed {get;set;}
+
+		[DataMember]
 		public int? CreatedBy {get;set;}
 
 		[DataMember]
@@ -39,6 +54,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? UpdatedBy {get;set;}
+
+		[DataMember]
+		public DateTime? UpdateDate {get;set;}
 
 		[DataMember]
 		public bool? IsDeleted {get;set;}

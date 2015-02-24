@@ -168,6 +168,12 @@
     <Compile Include="Inventory\FrmCloseTakingInventory.cs.Designer.cs">
       <DependentUpon>FrmCloseTakingInventory.cs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\frmOpenningQuantities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmOpenningQuantities.Designer.cs">
+      <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\FrmOpenTakingInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
+      <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
       <DependentUpon>frmStockInquiry.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,9 +373,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
       <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
-      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
