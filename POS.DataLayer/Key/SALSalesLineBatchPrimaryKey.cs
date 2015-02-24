@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesLineBatchPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:49 PM
+// Date		:	2/24/2015 2:25:53 AM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:49 PM				Created function
+		/// DLGenerator			2/24/2015 2:25:53 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

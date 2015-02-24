@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 using POS.BusinessLayer;
 using POS.BusinessLayer.Utility;
 using POS.BusinessLayer.Wrapper;
@@ -20,6 +21,7 @@ namespace POS.UserInterfaceLayer.Sales
         private BDCustomerWrapper _bDCustomerWrapper;
         private SALSalesLinerWrapper _sALSalesLinerWrapper;
         private SALSalesHeaderWrapper _sALSalesHeaderWrapper;
+        private INVInventoryWrapper _iNVInventoryWrapper;
         public SALSalesLineCollection sALSalesLineCollection;
         private SALSalesHeader _sALSalesHeader;
         public frmSalesOrderAddEdit(int salesHeaderID)
@@ -30,10 +32,11 @@ namespace POS.UserInterfaceLayer.Sales
             _bDCustomerWrapper = new BDCustomerWrapper();
             _sALSalesLinerWrapper = new SALSalesLinerWrapper();
             _sALSalesHeaderWrapper = new SALSalesHeaderWrapper();
-
+            _iNVInventoryWrapper = new INVInventoryWrapper();
             FillCustomerCBX();
             FillPaymentTypeCBX();
             FillTaxTypeCBX();
+            FillInventoryCBX();
             GetSalesOrderData(salesHeaderID);
             FillHeaderData();
             BindGrid();
@@ -48,9 +51,11 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesLineCollection = new SALSalesLineCollection();
             _sALSalesHeader = new SALSalesHeader();
             _sALSalesLinerWrapper = new SALSalesLinerWrapper();
+            _iNVInventoryWrapper = new INVInventoryWrapper();
             FillCustomerCBX();
             FillPaymentTypeCBX();
             FillTaxTypeCBX();
+            FillInventoryCBX();
         }
 
         #region -- Events
@@ -106,13 +111,16 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (Validate())
             {
+                CollectHeaderData();
                 try
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection) != -1)
                         {
-                            //   Utility.Print();
+                            List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                            paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
+                            Utility.Print("SalesOrder.rpt", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -137,11 +145,12 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (Validate())
             {
+                CollectHeaderData();
                 try
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        if (_sALSalesLinerWrapper.SaveSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        if (_sALSalesLinerWrapper.SaveSALSalesOrder(_sALSalesHeader, sALSalesLineCollection) != -1)
                         {
                             MessageBox.Show("تمت العلية");
                             this.Close();
@@ -238,6 +247,21 @@ namespace POS.UserInterfaceLayer.Sales
                 throw;
             }
         }
+        private void FillInventoryCBX()
+        {
+            try
+            {
+                cbx_Inventory.DataSource = _iNVInventoryWrapper.SelectAll();
+                cbx_Inventory.DisplayMember = "InventoryName";
+                cbx_Inventory.ValueMember = "InventoryID";
+                cbx_Inventory.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         private void BindGrid()
         {
             dgrd_OrderLines.DataSource = null;
@@ -269,6 +293,7 @@ namespace POS.UserInterfaceLayer.Sales
 
             _sALSalesHeader.CustomerID = Convert.ToInt32(cbx_Customer.SelectedValue);
             _sALSalesHeader.InvoiceDate = dtb_Date.Value.Date;
+            _sALSalesHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
             _sALSalesHeader.LastDayToPay = Convert.ToDecimal(num_Remaining.Text) >= 0 ? null : (DateTime?)dtb_LastTimeToPay.Value.Date;
             _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
             _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
@@ -280,6 +305,7 @@ namespace POS.UserInterfaceLayer.Sales
             _sALSalesHeader.TotalDiscountAmount = total * discountRatio;
             _sALSalesHeader.TotalDiscountRatio = (double)discountRatio;
             _sALSalesHeader.TotalPrice = Convert.ToDecimal(txt_Total.Text);
+            _sALSalesHeader.FinalPrice = Convert.ToDecimal(txt_AfterDescount.Text);
 
 
         }
@@ -293,6 +319,12 @@ namespace POS.UserInterfaceLayer.Sales
             if (cbx_PaymentType.SelectedIndex == -1)
             {
                 MessageBox.Show("اختار طريقة دفع أولا");
+                return false;
+            }
+
+            if (cbx_Inventory.SelectedIndex == -1)
+            {
+                MessageBox.Show("أختار مخزن أولا");
                 return false;
             }
 
@@ -310,7 +342,7 @@ namespace POS.UserInterfaceLayer.Sales
         private void FillHeaderData()
         {
             dtb_Date.Value = (DateTime)_sALSalesHeader.InvoiceDate;
-            // cbx_Inventory.SelectedValue=_sALSalesHeader.
+            cbx_Inventory.SelectedValue = _sALSalesHeader.InventoryID;
             cbx_Customer.SelectedValue = _sALSalesHeader.CustomerID;
             cbx_PaymentType.SelectedValue = _sALSalesHeader.PaymentTypeID;
             num_Paied.Text = _sALSalesHeader.PaidAmount.ToString();
@@ -320,7 +352,7 @@ namespace POS.UserInterfaceLayer.Sales
             num_OtherPayments.Text = _sALSalesHeader.ServicePrice.ToString();
             txt_Total.Text = _sALSalesHeader.TotalPrice.ToString();
             txt_DiscountRatio.Text = "%" + (_sALSalesHeader.TotalDiscountRatio * 100).ToString();
-            txt_AfterDescount.Text = (_sALSalesHeader.TotalPrice - ((decimal)_sALSalesHeader.TotalDiscountRatio * _sALSalesHeader.TotalPrice) + _sALSalesHeader.ServicePrice).ToString();
+            txt_AfterDescount.Text = _sALSalesHeader.FinalPrice.ToString();
 
         }
 

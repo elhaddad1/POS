@@ -9,12 +9,13 @@ namespace POS.BusinessLayer.Wrapper
 {
     public class SALSalesLinerWrapper : SALSalesLineService
     {
-        public bool SaveSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
+        public int SaveSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
             POS.DataLayer.SALSalesHeader _sALSalesHeader = new POS.DataLayer.SALSalesHeader();
             //_sALSalesHeader.SalesHeaderID = sALSalesHeader.SalesHeaderID;
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             // _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
@@ -61,13 +62,14 @@ namespace POS.BusinessLayer.Wrapper
             POS.DataLayer.SALSalesLine sALSalesLineObj = new DataLayer.SALSalesLine();
             return sALSalesLineObj.SaveTransaction(_sALSalesHeader, _sALSalesLineCollection);
         }
-        public bool SaveCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
+        public int SaveCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
             POS.DataLayer.SALSalesHeader _sALSalesHeader = new POS.DataLayer.SALSalesHeader();
 
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;
@@ -119,6 +121,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
@@ -162,7 +165,7 @@ namespace POS.BusinessLayer.Wrapper
                 _sALSalesLineCollection.Add(_sALSalesLine);
             }
             POS.DataLayer.SALSalesLine sALSalesLineObj = new DataLayer.SALSalesLine();
-            return sALSalesLineObj.SaveTransaction(_sALSalesHeader, _sALSalesLineCollection);
+            return sALSalesLineObj.UpdateTransaction(_sALSalesHeader, _sALSalesLineCollection);
         }
         public bool UpdateCloseSALSalesOrder(SALSalesHeader sALSalesHeader, SALSalesLineCollection sALSalesLineCollection)
         {
@@ -172,6 +175,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;

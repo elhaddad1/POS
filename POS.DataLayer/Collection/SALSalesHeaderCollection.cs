@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesHeaderCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:13 PM
+// Date		:	2/24/2015 2:25:55 AM
 //
 
 using System;
