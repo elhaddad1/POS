@@ -1,10 +1,15 @@
 //
 // Class	:	PURPurchaseLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:12 PM
+// Date		:	2/24/2015 10:40:54 AM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -12,7 +17,7 @@ namespace POS.BusinessLayer
 	///<summary>
 	///WCF service for the PURPurchaseLine
 	///</summary>
-	public class PURPurchaseLineService 
+	public class PURPurchaseLineService : IPURPurchaseLineService
 	{
 		private PURPurchaseLine _pURPurchaseLineWCF;
 		private POS.DataLayer.PURPurchaseLine _pURPurchaseLine;
@@ -66,6 +71,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 			return _pURPurchaseLineWCF;
 		}
@@ -97,6 +103,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -145,6 +152,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -176,6 +184,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseLine.IsDeleted=pURPurchaseLine.IsDeleted;
 			_pURPurchaseLine.DeleteDate=pURPurchaseLine.DeleteDate;
 			_pURPurchaseLine.DeletedBy=pURPurchaseLine.DeletedBy;
+			_pURPurchaseLine.InvoiceDate=pURPurchaseLine.InvoiceDate;
 			
 			return _pURPurchaseLine.Insert();
 		}
@@ -221,6 +230,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -259,6 +269,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -306,6 +317,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -344,6 +356,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -381,6 +394,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -423,6 +437,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseLineWCF.IsDeleted = _pURPurchaseLine.IsDeleted;
 				_pURPurchaseLineWCF.DeleteDate = _pURPurchaseLine.DeleteDate;
 				_pURPurchaseLineWCF.DeletedBy = _pURPurchaseLine.DeletedBy;
+				_pURPurchaseLineWCF.InvoiceDate = _pURPurchaseLine.InvoiceDate;
 				
 				pURPurchaseLineCollection.Add(_pURPurchaseLineWCF);
 			}
@@ -453,6 +468,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseLine.IsDeleted=pURPurchaseLine.IsDeleted;
 			_pURPurchaseLine.DeleteDate=pURPurchaseLine.DeleteDate;
 			_pURPurchaseLine.DeletedBy=pURPurchaseLine.DeletedBy;
+			_pURPurchaseLine.InvoiceDate=pURPurchaseLine.InvoiceDate;
 			
 			return _pURPurchaseLine.Update();
 		}

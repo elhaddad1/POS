@@ -120,7 +120,7 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
         {
-            FrmPurchaseOrder frm = new FrmPurchaseOrder();
+            frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
             switchForm(frm);
         }
 

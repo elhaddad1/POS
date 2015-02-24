@@ -61,10 +61,7 @@
             // btn_Edit
             // 
             this.btn_Edit.Location = new System.Drawing.Point(701, 6);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Location = new System.Drawing.Point(491, -11);
+            
             // 
             // lbl_StoreName
             // 

@@ -38,17 +38,16 @@
             this.tbx_Price = new System.Windows.Forms.TextBox();
             this.lbl_MinPriceHeader = new System.Windows.Forms.Label();
             this.lbl_MinPriceValue = new System.Windows.Forms.Label();
-            this.num_Bonus = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.num_Quantity = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbx_Discount = new System.Windows.Forms.TextBox();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Finish = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.num_Bonus = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbx_Discount = new System.Windows.Forms.TextBox();
+            this.num_Quantity = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_FormHeader
@@ -128,6 +127,7 @@
             this.tbx_Price.ReadOnly = true;
             this.tbx_Price.Size = new System.Drawing.Size(115, 20);
             this.tbx_Price.TabIndex = 12;
+            this.tbx_Price.Text = "0";
             this.tbx_Price.Leave += new System.EventHandler(this.tbx_Price_Leave);
             // 
             // lbl_MinPriceHeader
@@ -152,31 +152,6 @@
             this.lbl_MinPriceValue.Text = "0";
             this.lbl_MinPriceValue.Visible = false;
             // 
-            // num_Bonus
-            // 
-            this.num_Bonus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.num_Bonus.Location = new System.Drawing.Point(254, 92);
-            this.num_Bonus.Name = "num_Bonus";
-            this.num_Bonus.Size = new System.Drawing.Size(78, 20);
-            this.num_Bonus.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(205, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "أضافى";
-            // 
-            // num_Quantity
-            // 
-            this.num_Quantity.Location = new System.Drawing.Point(90, 92);
-            this.num_Quantity.Name = "num_Quantity";
-            this.num_Quantity.Size = new System.Drawing.Size(78, 20);
-            this.num_Quantity.TabIndex = 16;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -186,29 +161,11 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "الكمية";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "الخصم";
-            // 
-            // tbx_Discount
-            // 
-            this.tbx_Discount.Location = new System.Drawing.Point(90, 124);
-            this.tbx_Discount.Name = "tbx_Discount";
-            this.tbx_Discount.ReadOnly = true;
-            this.tbx_Discount.Size = new System.Drawing.Size(78, 20);
-            this.tbx_Discount.TabIndex = 32;
-            this.tbx_Discount.Text = "%0";
-            // 
             // btn_Back
             // 
             this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(336, 146);
+            this.btn_Back.Location = new System.Drawing.Point(333, 126);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(99, 55);
             this.btn_Back.TabIndex = 35;
@@ -220,7 +177,7 @@
             // 
             this.btn_Finish.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Finish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Finish.Location = new System.Drawing.Point(229, 146);
+            this.btn_Finish.Location = new System.Drawing.Point(226, 126);
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(99, 55);
             this.btn_Finish.TabIndex = 34;
@@ -228,20 +185,69 @@
             this.btn_Finish.UseVisualStyleBackColor = true;
             this.btn_Finish.Click += new System.EventHandler(this.btn_Finish_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(205, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "أضافى";
+            this.label5.Visible = false;
+            // 
+            // num_Bonus
+            // 
+            this.num_Bonus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.num_Bonus.Location = new System.Drawing.Point(254, 92);
+            this.num_Bonus.Name = "num_Bonus";
+            this.num_Bonus.Size = new System.Drawing.Size(78, 20);
+            this.num_Bonus.TabIndex = 18;
+            this.num_Bonus.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "الخصم";
+            this.label10.Visible = false;
+            // 
+            // tbx_Discount
+            // 
+            this.tbx_Discount.Location = new System.Drawing.Point(90, 124);
+            this.tbx_Discount.Name = "tbx_Discount";
+            this.tbx_Discount.ReadOnly = true;
+            this.tbx_Discount.Size = new System.Drawing.Size(78, 20);
+            this.tbx_Discount.TabIndex = 32;
+            this.tbx_Discount.Text = "%0";
+            this.tbx_Discount.Visible = false;
+            // 
+            // num_Quantity
+            // 
+            this.num_Quantity.Location = new System.Drawing.Point(92, 91);
+            this.num_Quantity.Name = "num_Quantity";
+            this.num_Quantity.Size = new System.Drawing.Size(100, 20);
+            this.num_Quantity.TabIndex = 36;
+            this.num_Quantity.Text = "0";
+            this.num_Quantity.TextChanged += new System.EventHandler(this.num_Quantity_ValueChanged);
+            // 
             // frmSalesLineAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(665, 206);
+            this.ClientSize = new System.Drawing.Size(665, 183);
             this.ControlBox = false;
+            this.Controls.Add(this.num_Quantity);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Finish);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbx_Discount);
             this.Controls.Add(this.num_Bonus);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.num_Quantity);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_MinPriceValue);
             this.Controls.Add(this.lbl_MinPriceHeader);
@@ -255,11 +261,11 @@
             this.Name = "frmSalesLineAddEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "منتج";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_Bonus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Quantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,13 +283,13 @@
         private System.Windows.Forms.TextBox tbx_Price;
         private System.Windows.Forms.Label lbl_MinPriceHeader;
         private System.Windows.Forms.Label lbl_MinPriceValue;
-        private System.Windows.Forms.NumericUpDown num_Bonus;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown num_Quantity;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbx_Discount;
         private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Button btn_Finish;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown num_Bonus;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbx_Discount;
+        private System.Windows.Forms.TextBox num_Quantity;
     }
 }

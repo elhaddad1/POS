@@ -1,7 +1,7 @@
 //
 // Class	:	INVProductStockServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:08 PM
+// Date		:	2/20/2015 7:03:51 PM
 //
 
 
@@ -61,6 +61,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 			return _iNVProductStockWCF;
 		}
@@ -87,6 +89,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -130,6 +134,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -156,10 +162,91 @@ namespace POS.BusinessLayer
 			_iNVProductStock.CreatedBy=iNVProductStock.CreatedBy;
 			_iNVProductStock.UpdateDate=iNVProductStock.UpdateDate;
 			_iNVProductStock.UpdatedBy=iNVProductStock.UpdatedBy;
+			_iNVProductStock.InventoryID=iNVProductStock.InventoryID;
+			_iNVProductStock.IsBlocked=iNVProductStock.IsBlocked;
 			
 			return _iNVProductStock.Insert();
 		}
+			/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			return POS.DataLayer.INVProductStockBase.DeleteAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID));
+		}
+		
 		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVProductStockCollection</returns>
+		public INVProductStockCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			INVProductStockCollection iNVProductStockCollection=new INVProductStockCollection();
+			foreach (POS.DataLayer.INVProductStock _iNVProductStock in POS.DataLayer.INVProductStockBase.SelectAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID)))
+			{
+				_iNVProductStockWCF = new INVProductStock();
+				_iNVProductStockWCF.ProductStockID = _iNVProductStock.ProductStockID;
+				_iNVProductStockWCF.ProductID = _iNVProductStock.ProductID;
+				_iNVProductStockWCF.TotalQty = _iNVProductStock.TotalQty;
+				_iNVProductStockWCF.StockTypeID = _iNVProductStock.StockTypeID;
+				_iNVProductStockWCF.OpeningQty = _iNVProductStock.OpeningQty;
+				_iNVProductStockWCF.OpennigDate = _iNVProductStock.OpennigDate;
+				_iNVProductStockWCF.CreateDate = _iNVProductStock.CreateDate;
+				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
+				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
+				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
+				
+				iNVProductStockCollection.Add(_iNVProductStockWCF);
+			}
+			return iNVProductStockCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class INVProductStockCollection</returns>
+		public INVProductStockCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			INVProductStockCollection iNVProductStockCollection=new INVProductStockCollection();
+			foreach (POS.DataLayer.INVProductStock _iNVProductStock in POS.DataLayer.INVProductStockBase.SelectAllByForeignKeyInventoryIDPaged(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID), pageSize, skipPages, orderByStatement))
+			{
+				_iNVProductStockWCF = new INVProductStock();
+				_iNVProductStockWCF.ProductStockID = _iNVProductStock.ProductStockID;
+				_iNVProductStockWCF.ProductID = _iNVProductStock.ProductID;
+				_iNVProductStockWCF.TotalQty = _iNVProductStock.TotalQty;
+				_iNVProductStockWCF.StockTypeID = _iNVProductStock.StockTypeID;
+				_iNVProductStockWCF.OpeningQty = _iNVProductStock.OpeningQty;
+				_iNVProductStockWCF.OpennigDate = _iNVProductStock.OpennigDate;
+				_iNVProductStockWCF.CreateDate = _iNVProductStock.CreateDate;
+				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
+				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
+				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
+				
+				iNVProductStockCollection.Add(_iNVProductStockWCF);
+			}
+			return iNVProductStockCollection;
+		}
+			/// <summary>
 		/// This method will delete row(s) from the database using the value of the field specified 
 		/// along with the details of the child table.
 		/// </summary>
@@ -196,6 +283,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -229,6 +318,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -261,6 +352,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -298,6 +391,8 @@ namespace POS.BusinessLayer
 				_iNVProductStockWCF.CreatedBy = _iNVProductStock.CreatedBy;
 				_iNVProductStockWCF.UpdateDate = _iNVProductStock.UpdateDate;
 				_iNVProductStockWCF.UpdatedBy = _iNVProductStock.UpdatedBy;
+				_iNVProductStockWCF.InventoryID = _iNVProductStock.InventoryID;
+				_iNVProductStockWCF.IsBlocked = _iNVProductStock.IsBlocked;
 				
 				iNVProductStockCollection.Add(_iNVProductStockWCF);
 			}
@@ -323,6 +418,8 @@ namespace POS.BusinessLayer
 			_iNVProductStock.CreatedBy=iNVProductStock.CreatedBy;
 			_iNVProductStock.UpdateDate=iNVProductStock.UpdateDate;
 			_iNVProductStock.UpdatedBy=iNVProductStock.UpdatedBy;
+			_iNVProductStock.InventoryID=iNVProductStock.InventoryID;
+			_iNVProductStock.IsBlocked=iNVProductStock.IsBlocked;
 			
 			return _iNVProductStock.Update();
 		}

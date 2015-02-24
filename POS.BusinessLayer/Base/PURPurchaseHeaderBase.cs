@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:07 PM
+// Date		:	2/24/2015 10:40:55 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -83,7 +83,7 @@ namespace POS.BusinessLayer
 		public int? TaxTypeID {get;set;}
 
 		[DataMember]
-		public decimal? RenainingAmount {get;set;}
+		public decimal? RemainingAmount {get;set;}
 
 		[DataMember]
 		public DateTime? LastDayToPay {get;set;}
@@ -93,6 +93,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public string Notes {get;set;}
+
+		[DataMember]
+		public int? InventoryID {get;set;}
 
 		
 		#endregion

@@ -32,6 +32,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.ReportSource.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Shared.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -190,17 +206,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Purcase\FrmPurchaseOrder.cs">
+    <Compile Include="Purcase\frmPurchaseLineAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purcase\FrmPurchaseOrder.Designer.cs">
-      <DependentUpon>FrmPurchaseOrder.cs</DependentUpon>
+    <Compile Include="Purcase\frmPurchaseLineAddEdit.Designer.cs">
+      <DependentUpon>frmPurchaseLineAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseOrderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseOrderAddEdit.Designer.cs">
+      <DependentUpon>frmPurchaseOrderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseOrderSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
+      <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Purcase\FrmReturnPurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
       <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\frmSalesLineAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmSalesLineAddEdit.Designer.cs">
+      <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmSalesOrderAddEdit.cs">
       <SubType>Form</SubType>
@@ -219,6 +253,12 @@
     </Compile>
     <Compile Include="Transfer\FrmAddEditTransferOrder.Designer.cs">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer\FrmTransferLineAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\FrmTransferLineAddEdit.Designer.cs">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Transfer\FrmTransferOrderSearch.cs">
       <SubType>Form</SubType>
@@ -277,9 +317,6 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FrmOpenTakingInventory.resx">
-      <DependentUpon>FrmOpenTakingInventory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
       <DependentUpon>frmStockInquiry.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,19 +341,34 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Purcase\frmPurchaseLineAddEdit.resx">
+      <DependentUpon>frmPurchaseLineAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseOrderAddEdit.resx">
+      <DependentUpon>frmPurchaseOrderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseOrderSearch.resx">
+      <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
+      <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderAddEdit.resx">
       <DependentUpon>frmSalesOrderAddEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
-      <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
-      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\POS.BusinessLayer.INVInventory.datasource" />
+    <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
+      <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferLineAddEdit.resx">
+      <DependentUpon>FrmTransferLineAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\FrmTransferOrderSearch.resx">
+      <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -339,9 +391,7 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

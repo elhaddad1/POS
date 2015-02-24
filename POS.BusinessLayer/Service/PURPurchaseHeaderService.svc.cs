@@ -1,10 +1,15 @@
 //
 // Class	:	PURPurchaseHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:07 PM
+// Date		:	2/24/2015 10:40:55 AM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -12,7 +17,7 @@ namespace POS.BusinessLayer
 	///<summary>
 	///WCF service for the PURPurchaseHeader
 	///</summary>
-	public class PURPurchaseHeaderService 
+	public class PURPurchaseHeaderService : IPURPurchaseHeaderService
 	{
 		private PURPurchaseHeader _pURPurchaseHeaderWCF;
 		private POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader;
@@ -72,10 +77,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 			return _pURPurchaseHeaderWCF;
 		}
@@ -113,10 +119,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -171,10 +178,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -212,10 +220,11 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.TotalDiscountAmount=pURPurchaseHeader.TotalDiscountAmount;
 			_pURPurchaseHeader.TotalDiscountRatio=pURPurchaseHeader.TotalDiscountRatio;
 			_pURPurchaseHeader.TaxTypeID=pURPurchaseHeader.TaxTypeID;
-			_pURPurchaseHeader.RenainingAmount=pURPurchaseHeader.RenainingAmount;
+			_pURPurchaseHeader.RemainingAmount=pURPurchaseHeader.RemainingAmount;
 			_pURPurchaseHeader.LastDayToPay=pURPurchaseHeader.LastDayToPay;
 			_pURPurchaseHeader.DeletedBy=pURPurchaseHeader.DeletedBy;
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
+			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
 			
 			return _pURPurchaseHeader.Insert();
 		}
@@ -267,10 +276,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -315,10 +325,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -372,10 +383,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -420,10 +432,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -477,10 +490,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -525,10 +539,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -582,10 +597,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -630,10 +646,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -677,10 +694,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -729,10 +747,11 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
 				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
 				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
-				_pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
 				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -769,10 +788,11 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.TotalDiscountAmount=pURPurchaseHeader.TotalDiscountAmount;
 			_pURPurchaseHeader.TotalDiscountRatio=pURPurchaseHeader.TotalDiscountRatio;
 			_pURPurchaseHeader.TaxTypeID=pURPurchaseHeader.TaxTypeID;
-			_pURPurchaseHeader.RenainingAmount=pURPurchaseHeader.RenainingAmount;
+			_pURPurchaseHeader.RemainingAmount=pURPurchaseHeader.RemainingAmount;
 			_pURPurchaseHeader.LastDayToPay=pURPurchaseHeader.LastDayToPay;
 			_pURPurchaseHeader.DeletedBy=pURPurchaseHeader.DeletedBy;
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
+			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
 			
 			return _pURPurchaseHeader.Update();
 		}

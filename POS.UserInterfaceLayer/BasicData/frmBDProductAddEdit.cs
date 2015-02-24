@@ -88,6 +88,10 @@ namespace POS.UserInterfaceLayer.BasicData
             _bdProduct.Notes = txt_Notes.Text;
             _bdProduct.DescountRatio = (double)nmr_DescountRatio.Value;
             _bdProduct.DiscountAmount = (decimal)nmr_DiscountAmount.Value;
+
+            _bdProduct.MinPrice = (decimal)nmr_MinPrice.Value;
+            _bdProduct.MaxPrice = (decimal)nmr_MaxPrice.Value;
+            
             _bdProduct.HasDiscount = chk_HasDiscount.Checked;
             _bdProduct.IsAcceptBatch = chk_IsAcceptBatch.Checked;
             _bdProduct.IsActive = chk_IsActive.Checked;
@@ -108,6 +112,8 @@ namespace POS.UserInterfaceLayer.BasicData
             txt_Notes.Text = _bdProduct.Notes;
             nmr_DescountRatio.Value = (decimal)_bdProduct.DescountRatio.Value;
             nmr_DiscountAmount.Value = _bdProduct.DiscountAmount.Value;
+            nmr_MinPrice.Value = (decimal)_bdProduct.MinPrice;
+            nmr_MaxPrice.Value = (decimal)_bdProduct.MaxPrice;
             chk_HasDiscount.Checked = _bdProduct.HasDiscount.Value;
             chk_IsAcceptBatch.Checked = _bdProduct.IsAcceptBatch.Value;
             chk_IsActive.Checked = _bdProduct.IsActive.Value;

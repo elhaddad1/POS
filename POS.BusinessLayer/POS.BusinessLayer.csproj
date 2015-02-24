@@ -30,9 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.ReportSource.1.0.0\lib\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Shared.1.0.0\lib\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -222,6 +242,7 @@
     <Compile Include="Service\VProductService.svc.cs" />
     <Compile Include="Service\VUserRoleService.svc.cs" />
     <Compile Include="Utility\GlobalVariables.cs" />
+    <Compile Include="Utility\Utility.cs" />
     <Compile Include="Wrapper\ADGroupRoleWrapper.cs" />
     <Compile Include="Wrapper\ADGroupWrapper.cs" />
     <Compile Include="Wrapper\ADRoleWrapper.cs" />
@@ -235,6 +256,8 @@
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />
     <Compile Include="Wrapper\INVProductStockWrapper.cs" />
     <Compile Include="Wrapper\PaymentTypeWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseHeaderWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseLineWrapper.cs" />
     <Compile Include="Wrapper\SALSalesHeaderWrapper.cs" />
     <Compile Include="Wrapper\SALSalesLinerWrapper.cs" />
   </ItemGroup>
@@ -246,6 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Wrapper\BDTaxTypeWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

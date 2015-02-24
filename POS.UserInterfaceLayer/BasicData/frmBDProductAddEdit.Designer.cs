@@ -46,14 +46,39 @@
             this.lbl_DescountRatio = new System.Windows.Forms.Label();
             this.chk_IsAcceptBatch = new System.Windows.Forms.CheckBox();
             this.chk_IsActive = new System.Windows.Forms.CheckBox();
+            this.nmr_MaxPrice = new System.Windows.Forms.NumericUpDown();
+            this.nmr_MinPrice = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_ProductPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DiscountAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DescountRatio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_MaxPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_MinPrice)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panl_Header
+            // 
+            this.panl_Header.Size = new System.Drawing.Size(951, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2234, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2587, 9);
+            // 
+            // panl_Footer
+            // 
+            this.panl_Footer.Location = new System.Drawing.Point(0, 418);
+            this.panl_Footer.Size = new System.Drawing.Size(951, 62);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(479, 4);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(374, 4);
             // 
             // lbl_ProductName
             // 
@@ -90,7 +115,7 @@
             // 
             // txt_ProductCode
             // 
-            this.txt_ProductCode.Location = new System.Drawing.Point(142, 138);
+            this.txt_ProductCode.Location = new System.Drawing.Point(142, 126);
             this.txt_ProductCode.Name = "txt_ProductCode";
             this.txt_ProductCode.Size = new System.Drawing.Size(188, 22);
             this.txt_ProductCode.TabIndex = 7;
@@ -98,7 +123,7 @@
             // lbl_ProductCode
             // 
             this.lbl_ProductCode.AutoSize = true;
-            this.lbl_ProductCode.Location = new System.Drawing.Point(16, 144);
+            this.lbl_ProductCode.Location = new System.Drawing.Point(16, 132);
             this.lbl_ProductCode.Name = "lbl_ProductCode";
             this.lbl_ProductCode.Size = new System.Drawing.Size(57, 16);
             this.lbl_ProductCode.TabIndex = 6;
@@ -202,7 +227,7 @@
             // chk_IsAcceptBatch
             // 
             this.chk_IsAcceptBatch.AutoSize = true;
-            this.chk_IsAcceptBatch.Location = new System.Drawing.Point(19, 180);
+            this.chk_IsAcceptBatch.Location = new System.Drawing.Point(356, 128);
             this.chk_IsAcceptBatch.Name = "chk_IsAcceptBatch";
             this.chk_IsAcceptBatch.Size = new System.Drawing.Size(87, 20);
             this.chk_IsAcceptBatch.TabIndex = 21;
@@ -212,17 +237,63 @@
             // chk_IsActive
             // 
             this.chk_IsActive.AutoSize = true;
-            this.chk_IsActive.Location = new System.Drawing.Point(142, 180);
+            this.chk_IsActive.Location = new System.Drawing.Point(479, 128);
             this.chk_IsActive.Name = "chk_IsActive";
             this.chk_IsActive.Size = new System.Drawing.Size(47, 20);
             this.chk_IsActive.TabIndex = 22;
             this.chk_IsActive.Text = "مفعل";
             this.chk_IsActive.UseVisualStyleBackColor = true;
             // 
+            // nmr_MaxPrice
+            // 
+            this.nmr_MaxPrice.Location = new System.Drawing.Point(497, 168);
+            this.nmr_MaxPrice.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.nmr_MaxPrice.Name = "nmr_MaxPrice";
+            this.nmr_MaxPrice.Size = new System.Drawing.Size(188, 22);
+            this.nmr_MaxPrice.TabIndex = 26;
+            // 
+            // nmr_MinPrice
+            // 
+            this.nmr_MinPrice.Location = new System.Drawing.Point(141, 164);
+            this.nmr_MinPrice.Maximum = new decimal(new int[] {
+            1316134911,
+            2328,
+            0,
+            0});
+            this.nmr_MinPrice.Name = "nmr_MinPrice";
+            this.nmr_MinPrice.Size = new System.Drawing.Size(188, 22);
+            this.nmr_MinPrice.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(371, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "اعلى سعر";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "اقل سعر";
+            // 
             // frmBDProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(951, 480);
+            this.Controls.Add(this.nmr_MaxPrice);
+            this.Controls.Add(this.nmr_MinPrice);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.chk_IsActive);
             this.Controls.Add(this.chk_IsAcceptBatch);
             this.Controls.Add(this.nmr_DescountRatio);
@@ -244,6 +315,8 @@
             this.Name = "frmBDProductAddEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الاصناف";
+            this.Controls.SetChildIndex(this.panl_Header, 0);
+            this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.lbl_ProductName, 0);
             this.Controls.SetChildIndex(this.lbl_Notes, 0);
             this.Controls.SetChildIndex(this.txt_ProductName, 0);
@@ -262,9 +335,18 @@
             this.Controls.SetChildIndex(this.nmr_DescountRatio, 0);
             this.Controls.SetChildIndex(this.chk_IsAcceptBatch, 0);
             this.Controls.SetChildIndex(this.chk_IsActive, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.nmr_MinPrice, 0);
+            this.Controls.SetChildIndex(this.nmr_MaxPrice, 0);
+            this.panl_Header.ResumeLayout(false);
+            this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nmr_ProductPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DiscountAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_DescountRatio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_MaxPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_MinPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,6 +372,10 @@
         private System.Windows.Forms.Label lbl_DescountRatio;
         private System.Windows.Forms.CheckBox chk_IsAcceptBatch;
         private System.Windows.Forms.CheckBox chk_IsActive;
+        private System.Windows.Forms.NumericUpDown nmr_MaxPrice;
+        private System.Windows.Forms.NumericUpDown nmr_MinPrice;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
 
     }
 }
