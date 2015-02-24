@@ -103,14 +103,12 @@ namespace POS.UserInterfaceLayer.Transfer
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    if (_invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["INVTransferHeaderID"].Value)))
-                    {
-                        InitiateGrid(null);
-                        // Utility.Print(null, 1); 
-                    }
+                    _invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["INVTransferHeaderID"].Value));
+                    InitiateGrid(null);
+                    MessageBox.Show("تمت العملية");
                 }
                 else
-                    MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
+                    MessageBox.Show("لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
         }
         #endregion
 

@@ -34,12 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_Close = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_Close);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.cbx_StoreTo);
@@ -83,9 +85,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 21);
+            this.button1.Location = new System.Drawing.Point(12, 15);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 29);
             this.button1.TabIndex = 14;
             this.button1.Text = "بحث";
             this.button1.UseVisualStyleBackColor = true;
@@ -95,11 +97,22 @@
             // 
             this.button2.Location = new System.Drawing.Point(12, 50);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 29);
             this.button2.TabIndex = 15;
             this.button2.Text = "إلغاء البحث";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_Close
+            // 
+            this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Close.Location = new System.Drawing.Point(12, 84);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(75, 29);
+            this.btn_Close.TabIndex = 20;
+            this.btn_Close.Text = "أغلاق";
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // FrmTransferOrderSearch
             // 
@@ -122,6 +135,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Close;
 
     }
 }
