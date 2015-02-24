@@ -16,7 +16,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
-            // _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
+            _sALSalesHeader.FinalPrice = sALSalesHeader.FinalPrice;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
@@ -73,6 +73,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;
+            _sALSalesHeader.FinalPrice = sALSalesHeader.FinalPrice;
             _sALSalesHeader.PaidAmount = sALSalesHeader.PaidAmount;
             _sALSalesHeader.RemainingAmount = sALSalesHeader.RemainingAmount;
             _sALSalesHeader.LastDayToPay = sALSalesHeader.LastDayToPay;
@@ -126,6 +127,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;
+            _sALSalesHeader.FinalPrice = sALSalesHeader.FinalPrice;
             _sALSalesHeader.PaidAmount = sALSalesHeader.PaidAmount;
             _sALSalesHeader.RemainingAmount = sALSalesHeader.RemainingAmount;
             _sALSalesHeader.LastDayToPay = sALSalesHeader.LastDayToPay;
@@ -179,6 +181,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;
+            _sALSalesHeader.FinalPrice = sALSalesHeader.FinalPrice;
             _sALSalesHeader.PaidAmount = sALSalesHeader.PaidAmount;
             _sALSalesHeader.RemainingAmount = sALSalesHeader.RemainingAmount;
             _sALSalesHeader.LastDayToPay = sALSalesHeader.LastDayToPay;

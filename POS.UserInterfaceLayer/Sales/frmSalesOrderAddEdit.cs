@@ -99,7 +99,11 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
+                if (Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value) == 0)
+                    sALSalesLineCollection.RemoveAt(sALSalesLineCollection.IndexOf(sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault()));
+                else
+                    sALSalesLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
+
                 BindGrid();
                 CalculateTotal();
 
@@ -116,10 +120,11 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        if (_sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection) != -1)
+                        int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
+                        if (salesHeaderID != -1)
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
-                            paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
+                            paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", salesHeaderID));
                             Utility.Print("SalesOrder.rpt", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
@@ -129,7 +134,9 @@ namespace POS.UserInterfaceLayer.Sales
                     {
                         if (_sALSalesLinerWrapper.UpdateCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
                         {
-                            //   Utility.Print();
+                            List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                            paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
+                            Utility.Print("SalesOrder.rpt", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -321,7 +328,11 @@ namespace POS.UserInterfaceLayer.Sales
                 MessageBox.Show("اختار طريقة دفع أولا");
                 return false;
             }
-
+            if (sALSalesLineCollection.Count == 0)
+            {
+                MessageBox.Show("أضف عناصر للقائمة أولاا");
+                return false;
+            }
             if (cbx_Inventory.SelectedIndex == -1)
             {
                 MessageBox.Show("أختار مخزن أولا");

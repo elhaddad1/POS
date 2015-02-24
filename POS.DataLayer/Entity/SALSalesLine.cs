@@ -153,7 +153,15 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@TotalPrice", sALSalesHeader.TotalPrice);
             else
                 oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
+
+            // Pass the value of '_totalPrice' as parameter 'TotalPrice' of the stored procedure.
+            if (sALSalesHeader.FinalPrice != null)
+                oDatabaseHelper.AddParameter("@FinalPrice", sALSalesHeader.FinalPrice);
+            else
+                oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
+            
             // Pass the value of '_paidAmount' as parameter 'PaidAmount' of the stored procedure.
+                    
             if (sALSalesHeader.PaidAmount != null)
                 oDatabaseHelper.AddParameter("@PaidAmount", sALSalesHeader.PaidAmount);
             else
@@ -371,6 +379,13 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@TotalPrice", sALSalesHeader.TotalPrice);
             else
                 oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
+
+            // Pass the value of 'FinalPrice' as parameter 'TotalPrice' of the stored procedure.
+            if (sALSalesHeader.FinalPrice != null)
+                oDatabaseHelper.AddParameter("@FinalPrice", sALSalesHeader.FinalPrice);
+            else
+                oDatabaseHelper.AddParameter("@TotalPrice", DBNull.Value);
+
             // Pass the value of '_paidAmount' as parameter 'PaidAmount' of the stored procedure.
             if (sALSalesHeader.PaidAmount != null)
                 oDatabaseHelper.AddParameter("@PaidAmount", sALSalesHeader.PaidAmount);

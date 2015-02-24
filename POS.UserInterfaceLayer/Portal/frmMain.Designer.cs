@@ -48,7 +48,7 @@
             this.mnuItem_PurchaseReturn = new System.Windows.Forms.ToolStripMenuItem();
             this.التحويلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_TransferOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuSalesOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Sales = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlContent = new System.Windows.Forms.Panel();
@@ -63,7 +63,7 @@
             this.mnuItem_,
             this.المشترياتToolStripMenuItem,
             this.التحويلToolStripMenuItem,
-            this.mnuSalesOrder});
+            this.mnuItem_Sales});
             this.mnu_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnu_MainMenu.Name = "mnu_MainMenu";
             this.mnu_MainMenu.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
@@ -226,28 +226,28 @@
             this.mnuItem_TransferOrder.Text = "امر تحويل";
             this.mnuItem_TransferOrder.Click += new System.EventHandler(this.mnuItem_TransferOrder_Click);
             // 
-            // mnuSalesOrder
+            // mnuItem_Sales
             // 
-            this.mnuSalesOrder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_Sales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItem_SalesOrders,
             this.mnuItem_SalesOrder});
-            this.mnuSalesOrder.Enabled = false;
-            this.mnuSalesOrder.Name = "mnuSalesOrder";
-            this.mnuSalesOrder.Size = new System.Drawing.Size(40, 19);
-            this.mnuSalesOrder.Text = "البيع";
+            this.mnuItem_Sales.Enabled = false;
+            this.mnuItem_Sales.Name = "mnuItem_Sales";
+            this.mnuItem_Sales.Size = new System.Drawing.Size(40, 19);
+            this.mnuItem_Sales.Text = "البيع";
             // 
             // mnuItem_SalesOrders
             // 
             this.mnuItem_SalesOrders.Enabled = false;
             this.mnuItem_SalesOrders.Name = "mnuItem_SalesOrders";
-            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(150, 22);
+            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_SalesOrders.Text = "فواتير العملاء";
             this.mnuItem_SalesOrders.Click += new System.EventHandler(this.mnuItem_SalesOrders_Click);
             // 
             // mnuItem_SalesOrder
             // 
             this.mnuItem_SalesOrder.Name = "mnuItem_SalesOrder";
-            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(150, 22);
+            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_SalesOrder.Text = "فتح فاتورة جديدة";
             this.mnuItem_SalesOrder.Click += new System.EventHandler(this.mnuItem_SalesOrder_Click);
             // 
@@ -312,7 +312,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_PurchaseReturn;
         private System.Windows.Forms.ToolStripMenuItem التحويلToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_TransferOrder;
-        private System.Windows.Forms.ToolStripMenuItem mnuSalesOrder;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Sales;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesOrders;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesOrder;
     }
