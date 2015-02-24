@@ -12,12 +12,16 @@ namespace POS.UserInterfaceLayer.Transfer
 {
     public partial class FrmTransferOrderSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        private INVTransferHeaderWrapper invtransferHeaderWrapper = new INVTransferHeaderWrapper();
+        private INVTransferHeaderWrapper _invtransferHeaderWrapper;
+        private INVInventoryWrapper _inventoryWrapper;
         public FrmTransferOrderSearch()
         {
-            InitiateGrid(null);
             InitializeComponent();
             base.lbl_FormHeader.Text = "بحث";
+            this._invtransferHeaderWrapper = new INVTransferHeaderWrapper();
+            this._inventoryWrapper = new INVInventoryWrapper();
+            FillStokeCBX();
+            InitiateGrid(null);
         }
 
         public void InitiateGrid(INVTransferHeader invtransferHeader)
@@ -32,49 +36,39 @@ namespace POS.UserInterfaceLayer.Transfer
 
             addColumnToGrid("INVTransferHeaderID", "INVTransferHeaderID", 120, false);
 
+            addColumnToGrid("IsClosed", "IsClosed", 120, false);
+
             addColumnToGrid("المخزن المحول منه", "FromInventory", 120, true);
 
             addColumnToGrid("المخزن المحول اليه", "ToInventory", 120, true);
 
             addColumnToGrid("تاريخ التحويل", "TransferDate", 120, true);
 
+            addColumnToGrid("رقم الفاتورة", "InvoiceNumber", 120, true);
+
             addColumnToGrid("الموظف", "CreatedBy", 120, true);
 
             List<INVTransferHeaderModel> transferList = new List<INVTransferHeaderModel>();
 
             if (invtransferHeader == null)
-                transferList = invtransferHeaderWrapper.getAllTransferTransaction();
+                transferList = _invtransferHeaderWrapper.getAllTransferTransaction();
             else
-                transferList = invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader);
+                transferList = _invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader);
 
             dgrid_Result.DataSource = transferList;
 
         }
 
 
-        void search()
-        {
-            INVTransferHeader invtransferHeader = new INVTransferHeader();
-            invtransferHeader.CreateDate = dtp_TransferDate.Value;
-            int fromInv = 0, toInv = 0;
-            int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out fromInv);
-            int.TryParse(ddl_InventoryName.SelectedValue.ToString(), out toInv);
-            if (fromInv > 0)
-                invtransferHeader.FromInventoryID = fromInv;
-            if (toInv > 0)
-                invtransferHeader.ToInventoryID = toInv;
 
-            InitiateGrid(invtransferHeader);
-        }
-
+        #region Events
         private void btn_search_Click(object sender, EventArgs e)
         {
             search();
         }
-
         public override void btn_Add_Click(object sender, EventArgs e)
         {
-            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,0);
+            FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this, 0);
             frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
@@ -82,7 +76,7 @@ namespace POS.UserInterfaceLayer.Transfer
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this,Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    FrmAddEditTransferOrder frm = new FrmAddEditTransferOrder(this, Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["INVTransferHeaderID"].Value));
                     frm.ShowDialog();
                 }
                 else
@@ -93,8 +87,9 @@ namespace POS.UserInterfaceLayer.Transfer
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    invtransferHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    _invtransferHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["INVTransferHeaderID"].Value));
                     InitiateGrid(null);
+                    MessageBox.Show("تمت العملية");
                 }
                 else
                     MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
@@ -108,7 +103,7 @@ namespace POS.UserInterfaceLayer.Transfer
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    if (invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
+                    if (_invtransferHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["INVTransferHeaderID"].Value)))
                     {
                         InitiateGrid(null);
                         // Utility.Print(null, 1); 
@@ -117,5 +112,57 @@ namespace POS.UserInterfaceLayer.Transfer
                 else
                     MessageBox.Show(" لا يمكنك إغلاق هذه الفاتوره حيث انها مغلقه");
         }
+        #endregion
+
+        #region private methods
+        private void FillStokeCBX()
+        {
+
+            try
+            {
+                cbx_StoreFrom.DataSource = _inventoryWrapper.SelectAll();
+                cbx_StoreFrom.DisplayMember = "InventoryName";
+                cbx_StoreFrom.ValueMember = "InventoryID";
+                cbx_StoreFrom.SelectedIndex = -1;
+                cbx_StoreTo.DataSource = _inventoryWrapper.SelectAll();
+                cbx_StoreTo.DisplayMember = "InventoryName";
+                cbx_StoreTo.ValueMember = "InventoryID";
+                cbx_StoreTo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+        private void search()
+        {
+            INVTransferHeader invtransferHeader = new INVTransferHeader();
+            //invtransferHeader.CreateDate = dtb_Date.Value;
+            int fromInv = 0, toInv = 0;
+            if (cbx_StoreFrom.SelectedValue != null)
+                int.TryParse(cbx_StoreFrom.SelectedValue.ToString(), out fromInv);
+            if (cbx_StoreTo.SelectedValue != null)
+                int.TryParse(cbx_StoreTo.SelectedValue.ToString(), out toInv);
+            if (fromInv > 0)
+                invtransferHeader.FromInventoryID = fromInv;
+            if (toInv > 0)
+                invtransferHeader.ToInventoryID = toInv;
+
+            InitiateGrid(invtransferHeader);
+        }
+        private void clearUI()
+        {
+            cbx_StoreTo.SelectedIndex = -1;
+            cbx_StoreFrom.SelectedIndex = -1;
+            InitiateGrid(null);
+        }
+        #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clearUI();
+        }
+
     }
 }

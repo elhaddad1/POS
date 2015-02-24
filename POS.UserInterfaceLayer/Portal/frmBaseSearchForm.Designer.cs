@@ -211,10 +211,10 @@
         protected System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.DataGridView Dgrid_Result;
         protected System.Windows.Forms.Button btn_Close;
-        protected System.Windows.Forms.GroupBox groupBox2;
         protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         protected System.Windows.Forms.Button btn_Add;
         protected System.Windows.Forms.Button btn_Edit;
         protected System.Windows.Forms.Panel panl_Footer;
+        public System.Windows.Forms.GroupBox groupBox2;
     }
 }

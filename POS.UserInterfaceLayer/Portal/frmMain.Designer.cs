@@ -50,8 +50,8 @@
             this.mnuItem_TransferOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalesOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrders = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.mnuItem_SalesOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.mnu_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,9 +240,16 @@
             // 
             this.mnuItem_SalesOrders.Enabled = false;
             this.mnuItem_SalesOrders.Name = "mnuItem_SalesOrders";
-            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(150, 22);
             this.mnuItem_SalesOrders.Text = "فواتير العملاء";
             this.mnuItem_SalesOrders.Click += new System.EventHandler(this.mnuItem_SalesOrders_Click);
+            // 
+            // mnuItem_SalesOrder
+            // 
+            this.mnuItem_SalesOrder.Name = "mnuItem_SalesOrder";
+            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(150, 22);
+            this.mnuItem_SalesOrder.Text = "فتح فاتورة جديدة";
+            this.mnuItem_SalesOrder.Click += new System.EventHandler(this.mnuItem_SalesOrder_Click);
             // 
             // pnlContent
             // 
@@ -251,13 +258,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(776, 403);
             this.pnlContent.TabIndex = 6;
-            // 
-            // mnuItem_SalesOrder
-            // 
-            this.mnuItem_SalesOrder.Name = "mnuItem_SalesOrder";
-            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_SalesOrder.Text = "فتح فاتورة جديدة";
-            this.mnuItem_SalesOrder.Click += new System.EventHandler(this.mnuItem_SalesOrder_Click);
             // 
             // frmMain
             // 
@@ -276,7 +276,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "برنامج المخازن";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.mnu_MainMenu.ResumeLayout(false);
             this.mnu_MainMenu.PerformLayout();

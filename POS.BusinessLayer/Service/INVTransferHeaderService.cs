@@ -83,7 +83,7 @@ namespace POS.BusinessLayer
 		public INVTransferHeaderCollection SelectAll()
 		{
 			INVTransferHeaderCollection iNVTransferHeaderCollection = new INVTransferHeaderCollection();
-			foreach (POS.DataLayer.INVTransferHeader _iNVTransferHeader in POS.DataLayer.INVTransferHeaderBase.SelectAll())
+            foreach (POS.DataLayer.INVTransferHeader _iNVTransferHeader in POS.DataLayer.INVTransferHeaderBase.SelectAll())
 			{
 				_iNVTransferHeaderWCF = new INVTransferHeader();
 				

@@ -22,6 +22,7 @@ namespace POS.UserInterfaceLayer.Transfer
         private FrmTransferOrderSearch _frmTransferOrderSearch;
         public INVTransferLineCollection transferLineCollection;
         private INVTransferHeader _transferHeader;
+        private int _transferHeaderID = 0;
 
         public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch, int transferHeaderID)
         {
@@ -31,10 +32,14 @@ namespace POS.UserInterfaceLayer.Transfer
             this._bDCustomerWrapper = new BDCustomerWrapper();
             this.transferLineCollection = new INVTransferLineCollection();
             this._inventoryWrapper = new INVInventoryWrapper();
+            this._transferHeaderWrapper = new INVTransferHeaderWrapper();
             this._frmTransferOrderSearch = frmTransferOrderSearch;
             FillStokeCBX();
             if (transferHeaderID > 0)
+            {
+                this._transferHeaderID = transferHeaderID;
                 GetTransferOrderData(transferHeaderID);
+            }
         }
 
         #region -- Events
@@ -73,7 +78,7 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                //transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
+                transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty++;
                 BindGrid();
             }
             else
@@ -84,17 +89,13 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                //transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
+                transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty--;
                 BindGrid();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
         }
 
-        private void btn_ClosePrint_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -102,9 +103,46 @@ namespace POS.UserInterfaceLayer.Transfer
             {
                 try
                 {
-                    if (_transferHeaderWrapper.SaveTransferOrder(CollectHeaderData(), transferLineCollection))
+                    bool rtn_result = false;
+                    if (_transferHeaderID > 0)
+                        rtn_result = _transferHeaderWrapper.UpdateTransferOrder(CollectHeaderData(), transferLineCollection);
+                    else
+                        rtn_result = _transferHeaderWrapper.SaveTransferOrder(CollectHeaderData(), transferLineCollection);
+                    if (rtn_result)
                     {
-                        MessageBox.Show("تمت العلية");
+                        _frmTransferOrderSearch.InitiateGrid(null);
+                        MessageBox.Show("تمت العملية");
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                }
+            }
+        }
+
+
+        private void btn_ClosePrint_Click_1(object sender, EventArgs e)
+        {
+            if (Validate())
+            {
+                try
+                {
+                    bool rtn_result = false;
+                    if (_transferHeaderID > 0)
+                    {
+                        rtn_result = _transferHeaderWrapper.UpdateTransferOrder(CollectHeaderData(), transferLineCollection);
+                        rtn_result = _transferHeaderWrapper.CloseOrder(_transferHeaderID);
+                    }
+                    else
+                        rtn_result = _transferHeaderWrapper.SaveCloseTransferOrder(CollectHeaderData(), transferLineCollection);
+
+                    if (rtn_result)
+                    {
+                        _frmTransferOrderSearch.InitiateGrid(null);
+                        MessageBox.Show("تمت العملية");
+
                         this.Close();
                     }
                 }
@@ -170,15 +208,29 @@ namespace POS.UserInterfaceLayer.Transfer
             pk.INVTransferHeaderID = salesHeaderID;
             _transferHeader = _transferHeaderWrapper.SelectOne(pk);
             transferLineCollection = _transferHeaderWrapper.SelectByField(salesHeaderID);
+            BindGrid();
+            cbx_StoreFrom.SelectedValue = _transferHeader.FromInventoryID;
+            cbx_StoreTo.SelectedValue = _transferHeader.ToInventoryID;
+            dtb_Date.Value = _transferHeader.TransferDate.Value;
         }
 
         private INVTransferHeader CollectHeaderData()
         {
-            INVTransferHeader _INVTransferHeader = new INVTransferHeader();
-            _INVTransferHeader.FromInventoryID = Convert.ToInt32(cbx_StoreFrom.SelectedValue);
-            _INVTransferHeader.ToInventoryID = Convert.ToInt32(cbx_StoreTo.SelectedValue);
-            _INVTransferHeader.TransferDate = DateTime.Now;
-            return _INVTransferHeader;
+            if (_transferHeaderID > 0)
+            {
+                _transferHeader.FromInventoryID = Convert.ToInt32(cbx_StoreFrom.SelectedValue);
+                _transferHeader.ToInventoryID = Convert.ToInt32(cbx_StoreTo.SelectedValue);
+                _transferHeader.TransferDate = dtb_Date.Value;
+                return _transferHeader;
+            }
+            else
+            {
+                INVTransferHeader _INVTransferHeader = new INVTransferHeader();
+                _INVTransferHeader.FromInventoryID = Convert.ToInt32(cbx_StoreFrom.SelectedValue);
+                _INVTransferHeader.ToInventoryID = Convert.ToInt32(cbx_StoreTo.SelectedValue);
+                _INVTransferHeader.TransferDate = dtb_Date.Value;
+                return _INVTransferHeader;
+            }
         }
 
         private bool Validate()
@@ -204,6 +256,7 @@ namespace POS.UserInterfaceLayer.Transfer
             return true;
         }
         #endregion
+
 
 
     }

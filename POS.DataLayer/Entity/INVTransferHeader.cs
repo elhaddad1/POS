@@ -22,8 +22,11 @@ namespace POS.DataLayer
 	[Serializable]
 	public class INVTransferHeader : INVTransferHeaderBase
 	{
-	
-		#region Class Level Variables
+
+        #region Class Level Variables
+        private DatabaseHelper oDatabaseHelper;
+
+        private string _productNameNonDefault = null;
 
 		#endregion
 		
@@ -57,15 +60,29 @@ namespace POS.DataLayer
             return ExecutionState;
         }
 
-        public static bool CloseOrder(int INVTransferHeaderID, int UserID)
+        public bool CloseOrder(int INVTransferHeaderID, int UserID, INVTransferLineCollection transferLineCollection)
         {
-            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
-            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            oDatabaseHelper.BeginTransaction();
             oDatabaseHelper.AddParameter("@UserID", UserID);
             oDatabaseHelper.AddParameter("@INVTransferHeaderID", INVTransferHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-            oDatabaseHelper.ExecuteScalar("usp_INVTransferHader_CloseOrder", ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("usp_INVTransferHader_CloseOrder", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            foreach (INVTransferLine transferLine in transferLineCollection)
+            {
+                if (!CommitDetails(oDatabaseHelper, transferLine))
+                {
+                    ExecutionState = false;
+                    break;
+                }
+                else
+                    ExecutionState = true;
+            }
+            if (ExecutionState)
+                oDatabaseHelper.CommitTransaction();
+            else
+                oDatabaseHelper.RollbackTransaction();
             oDatabaseHelper.Dispose();
             return ExecutionState;
         }
@@ -130,6 +147,64 @@ namespace POS.DataLayer
                 INVTransferHeaderCollection.Add(obj);
             }
             return INVTransferHeaderCollection;
+        }
+        private bool CommitDetails(DatabaseHelper oDatabaseHelper, INVTransferLine transferLine)
+        {
+            bool ExecutionState = false;
+            // Pass the value of '_TransferHeaderID' as parameter 'TransferHeaderID' of the stored procedure.
+            oDatabaseHelper.AddParameter("@TransferLineID", transferLine.TransferLineID);
+            oDatabaseHelper.AddParameter("@TransferHeaderID", transferLine.TransferHeaderID);
+            // Pass the value of '_productID' as parameter 'ProductID' of the stored procedure.
+            if (transferLine.ProductID != null)
+                oDatabaseHelper.AddParameter("@ProductID", transferLine.ProductID);
+            else
+                oDatabaseHelper.AddParameter("@ProductID", DBNull.Value);
+            // Pass the value of '_Qty' as parameter 'Qty' of the stored procedure.
+            if (transferLine.Qty != null)
+                oDatabaseHelper.AddParameter("@Qty", transferLine.Qty);
+            else
+                oDatabaseHelper.AddParameter("@Qty", DBNull.Value);
+            // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
+            if (transferLine.CreatedBy != null)
+                oDatabaseHelper.AddParameter("@CreatedBy", transferLine.CreatedBy);
+            else
+                oDatabaseHelper.AddParameter("@CreatedBy", DBNull.Value);
+            // Pass the value of '_createDate' as parameter 'CreateDate' of the stored procedure.
+            if (transferLine.CreateDate != null)
+                oDatabaseHelper.AddParameter("@CreateDate", transferLine.CreateDate);
+            else
+                oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
+            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
+            if (transferLine.UpdatedBy != null)
+                oDatabaseHelper.AddParameter("@UpdatedBy", transferLine.UpdatedBy);
+            else
+                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
+            // Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
+            if (transferLine.UpdateDate != null)
+                oDatabaseHelper.AddParameter("@UpdateDate", transferLine.UpdateDate);
+            else
+                oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value);
+            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
+            if (transferLine.IsDeleted != null)
+                oDatabaseHelper.AddParameter("@IsDeleted", transferLine.IsDeleted);
+            else
+                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            if (transferLine.DeletedBy != null)
+                oDatabaseHelper.AddParameter("@DeletedBy", transferLine.DeletedBy);
+            else
+                oDatabaseHelper.AddParameter("@DeletedBy", DBNull.Value);
+            // Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
+            if (transferLine.DeletedDate != null)
+                oDatabaseHelper.AddParameter("@DeletedDate", transferLine.DeletedDate);
+            else
+                oDatabaseHelper.AddParameter("@DeletedDate", DBNull.Value);
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            oDatabaseHelper.ExecuteScalar("usp_INVTransferLine_Commit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+
+            return ExecutionState;
         }
 		#endregion
 

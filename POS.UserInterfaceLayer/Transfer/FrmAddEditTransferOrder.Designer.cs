@@ -38,6 +38,9 @@
             this.cbx_StoreTo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_AddLine = new System.Windows.Forms.Button();
             this.btn_DeleteLine = new System.Windows.Forms.Button();
             this.btn_Minus = new System.Windows.Forms.Button();
@@ -45,9 +48,6 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -157,6 +157,27 @@
             this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
             this.dgrd_OrderLines.TabIndex = 37;
             // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "أسم المنتج";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            this.ProductName.Width = 210;
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.ReadOnly = true;
+            this.TotalQty.Width = 90;
+            // 
             // btn_AddLine
             // 
             this.btn_AddLine.Location = new System.Drawing.Point(545, 15);
@@ -207,6 +228,7 @@
             this.btn_ClosePrint.TabIndex = 16;
             this.btn_ClosePrint.Text = "أغلاق وطباعة";
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
+            this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click_1);
             // 
             // btn_Save
             // 
@@ -231,27 +253,6 @@
             this.btn_Cancel.Text = "ألغاء";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // ProductID
-            // 
-            this.ProductID.HeaderText = "";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Visible = false;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "أسم المنتج";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            this.ProductName.Width = 210;
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.ReadOnly = true;
-            this.TotalQty.Width = 90;
             // 
             // FrmAddEditTransferOrder
             // 

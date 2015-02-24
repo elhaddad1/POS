@@ -28,71 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtp_TransferDate = new System.Windows.Forms.DateTimePicker();
-            this.ddl_InventoryName = new System.Windows.Forms.ComboBox();
-            this.lbl_TransferDate = new System.Windows.Forms.Label();
-            this.lbl_StoreName = new System.Windows.Forms.Label();
-            this.btn_search = new System.Windows.Forms.Button();
+            this.cbx_StoreTo = new System.Windows.Forms.ComboBox();
+            this.cbx_StoreFrom = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_search);
-            this.groupBox2.Controls.Add(this.dtp_TransferDate);
-            this.groupBox2.Controls.Add(this.ddl_InventoryName);
-            this.groupBox2.Controls.Add(this.lbl_TransferDate);
-            this.groupBox2.Controls.Add(this.lbl_StoreName);
-            this.groupBox2.Size = new System.Drawing.Size(698, 84);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.cbx_StoreTo);
+            this.groupBox2.Controls.Add(this.cbx_StoreFrom);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
             // 
-            // dtp_TransferDate
+            // cbx_StoreTo
             // 
-            this.dtp_TransferDate.Location = new System.Drawing.Point(395, 46);
-            this.dtp_TransferDate.Name = "dtp_TransferDate";
-            this.dtp_TransferDate.Size = new System.Drawing.Size(206, 22);
-            this.dtp_TransferDate.TabIndex = 14;
+            this.cbx_StoreTo.FormattingEnabled = true;
+            this.cbx_StoreTo.Location = new System.Drawing.Point(349, 13);
+            this.cbx_StoreTo.Name = "cbx_StoreTo";
+            this.cbx_StoreTo.Size = new System.Drawing.Size(241, 24);
+            this.cbx_StoreTo.TabIndex = 13;
             // 
-            // ddl_InventoryName
+            // cbx_StoreFrom
             // 
-            this.ddl_InventoryName.FormattingEnabled = true;
-            this.ddl_InventoryName.Location = new System.Drawing.Point(395, 13);
-            this.ddl_InventoryName.Name = "ddl_InventoryName";
-            this.ddl_InventoryName.Size = new System.Drawing.Size(206, 24);
-            this.ddl_InventoryName.TabIndex = 13;
+            this.cbx_StoreFrom.FormattingEnabled = true;
+            this.cbx_StoreFrom.Location = new System.Drawing.Point(349, 41);
+            this.cbx_StoreFrom.Name = "cbx_StoreFrom";
+            this.cbx_StoreFrom.Size = new System.Drawing.Size(241, 24);
+            this.cbx_StoreFrom.TabIndex = 12;
             // 
-            // lbl_TransferDate
+            // label3
             // 
-            this.lbl_TransferDate.AutoSize = true;
-            this.lbl_TransferDate.Location = new System.Drawing.Point(623, 52);
-            this.lbl_TransferDate.Name = "lbl_TransferDate";
-            this.lbl_TransferDate.Size = new System.Drawing.Size(69, 16);
-            this.lbl_TransferDate.TabIndex = 12;
-            this.lbl_TransferDate.Text = "تاريخ التحويل";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(600, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "المخزن المحول منه";
             // 
-            // lbl_StoreName
+            // label2
             // 
-            this.lbl_StoreName.AutoSize = true;
-            this.lbl_StoreName.Location = new System.Drawing.Point(633, 21);
-            this.lbl_StoreName.Name = "lbl_StoreName";
-            this.lbl_StoreName.Size = new System.Drawing.Size(59, 16);
-            this.lbl_StoreName.TabIndex = 11;
-            this.lbl_StoreName.Text = "اسم المخزن";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(600, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "المخزن المحول اليه";
             // 
-            // btn_search
+            // button1
             // 
-            this.btn_search.Location = new System.Drawing.Point(6, 21);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(99, 33);
-            this.btn_search.TabIndex = 15;
-            this.btn_search.Text = "بحث";
-            this.btn_search.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(12, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "بحث";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // _FrmTransferOrderSearch
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 50);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "إلغاء البحث";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // FrmTransferOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(698, 403);
-            this.Name = "_FrmTransferOrderSearch";
+            this.Name = "FrmTransferOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -103,10 +116,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtp_TransferDate;
-        private System.Windows.Forms.ComboBox ddl_InventoryName;
-        private System.Windows.Forms.Label lbl_TransferDate;
-        private System.Windows.Forms.Label lbl_StoreName;
-        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbx_StoreTo;
+        private System.Windows.Forms.ComboBox cbx_StoreFrom;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+
     }
 }
