@@ -13,18 +13,18 @@ using POS.UserInterfaceLayer.BasicData;
 namespace POS.UserInterfaceLayer.Purcase
 {
     public partial class frmPurchaseOrderSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
-    { 
-       PURPurchaseHeaderWrapper sALPurchaseHeaderWrapper;
-       
+    {
+        PURPurchaseHeaderWrapper sALPurchaseHeaderWrapper;
+
         public frmPurchaseOrderSearch()
         {
             InitializeComponent();
-             // base.toggelButton(base.btn_Close);
+            // base.toggelButton(base.btn_Close);
             base.lbl_FormHeader.Text = "فواتير الشراء";
             sALPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
             InitiateGrid();
         }
-       
+
         #region --Events
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
