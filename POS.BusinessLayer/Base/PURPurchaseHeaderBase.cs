@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/24/2015 10:40:55 AM
+// Date		:	2/24/2015 11:36:31 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -96,6 +96,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? InventoryID {get;set;}
+
+		[DataMember]
+		public DateTime? InvoiceDate {get;set;}
 
 		
 		#endregion

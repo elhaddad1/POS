@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/24/2015 10:40:55 AM
+// Date		:	2/24/2015 11:36:31 AM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 10:40:55 AM				Created function
+		/// DLGenerator			2/24/2015 11:36:31 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

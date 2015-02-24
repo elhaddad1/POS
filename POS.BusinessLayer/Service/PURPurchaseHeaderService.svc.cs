@@ -1,15 +1,15 @@
 //
 // Class	:	PURPurchaseHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/24/2015 10:40:55 AM
+// Date		:	2/24/2015 11:36:31 AM
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Runtime.Serialization;
+////using System.ServiceModel;
+//using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -17,7 +17,7 @@ namespace POS.BusinessLayer
 	///<summary>
 	///WCF service for the PURPurchaseHeader
 	///</summary>
-	public class PURPurchaseHeaderService : IPURPurchaseHeaderService
+	public class PURPurchaseHeaderService  //: IPURPurchaseHeaderService
 	{
 		private PURPurchaseHeader _pURPurchaseHeaderWCF;
 		private POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader;
@@ -82,6 +82,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 			return _pURPurchaseHeaderWCF;
 		}
@@ -124,6 +125,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -183,6 +185,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -225,6 +228,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.DeletedBy=pURPurchaseHeader.DeletedBy;
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
 			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
+			_pURPurchaseHeader.InvoiceDate=pURPurchaseHeader.InvoiceDate;
 			
 			return _pURPurchaseHeader.Insert();
 		}
@@ -281,6 +285,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -330,6 +335,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -388,6 +394,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -437,6 +444,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -495,6 +503,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -544,6 +553,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -602,6 +612,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -651,6 +662,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -699,6 +711,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -752,6 +765,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -793,6 +807,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.DeletedBy=pURPurchaseHeader.DeletedBy;
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
 			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
+			_pURPurchaseHeader.InvoiceDate=pURPurchaseHeader.InvoiceDate;
 			
 			return _pURPurchaseHeader.Update();
 		}

@@ -16,6 +16,7 @@ namespace POS.BusinessLayer
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class PURPurchaseHeader : PURPurchaseHeaderBase
 	{
+        public string SupplierName { get; set; }
 	}
 }
 			

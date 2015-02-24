@@ -21,7 +21,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
             _pURPurchaseHeader.TotalPrice = pURPurchaseHeader.TotalPrice;
             _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
-            _pURPurchaseHeader.RenainingAmount = pURPurchaseHeader.RenainingAmount;
+            _pURPurchaseHeader.RemainingAmount = pURPurchaseHeader.RemainingAmount;
             _pURPurchaseHeader.LastDayToPay = pURPurchaseHeader.LastDayToPay;
             _pURPurchaseHeader.TotalDiscountAmount = pURPurchaseHeader.TotalDiscountAmount;
             _pURPurchaseHeader.TotalDiscountRatio = pURPurchaseHeader.TotalDiscountRatio;
@@ -72,7 +72,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
             _pURPurchaseHeader.TotalPrice = pURPurchaseHeader.TotalPrice;
             _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
-            _pURPurchaseHeader.RenainingAmount = pURPurchaseHeader.RenainingAmount;
+            _pURPurchaseHeader.RemainingAmount = pURPurchaseHeader.RemainingAmount;
             _pURPurchaseHeader.LastDayToPay = pURPurchaseHeader.LastDayToPay;
             _pURPurchaseHeader.TotalDiscountAmount = pURPurchaseHeader.TotalDiscountAmount;
             _pURPurchaseHeader.TotalDiscountRatio = pURPurchaseHeader.TotalDiscountRatio;

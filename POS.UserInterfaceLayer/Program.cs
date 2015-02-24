@@ -20,7 +20,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmOpenTakingInventory());
+            Application.Run(new frmLogin  ());
         }
     }
 }

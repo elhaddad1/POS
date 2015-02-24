@@ -18,14 +18,14 @@ namespace POS.BusinessLayer.Wrapper
                 _pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
                 _pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
                 _pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
-                _pURPurchaseHeaderWCF .SupplierID = _pURPurchaseHeader.CustomerName;
+                _pURPurchaseHeaderWCF .SupplierName = _pURPurchaseHeader.SupplierName;
                 _pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
                // _pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
                // _pURPurchaseHeaderWCF.SellerID = _pURPurchaseHeader.SellerID;
                 _pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
                 _pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
                 _pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
-                _pURPurchaseHeaderWCF.RenainingAmount = _pURPurchaseHeader.RenainingAmount;
+                _pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
                 _pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
                 _pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
                 _pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
@@ -43,9 +43,9 @@ namespace POS.BusinessLayer.Wrapper
                 _pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
                 _pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
 
-                sALSalesHeaderCollection.Add(_pURPurchaseHeaderWCF);
+                PURPurcaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
             }
-            return sALSalesHeaderCollection;
+            return PURPurcaseHeaderCollection;
         }
 
         public bool DeleteOrder(int SalesHeaderID)

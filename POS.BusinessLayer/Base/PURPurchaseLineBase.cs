@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/24/2015 10:40:54 AM
+// Date		:	2/24/2015 11:36:30 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -63,9 +63,6 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? DeletedBy {get;set;}
-
-		[DataMember]
-		public DateTime? InvoiceDate {get;set;}
 
 		
 		#endregion
