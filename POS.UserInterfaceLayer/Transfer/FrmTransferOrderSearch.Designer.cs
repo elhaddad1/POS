@@ -35,12 +35,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
+            this.tbx_OrderSerial = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbx_OrderSerial);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btn_Close);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
@@ -114,6 +118,22 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
+            // tbx_OrderSerial
+            // 
+            this.tbx_OrderSerial.Location = new System.Drawing.Point(349, 71);
+            this.tbx_OrderSerial.Name = "tbx_OrderSerial";
+            this.tbx_OrderSerial.Size = new System.Drawing.Size(241, 22);
+            this.tbx_OrderSerial.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(616, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "مسلسل الفاتورة";
+            // 
             // FrmTransferOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -136,6 +156,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.TextBox tbx_OrderSerial;
+        private System.Windows.Forms.Label label1;
 
     }
 }

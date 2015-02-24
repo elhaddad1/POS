@@ -65,6 +65,7 @@ namespace POS.BusinessLayer.Wrapper
                               &&
                               (!invtransferHeader.FromInventoryID.HasValue || item.FromInventoryID == invtransferHeader.FromInventoryID)
                               && (!invtransferHeader.ToInventoryID.HasValue || item.ToInventoryID == invtransferHeader.ToInventoryID)
+                              && (string.IsNullOrEmpty(invtransferHeader.InvoiceNumber) || item.InvoiceNumber.Contains(invtransferHeader.InvoiceNumber))
                               //&& (!invtransferHeader.CreateDate.HasValue || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))
                               )
                               select new INVTransferHeaderModel()

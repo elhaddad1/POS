@@ -146,7 +146,8 @@ namespace POS.UserInterfaceLayer.Transfer
                 invtransferHeader.FromInventoryID = fromInv;
             if (toInv > 0)
                 invtransferHeader.ToInventoryID = toInv;
-
+            if (string.IsNullOrEmpty(tbx_OrderSerial.Text))
+                invtransferHeader.InvoiceNumber = tbx_OrderSerial.Text;
             InitiateGrid(invtransferHeader);
         }
         private void clearUI()
