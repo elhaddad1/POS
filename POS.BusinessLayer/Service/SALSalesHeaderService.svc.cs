@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:13 PM
+// Date		:	2/24/2015 2:25:55 AM
 //
 
 
@@ -77,6 +77,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 			return _sALSalesHeaderWCF;
 		}
@@ -119,6 +121,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -178,6 +182,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -220,6 +226,8 @@ namespace POS.BusinessLayer
 			_sALSalesHeader.IsDeleted=sALSalesHeader.IsDeleted;
 			_sALSalesHeader.DeletedBy=sALSalesHeader.DeletedBy;
 			_sALSalesHeader.DeletDate=sALSalesHeader.DeletDate;
+			_sALSalesHeader.InventoryID=sALSalesHeader.InventoryID;
+			_sALSalesHeader.FinalPrice=sALSalesHeader.FinalPrice;
 			
 			return _sALSalesHeader.Insert();
 		}
@@ -276,6 +284,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -325,6 +335,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -383,6 +395,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -432,6 +446,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -490,6 +506,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -539,6 +557,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -597,6 +617,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -646,6 +668,119 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				
+				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
+			}
+			return sALSalesHeaderCollection;
+		}
+			/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			return POS.DataLayer.SALSalesHeaderBase.DeleteAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID));
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class SALSalesHeaderCollection</returns>
+		public SALSalesHeaderCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			SALSalesHeaderCollection sALSalesHeaderCollection=new SALSalesHeaderCollection();
+			foreach (POS.DataLayer.SALSalesHeader _sALSalesHeader in POS.DataLayer.SALSalesHeaderBase.SelectAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID)))
+			{
+				_sALSalesHeaderWCF = new SALSalesHeader();
+				_sALSalesHeaderWCF.SalesHeaderID = _sALSalesHeader.SalesHeaderID;
+				_sALSalesHeaderWCF.SalesDate = _sALSalesHeader.SalesDate;
+				_sALSalesHeaderWCF.CustomerID = _sALSalesHeader.CustomerID;
+				_sALSalesHeaderWCF.InvoiceNumber = _sALSalesHeader.InvoiceNumber;
+				_sALSalesHeaderWCF.InvoiceDate = _sALSalesHeader.InvoiceDate;
+				_sALSalesHeaderWCF.SellerID = _sALSalesHeader.SellerID;
+				_sALSalesHeaderWCF.PaymentTypeID = _sALSalesHeader.PaymentTypeID;
+				_sALSalesHeaderWCF.TotalPrice = _sALSalesHeader.TotalPrice;
+				_sALSalesHeaderWCF.PaidAmount = _sALSalesHeader.PaidAmount;
+				_sALSalesHeaderWCF.RemainingAmount = _sALSalesHeader.RemainingAmount;
+				_sALSalesHeaderWCF.LastDayToPay = _sALSalesHeader.LastDayToPay;
+				_sALSalesHeaderWCF.TotalDiscountAmount = _sALSalesHeader.TotalDiscountAmount;
+				_sALSalesHeaderWCF.TotalDiscountRatio = _sALSalesHeader.TotalDiscountRatio;
+				_sALSalesHeaderWCF.IsClosed = _sALSalesHeader.IsClosed;
+				_sALSalesHeaderWCF.IsVoid = _sALSalesHeader.IsVoid;
+				_sALSalesHeaderWCF.IsPrinted = _sALSalesHeader.IsPrinted;
+				_sALSalesHeaderWCF.ServicePrice = _sALSalesHeader.ServicePrice;
+				_sALSalesHeaderWCF.TaxTypeID = _sALSalesHeader.TaxTypeID;
+				_sALSalesHeaderWCF.RefuseReasonID = _sALSalesHeader.RefuseReasonID;
+				_sALSalesHeaderWCF.CreatedBy = _sALSalesHeader.CreatedBy;
+				_sALSalesHeaderWCF.CreateDate = _sALSalesHeader.CreateDate;
+				_sALSalesHeaderWCF.UpdatedBy = _sALSalesHeader.UpdatedBy;
+				_sALSalesHeaderWCF.UpdateDate = _sALSalesHeader.UpdateDate;
+				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
+				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
+				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				
+				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
+			}
+			return sALSalesHeaderCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class SALSalesHeaderCollection</returns>
+		public SALSalesHeaderCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			SALSalesHeaderCollection sALSalesHeaderCollection=new SALSalesHeaderCollection();
+			foreach (POS.DataLayer.SALSalesHeader _sALSalesHeader in POS.DataLayer.SALSalesHeaderBase.SelectAllByForeignKeyInventoryIDPaged(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID), pageSize, skipPages, orderByStatement))
+			{
+				_sALSalesHeaderWCF = new SALSalesHeader();
+				_sALSalesHeaderWCF.SalesHeaderID = _sALSalesHeader.SalesHeaderID;
+				_sALSalesHeaderWCF.SalesDate = _sALSalesHeader.SalesDate;
+				_sALSalesHeaderWCF.CustomerID = _sALSalesHeader.CustomerID;
+				_sALSalesHeaderWCF.InvoiceNumber = _sALSalesHeader.InvoiceNumber;
+				_sALSalesHeaderWCF.InvoiceDate = _sALSalesHeader.InvoiceDate;
+				_sALSalesHeaderWCF.SellerID = _sALSalesHeader.SellerID;
+				_sALSalesHeaderWCF.PaymentTypeID = _sALSalesHeader.PaymentTypeID;
+				_sALSalesHeaderWCF.TotalPrice = _sALSalesHeader.TotalPrice;
+				_sALSalesHeaderWCF.PaidAmount = _sALSalesHeader.PaidAmount;
+				_sALSalesHeaderWCF.RemainingAmount = _sALSalesHeader.RemainingAmount;
+				_sALSalesHeaderWCF.LastDayToPay = _sALSalesHeader.LastDayToPay;
+				_sALSalesHeaderWCF.TotalDiscountAmount = _sALSalesHeader.TotalDiscountAmount;
+				_sALSalesHeaderWCF.TotalDiscountRatio = _sALSalesHeader.TotalDiscountRatio;
+				_sALSalesHeaderWCF.IsClosed = _sALSalesHeader.IsClosed;
+				_sALSalesHeaderWCF.IsVoid = _sALSalesHeader.IsVoid;
+				_sALSalesHeaderWCF.IsPrinted = _sALSalesHeader.IsPrinted;
+				_sALSalesHeaderWCF.ServicePrice = _sALSalesHeader.ServicePrice;
+				_sALSalesHeaderWCF.TaxTypeID = _sALSalesHeader.TaxTypeID;
+				_sALSalesHeaderWCF.RefuseReasonID = _sALSalesHeader.RefuseReasonID;
+				_sALSalesHeaderWCF.CreatedBy = _sALSalesHeader.CreatedBy;
+				_sALSalesHeaderWCF.CreateDate = _sALSalesHeader.CreateDate;
+				_sALSalesHeaderWCF.UpdatedBy = _sALSalesHeader.UpdatedBy;
+				_sALSalesHeaderWCF.UpdateDate = _sALSalesHeader.UpdateDate;
+				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
+				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
+				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -704,6 +839,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -753,6 +890,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -801,6 +940,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -854,6 +995,8 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.IsDeleted = _sALSalesHeader.IsDeleted;
 				_sALSalesHeaderWCF.DeletedBy = _sALSalesHeader.DeletedBy;
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
+				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
+				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -895,6 +1038,8 @@ namespace POS.BusinessLayer
 			_sALSalesHeader.IsDeleted=sALSalesHeader.IsDeleted;
 			_sALSalesHeader.DeletedBy=sALSalesHeader.DeletedBy;
 			_sALSalesHeader.DeletDate=sALSalesHeader.DeletDate;
+			_sALSalesHeader.InventoryID=sALSalesHeader.InventoryID;
+			_sALSalesHeader.FinalPrice=sALSalesHeader.FinalPrice;
 			
 			return _sALSalesHeader.Update();
 		}

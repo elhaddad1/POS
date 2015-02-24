@@ -15,6 +15,7 @@ namespace POS.BusinessLayer.Wrapper
             //_sALSalesHeader.SalesHeaderID = sALSalesHeader.SalesHeaderID;
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             // _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
@@ -68,6 +69,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;
@@ -119,6 +121,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.SalesDate = DateTime.Now;
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
@@ -172,6 +175,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.CustomerID = sALSalesHeader.CustomerID;
             _sALSalesHeader.InvoiceNumber = sALSalesHeader.InvoiceNumber;
             _sALSalesHeader.InvoiceDate = sALSalesHeader.InvoiceDate;
+            _sALSalesHeader.InventoryID = sALSalesHeader.InventoryID;
             _sALSalesHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _sALSalesHeader.PaymentTypeID = sALSalesHeader.PaymentTypeID;
             _sALSalesHeader.TotalPrice = sALSalesHeader.TotalPrice;

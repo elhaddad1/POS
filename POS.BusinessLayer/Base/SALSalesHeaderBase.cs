@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:13 PM
+// Date		:	2/24/2015 2:25:55 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -96,6 +96,12 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public DateTime? DeletDate {get;set;}
+
+		[DataMember]
+		public int? InventoryID {get;set;}
+
+		[DataMember]
+		public decimal? FinalPrice {get;set;}
 
 		
 		#endregion
