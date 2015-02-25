@@ -38,5 +38,6 @@ namespace POS.BusinessLayer.Wrapper
             }
             return iNVProductStockCollection;
         }
+       
     }
 }

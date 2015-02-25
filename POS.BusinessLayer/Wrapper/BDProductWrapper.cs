@@ -39,5 +39,23 @@ namespace POS.BusinessLayer.Wrapper
             return bDProductCollection;
         }
 
+        public BDProductCollection GetAllProductsForOpenningQuantities(int InventoryID)
+        {
+            BDProductCollection bDProductCollection = new BDProductCollection();
+            var result = POS.DataLayer.BDProduct.GetAllProductsForOpenningQuantities(InventoryID);
+            if (result != null)
+            {
+                foreach (POS.DataLayer.BDProduct _bDProduct in result)
+                {
+                    _bDProductWCF = new BDProduct();
+                    _bDProductWCF.ProductID = _bDProduct.ProductID;
+                    _bDProductWCF.ProductName = _bDProduct.ProductName;
+                    _bDProductWCF.ProductCode = _bDProduct.ProductCode;
+                    _bDProductWCF.IsAcceptBatch = _bDProduct.IsAcceptBatch;
+                    bDProductCollection.Add(_bDProductWCF);
+                }
+            }
+            return bDProductCollection;
+        }
     }
 }

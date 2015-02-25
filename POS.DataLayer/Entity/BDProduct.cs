@@ -75,6 +75,21 @@ namespace POS.DataLayer
             return obj;
 
         }
+
+        public static BDProductCollection GetAllProductsForOpenningQuantities(int InventoryID)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            oDatabaseHelper.AddParameter("@InventoryID", InventoryID);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_GetopeningStockLine", ref ExecutionState);
+            BDProductCollection BDProductCollection = BDProductBase.PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return BDProductCollection;
+
+        }
         #endregion
 
         #region Methods (Private)

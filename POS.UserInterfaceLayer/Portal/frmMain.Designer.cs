@@ -52,6 +52,7 @@
             this.mnuItem_SalesOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.mnuItem_OpenningQuantities = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +154,8 @@
             // 
             this.mnuItem_.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItem_StockInquiry,
-            this.mnuItem_takingInventory});
+            this.mnuItem_takingInventory,
+            this.mnuItem_OpenningQuantities});
             this.mnuItem_.Name = "mnuItem_";
             this.mnuItem_.Size = new System.Drawing.Size(54, 19);
             this.mnuItem_.Text = "المخازن";
@@ -261,6 +263,13 @@
             this.pnlContent.Size = new System.Drawing.Size(702, 382);
             this.pnlContent.TabIndex = 6;
             // 
+            // mnuItem_OpenningQuantities
+            // 
+            this.mnuItem_OpenningQuantities.Name = "mnuItem_OpenningQuantities";
+            this.mnuItem_OpenningQuantities.Size = new System.Drawing.Size(157, 22);
+            this.mnuItem_OpenningQuantities.Text = "المخزون الأفتتاحى";
+            this.mnuItem_OpenningQuantities.Click += new System.EventHandler(this.mnuItem_OpenningQuantities_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -315,5 +324,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_Sales;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesOrders;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesOrder;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_OpenningQuantities;
     }
 }
