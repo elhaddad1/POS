@@ -19,14 +19,17 @@ namespace POS.UserInterfaceLayer.Sales
         BDProductWrapper _bDProductWrapper;
         public SALSalesLine sALSalesLine;
         public frmSalesOrderAddEdit frmSalesOrderAddEditObj;
-        public frmSalesLineAddEdit(frmSalesOrderAddEdit _frmSalesOrderAddEdit)
+        private int _inventoryID = -1;
+        public frmSalesLineAddEdit(int inventoryID, frmSalesOrderAddEdit _frmSalesOrderAddEdit)
         {
             InitializeComponent();
+            _inventoryID = inventoryID;
             _bDProductGroupWrapper = new BDProductGroupWrapper();
             _bDProductWrapper = new BDProductWrapper();
             this.frmSalesOrderAddEditObj = _frmSalesOrderAddEdit;
             FillProductGroupCBX();
         }
+
         #region -- Events Methods
 
         private void tbx_Price_Leave(object sender, EventArgs e)
@@ -66,10 +69,20 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void num_Quantity_ValueChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(num_Quantity.Text))
+                return;
             if (cbx_Product.SelectedIndex == -1)
             {
                 num_Quantity.Text = "0";
                 MessageBox.Show("لابد من أختيار منتج أولا");
+                return;
+            }
+            BDProduct _bDProduct = (BDProduct)cbx_Product.SelectedItem;
+            if (_bDProduct.TotalQty < Convert.ToDecimal(num_Quantity.Text))
+            {
+                MessageBox.Show("الكمية المتاحة فى المخزن أقل من الكمية المدخلة");
+                num_Quantity.Text = "0";
+                return;
             }
         }
         #endregion
@@ -104,11 +117,15 @@ namespace POS.UserInterfaceLayer.Sales
                 pk.ProductGroupID = groupID;
                 this.cbx_Product.SelectedIndexChanged -= new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
                 cbx_Product.DataSource = null;
-                cbx_Product.DataSource = _bDProductWrapper.SelectAllByForeignKeyProductGroupID(pk);
-                cbx_Product.DisplayMember = "ProductName";
-                cbx_Product.ValueMember = "ProductID";
-                this.cbx_Product.SelectedIndexChanged += new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
-                cbx_Product.SelectedIndex = -1;
+                var result = _bDProductWrapper.SelectAllProductsByGroupID(_inventoryID, pk);
+                if (result != null)
+                {
+                    cbx_Product.DataSource = result;
+                    cbx_Product.DisplayMember = "ProductName";
+                    cbx_Product.ValueMember = "ProductID";
+                    this.cbx_Product.SelectedIndexChanged += new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
+                    cbx_Product.SelectedIndex = -1;
+                }
             }
             catch (Exception)
             {
@@ -157,7 +174,7 @@ namespace POS.UserInterfaceLayer.Sales
 
             return sALSalesLine;
         }
-        private bool Validate()
+        new private bool Validate()
         {
             if (string.IsNullOrEmpty(tbx_Price.Text))
             {
@@ -169,7 +186,7 @@ namespace POS.UserInterfaceLayer.Sales
                 MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
                 return false;
             }
-            if (Convert.ToInt32(num_Quantity.Text) <= 0)
+            if (string.IsNullOrEmpty(num_Quantity.Text) || Convert.ToInt32(num_Quantity.Text) <= 0)
             {
                 MessageBox.Show("أدخل كميه مناسبه");
                 return false;

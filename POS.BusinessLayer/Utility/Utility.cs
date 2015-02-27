@@ -42,7 +42,8 @@ namespace POS.BusinessLayer.Utility
             {
                 foreach (KeyValuePair<string, object> Param_Value in Param_Values)
                 {
-                    _reportDocument.SetParameterValue(Param_Value.Key, Param_Value.Value == null ? DBNull.Value : Param_Value.Value);
+                   // _reportDocument.SetParameterValue("SalesHeaderID",Param_Value.Value);
+                    _reportDocument.SetParameterValue((string)Param_Value.Key, (object)Param_Value.Value);
                 }
             }
             for (int i = 0; i < copies; i++)

@@ -10,12 +10,16 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 
-	/// <summary>
-	/// This class describes the attributes of a INVBatch and is the public interface for this service.
-	/// </summary>
-	[DataContract(Namespace = "POS.BusinessLayer")]
-	public class INVBatch : INVBatchBase
-	{
-	}
+    /// <summary>
+    /// This class describes the attributes of a INVBatch and is the public interface for this service.
+    /// </summary>
+    [DataContract(Namespace = "POS.BusinessLayer")]
+    public class INVBatch : INVBatchBase
+    {
+        [DataMember]
+        public decimal Qty { get; set; }
+
+    }
+
 }
-			
+

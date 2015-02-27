@@ -59,44 +59,57 @@ namespace POS.UserInterfaceLayer.Administration
         /// 
         private void FillRolesDataGrid()
         {
-            dgrid_Roles.DataSource = null;
-            dgrid_Roles.AutoGenerateColumns = false;
-
-            dgrid_Roles.DataSource = _aDRoleWrapper.SelectAll();
-            dgrid_Roles.Columns[0].DataPropertyName = "RoleID";
-            dgrid_Roles.Columns[2].DataPropertyName = "RoleName";
-            foreach (DataGridViewRow row in dgrid_Roles.Rows)
+            try
             {
-                //DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgrid_Roles.Rows[i].Cells["check"];
-                //chk.Selected = false;
+                dgrid_Roles.DataSource = null;
+                dgrid_Roles.AutoGenerateColumns = false;
+                dgrid_Roles.DataSource = _aDRoleWrapper.SelectAll();
+                dgrid_Roles.Columns[0].DataPropertyName = "RoleID";
+                dgrid_Roles.Columns[2].DataPropertyName = "RoleName";
+                foreach (DataGridViewRow row in dgrid_Roles.Rows)
+                {
+                    //DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgrid_Roles.Rows[i].Cells["check"];
+                    //chk.Selected = false;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void GetGroupRoles(int groupID)
         {
-            ADGroupRoleCollection _aDGroupRoleCollection = _aDGroupRoleWrapper.SelectByGroupID(groupID);
-            foreach (ADGroupRole _aDGroupRole in _aDGroupRoleCollection)
+            try
             {
-                for (int i = 0; i < dgrid_Roles.Rows.Count; i++)
+                ADGroupRoleCollection _aDGroupRoleCollection = _aDGroupRoleWrapper.SelectByGroupID(groupID);
+                foreach (ADGroupRole _aDGroupRole in _aDGroupRoleCollection)
                 {
-                    CheckBox check = new CheckBox();
-                    dgrid_Roles.Rows[i].Cells["Check"].Value = true;
-                    dgrid_Roles.RefreshEdit();
-                }
-                //foreach (DataGridViewRow row in dgrid_Roles.Rows)
-                //{
-                //    if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
-                //    {
-                //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditedFormattedValue = true;
-                //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditingCellFormattedValue = true;
-                //        //ck.EditingCellFormattedValue = true;
-                //        //row.Cells["Check"].Selected = false;
-                //        //chk.TrueValue = true;
-                //        //chk.Value = 1;
+                    for (int i = 0; i < dgrid_Roles.Rows.Count; i++)
+                    {
+                        CheckBox check = new CheckBox();
+                        dgrid_Roles.Rows[i].Cells["Check"].Value = true;
+                        dgrid_Roles.RefreshEdit();
+                    }
+                    //foreach (DataGridViewRow row in dgrid_Roles.Rows)
+                    //{
+                    //    if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
+                    //    {
+                    //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditedFormattedValue = true;
+                    //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditingCellFormattedValue = true;
+                    //        //ck.EditingCellFormattedValue = true;
+                    //        //row.Cells["Check"].Selected = false;
+                    //        //chk.TrueValue = true;
+                    //        //chk.Value = 1;
 
-                //    }
-                //}
+                    //    }
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

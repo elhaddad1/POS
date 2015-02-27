@@ -154,6 +154,12 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
+        private void mnuItem_OpenningQuantities_Click(object sender, EventArgs e)
+        {
+            frmOpenningQuantities frm = new frmOpenningQuantities();
+            frm.ShowDialog();
+        }
+
 
 
 
