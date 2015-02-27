@@ -12,10 +12,10 @@ namespace POS.BusinessLayer.Wrapper
         public bool SavePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
         {
             POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader = new POS.DataLayer.PURPurchaseHeader();
-            //_pURPurchaseHeader.SalesHeaderID = pURPurchaseHeader.SalesHeaderID;
+            _pURPurchaseHeader.PurcaseHeaderID = pURPurchaseHeader.PurcaseHeaderID;
             _pURPurchaseHeader.PurchaseDate = DateTime.Now;
             _pURPurchaseHeader.SupplierID = pURPurchaseHeader.SupplierID;
-            // _pURPurchaseHeader.InvoiceNumber = pURPurchaseHeader.InvoiceNumber;
+            _pURPurchaseHeader.InvoiceNumber = pURPurchaseHeader.InvoiceNumber;
             _pURPurchaseHeader.InvoiceDate = pURPurchaseHeader.InvoiceDate;
            // _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
@@ -49,6 +49,9 @@ namespace POS.BusinessLayer.Wrapper
                 _pURPurchaseLine.DiscountAmount = pURPurchaseLine.DiscountAmount;
                 _pURPurchaseLine.DiscountRatio = pURPurchaseLine.DiscountRatio;
                 _pURPurchaseLine.Unitprice = pURPurchaseLine.Unitprice;
+                _pURPurchaseLine.BatchNumber = pURPurchaseLine.BatchNumber;
+                _pURPurchaseLine.ExpiryDate = pURPurchaseLine.ExpiryDate;
+                _pURPurchaseLine.BatchQty = pURPurchaseLine.BatchQty;
                 _pURPurchaseLine.CreatedBy = GlobalVariables.CurrentUser.UserID;
                 _pURPurchaseLine.CreatedDate = DateTime.Now;
                 _pURPurchaseLine.UpdatedBy = null;

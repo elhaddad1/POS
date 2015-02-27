@@ -80,7 +80,7 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(12, 12);
+            this.btn_Search.Location = new System.Drawing.Point(6, 41);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(75, 40);
             this.btn_Search.TabIndex = 19;
@@ -88,11 +88,11 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
-            // _frmPurchaseOrderSearch
+            // frmPurchaseOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(698, 403);
-            this.Name = "_frmPurchaseOrderSearch";
+            this.Name = "frmPurchaseOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.groupBox2.ResumeLayout(false);

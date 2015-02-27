@@ -96,7 +96,7 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@UserID", UserID);
             oDatabaseHelper.AddParameter("@PurchaseHeaderID", PurchaseHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseHader_CloseOrder", ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseHeader_CloseOrder", ref ExecutionState);
             oDatabaseHelper.Dispose();
             return ExecutionState;
         }

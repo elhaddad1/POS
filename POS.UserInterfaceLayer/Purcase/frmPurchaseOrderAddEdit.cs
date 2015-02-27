@@ -18,8 +18,9 @@ namespace POS.UserInterfaceLayer.Purcase
         private PaymentTypeWrapper _paymentTypeWrapper;
         private BDSupplierWrapper _bDSupplierWrapper;
         private PURPurchaseLineWrapper  _pURPurchaseLinerWrapper;
+        private INVInventoryService _invInventoryService;
         public PURPurchaseLineCollection pURPurchaseLineCollection;
-
+        private BDProductWrapper _productWrapper;
         public frmPurchaseOrderAddEdit()
         {
             InitializeComponent();
@@ -28,14 +29,32 @@ namespace POS.UserInterfaceLayer.Purcase
             _bDSupplierWrapper = new BDSupplierWrapper();
             pURPurchaseLineCollection = new PURPurchaseLineCollection();
             _pURPurchaseLinerWrapper = new PURPurchaseLineWrapper();
+            _productWrapper=new BDProductWrapper ();
+            _invInventoryService=new INVInventoryService ();
             FillSupplierCBX();
             FillPaymentTypeCBX();
             FillTaxTypeCBX();
+            FillInventoryCBX();
 
+        }
+
+        private void FillInventoryCBX()
+        {
+            cbx_Inventory.DataSource = _invInventoryService.SelectAll();
+            cbx_Inventory.ValueMember = "InventoryID";
+            cbx_Inventory.DisplayMember = "InventoryName";
         }
 
         #region -- Events
 
+        private void frmPurchaseOrderAddEdit_Load(object sender, EventArgs e)
+        {
+           
+            ((DataGridViewComboBoxColumn)dgrd_OrderLines .Columns ["ProductName"]).DataSource =  _productWrapper.SelectAll();
+            ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).ValueMember = "ProductID";
+            ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).DisplayMember = "ProductName";
+            //((DataGridViewTextBoxColumn)dgrd_OrderLines.Columns["ProductName"]).=;
+        }
         private void num_Remaining_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToDecimal(num_Remaining.Text) < 0)
@@ -46,9 +65,7 @@ namespace POS.UserInterfaceLayer.Purcase
 
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            frmPurchaseLineAddEdit frm = new frmPurchaseLineAddEdit(this);
-            frm.FormClosed += frmSalesLineAddEdit_FormClosed;
-            frm.ShowDialog();
+            dgrd_OrderLines.Rows.Add();
 
         }
 
@@ -56,9 +73,9 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                pURPurchaseLineCollection.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
-                //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
-                BindGrid();
+                dgrd_OrderLines.Rows .RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                 //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                //  BindGrid();
                 CalculateTotal();
             }
             else
@@ -67,27 +84,16 @@ namespace POS.UserInterfaceLayer.Purcase
 
         private void btn_Plus_Click(object sender, EventArgs e)
         {
-            if (dgrd_OrderLines.SelectedRows.Count != 0)
-            {
-                pURPurchaseLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
-                BindGrid();
-                CalculateTotal();
-            }
-            else
-                MessageBox.Show("برجاء أختيار عنصر من القائمه");
+            //if (dgrd_OrderLines.SelectedRows.Count != 0)
+            //{
+            //    pURPurchaseLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
+            //    BindGrid();
+            //    CalculateTotal();
+            //}
+            //else
+            //    MessageBox.Show("برجاء أختيار عنصر من القائمه");
         }
 
-        private void btn_Minus_Click(object sender, EventArgs e)
-        {
-            if (dgrd_OrderLines.SelectedRows.Count != 0)
-            {
-                pURPurchaseLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty--;
-                BindGrid();
-                CalculateTotal();
-            }
-            else
-                MessageBox.Show("برجاء أختيار عنصر من القائمه");
-        }
 
         private void btn_ClosePrint_Click(object sender, EventArgs e)
         {
@@ -116,6 +122,34 @@ namespace POS.UserInterfaceLayer.Purcase
             {
                 try
                 {
+                    //save lines
+                    for (int i = 0; i < dgrd_OrderLines .Rows .Count; i++)
+                    {
+                        PURPurchaseLine _line = new PURPurchaseLine();
+                        _line.ProductID =Convert .ToInt32( dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
+                        _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
+                        _line.BonusQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value);
+                        _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
+                        _line.DiscountAmount = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value);
+                        if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value ==true)
+                        {
+                            _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
+                            DateTime _expiryDate;
+                          if (DateTime.TryParse(dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value.ToString (),out _expiryDate))
+	                            {
+		                              _line.ExpiryDate = _expiryDate ;
+                                      dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.White;
+	                            }
+                          else
+                              {
+                                  dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                                  return;
+                              }
+                            _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
+                        }
+                        pURPurchaseLineCollection.Add(_line);
+                    }
+
                     if (_pURPurchaseLinerWrapper.SavePURPurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection))
                     {
                         MessageBox.Show("تمت العلية");
@@ -261,20 +295,46 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             if (cbx_Supplier.SelectedIndex == -1)
             {
-                MessageBox.Show("اختار عميل أولا");
+                MessageBox.Show("اختار مورد أولا");
                 return false;
             }
-            if (cbx_PaymentType.SelectedIndex == -1)
-            {
-                MessageBox.Show("اختار طريقة دفع أولا");
-                return false;
-            }
+            //if (cbx_PaymentType.SelectedIndex == -1)
+            //{
+            //    MessageBox.Show("اختار طريقة دفع أولا");
+            //    return false;
+            //}
 
 
 
             return true;
         }
         #endregion
+
+        private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["ProductName"].Index )
+            {
+                BDProductPrimaryKey pk=new BDProductPrimaryKey ();
+                pk .ProductID =Convert .ToInt32( dgrd_OrderLines.SelectedCells[0].Value);
+                BDProduct _product= _productWrapper.SelectOne(pk);
+                dgrd_OrderLines.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
+
+                if (_product.IsAcceptBatch == true )
+                {
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false ;
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = false; 
+                }
+                else
+                {
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = true;
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true; 
+                }
+            }
+        }
+
+       
+
+      
 
 
     }

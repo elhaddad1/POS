@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using POS.UserInterfaceLayer.Portal;
 using POS.UserInterfaceLayer.Administration;
 using POS.UserInterfaceLayer.Inventory;
+using POS.UserInterfaceLayer.Purcase;
+
 
 namespace POS.UserInterfaceLayer
 {
@@ -20,7 +22,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin  ());
+            Application.Run(new frmPurchaseOrderSearch  ());
         }
     }
 }

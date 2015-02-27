@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txt_Total = new System.Windows.Forms.TextBox();
-            this.txt_DiscountRatio = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.num_OtherPayments = new System.Windows.Forms.TextBox();
             this.num_Remaining = new System.Windows.Forms.TextBox();
@@ -48,7 +48,6 @@
             this.dtb_LastTimeToPay = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbx_TaxType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,23 +56,57 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_AfterDescount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_Total = new System.Windows.Forms.TextBox();
+            this.txt_DiscountRatio = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btn_AddLine = new System.Windows.Forms.Button();
             this.btn_DeleteLine = new System.Windows.Forms.Button();
-            this.btn_Minus = new System.Windows.Forms.Button();
             this.btn_Plus = new System.Windows.Forms.Button();
-            this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.cbx_PaymentType = new System.Windows.Forms.ComboBox();
             this.cbx_Supplier = new System.Windows.Forms.ComboBox();
             this.panl_Header = new System.Windows.Forms.Panel();
             this.dtb_Date = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox1.SuspendLayout();
+            this.PurchaseLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgrd_OrderLines
+            // 
+            this.dgrd_OrderLines.AllowUserToAddRows = false;
+            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
+            this.dgrd_OrderLines.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PurchaseLineID,
+            this.ProductName,
+            this.IsAcceptBatch,
+            this.TotalQty,
+            this.Bonus,
+            this.PurchasePrice,
+            this.ItemDiscount,
+            this.BatchNumber,
+            this.ExpiryDate});
+            this.dgrd_OrderLines.Location = new System.Drawing.Point(6, 54);
+            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
+            this.dgrd_OrderLines.RowHeadersVisible = false;
+            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgrd_OrderLines.Size = new System.Drawing.Size(741, 291);
+            this.dgrd_OrderLines.TabIndex = 32;
+            this.dgrd_OrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_OrderLines_CellValueChanged);
             // 
             // cbx_Inventory
             // 
@@ -82,54 +115,6 @@
             this.cbx_Inventory.Name = "cbx_Inventory";
             this.cbx_Inventory.Size = new System.Drawing.Size(241, 21);
             this.cbx_Inventory.TabIndex = 48;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "سعر الوحدة";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(325, 248);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 13);
-            this.label10.TabIndex = 31;
-            this.label10.Text = "الخصم على الفاتورة";
-            // 
-            // txt_Total
-            // 
-            this.txt_Total.Location = new System.Drawing.Point(438, 244);
-            this.txt_Total.Name = "txt_Total";
-            this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(100, 20);
-            this.txt_Total.TabIndex = 30;
-            this.txt_Total.Text = "0";
-            // 
-            // txt_DiscountRatio
-            // 
-            this.txt_DiscountRatio.Location = new System.Drawing.Point(217, 244);
-            this.txt_DiscountRatio.Name = "txt_DiscountRatio";
-            this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
-            this.txt_DiscountRatio.TabIndex = 28;
-            this.txt_DiscountRatio.Text = "%0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(545, 248);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "المبلغ المطلوب";
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.ReadOnly = true;
-            this.TotalQty.Width = 90;
             // 
             // label12
             // 
@@ -164,6 +149,7 @@
             this.num_Paied.Size = new System.Drawing.Size(80, 20);
             this.num_Paied.TabIndex = 44;
             this.num_Paied.Text = "0";
+            this.num_Paied.KeyUp += new System.Windows.Forms.KeyEventHandler(this.num_Paied_KeyUp);
             // 
             // label11
             // 
@@ -178,34 +164,37 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(409, 476);
+            this.btn_Cancel.Location = new System.Drawing.Point(471, 577);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 42;
             this.btn_Cancel.Text = "ألغاء";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_Save
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(302, 476);
+            this.btn_Save.Location = new System.Drawing.Point(261, 577);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 55);
             this.btn_Save.TabIndex = 41;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_ClosePrint
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(195, 476);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(366, 577);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 40;
             this.btn_ClosePrint.Text = "أغلاق وطباعة";
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
+            this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click);
             // 
             // label6
             // 
@@ -243,13 +232,6 @@
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "المدفوع";
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "أسم المنتج";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            this.ProductName.Width = 210;
             // 
             // cbx_TaxType
             // 
@@ -291,7 +273,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(345, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(410, 20);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(105, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -301,100 +283,103 @@
             // 
             this.groupBox1.Controls.Add(this.txt_AfterDescount);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.btn_AddLine);
-            this.groupBox1.Controls.Add(this.btn_DeleteLine);
-            this.groupBox1.Controls.Add(this.btn_Minus);
-            this.groupBox1.Controls.Add(this.btn_Plus);
-            this.groupBox1.Controls.Add(this.dgrd_OrderLines);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txt_Total);
             this.groupBox1.Controls.Add(this.txt_DiscountRatio);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.btn_AddLine);
+            this.groupBox1.Controls.Add(this.btn_DeleteLine);
+            this.groupBox1.Controls.Add(this.btn_Plus);
+            this.groupBox1.Controls.Add(this.dgrd_OrderLines);
             this.groupBox1.Location = new System.Drawing.Point(12, 188);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(678, 274);
+            this.groupBox1.Size = new System.Drawing.Size(828, 377);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الفاتورة";
             // 
             // txt_AfterDescount
             // 
-            this.txt_AfterDescount.Location = new System.Drawing.Point(25, 244);
+            this.txt_AfterDescount.Location = new System.Drawing.Point(118, 351);
             this.txt_AfterDescount.Name = "txt_AfterDescount";
             this.txt_AfterDescount.ReadOnly = true;
             this.txt_AfterDescount.Size = new System.Drawing.Size(100, 20);
-            this.txt_AfterDescount.TabIndex = 38;
+            this.txt_AfterDescount.TabIndex = 44;
             this.txt_AfterDescount.Text = "0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(134, 248);
+            this.label9.Location = new System.Drawing.Point(227, 355);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
-            this.label9.TabIndex = 37;
+            this.label9.TabIndex = 43;
             this.label9.Text = "بعد الخصم";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(418, 355);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 13);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "الخصم على الفاتورة";
+            // 
+            // txt_Total
+            // 
+            this.txt_Total.Location = new System.Drawing.Point(531, 351);
+            this.txt_Total.Name = "txt_Total";
+            this.txt_Total.ReadOnly = true;
+            this.txt_Total.Size = new System.Drawing.Size(100, 20);
+            this.txt_Total.TabIndex = 41;
+            this.txt_Total.Text = "0";
+            // 
+            // txt_DiscountRatio
+            // 
+            this.txt_DiscountRatio.Location = new System.Drawing.Point(310, 351);
+            this.txt_DiscountRatio.Name = "txt_DiscountRatio";
+            this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
+            this.txt_DiscountRatio.TabIndex = 40;
+            this.txt_DiscountRatio.Text = "%0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(638, 355);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 39;
+            this.label8.Text = "المبلغ المدفوع";
             // 
             // btn_AddLine
             // 
-            this.btn_AddLine.Location = new System.Drawing.Point(545, 15);
+            this.btn_AddLine.Location = new System.Drawing.Point(661, 13);
             this.btn_AddLine.Name = "btn_AddLine";
             this.btn_AddLine.Size = new System.Drawing.Size(75, 35);
             this.btn_AddLine.TabIndex = 36;
             this.btn_AddLine.Text = "أضافة";
             this.btn_AddLine.UseVisualStyleBackColor = true;
+            this.btn_AddLine.Click += new System.EventHandler(this.btn_AddLine_Click);
             // 
             // btn_DeleteLine
             // 
-            this.btn_DeleteLine.Location = new System.Drawing.Point(462, 15);
+            this.btn_DeleteLine.Location = new System.Drawing.Point(580, 13);
             this.btn_DeleteLine.Name = "btn_DeleteLine";
             this.btn_DeleteLine.Size = new System.Drawing.Size(75, 35);
             this.btn_DeleteLine.TabIndex = 35;
             this.btn_DeleteLine.Text = "حذف";
             this.btn_DeleteLine.UseVisualStyleBackColor = true;
-            // 
-            // btn_Minus
-            // 
-            this.btn_Minus.Location = new System.Drawing.Point(624, 120);
-            this.btn_Minus.Name = "btn_Minus";
-            this.btn_Minus.Size = new System.Drawing.Size(39, 31);
-            this.btn_Minus.TabIndex = 34;
-            this.btn_Minus.Text = "-";
-            this.btn_Minus.UseVisualStyleBackColor = true;
+            this.btn_DeleteLine.Click += new System.EventHandler(this.btn_DeleteLine_Click);
             // 
             // btn_Plus
             // 
-            this.btn_Plus.Location = new System.Drawing.Point(624, 81);
+            this.btn_Plus.Location = new System.Drawing.Point(758, 77);
             this.btn_Plus.Name = "btn_Plus";
-            this.btn_Plus.Size = new System.Drawing.Size(39, 31);
+            this.btn_Plus.Size = new System.Drawing.Size(64, 56);
             this.btn_Plus.TabIndex = 33;
-            this.btn_Plus.Text = "+";
+            this.btn_Plus.Text = "إضافه باتش";
             this.btn_Plus.UseVisualStyleBackColor = true;
-            // 
-            // dgrd_OrderLines
-            // 
-            this.dgrd_OrderLines.AllowUserToAddRows = false;
-            this.dgrd_OrderLines.AllowUserToDeleteRows = false;
-            this.dgrd_OrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrd_OrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductID,
-            this.ProductName,
-            this.TotalQty,
-            this.UnitPrice});
-            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 52);
-            this.dgrd_OrderLines.Name = "dgrd_OrderLines";
-            this.dgrd_OrderLines.ReadOnly = true;
-            this.dgrd_OrderLines.RowHeadersVisible = false;
-            this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
-            this.dgrd_OrderLines.TabIndex = 32;
-            // 
-            // ProductID
-            // 
-            this.ProductID.HeaderText = "";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Visible = false;
+            this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
             // label7
             // 
@@ -430,7 +415,7 @@
             this.panl_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(722, 53);
+            this.panl_Header.Size = new System.Drawing.Size(852, 53);
             this.panl_Header.TabIndex = 31;
             // 
             // dtb_Date
@@ -446,11 +431,83 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // PurchaseLineID
+            // 
+            this.PurchaseLineID.HeaderText = "PurchaseLineID";
+            this.PurchaseLineID.Name = "PurchaseLineID";
+            this.PurchaseLineID.Width = 70;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "إسم المنتج";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 250;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل تشغيله";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            this.IsAcceptBatch.ReadOnly = true;
+            this.IsAcceptBatch.Width = 50;
+            // 
+            // TotalQty
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 60;
+            // 
+            // Bonus
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Bonus.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Bonus.HeaderText = "إضافي";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Bonus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Bonus.Width = 60;
+            // 
+            // PurchasePrice
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PurchasePrice.HeaderText = "سعر الشراء";
+            this.PurchasePrice.Name = "PurchasePrice";
+            this.PurchasePrice.Width = 60;
+            // 
+            // ItemDiscount
+            // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ItemDiscount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ItemDiscount.HeaderText = "الخصم";
+            this.ItemDiscount.Name = "ItemDiscount";
+            this.ItemDiscount.Width = 50;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم التشغيله";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // ExpiryDate
+            // 
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
+            this.ExpiryDate.Name = "ExpiryDate";
+            // 
             // frmPurchaseOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 539);
+            this.ClientSize = new System.Drawing.Size(852, 640);
             this.Controls.Add(this.cbx_Inventory);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.num_OtherPayments);
@@ -478,9 +535,10 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "إضافه فاتوره";
+            this.Load += new System.EventHandler(this.frmPurchaseOrderAddEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).EndInit();
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -492,12 +550,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbx_Inventory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txt_Total;
-        private System.Windows.Forms.TextBox txt_DiscountRatio;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox num_OtherPayments;
         private System.Windows.Forms.TextBox num_Remaining;
@@ -510,26 +562,36 @@
         private System.Windows.Forms.DateTimePicker dtb_LastTimeToPay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.ComboBox cbx_TaxType;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         protected System.Windows.Forms.Label lbl_FormHeader;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txt_AfterDescount;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_AddLine;
         private System.Windows.Forms.Button btn_DeleteLine;
-        private System.Windows.Forms.Button btn_Minus;
         private System.Windows.Forms.Button btn_Plus;
-        private System.Windows.Forms.DataGridView dgrd_OrderLines;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbx_PaymentType;
         private System.Windows.Forms.ComboBox cbx_Supplier;
         protected System.Windows.Forms.Panel panl_Header;
         private System.Windows.Forms.DateTimePicker dtb_Date;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dgrd_OrderLines;
+        private System.Windows.Forms.TextBox txt_AfterDescount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_Total;
+        private System.Windows.Forms.TextBox txt_DiscountRatio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseLineID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAcceptBatch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PurchasePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BatchNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
     }
 }

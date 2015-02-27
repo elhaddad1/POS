@@ -26,6 +26,9 @@ namespace POS.DataLayer
 		#region Class Level Variables
         private DatabaseHelper oDatabaseHelper;
         private string _productNameNonDefault = null;
+        private string _batchNumberNonDefault = null;
+        private DateTime _expiryDateNonDefault;
+        private decimal _batchQtyNonDefault;
 		#endregion
 		
 		#region Constants
@@ -52,6 +55,21 @@ namespace POS.DataLayer
 
                 _productNameNonDefault = value;
             }
+        }
+        public string BatchNumber
+        {
+            get { return _batchNumberNonDefault; }
+            set { _batchNumberNonDefault = value; }
+        }
+        public DateTime ExpiryDate
+        {
+            get { return _expiryDateNonDefault; }
+            set { _expiryDateNonDefault = value; }
+        }
+        public decimal BatchQty
+        {
+            get { return _batchQtyNonDefault; }
+            set { _batchQtyNonDefault = value; }
         }
 		#endregion
 
@@ -246,7 +264,7 @@ namespace POS.DataLayer
 
             try
             {
-                pK = Convert.ToInt32(oDatabaseHelper.ExecuteScalar("usp_PURPurchaseHeader_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState));
+                pK = Convert.ToInt32(oDatabaseHelper.ExecuteScalar("usp_PURPurcaseHeader_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState));
                 //    oDatabaseHelper.Dispose();
             }
             catch (Exception ex)
@@ -276,9 +294,9 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@TotalQty", DBNull.Value);
             // Pass the value of '_totalBonus' as parameter 'TotalBonus' of the stored procedure.
             if (sALPurchaseLine.BonusQty != null)
-                oDatabaseHelper.AddParameter("@TotalBonus", sALPurchaseLine.BonusQty);
+                oDatabaseHelper.AddParameter("@BonusQty", sALPurchaseLine.BonusQty);
             else
-                oDatabaseHelper.AddParameter("@TotalBonus", DBNull.Value);
+                oDatabaseHelper.AddParameter("@BonusQty", DBNull.Value);
             // Pass the value of '_discountAmount' as parameter 'DiscountAmount' of the stored procedure.
             if (sALPurchaseLine.DiscountAmount != null)
                 oDatabaseHelper.AddParameter("@DiscountAmount", sALPurchaseLine.DiscountAmount);
@@ -294,6 +312,14 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@UnitPrice", sALPurchaseLine.Unitprice);
             else
                 oDatabaseHelper.AddParameter("@UnitPrice", DBNull.Value);
+            if (sALPurchaseLine.BatchNumber != null || sALPurchaseLine.BatchNumber !="")
+                    oDatabaseHelper .AddParameter ("@BatchNumber",sALPurchaseLine.BatchNumber);
+
+            if (sALPurchaseLine.ExpiryDate != null || sALPurchaseLine.ExpiryDate != null )
+                oDatabaseHelper.AddParameter("@ExpiryDate", sALPurchaseLine.ExpiryDate);
+
+            if (sALPurchaseLine.BatchQty != null || sALPurchaseLine.BatchQty !=0)
+                oDatabaseHelper.AddParameter("@BatchQty", sALPurchaseLine.BatchQty);
             // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
             if (sALPurchaseLine.CreatedBy != null)
                 oDatabaseHelper.AddParameter("@CreatedBy", sALPurchaseLine.CreatedBy);
@@ -332,8 +358,16 @@ namespace POS.DataLayer
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            try
+            {
+                oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
+            }
+            catch (Exception ex)
+            {
+                
+               
+            }
             return ExecutionState;
         }
         private bool UpdateHeader(DatabaseHelper oDatabaseHelper, PURPurchaseHeader sALPurchaseHeader)
