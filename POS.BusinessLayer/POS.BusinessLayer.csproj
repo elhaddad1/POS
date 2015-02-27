@@ -263,6 +263,8 @@
     <Compile Include="Wrapper\BDProductWrapper.cs" />
     <Compile Include="Wrapper\BDSupplierWrapper.cs" />
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
+    <Compile Include="Wrapper\BDCustomerAccountsWrapper.cs" />
+    <Compile Include="Wrapper\BDSupplierAccountsWrapper.cs" />
     <Compile Include="Wrapper\INVBatchWrapper.cs" />
     <Compile Include="Wrapper\INVTransferHeaderWrapper.cs" />
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />

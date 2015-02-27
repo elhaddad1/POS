@@ -102,6 +102,12 @@
     <Compile Include="BasicData\FrmAdjustReasonAddEdit.Designer.cs">
       <DependentUpon>FrmAdjustReasonAddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\frmCustomerAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmCustomerAccounts.Designer.cs">
+      <DependentUpon>frmCustomerAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmInventoryAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,12 @@
     </Compile>
     <Compile Include="BasicData\frmProductGroupSearch.Designer.cs">
       <DependentUpon>frmProductGroupSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicData\frmSupplierAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmSupplierAccounts.Designer.cs">
+      <DependentUpon>frmSupplierAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="BasicData\FrmSupplierAddEdit.cs">
       <SubType>Form</SubType>

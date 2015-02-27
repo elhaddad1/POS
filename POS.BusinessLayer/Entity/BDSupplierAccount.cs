@@ -15,7 +15,9 @@ namespace POS.BusinessLayer
 	/// </summary>
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class BDSupplierAccount : BDSupplierAccountBase
-	{
+    {
+        [DataMember]
+        public string SupplierName { get; set; }
 	}
 }
 			
