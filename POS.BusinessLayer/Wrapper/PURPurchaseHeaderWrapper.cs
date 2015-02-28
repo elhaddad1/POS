@@ -8,10 +8,10 @@ namespace POS.BusinessLayer.Wrapper
 {
    public class PURPurchaseHeaderWrapper:PURPurchaseHeaderService
     {
-        public PURPurchaseHeaderCollection HeaderSearch(string SupplierName, string InvoiceNumber)
+        public PURPurchaseHeaderCollection HeaderSearch(int InventoryID,DateTime FromDate,DateTime ToDate ,string SupplierName, string InvoiceNumber)
         {
             PURPurchaseHeaderCollection PURPurcaseHeaderCollection = new PURPurchaseHeaderCollection();
-            foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeader.HeaderSearch(SupplierName, InvoiceNumber))
+            foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeader.HeaderSearch(InventoryID,FromDate, ToDate ,SupplierName, InvoiceNumber))
             {
                 PURPurchaseHeader _pURPurchaseHeaderWCF = new PURPurchaseHeader();
 
@@ -20,7 +20,7 @@ namespace POS.BusinessLayer.Wrapper
                 _pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
                 _pURPurchaseHeaderWCF .SupplierName = _pURPurchaseHeader.SupplierName;
                 _pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
-               // _pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+                _pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
                // _pURPurchaseHeaderWCF.SellerID = _pURPurchaseHeader.SellerID;
                 _pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
                 _pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
@@ -48,15 +48,15 @@ namespace POS.BusinessLayer.Wrapper
             return PURPurcaseHeaderCollection;
         }
 
-        public bool DeleteOrder(int SalesHeaderID)
+        public bool DeleteOrder(int PurchaseHeaderID)
         {
             //int x = Utility.GlobalVariables.CurrentUser.UserID;
-            return POS.DataLayer.SALSalesHeader.DeleteOrder(SalesHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
+            return POS.DataLayer.PURPurchaseHeader.DeleteOrder(PurchaseHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
         }
 
-        public bool CloseOrder(int SalesHeaderID)
+        public bool CloseOrder(int PurchaseHeaderID)
         {
-            return POS.DataLayer.SALSalesHeader.CloseOrder(SalesHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
+            return POS.DataLayer.PURPurchaseHeader.CloseOrder(PurchaseHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
 
         }
     }

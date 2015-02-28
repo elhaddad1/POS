@@ -66,12 +66,12 @@ namespace POS.UserInterfaceLayer.Administration
                 dgrid_Roles.DataSource = _aDRoleWrapper.SelectAll();
                 dgrid_Roles.Columns[0].DataPropertyName = "RoleID";
                 dgrid_Roles.Columns[2].DataPropertyName = "RoleName";
-                foreach (DataGridViewRow row in dgrid_Roles.Rows)
-                {
-                    //DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)dgrid_Roles.Rows[i].Cells["check"];
-                    //chk.Selected = false;
+                //foreach (DataGridViewRow row in dgrid_Roles.Rows)
+                //{
+                //    row.Cells["check"].Value = true;
+                //   // chk.Selected = false;
 
-                }
+                //}
             }
             catch (Exception ex)
             {
@@ -86,25 +86,15 @@ namespace POS.UserInterfaceLayer.Administration
                 ADGroupRoleCollection _aDGroupRoleCollection = _aDGroupRoleWrapper.SelectByGroupID(groupID);
                 foreach (ADGroupRole _aDGroupRole in _aDGroupRoleCollection)
                 {
-                    for (int i = 0; i < dgrid_Roles.Rows.Count; i++)
+                    foreach (DataGridViewRow row in dgrid_Roles.Rows)
                     {
-                        CheckBox check = new CheckBox();
-                        dgrid_Roles.Rows[i].Cells["Check"].Value = true;
-                        dgrid_Roles.RefreshEdit();
-                    }
-                    //foreach (DataGridViewRow row in dgrid_Roles.Rows)
-                    //{
-                    //    if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
-                    //    {
-                    //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditedFormattedValue = true;
-                    //        //(DataGridViewCheckBoxCell)row.Cells["Check"].EditingCellFormattedValue = true;
-                    //        //ck.EditingCellFormattedValue = true;
-                    //        //row.Cells["Check"].Selected = false;
-                    //        //chk.TrueValue = true;
-                    //        //chk.Value = 1;
+                        if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
+                        {
+                            row.Cells["Check"].Value = true;
+                           
 
-                    //    }
-                    //}
+                        }
+                    }
                 }
             }
             catch (Exception ex)

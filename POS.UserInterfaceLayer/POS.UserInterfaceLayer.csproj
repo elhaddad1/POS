@@ -398,6 +398,7 @@
     <Content Include="Reports\SalesOrder.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Reports\PurchaseReport.rpt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

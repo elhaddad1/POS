@@ -30,43 +30,32 @@
         {
             this.btn_Priviligies = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
-            this.panl_Footer.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
             // 
-            this.panl_Header.Size = new System.Drawing.Size(665, 53);
+            this.panl_Header.Size = new System.Drawing.Size(668, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(418, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(421, 20);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 337);
-            this.panl_Footer.Size = new System.Drawing.Size(665, 62);
+            this.panl_Footer.Size = new System.Drawing.Size(668, 62);
             // 
-            // btn_Add
+            // groupBox2
             // 
-            this.btn_Add.Location = new System.Drawing.Point(551, 5);
-            // 
-            // btn_Back
-            // 
-            this.btn_Back.Location = new System.Drawing.Point(123, 5);
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Location = new System.Drawing.Point(337, 5);
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Location = new System.Drawing.Point(444, 5);
-
+            this.groupBox2.Controls.Add(this.btn_Priviligies);
+            this.groupBox2.Location = new System.Drawing.Point(0, 59);
+            this.groupBox2.Size = new System.Drawing.Size(665, 72);
             // 
             // btn_Priviligies
             // 
             this.btn_Priviligies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Priviligies.Location = new System.Drawing.Point(554, 153);
+            this.btn_Priviligies.Location = new System.Drawing.Point(54, 9);
             this.btn_Priviligies.Name = "btn_Priviligies";
             this.btn_Priviligies.Size = new System.Drawing.Size(99, 57);
             this.btn_Priviligies.TabIndex = 6;
@@ -77,16 +66,12 @@
             // frmUserGroupSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(665, 399);
-            this.Controls.Add(this.btn_Priviligies);
+            this.ClientSize = new System.Drawing.Size(668, 399);
             this.Name = "frmUserGroupSearch";
             this.Text = "مجموعات المستخدمين";
-            this.Controls.SetChildIndex(this.panl_Header, 0);
-            this.Controls.SetChildIndex(this.panl_Footer, 0);
-            this.Controls.SetChildIndex(this.btn_Priviligies, 0);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            this.panl_Footer.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

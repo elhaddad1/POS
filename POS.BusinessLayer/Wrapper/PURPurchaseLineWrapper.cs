@@ -15,6 +15,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.PurcaseHeaderID = pURPurchaseHeader.PurcaseHeaderID;
             _pURPurchaseHeader.PurchaseDate = DateTime.Now;
             _pURPurchaseHeader.SupplierID = pURPurchaseHeader.SupplierID;
+            _pURPurchaseHeader.InventoryID = pURPurchaseHeader.InventoryID;
             _pURPurchaseHeader.InvoiceNumber = pURPurchaseHeader.InvoiceNumber;
             _pURPurchaseHeader.InvoiceDate = pURPurchaseHeader.InvoiceDate;
            // _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
@@ -85,6 +86,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.ServicePrice = pURPurchaseHeader.ServicePrice;
             _pURPurchaseHeader.TaxTypeID = pURPurchaseHeader.TaxTypeID;
             _pURPurchaseHeader.RefuseReasonID = null;
+            _pURPurchaseHeader.InventoryID = pURPurchaseHeader.InventoryID;
             _pURPurchaseHeader.CreatedBy = GlobalVariables.CurrentUser.UserID;
             _pURPurchaseHeader.CreateDate = DateTime.Now;
             _pURPurchaseHeader.UpdatedBy = null;
