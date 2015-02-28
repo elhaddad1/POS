@@ -160,9 +160,16 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
-        private void mnu_MainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void mnuItem_CustomerAccount_Click(object sender, EventArgs e)
         {
+            frmCustomerAccounts frm = new frmCustomerAccounts();
+            frm.ShowDialog();
+        }
 
+        private void mnuItem_SupplierAccount_Click(object sender, EventArgs e)
+        {
+            frmSupplierAccounts frm = new frmSupplierAccounts();
+            frm.ShowDialog();
         }
 
 

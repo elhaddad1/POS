@@ -13,6 +13,8 @@ namespace POS.BusinessLayer.Wrapper
 
         private PURPurchaseHeaderService _purchaseHeaderService = new PURPurchaseHeaderService();
 
+        private ADUserService _userService = new ADUserService();
+
         public List<BDSupplierAccount> GetSupplierAccounts(int id)
         {
             List<BDSupplierAccount> supplierAccountCollection = new List<BDSupplierAccount>();
@@ -20,8 +22,14 @@ namespace POS.BusinessLayer.Wrapper
             BDSupplierPrimaryKey pk = new BDSupplierPrimaryKey();
             pk.SupplierID = id;
 
-            supplierAccountCollection = (from item in SelectAllByForeignKeySupplierID(pk)
+            var query = SelectAllByForeignKeySupplierID(pk);
+
+            if (query.Count == 0)
+                return supplierAccountCollection;
+
+            supplierAccountCollection = (from item in query
                                          join customer in _supplierService.SelectAll() on item.SupplierID equals customer.SupplierID
+                                         join _user in _userService.SelectAll() on item.CreatedBy equals _user.UserID
                                          select new BDSupplierAccount()
                                          {
                                              SupplierAccountId = item.SupplierAccountId,
@@ -34,7 +42,8 @@ namespace POS.BusinessLayer.Wrapper
                                              PurchaseDate = item.PurchaseDate,
                                              PurcaseInvoiceID = item.PurcaseInvoiceID,
                                              TotalPrice = item.TotalPrice,
-                                             CreateDate = item.CreateDate
+                                             CreateDate = item.CreateDate,
+                                             CreatedByName = _user.UserFullName
                                          }
                                           ).ToList();
             return supplierAccountCollection;

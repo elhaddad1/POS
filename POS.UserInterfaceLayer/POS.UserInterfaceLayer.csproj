@@ -90,6 +90,12 @@
     <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\frmSupplierAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmSupplierAccounts.Designer.cs">
+      <DependentUpon>frmSupplierAccounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\FrmAdjustmentReasons.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,12 +161,6 @@
     </Compile>
     <Compile Include="BasicData\frmProductGroupSearch.Designer.cs">
       <DependentUpon>frmProductGroupSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BasicData\frmSupplierAccounts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BasicData\frmSupplierAccounts.Designer.cs">
-      <DependentUpon>frmSupplierAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="BasicData\FrmSupplierAddEdit.cs">
       <SubType>Form</SubType>
@@ -305,11 +305,17 @@
     <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmSupplierAccounts.resx">
+      <DependentUpon>frmSupplierAccounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmAdjustmentReasons.resx">
       <DependentUpon>FrmAdjustmentReasons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmAdjustReasonAddEdit.resx">
       <DependentUpon>FrmAdjustReasonAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmCustomerAccounts.resx">
+      <DependentUpon>frmCustomerAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmInventoryAddEdit.resx">
       <DependentUpon>frmInventoryAddEdit.cs</DependentUpon>
