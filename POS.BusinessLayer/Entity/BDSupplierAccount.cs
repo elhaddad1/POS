@@ -18,6 +18,8 @@ namespace POS.BusinessLayer
     {
         [DataMember]
         public string SupplierName { get; set; }
+        [DataMember]
+        public string CreatedByName { get; set; }
 	}
 }
 			

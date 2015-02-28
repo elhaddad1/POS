@@ -12,15 +12,22 @@ namespace POS.BusinessLayer.Wrapper
 
         private SALSalesHeaderService _purchaseHeaderService = new SALSalesHeaderService();
 
+        private ADUserService _userService = new ADUserService();
+
         public List<BDCustomerAccount> GetCustomerAccounts(int id)
         {
             List<BDCustomerAccount> customerAccountCollection = new List<BDCustomerAccount>();
 
             BDCustomerPrimaryKey pk = new BDCustomerPrimaryKey();
             pk.CustomerID = id;
+            var query = SelectAllByForeignKeyCustomerID(pk);
 
-            customerAccountCollection = (from item in SelectAllByForeignKeyCustomerID(pk)
+            if(query.Count==0)
+                return customerAccountCollection;
+
+            customerAccountCollection = (from item in query
                                          join customer in _customerService.SelectAll() on item.CustomerID equals customer.CustomerID
+                                         join _user in _userService.SelectAll() on item.CreatedBy equals _user.UserID
                                          select new BDCustomerAccount()
                                          {
                                              CustomerAccountNumber = item.CustomerAccountNumber,
@@ -33,7 +40,8 @@ namespace POS.BusinessLayer.Wrapper
                                              SalesDate = item.SalesDate,
                                              SalesInvoiceId = item.SalesInvoiceId,
                                              TotalPrice = item.TotalPrice,
-                                             CreateDate = item.CreateDate
+                                             CreateDate = item.CreateDate,
+                                             CreatedByName = _user.UserFullName
                                          }
                                           ).ToList();
             return customerAccountCollection;
