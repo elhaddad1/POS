@@ -14,20 +14,20 @@ using POS.UserInterfaceLayer.BasicData;
 
 namespace POS.UserInterfaceLayer.Sales
 {
-    public partial class frmCustomerAccountEdit : Form
+    public partial class frmSupplierAccountEdit : Form
     {
-        BDCustomerWrapper _bDCustomerWrapper;
-        public BDCustomer _customer;
-        public FrmCustomerSearch frmCustomerSearchObj;
-        private int _customerID = -1;
-        public frmCustomerAccountEdit(int customerID, FrmCustomerSearch _frmCustomerSearch)
+        BDSupplierWrapper _bDSupplierWrapper;
+        public BDSupplier _supplier;
+        public FrmSupplierSearch frmSupplierSearchObj;
+        private int _supplierID = -1;
+        public frmSupplierAccountEdit(int supplierID, FrmSupplierSearch _frmSupplierSearch)
         {
             InitializeComponent();
-            this._customerID = customerID;
-            this._bDCustomerWrapper = new BDCustomerWrapper();
-            this._customer = new BDCustomer();
-            this.frmCustomerSearchObj = _frmCustomerSearch;
-            FillCustomerData();
+            this._supplierID = supplierID;
+            this._bDSupplierWrapper = new BDSupplierWrapper();
+            this._supplier = new BDSupplier();
+            this.frmSupplierSearchObj = _frmSupplierSearch;
+            FillSupplierData();
         }
 
         #region -- Events Methods
@@ -40,10 +40,10 @@ namespace POS.UserInterfaceLayer.Sales
         {
             if (Validate())
             {
-                _customer.Credit = num_Credit.Value ;
-                _customer.Debit = num_Debit.Value;
-                _bDCustomerWrapper.Update(_customer);
-                frmCustomerSearchObj.InitionGrid();
+                _supplier.Credit = num_Credit.Value ;
+                _supplier.Debit = num_Debit.Value;
+                _bDSupplierWrapper.Update(_supplier);
+                frmSupplierSearchObj.InitionGrid();
                 this.Close();
             }
         }
@@ -58,15 +58,15 @@ namespace POS.UserInterfaceLayer.Sales
         #endregion
 
         #region -- Private Methods
-        private void FillCustomerData()
+        private void FillSupplierData()
         {
             try
             {
-                BDCustomerPrimaryKey _customerPrimaryKey = new BDCustomerPrimaryKey();
-                _customerPrimaryKey.CustomerID = _customerID;
-                _customer = _bDCustomerWrapper.SelectOne(_customerPrimaryKey);
-                num_Credit.Value = _customer.Credit.Value;
-                num_Debit.Value = _customer.Debit.Value;
+                BDSupplierPrimaryKey _supplierPrimaryKey = new BDSupplierPrimaryKey();
+                _supplierPrimaryKey.SupplierID = _supplierID;
+                _supplier = _bDSupplierWrapper.SelectOne(_supplierPrimaryKey);
+                num_Credit.Value = _supplier.Credit.Value;
+                num_Debit.Value = _supplier.Debit.Value;
             }
             catch (Exception)
             {

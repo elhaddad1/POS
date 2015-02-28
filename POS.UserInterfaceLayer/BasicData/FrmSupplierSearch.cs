@@ -23,6 +23,14 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         private void FrmSupplierSearch_Load(object sender, EventArgs e)
         {
+            InitionGrid();
+            Search();
+
+        }
+
+        public void InitionGrid()
+        {
+
             // grb_Search.Height = 150;
             dgrid_Result.Size = new Size(10, 250);
             dgrid_Result.DataSource = _bDSupplierWrapper.SelectAll();
@@ -31,8 +39,6 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("إسم العميل", "SupplierName", 200, true);
             addColumnToGrid(" رقم تليفون ", "SupplierPhone1", 100, true);
             addColumnToGrid("رقم موبيل", "SupplierMobile1", 100, true);
-            Search();
-
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
