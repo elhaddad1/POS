@@ -89,7 +89,9 @@ namespace POS.UserInterfaceLayer.Portal
                     string[] arr = roles.Split('/');
                     foreach (string element in arr)
                     {
-                        mnu_MainMenu.Items.Find(element, true).FirstOrDefault().Enabled = true;
+                        var result = mnu_MainMenu.Items.Find(element, true).FirstOrDefault();
+                        if (result != null)
+                            result.Enabled = true;
                     }
                 }
             }
@@ -171,6 +173,53 @@ namespace POS.UserInterfaceLayer.Portal
             frmSupplierAccounts frm = new frmSupplierAccounts();
             frm.ShowDialog();
         }
+
+        private void btn_AddProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AddCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AddSupplier_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CustomerAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SupplierAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SalesOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ReturnSalesOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ReturnPurchaceOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_PurchaceOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
 
 
 

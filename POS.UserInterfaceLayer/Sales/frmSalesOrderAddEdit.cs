@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
+
 using POS.BusinessLayer;
 using POS.BusinessLayer.Utility;
 using POS.BusinessLayer.Wrapper;
@@ -125,7 +125,7 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                         int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
+                        int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
                         if (salesHeaderID != -1)
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
@@ -306,10 +306,27 @@ namespace POS.UserInterfaceLayer.Sales
             _sALSalesHeader.CustomerID = Convert.ToInt32(cbx_Customer.SelectedValue);
             _sALSalesHeader.InvoiceDate = dtb_Date.Value.Date;
             _sALSalesHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
-            _sALSalesHeader.LastDayToPay = Convert.ToDecimal(num_Remaining.Text) >= 0 ? null : (DateTime?)dtb_LastTimeToPay.Value.Date;
-            _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
-            _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
             _sALSalesHeader.PaymentTypeID = Convert.ToInt32(cbx_PaymentType.SelectedValue);
+            if (_sALSalesHeader.PaymentTypeID == 1)
+            {
+                _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
+                _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
+                _sALSalesHeader.LastDayToPay = null;
+
+            }
+            if (_sALSalesHeader.PaymentTypeID == 2)
+            {
+                _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
+                _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
+                _sALSalesHeader.LastDayToPay = Convert.ToDecimal(num_Remaining.Text) >= 0 ? null : (DateTime?)dtb_LastTimeToPay.Value.Date;
+
+            }
+            if (_sALSalesHeader.PaymentTypeID == 3)
+            {
+                _sALSalesHeader.PaidAmount = 0;
+                _sALSalesHeader.RemainingAmount = 0;
+                _sALSalesHeader.LastDayToPay = null;
+            }
             _sALSalesHeader.ServicePrice = string.IsNullOrEmpty(num_OtherPayments.Text) ? 0 : Convert.ToDecimal(num_OtherPayments.Text);
             _sALSalesHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
             decimal total = Convert.ToDecimal(txt_Total.Text);

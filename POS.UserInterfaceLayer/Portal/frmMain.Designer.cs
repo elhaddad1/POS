@@ -32,18 +32,18 @@
             this.mnuItem_Administration = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_UserGroups = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_BasicData = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_Products = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_ProductGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_Suppliers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Inventory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_ProductGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Products = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Suppliers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_AdjustReason = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Invntory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_OpenningQuantities = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_StockInquiry = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_takingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_OpenTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_CloseTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_OpenningQuantities = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Purchace = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurcaseOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurchaseReturn = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,16 +52,19 @@
             this.mnuItem_Sales = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SalesOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Accounts = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_CustomerAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_SupplierAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btn_SalesOrder = new System.Windows.Forms.Button();
-            this.btn_PurchaceOrder = new System.Windows.Forms.Button();
-            this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
-            this.btn_AddCustomer = new System.Windows.Forms.Button();
-            this.btn_AddSupplier = new System.Windows.Forms.Button();
-            this.btn_CustomerAccount = new System.Windows.Forms.Button();
-            this.btn_SupplierAccount = new System.Windows.Forms.Button();
-            this.btn_ReturnPurchaceOrder = new System.Windows.Forms.Button();
             this.btn_AddProduct = new System.Windows.Forms.Button();
+            this.btn_ReturnPurchaceOrder = new System.Windows.Forms.Button();
+            this.btn_SupplierAccount = new System.Windows.Forms.Button();
+            this.btn_CustomerAccount = new System.Windows.Forms.Button();
+            this.btn_AddSupplier = new System.Windows.Forms.Button();
+            this.btn_AddCustomer = new System.Windows.Forms.Button();
+            this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
+            this.btn_PurchaceOrder = new System.Windows.Forms.Button();
+            this.btn_SalesOrder = new System.Windows.Forms.Button();
             this.mnu_MainMenu.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.SuspendLayout();
@@ -74,14 +77,14 @@
             this.mnuItem_Invntory,
             this.mnuItem_Purchace,
             this.mnuItem_Transfer,
-            this.mnuItem_Sales});
+            this.mnuItem_Sales,
+            this.mnuItem_Accounts});
             this.mnu_MainMenu.Location = new System.Drawing.Point(0, 0);
             this.mnu_MainMenu.Name = "mnu_MainMenu";
             this.mnu_MainMenu.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
             this.mnu_MainMenu.Size = new System.Drawing.Size(702, 25);
             this.mnu_MainMenu.TabIndex = 0;
             this.mnu_MainMenu.Text = "menuStrip1";
-            this.mnu_MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mnu_MainMenu_ItemClicked);
             // 
             // mnuItem_Administration
             // 
@@ -114,21 +117,13 @@
             this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 19);
             this.mnuItem_BasicData.Text = "البيانات الرئيسية";
             // 
-            // mnuItem_Customers
+            // mnuItem_Inventory
             // 
-            this.mnuItem_Customers.Enabled = false;
-            this.mnuItem_Customers.Name = "mnuItem_Customers";
-            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_Customers.Text = "بيانات العملاء";
-            this.mnuItem_Customers.Click += new System.EventHandler(this.mnuItem_Customers_Click);
-            // 
-            // mnuItem_Products
-            // 
-            this.mnuItem_Products.Enabled = false;
-            this.mnuItem_Products.Name = "mnuItem_Products";
-            this.mnuItem_Products.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_Products.Text = "الاصناف";
-            this.mnuItem_Products.Click += new System.EventHandler(this.mnuItem_Products_Click);
+            this.mnuItem_Inventory.Enabled = false;
+            this.mnuItem_Inventory.Name = "mnuItem_Inventory";
+            this.mnuItem_Inventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Inventory.Text = "المخازن";
+            this.mnuItem_Inventory.Click += new System.EventHandler(this.mnuItem_Inventory_Click);
             // 
             // mnuItem_ProductGroup
             // 
@@ -138,6 +133,22 @@
             this.mnuItem_ProductGroup.Text = "مجموعة الاصناف";
             this.mnuItem_ProductGroup.Click += new System.EventHandler(this.mnuItem_ProductGroup_Click);
             // 
+            // mnuItem_Products
+            // 
+            this.mnuItem_Products.Enabled = false;
+            this.mnuItem_Products.Name = "mnuItem_Products";
+            this.mnuItem_Products.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Products.Text = "الاصناف";
+            this.mnuItem_Products.Click += new System.EventHandler(this.mnuItem_Products_Click);
+            // 
+            // mnuItem_Customers
+            // 
+            this.mnuItem_Customers.Enabled = false;
+            this.mnuItem_Customers.Name = "mnuItem_Customers";
+            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Customers.Text = "بيانات العملاء";
+            this.mnuItem_Customers.Click += new System.EventHandler(this.mnuItem_Customers_Click);
+            // 
             // mnuItem_Suppliers
             // 
             this.mnuItem_Suppliers.Enabled = false;
@@ -145,14 +156,6 @@
             this.mnuItem_Suppliers.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Suppliers.Text = "بيانات الموردين";
             this.mnuItem_Suppliers.Click += new System.EventHandler(this.mnuItem_Suppliers_Click);
-            // 
-            // mnuItem_Inventory
-            // 
-            this.mnuItem_Inventory.Enabled = false;
-            this.mnuItem_Inventory.Name = "mnuItem_Inventory";
-            this.mnuItem_Inventory.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_Inventory.Text = "المخازن";
-            this.mnuItem_Inventory.Click += new System.EventHandler(this.mnuItem_Inventory_Click);
             // 
             // mnuItem_AdjustReason
             // 
@@ -172,6 +175,14 @@
             this.mnuItem_Invntory.Name = "mnuItem_Invntory";
             this.mnuItem_Invntory.Size = new System.Drawing.Size(54, 19);
             this.mnuItem_Invntory.Text = "المخازن";
+            // 
+            // mnuItem_OpenningQuantities
+            // 
+            this.mnuItem_OpenningQuantities.Enabled = false;
+            this.mnuItem_OpenningQuantities.Name = "mnuItem_OpenningQuantities";
+            this.mnuItem_OpenningQuantities.Size = new System.Drawing.Size(157, 22);
+            this.mnuItem_OpenningQuantities.Text = "المخزون الأفتتاحى";
+            this.mnuItem_OpenningQuantities.Click += new System.EventHandler(this.mnuItem_OpenningQuantities_Click);
             // 
             // mnuItem_StockInquiry
             // 
@@ -195,7 +206,7 @@
             // 
             this.mnuItem_OpenTakingInventory.Enabled = false;
             this.mnuItem_OpenTakingInventory.Name = "mnuItem_OpenTakingInventory";
-            this.mnuItem_OpenTakingInventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_OpenTakingInventory.Size = new System.Drawing.Size(125, 22);
             this.mnuItem_OpenTakingInventory.Text = "فتح جرد";
             this.mnuItem_OpenTakingInventory.Click += new System.EventHandler(this.mnuItem_OpenTakingInventory_Click);
             // 
@@ -203,17 +214,9 @@
             // 
             this.mnuItem_CloseTakingInventory.Enabled = false;
             this.mnuItem_CloseTakingInventory.Name = "mnuItem_CloseTakingInventory";
-            this.mnuItem_CloseTakingInventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_CloseTakingInventory.Size = new System.Drawing.Size(125, 22);
             this.mnuItem_CloseTakingInventory.Text = "أغلاق الجرد";
             this.mnuItem_CloseTakingInventory.Click += new System.EventHandler(this.mnuItem_CloseTakingInventory_Click);
-            // 
-            // mnuItem_OpenningQuantities
-            // 
-            this.mnuItem_OpenningQuantities.Enabled = false;
-            this.mnuItem_OpenningQuantities.Name = "mnuItem_OpenningQuantities";
-            this.mnuItem_OpenningQuantities.Size = new System.Drawing.Size(157, 22);
-            this.mnuItem_OpenningQuantities.Text = "المخزون الأفتتاحى";
-            this.mnuItem_OpenningQuantities.Click += new System.EventHandler(this.mnuItem_OpenningQuantities_Click);
             // 
             // mnuItem_Purchace
             // 
@@ -224,6 +227,7 @@
             this.mnuItem_Purchace.Name = "mnuItem_Purchace";
             this.mnuItem_Purchace.Size = new System.Drawing.Size(65, 19);
             this.mnuItem_Purchace.Text = "المشتريات";
+
             // 
             // mnuItem_PurcaseOrder
             // 
@@ -254,7 +258,7 @@
             // 
             this.mnuItem_TransferOrder.Enabled = false;
             this.mnuItem_TransferOrder.Name = "mnuItem_TransferOrder";
-            this.mnuItem_TransferOrder.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_TransferOrder.Size = new System.Drawing.Size(118, 22);
             this.mnuItem_TransferOrder.Text = "امر تحويل";
             this.mnuItem_TransferOrder.Click += new System.EventHandler(this.mnuItem_TransferOrder_Click);
             // 
@@ -272,7 +276,7 @@
             // 
             this.mnuItem_SalesOrders.Enabled = false;
             this.mnuItem_SalesOrders.Name = "mnuItem_SalesOrders";
-            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(150, 22);
             this.mnuItem_SalesOrders.Text = "فواتير العملاء";
             this.mnuItem_SalesOrders.Click += new System.EventHandler(this.mnuItem_SalesOrders_Click);
             // 
@@ -280,9 +284,33 @@
             // 
             this.mnuItem_SalesOrder.Enabled = false;
             this.mnuItem_SalesOrder.Name = "mnuItem_SalesOrder";
-            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(150, 22);
             this.mnuItem_SalesOrder.Text = "فتح فاتورة جديدة";
             this.mnuItem_SalesOrder.Click += new System.EventHandler(this.mnuItem_SalesOrder_Click);
+            // 
+            // mnuItem_Accounts
+            // 
+            this.mnuItem_Accounts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItem_CustomerAccount,
+            this.mnuItem_SupplierAccount});
+            this.mnuItem_Accounts.Enabled = false;
+            this.mnuItem_Accounts.Name = "mnuItem_Accounts";
+            this.mnuItem_Accounts.Size = new System.Drawing.Size(61, 19);
+            this.mnuItem_Accounts.Text = "الحسابات";
+            // 
+            // mnuItem_CustomerAccount
+            // 
+            this.mnuItem_CustomerAccount.Enabled = false;
+            this.mnuItem_CustomerAccount.Name = "mnuItem_CustomerAccount";
+            this.mnuItem_CustomerAccount.Size = new System.Drawing.Size(151, 22);
+            this.mnuItem_CustomerAccount.Text = "حسابات العملاء";
+            // 
+            // mnuItem_SupplierAccount
+            // 
+            this.mnuItem_SupplierAccount.Enabled = false;
+            this.mnuItem_SupplierAccount.Name = "mnuItem_SupplierAccount";
+            this.mnuItem_SupplierAccount.Size = new System.Drawing.Size(151, 22);
+            this.mnuItem_SupplierAccount.Text = "حسابات الموردين";
             // 
             // pnlContent
             // 
@@ -303,88 +331,9 @@
             this.pnlContent.Size = new System.Drawing.Size(702, 382);
             this.pnlContent.TabIndex = 6;
             // 
-            // btn_SalesOrder
-            // 
-            this.btn_SalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_SalesOrder.Location = new System.Drawing.Point(152, 299);
-            this.btn_SalesOrder.Name = "btn_SalesOrder";
-            this.btn_SalesOrder.Size = new System.Drawing.Size(102, 71);
-            this.btn_SalesOrder.TabIndex = 1;
-            this.btn_SalesOrder.Text = "فتح فاتورة بيع";
-            this.btn_SalesOrder.UseVisualStyleBackColor = true;
-            // 
-            // btn_PurchaceOrder
-            // 
-            this.btn_PurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_PurchaceOrder.Location = new System.Drawing.Point(30, 22);
-            this.btn_PurchaceOrder.Name = "btn_PurchaceOrder";
-            this.btn_PurchaceOrder.Size = new System.Drawing.Size(102, 71);
-            this.btn_PurchaceOrder.TabIndex = 2;
-            this.btn_PurchaceOrder.Text = "أمر شراء";
-            this.btn_PurchaceOrder.UseVisualStyleBackColor = true;
-            // 
-            // btn_ReturnSalesOrder
-            // 
-            this.btn_ReturnSalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_ReturnSalesOrder.Location = new System.Drawing.Point(30, 230);
-            this.btn_ReturnSalesOrder.Name = "btn_ReturnSalesOrder";
-            this.btn_ReturnSalesOrder.Size = new System.Drawing.Size(102, 71);
-            this.btn_ReturnSalesOrder.TabIndex = 3;
-            this.btn_ReturnSalesOrder.Text = "مرتجع فاتورة";
-            this.btn_ReturnSalesOrder.UseVisualStyleBackColor = true;
-            // 
-            // btn_AddCustomer
-            // 
-            this.btn_AddCustomer.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_AddCustomer.Location = new System.Drawing.Point(567, 125);
-            this.btn_AddCustomer.Name = "btn_AddCustomer";
-            this.btn_AddCustomer.Size = new System.Drawing.Size(102, 71);
-            this.btn_AddCustomer.TabIndex = 4;
-            this.btn_AddCustomer.Text = "أضافة عميل ";
-            this.btn_AddCustomer.UseVisualStyleBackColor = true;
-            // 
-            // btn_AddSupplier
-            // 
-            this.btn_AddSupplier.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_AddSupplier.Location = new System.Drawing.Point(567, 228);
-            this.btn_AddSupplier.Name = "btn_AddSupplier";
-            this.btn_AddSupplier.Size = new System.Drawing.Size(102, 71);
-            this.btn_AddSupplier.TabIndex = 5;
-            this.btn_AddSupplier.Text = "أضافى مورد";
-            this.btn_AddSupplier.UseVisualStyleBackColor = true;
-            // 
-            // btn_CustomerAccount
-            // 
-            this.btn_CustomerAccount.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_CustomerAccount.Location = new System.Drawing.Point(436, 299);
-            this.btn_CustomerAccount.Name = "btn_CustomerAccount";
-            this.btn_CustomerAccount.Size = new System.Drawing.Size(102, 71);
-            this.btn_CustomerAccount.TabIndex = 6;
-            this.btn_CustomerAccount.Text = "حسابات العملاء";
-            this.btn_CustomerAccount.UseVisualStyleBackColor = true;
-            // 
-            // btn_SupplierAccount
-            // 
-            this.btn_SupplierAccount.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_SupplierAccount.Location = new System.Drawing.Point(294, 299);
-            this.btn_SupplierAccount.Name = "btn_SupplierAccount";
-            this.btn_SupplierAccount.Size = new System.Drawing.Size(102, 71);
-            this.btn_SupplierAccount.TabIndex = 7;
-            this.btn_SupplierAccount.Text = "حسابات الموردين";
-            this.btn_SupplierAccount.UseVisualStyleBackColor = true;
-            // 
-            // btn_ReturnPurchaceOrder
-            // 
-            this.btn_ReturnPurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ReturnPurchaceOrder.Location = new System.Drawing.Point(30, 127);
-            this.btn_ReturnPurchaceOrder.Name = "btn_ReturnPurchaceOrder";
-            this.btn_ReturnPurchaceOrder.Size = new System.Drawing.Size(102, 71);
-            this.btn_ReturnPurchaceOrder.TabIndex = 8;
-            this.btn_ReturnPurchaceOrder.Text = "مرتجع مشتريات";
-            this.btn_ReturnPurchaceOrder.UseVisualStyleBackColor = true;
-            // 
             // btn_AddProduct
             // 
+            this.btn_AddProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_AddProduct.Location = new System.Drawing.Point(567, 22);
             this.btn_AddProduct.Name = "btn_AddProduct";
@@ -392,6 +341,103 @@
             this.btn_AddProduct.TabIndex = 9;
             this.btn_AddProduct.Text = "أضافة صنف ";
             this.btn_AddProduct.UseVisualStyleBackColor = true;
+            this.btn_AddProduct.Click += new System.EventHandler(this.btn_AddProduct_Click);
+            // 
+            // btn_ReturnPurchaceOrder
+            // 
+            this.btn_ReturnPurchaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReturnPurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ReturnPurchaceOrder.Location = new System.Drawing.Point(30, 127);
+            this.btn_ReturnPurchaceOrder.Name = "btn_ReturnPurchaceOrder";
+            this.btn_ReturnPurchaceOrder.Size = new System.Drawing.Size(102, 71);
+            this.btn_ReturnPurchaceOrder.TabIndex = 8;
+            this.btn_ReturnPurchaceOrder.Text = "مرتجع مشتريات";
+            this.btn_ReturnPurchaceOrder.UseVisualStyleBackColor = true;
+            this.btn_ReturnPurchaceOrder.Click += new System.EventHandler(this.btn_ReturnPurchaceOrder_Click);
+            // 
+            // btn_SupplierAccount
+            // 
+            this.btn_SupplierAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SupplierAccount.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_SupplierAccount.Location = new System.Drawing.Point(294, 299);
+            this.btn_SupplierAccount.Name = "btn_SupplierAccount";
+            this.btn_SupplierAccount.Size = new System.Drawing.Size(102, 71);
+            this.btn_SupplierAccount.TabIndex = 7;
+            this.btn_SupplierAccount.Text = "حسابات الموردين";
+            this.btn_SupplierAccount.UseVisualStyleBackColor = true;
+            this.btn_SupplierAccount.Click += new System.EventHandler(this.btn_SupplierAccount_Click);
+            // 
+            // btn_CustomerAccount
+            // 
+            this.btn_CustomerAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_CustomerAccount.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_CustomerAccount.Location = new System.Drawing.Point(436, 299);
+            this.btn_CustomerAccount.Name = "btn_CustomerAccount";
+            this.btn_CustomerAccount.Size = new System.Drawing.Size(102, 71);
+            this.btn_CustomerAccount.TabIndex = 6;
+            this.btn_CustomerAccount.Text = "حسابات العملاء";
+            this.btn_CustomerAccount.UseVisualStyleBackColor = true;
+            this.btn_CustomerAccount.Click += new System.EventHandler(this.btn_CustomerAccount_Click);
+            // 
+            // btn_AddSupplier
+            // 
+            this.btn_AddSupplier.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddSupplier.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_AddSupplier.Location = new System.Drawing.Point(567, 228);
+            this.btn_AddSupplier.Name = "btn_AddSupplier";
+            this.btn_AddSupplier.Size = new System.Drawing.Size(102, 71);
+            this.btn_AddSupplier.TabIndex = 5;
+            this.btn_AddSupplier.Text = "أضافى مورد";
+            this.btn_AddSupplier.UseVisualStyleBackColor = true;
+            this.btn_AddSupplier.Click += new System.EventHandler(this.btn_AddSupplier_Click);
+            // 
+            // btn_AddCustomer
+            // 
+            this.btn_AddCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddCustomer.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_AddCustomer.Location = new System.Drawing.Point(567, 125);
+            this.btn_AddCustomer.Name = "btn_AddCustomer";
+            this.btn_AddCustomer.Size = new System.Drawing.Size(102, 71);
+            this.btn_AddCustomer.TabIndex = 4;
+            this.btn_AddCustomer.Text = "أضافة عميل ";
+            this.btn_AddCustomer.UseVisualStyleBackColor = true;
+            this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
+            // 
+            // btn_ReturnSalesOrder
+            // 
+            this.btn_ReturnSalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReturnSalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_ReturnSalesOrder.Location = new System.Drawing.Point(30, 230);
+            this.btn_ReturnSalesOrder.Name = "btn_ReturnSalesOrder";
+            this.btn_ReturnSalesOrder.Size = new System.Drawing.Size(102, 71);
+            this.btn_ReturnSalesOrder.TabIndex = 3;
+            this.btn_ReturnSalesOrder.Text = "مرتجع فاتورة";
+            this.btn_ReturnSalesOrder.UseVisualStyleBackColor = true;
+            this.btn_ReturnSalesOrder.Click += new System.EventHandler(this.btn_ReturnSalesOrder_Click);
+            // 
+            // btn_PurchaceOrder
+            // 
+            this.btn_PurchaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_PurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_PurchaceOrder.Location = new System.Drawing.Point(30, 22);
+            this.btn_PurchaceOrder.Name = "btn_PurchaceOrder";
+            this.btn_PurchaceOrder.Size = new System.Drawing.Size(102, 71);
+            this.btn_PurchaceOrder.TabIndex = 2;
+            this.btn_PurchaceOrder.Text = "أمر شراء";
+            this.btn_PurchaceOrder.UseVisualStyleBackColor = true;
+            this.btn_PurchaceOrder.Click += new System.EventHandler(this.btn_PurchaceOrder_Click);
+            // 
+            // btn_SalesOrder
+            // 
+            this.btn_SalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_SalesOrder.Location = new System.Drawing.Point(152, 299);
+            this.btn_SalesOrder.Name = "btn_SalesOrder";
+            this.btn_SalesOrder.Size = new System.Drawing.Size(102, 71);
+            this.btn_SalesOrder.TabIndex = 1;
+            this.btn_SalesOrder.Text = "فتح فاتورة بيع";
+            this.btn_SalesOrder.UseVisualStyleBackColor = true;
+            this.btn_SalesOrder.Click += new System.EventHandler(this.btn_SalesOrder_Click);
             // 
             // frmMain
             // 
@@ -458,5 +504,8 @@
         private System.Windows.Forms.Button btn_SalesOrder;
         private System.Windows.Forms.Button btn_AddProduct;
         private System.Windows.Forms.Button btn_ReturnPurchaceOrder;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Accounts;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_CustomerAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_SupplierAccount;
     }
 }
