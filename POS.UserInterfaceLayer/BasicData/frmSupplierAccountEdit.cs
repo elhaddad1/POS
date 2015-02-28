@@ -76,21 +76,18 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private bool Validate()
         {
-            /*if (string.IsNullOrEmpty(tbx_Price.Text))
+            decimal total = num_Credit.Value - num_Debit.Value;
+            if (total < 0)
             {
-                MessageBox.Show("برجاء أدهال سعر المنتج");
-                return false;
+                num_Credit.Value = 0;
+                num_Debit.Value = (total * (-1));
             }
-            if (Convert.ToDecimal(tbx_Price.Text == "" ? "0" : tbx_Price.Text) < Convert.ToDecimal(lbl_MinPriceValue.Text == "" ? "0" : lbl_MinPriceValue.Text))
+            else
             {
-                MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
-                return false;
+                num_Credit.Value = total;
+                num_Debit.Value = 0;
             }
-            if (string.IsNullOrEmpty(num_Quantity.Text) || Convert.ToInt32(num_Quantity.Text) <= 0)
-            {
-                MessageBox.Show("أدخل كميه مناسبه");
-                return false;
-            }*/
+            return true;
             return true;
         }
         #endregion
