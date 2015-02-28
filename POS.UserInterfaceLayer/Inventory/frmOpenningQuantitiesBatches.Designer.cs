@@ -103,7 +103,7 @@
             // 
             // ExpiryDate
             // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحيه yyyy-mm-dd";
             this.ExpiryDate.Name = "ExpiryDate";
             this.ExpiryDate.Width = 140;
             // 
@@ -119,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(384, 262);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.dgrd_Batches);
