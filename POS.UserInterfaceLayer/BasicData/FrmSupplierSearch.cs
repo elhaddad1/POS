@@ -39,6 +39,9 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("إسم العميل", "SupplierName", 200, true);
             addColumnToGrid(" رقم تليفون ", "SupplierPhone1", 100, true);
             addColumnToGrid("رقم موبيل", "SupplierMobile1", 100, true);
+            /////////
+            addColumnToGrid("دائن", "Debit", 100, true);
+            addColumnToGrid("مدين", "Credit", 100, true);
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
