@@ -1,4 +1,4 @@
-﻿namespace POS.UserInterfaceLayer.Sales
+﻿namespace POS.UserInterfaceLayer.BasicData
 {
     partial class frmSupplierAccountEdit
     {

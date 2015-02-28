@@ -12,7 +12,7 @@ using POS.BusinessLayer.Utility;
 using POS.BusinessLayer.Wrapper;
 using POS.UserInterfaceLayer.BasicData;
 
-namespace POS.UserInterfaceLayer.Sales
+namespace POS.UserInterfaceLayer.BasicData
 {
     public partial class frmSupplierAccountEdit : Form
     {

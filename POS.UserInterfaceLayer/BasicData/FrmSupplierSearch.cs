@@ -31,9 +31,14 @@ namespace POS.UserInterfaceLayer.BasicData
         public void InitionGrid()
         {
 
-            // grb_Search.Height = 150;
+            dgrid_Result.Columns.Clear();
+
+            dgrid_Result.AutoGenerateColumns = false;
+
+            dgrid_Result.Height = 150;
+
             dgrid_Result.Size = new Size(10, 250);
-            dgrid_Result.DataSource = _bDSupplierWrapper.SelectAll();
+
             addColumnToGrid("رقم المورد", "SupplierID", 120, false);
             addColumnToGrid("كود لمورد", "SupplierCode", 80, true);
             addColumnToGrid("إسم العميل", "SupplierName", 200, true);
@@ -42,6 +47,8 @@ namespace POS.UserInterfaceLayer.BasicData
             /////////
             addColumnToGrid("دائن", "Debit", 100, true);
             addColumnToGrid("مدين", "Credit", 100, true);
+
+            dgrid_Result.DataSource = _bDSupplierWrapper.SelectAll();
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
@@ -104,6 +111,28 @@ namespace POS.UserInterfaceLayer.BasicData
             string customerCode = tbx_customerCode.Text != "" ? tbx_customerCode.Text : null;
             BDSupplierCollection customers = _bDSupplierWrapper.SearchByCriteria(customerName, customerCode);
             dgrid_Result.DataSource = customers;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int? supplierID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["SupplierID"].Value != null)
+            {
+                if (MessageBox.Show("هل نت متأكد من تعديل حساب هذا المورد؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    supplierID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["SupplierID"].Value);
+                    frmSupplierAccountEdit _frmSupplierAccountEdit = new frmSupplierAccountEdit(supplierID.Value, this);
+                    _frmSupplierAccountEdit.ShowDialog();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار مورد");
+            }
         }
     }
 }
