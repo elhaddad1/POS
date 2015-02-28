@@ -37,13 +37,24 @@ namespace POS.UserInterfaceLayer.Purcase
             FillInventoryCBX();
 
         }
-
-        private void FillInventoryCBX()
+        public frmPurchaseOrderAddEdit(int HeaderID)
         {
-            cbx_Inventory.DataSource = _invInventoryService.SelectAll();
-            cbx_Inventory.ValueMember = "InventoryID";
-            cbx_Inventory.DisplayMember = "InventoryName";
+            InitializeComponent();
+            _bDTaxTypeWrapper = new BDTaxTypeWrapper();
+            _paymentTypeWrapper = new PaymentTypeWrapper();
+            _bDSupplierWrapper = new BDSupplierWrapper();
+            pURPurchaseLineCollection = new PURPurchaseLineCollection();
+            _pURPurchaseLinerWrapper = new PURPurchaseLineWrapper();
+            _productWrapper = new BDProductWrapper();
+            _invInventoryService = new INVInventoryService();
+            FillSupplierCBX();
+            FillPaymentTypeCBX();
+            FillTaxTypeCBX();
+            FillInventoryCBX();
+
         }
+
+     
 
         #region -- Events
 
@@ -84,14 +95,15 @@ namespace POS.UserInterfaceLayer.Purcase
 
         private void btn_Plus_Click(object sender, EventArgs e)
         {
-            //if (dgrd_OrderLines.SelectedRows.Count != 0)
-            //{
-            //    pURPurchaseLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().TotalQty++;
-            //    BindGrid();
-            //    CalculateTotal();
-            //}
-            //else
-            //    MessageBox.Show("برجاء أختيار عنصر من القائمه");
+            int selectedRowIndex=dgrd_OrderLines.SelectedCells[0].RowIndex;
+            dgrd_OrderLines.Rows.InsertCopy(selectedRowIndex,selectedRowIndex+1);
+            dgrd_OrderLines.Rows[selectedRowIndex+1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
+            dgrd_OrderLines.Rows[selectedRowIndex+1].Cells["PurchasePrice"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["PurchasePrice"].Value;
+            dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ItemDiscount"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ItemDiscount"].Value;
+            // dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
+          
+            
+           // dgrd_OrderLines.Rows.InsertCopy(dgrd_OrderLines.SelectedCells[0].RowIndex, dgrd_OrderLines.SelectedCells[0].RowIndex + 1);
         }
 
 
@@ -130,7 +142,7 @@ namespace POS.UserInterfaceLayer.Purcase
                         _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
                         _line.BonusQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value);
                         _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
-                        _line.DiscountAmount = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value);
+                        _line.DiscountRatio = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value);
                         if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value ==true)
                         {
                             _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
@@ -145,8 +157,10 @@ namespace POS.UserInterfaceLayer.Purcase
                                   dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
                                   return;
                               }
-                            _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
+                          _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value) +
+                                            Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value); ;
                         }
+
                         pURPurchaseLineCollection.Add(_line);
                     }
 
@@ -193,6 +207,29 @@ namespace POS.UserInterfaceLayer.Purcase
             num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_Total.Text)).ToString();
 
         }
+        private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["ProductName"].Index)
+            {
+                BDProductPrimaryKey pk = new BDProductPrimaryKey();
+                pk.ProductID = Convert.ToInt32(dgrd_OrderLines.Rows[e.RowIndex].Cells["ProductName"].Value);
+                BDProduct _product = _productWrapper.SelectOne(pk);
+                dgrd_OrderLines.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
+
+                if (_product.IsAcceptBatch == true)
+                {
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false;
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = false;
+                }
+                else
+                {
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = true;
+                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true;
+                }
+            }
+        }
+
+       
         #endregion
 
         #region -- Public Methods
@@ -248,6 +285,13 @@ namespace POS.UserInterfaceLayer.Purcase
                 throw;
             }
         }
+        private void FillInventoryCBX()
+        {
+            cbx_Inventory.DataSource = _invInventoryService.SelectAll();
+            cbx_Inventory.ValueMember = "InventoryID";
+            cbx_Inventory.DisplayMember = "InventoryName";
+            cbx_Inventory.SelectedIndex = -1;
+        }
         private void BindGrid()
         {
             dgrd_OrderLines.DataSource = null;
@@ -288,7 +332,7 @@ namespace POS.UserInterfaceLayer.Purcase
             _pURPurchaseHeader.TotalDiscountAmount = total * discountRatio;
             _pURPurchaseHeader.TotalDiscountRatio = (double)discountRatio;
             _pURPurchaseHeader.TotalPrice = Convert.ToDecimal(txt_Total.Text);
-
+            _pURPurchaseHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
             return _pURPurchaseHeader;
         }
         private bool Validate()
@@ -298,39 +342,17 @@ namespace POS.UserInterfaceLayer.Purcase
                 MessageBox.Show("اختار مورد أولا");
                 return false;
             }
-            //if (cbx_PaymentType.SelectedIndex == -1)
-            //{
-            //    MessageBox.Show("اختار طريقة دفع أولا");
-            //    return false;
-            //}
+            if (cbx_Inventory.SelectedIndex == -1)
+            {
+                MessageBox.Show("اختار المخزن أولا");
+                return false;
+            }
 
 
 
             return true;
         }
         #endregion
-
-        private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["ProductName"].Index )
-            {
-                BDProductPrimaryKey pk=new BDProductPrimaryKey ();
-                pk .ProductID =Convert .ToInt32( dgrd_OrderLines.SelectedCells[0].Value);
-                BDProduct _product= _productWrapper.SelectOne(pk);
-                dgrd_OrderLines.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
-
-                if (_product.IsAcceptBatch == true )
-                {
-                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false ;
-                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = false; 
-                }
-                else
-                {
-                    dgrd_OrderLines.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = true;
-                    dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true; 
-                }
-            }
-        }
 
        
 

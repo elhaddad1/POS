@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrid_Roles = new System.Windows.Forms.DataGridView();
             this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -43,7 +44,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(229, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(168, 20);
             // 
             // panl_Footer
             // 
@@ -52,11 +53,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(283, 4);
+            this.btn_Save.Location = new System.Drawing.Point(200, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(178, 4);
+            this.btn_Back.Location = new System.Drawing.Point(95, 3);
             // 
             // dgrid_Roles
             // 
@@ -78,6 +79,8 @@
             // 
             // Check
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Check.DefaultCellStyle = dataGridViewCellStyle1;
             this.Check.HeaderText = "";
             this.Check.Name = "Check";
             // 

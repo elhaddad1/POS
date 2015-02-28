@@ -90,6 +90,12 @@
     <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\frmSupplierAccountEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\frmSupplierAccountEdit.Designer.cs">
+      <DependentUpon>frmSupplierAccountEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmCustomerAccountEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\frmSupplierAccountEdit.resx">
+      <DependentUpon>frmSupplierAccountEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmCustomerAccountEdit.resx">
       <DependentUpon>frmCustomerAccountEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -425,6 +434,7 @@
     <Content Include="Reports\SalesOrder.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Reports\PurchaseReport.rpt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

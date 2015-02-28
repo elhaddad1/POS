@@ -1,5 +1,6 @@
 ﻿using POS.BusinessLayer;
 using POS.BusinessLayer.Wrapper;
+using POS.UserInterfaceLayer.Sales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,16 +28,24 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public void InitionGrid()
         {
+            dgrid_Result.Columns.Clear();
 
-            // grb_Search.Height = 150;
+            dgrid_Result.AutoGenerateColumns = false;
+
+            dgrid_Result.Height = 150;
+
             dgrid_Result.Size = new Size(10, 250);
-            //dgrid_Result.Anchor = AnchorStyles.Top;
-            dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
+
             addColumnToGrid("رقم العميل", "CustomerID", 120, false);
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);
             addColumnToGrid("إسم العميل", "CustomerName", 200, true);
             addColumnToGrid(" رقم تليفون ", "CustomerPhone1", 100, true);
             addColumnToGrid("رقم موبيل", "CustomerMobile1", 100, true);
+            /////////
+            addColumnToGrid("دائن", "Debit", 100, true);
+            addColumnToGrid("مدين", "Credit", 100, true);
+
+            dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
@@ -99,6 +108,28 @@ namespace POS.UserInterfaceLayer.BasicData
             string customerCode = tbx_customerCode.Text != "" ? tbx_customerCode.Text : null;
             BDCustomerCollection customers= _bDCustomerWrapper.SearchByCriteria(customerName, customerCode);
             dgrid_Result.DataSource = customers;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int? customerID = 0;
+            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["CustomerID"].Value != null)
+            {
+                if (MessageBox.Show("هل نت متأكد من تعديل حساب هذا العميل؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    customerID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["CustomerID"].Value);
+                    frmCustomerAccountEdit _frmCustomerAccountEdit = new frmCustomerAccountEdit(customerID.Value, this);
+                    _frmCustomerAccountEdit.ShowDialog();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار عميل");
+            }
         }
     }
 }

@@ -435,6 +435,7 @@
             // 
             this.PurchaseLineID.HeaderText = "PurchaseLineID";
             this.PurchaseLineID.Name = "PurchaseLineID";
+            this.PurchaseLineID.ReadOnly = true;
             this.PurchaseLineID.Width = 70;
             // 
             // ProductName
@@ -486,7 +487,7 @@
             dataGridViewCellStyle4.Format = "N2";
             dataGridViewCellStyle4.NullValue = null;
             this.ItemDiscount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ItemDiscount.HeaderText = "الخصم";
+            this.ItemDiscount.HeaderText = "الخصم%";
             this.ItemDiscount.Name = "ItemDiscount";
             this.ItemDiscount.Width = 50;
             // 

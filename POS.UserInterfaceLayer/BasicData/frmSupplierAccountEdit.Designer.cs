@@ -1,6 +1,6 @@
 ﻿namespace POS.UserInterfaceLayer.BasicData
 {
-    partial class frmCustomerAccountEdit
+    partial class frmSupplierAccountEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -48,9 +48,9 @@
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_FormHeader.Location = new System.Drawing.Point(316, 20);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
-            this.lbl_FormHeader.Size = new System.Drawing.Size(102, 19);
+            this.lbl_FormHeader.Size = new System.Drawing.Size(101, 19);
             this.lbl_FormHeader.TabIndex = 0;
-            this.lbl_FormHeader.Text = "تعديل حساب عميل";
+            this.lbl_FormHeader.Text = "تعديل حساب مورد";
             // 
             // panl_Header
             // 
@@ -128,7 +128,7 @@
             this.num_Credit.Size = new System.Drawing.Size(120, 20);
             this.num_Credit.TabIndex = 41;
             // 
-            // frmCustomerAccountEdit
+            // frmSupplierAccountEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +142,7 @@
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Finish);
             this.Controls.Add(this.panl_Header);
-            this.Name = "frmCustomerAccountEdit";
+            this.Name = "frmSupplierAccountEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

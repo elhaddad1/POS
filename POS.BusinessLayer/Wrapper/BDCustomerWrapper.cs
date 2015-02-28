@@ -26,6 +26,8 @@ namespace POS.BusinessLayer.Wrapper
                 _bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
                 _bDCustomerWCF.Email = _bDCustomer.Email;
                 _bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+                _bDCustomerWCF.Credit = _bDCustomer.Credit;
+                _bDCustomerWCF.Debit = _bDCustomer.Debit;
 
                 bDCustomerCollection.Add(_bDCustomerWCF);
             }

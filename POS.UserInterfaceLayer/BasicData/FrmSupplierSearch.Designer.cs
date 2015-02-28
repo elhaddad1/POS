@@ -33,6 +33,7 @@
             this.tbx_customerCode = new System.Windows.Forms.TextBox();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_code = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(223, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(137, 20);
             this.lbl_FormHeader.Size = new System.Drawing.Size(82, 19);
             this.lbl_FormHeader.Text = "بحث الموردين";
             // 
@@ -54,6 +55,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btn_Search);
             this.groupBox2.Controls.Add(this.lbl_code);
             this.groupBox2.Controls.Add(this.tbx_cusomerName);
@@ -108,6 +110,16 @@
             this.lbl_code.TabIndex = 6;
             this.lbl_code.Text = "كود المورد";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "تعديل حساب";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmSupplierSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.TextBox tbx_customerCode;
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Label lbl_code;
+        private System.Windows.Forms.Button button1;
     }
 }
