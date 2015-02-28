@@ -1,10 +1,14 @@
 //
 // Class	:	BDCustomerServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:01 PM
+// Date		:	2/28/2015 11:31:47 PM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -61,6 +65,8 @@ namespace POS.BusinessLayer
 				_bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
 				_bDCustomerWCF.Email = _bDCustomer.Email;
 				_bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+				_bDCustomerWCF.Debit = _bDCustomer.Debit;
+				_bDCustomerWCF.Credit = _bDCustomer.Credit;
 				
 			return _bDCustomerWCF;
 		}
@@ -87,6 +93,8 @@ namespace POS.BusinessLayer
 				_bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
 				_bDCustomerWCF.Email = _bDCustomer.Email;
 				_bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+				_bDCustomerWCF.Debit = _bDCustomer.Debit;
+				_bDCustomerWCF.Credit = _bDCustomer.Credit;
 				
 				bDCustomerCollection.Add(_bDCustomerWCF);
 			}
@@ -130,6 +138,8 @@ namespace POS.BusinessLayer
 				_bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
 				_bDCustomerWCF.Email = _bDCustomer.Email;
 				_bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+				_bDCustomerWCF.Debit = _bDCustomer.Debit;
+				_bDCustomerWCF.Credit = _bDCustomer.Credit;
 				
 				bDCustomerCollection.Add(_bDCustomerWCF);
 			}
@@ -156,6 +166,8 @@ namespace POS.BusinessLayer
 			_bDCustomer.Mobile2=bDCustomer.Mobile2;
 			_bDCustomer.Email=bDCustomer.Email;
 			_bDCustomer.IsActive=bDCustomer.IsActive;
+			_bDCustomer.Debit=bDCustomer.Debit;
+			_bDCustomer.Credit=bDCustomer.Credit;
 			
 			return _bDCustomer.Insert();
 		}
@@ -186,6 +198,8 @@ namespace POS.BusinessLayer
 				_bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
 				_bDCustomerWCF.Email = _bDCustomer.Email;
 				_bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+				_bDCustomerWCF.Debit = _bDCustomer.Debit;
+				_bDCustomerWCF.Credit = _bDCustomer.Credit;
 				
 				bDCustomerCollection.Add(_bDCustomerWCF);
 			}
@@ -223,6 +237,8 @@ namespace POS.BusinessLayer
 				_bDCustomerWCF.Mobile2 = _bDCustomer.Mobile2;
 				_bDCustomerWCF.Email = _bDCustomer.Email;
 				_bDCustomerWCF.IsActive = _bDCustomer.IsActive;
+				_bDCustomerWCF.Debit = _bDCustomer.Debit;
+				_bDCustomerWCF.Credit = _bDCustomer.Credit;
 				
 				bDCustomerCollection.Add(_bDCustomerWCF);
 			}
@@ -248,6 +264,8 @@ namespace POS.BusinessLayer
 			_bDCustomer.Mobile2=bDCustomer.Mobile2;
 			_bDCustomer.Email=bDCustomer.Email;
 			_bDCustomer.IsActive=bDCustomer.IsActive;
+			_bDCustomer.Debit=bDCustomer.Debit;
+			_bDCustomer.Credit=bDCustomer.Credit;
 			
 			return _bDCustomer.Update();
 		}

@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplier.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:54 PM
+// Date		:	2/28/2015 11:31:46 PM
 //
 
 using System;
@@ -43,7 +43,8 @@ namespace POS.DataLayer
 
 		#endregion
 
-		#region Methods (Public)
+
+        #region Methods (Public)
         public static BDSupplierCollection SearcByCriteria(string SupplierName, string SupplierCode)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
@@ -64,11 +65,11 @@ namespace POS.DataLayer
 
         }
 
-		#endregion
-		
-		#region Methods (Private)
+        #endregion
 
-		#endregion
+            #region Methods (Private)
+
+            #endregion
 
 	}
 	

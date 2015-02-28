@@ -1,7 +1,7 @@
 //
 // Class	:	BDCustomer.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:00 PM
+// Date		:	2/28/2015 11:31:47 PM
 //
 
 using System;
@@ -43,8 +43,8 @@ namespace POS.DataLayer
 
 		#endregion
 
-		#region Methods (Public)
-        public static BDCustomerCollection SearcByCriteria(string CustomerName,string CustomerCode)
+        #region Methods (Public)
+        public static BDCustomerCollection SearcByCriteria(string CustomerName, string CustomerCode)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
@@ -52,7 +52,7 @@ namespace POS.DataLayer
             // Pass the specified field and its value to the stored procedure.
             oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
             oDatabaseHelper.AddParameter("@CustomerCode", CustomerCode);
-          
+
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -64,11 +64,11 @@ namespace POS.DataLayer
 
         }
 
-		#endregion
-		
-		#region Methods (Private)
+        #endregion
 
-		#endregion
+            #region Methods (Private)
+
+            #endregion
 
 	}
 	
