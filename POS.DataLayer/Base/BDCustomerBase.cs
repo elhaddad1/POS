@@ -1,7 +1,7 @@
 //
 // Class	:	BDCustomerBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:00 PM
+// Date		:	2/28/2015 11:31:47 PM
 //
 
 using System;
@@ -33,6 +33,8 @@ namespace POS.DataLayer
 		public const string Mobile2                   = "Mobile2";
 		public const string Email                     = "Email";
 		public const string IsActive                  = "IsActive";
+		public const string Debit                     = "Debit";
+		public const string Credit                    = "Credit";
 	}
 	
 	/// <summary>
@@ -56,7 +58,10 @@ namespace POS.DataLayer
 		private string         	_mobile2NonDefault       	= null;
 		private string         	_emailNonDefault         	= null;
 		private bool?          	_isActiveNonDefault      	= null;
+		private decimal?       	_debitNonDefault         	= 0;
+		private decimal?       	_creditNonDefault        	= 0;
 
+		private BDCustomerAccountCollection _bDCustomerAccountCollectionCustomerID = null;
 		private SALSalesHeaderCollection _sALSalesHeaderCollectionCustomerID = null;
 		
 		#endregion
@@ -327,6 +332,58 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// This property is mapped to the "Debit" field.  Mandatory.
+		/// </summary>
+		public decimal? Debit
+		{
+			get 
+			{ 
+				return _debitNonDefault;
+			}
+			set 
+			{
+			
+				_debitNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "Credit" field.  Mandatory.
+		/// </summary>
+		public decimal? Credit
+		{
+			get 
+			{ 
+				return _creditNonDefault;
+			}
+			set 
+			{
+			
+				_creditNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// Provides access to the related table 'BDCustomerAccounts'
+		/// </summary>
+		public BDCustomerAccountCollection BDCustomerAccountCollectionUsingCustomerID
+		{
+			get 
+			{
+				if (_bDCustomerAccountCollectionCustomerID == null)
+				{
+					_bDCustomerAccountCollectionCustomerID = new BDCustomerAccountCollection();
+					_bDCustomerAccountCollectionCustomerID = BDCustomerAccount.SelectByField("CustomerID",CustomerID, null, TypeOperation.Equal);
+				}                
+				return _bDCustomerAccountCollectionCustomerID; 
+			}
+			set 
+			{
+				  _bDCustomerAccountCollectionCustomerID = value;
+			}
+		}
+
+		/// <summary>
 		/// Provides access to the related table 'SALSalesHeader'
 		/// </summary>
 		public SALSalesHeaderCollection SALSalesHeaderCollectionUsingCustomerID
@@ -360,7 +417,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -425,6 +482,18 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@IsActive", DBNull.Value );
 			  
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			if(_debitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Debit", _debitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Debit", DBNull.Value );
+			  
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -455,7 +524,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -511,6 +580,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@IsActive", _isActiveNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@IsActive", DBNull.Value );
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			if(_debitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Debit", _debitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Debit", DBNull.Value );
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -530,7 +609,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -571,6 +650,12 @@ namespace POS.DataLayer
 			// Pass the value of '_isActive' as parameter 'IsActive' of the stored procedure.
 			oDatabaseHelper.AddParameter("@IsActive", _isActiveNonDefault );
 			
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Debit", _debitNonDefault );
+			
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Credit", _creditNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -590,7 +675,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -627,7 +712,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -666,7 +751,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -701,7 +786,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -749,7 +834,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -786,7 +871,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -828,7 +913,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -874,7 +959,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -915,7 +1000,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -948,7 +1033,59 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM				Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static BDCustomer SelectOneWithBDCustomerAccountsUsingCustomerID(BDCustomerPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			BDCustomer obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDCustomer_SelectOneWithBDCustomerAccountsUsingCustomerID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new BDCustomer();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.BDCustomerAccountCollectionUsingCustomerID=BDCustomerAccount.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDCustomerPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class BDCustomer</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			2/28/2015 11:31:47 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1004,7 +1141,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1041,7 +1178,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1092,6 +1229,8 @@ namespace POS.DataLayer
 				obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDCustomerFields.IsActive));
 			}
 			
+			obj.Debit = rdr.GetDecimal(rdr.GetOrdinal(BDCustomerFields.Debit));
+			obj.Credit = rdr.GetDecimal(rdr.GetOrdinal(BDCustomerFields.Credit));
 
 		}
 
@@ -1107,7 +1246,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1139,7 +1278,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:00 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:47 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

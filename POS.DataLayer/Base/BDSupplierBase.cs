@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:54 PM
+// Date		:	2/28/2015 11:31:46 PM
 //
 
 using System;
@@ -33,6 +33,8 @@ namespace POS.DataLayer
 		public const string Mobile2                   = "Mobile2";
 		public const string Email                     = "Email";
 		public const string IsActive                  = "IsActive";
+		public const string Debit                     = "Debit";
+		public const string Credit                    = "Credit";
 	}
 	
 	/// <summary>
@@ -56,8 +58,10 @@ namespace POS.DataLayer
 		private string         	_mobile2NonDefault       	= null;
 		private string         	_emailNonDefault         	= null;
 		private bool?          	_isActiveNonDefault      	= null;
+		private decimal?       	_debitNonDefault         	= 0;
+		private decimal?       	_creditNonDefault        	= 0;
 
-		private PURPurchaseHeaderCollection _pURPurchaseHeaderCollectionSupplierID = null;
+		private BDSupplierAccountCollection _bDSupplierAccountCollectionSupplierID = null;
 		
 		#endregion
 		
@@ -327,22 +331,54 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// Provides access to the related table 'PURPurchaseHeader'
+		/// This property is mapped to the "Debit" field.  Mandatory.
 		/// </summary>
-		public PURPurchaseHeaderCollection PURPurchaseHeaderCollectionUsingSupplierID
+		public decimal? Debit
 		{
 			get 
-			{
-				if (_pURPurchaseHeaderCollectionSupplierID == null)
-				{
-					_pURPurchaseHeaderCollectionSupplierID = new PURPurchaseHeaderCollection();
-					_pURPurchaseHeaderCollectionSupplierID = PURPurchaseHeader.SelectByField("SupplierID",SupplierID, null, TypeOperation.Equal);
-				}                
-				return _pURPurchaseHeaderCollectionSupplierID; 
+			{ 
+				return _debitNonDefault;
 			}
 			set 
 			{
-				  _pURPurchaseHeaderCollectionSupplierID = value;
+			
+				_debitNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "Credit" field.  Mandatory.
+		/// </summary>
+		public decimal? Credit
+		{
+			get 
+			{ 
+				return _creditNonDefault;
+			}
+			set 
+			{
+			
+				_creditNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// Provides access to the related table 'BDSupplierAccounts'
+		/// </summary>
+		public BDSupplierAccountCollection BDSupplierAccountCollectionUsingSupplierID
+		{
+			get 
+			{
+				if (_bDSupplierAccountCollectionSupplierID == null)
+				{
+					_bDSupplierAccountCollectionSupplierID = new BDSupplierAccountCollection();
+					_bDSupplierAccountCollectionSupplierID = BDSupplierAccount.SelectByField("SupplierID",SupplierID, null, TypeOperation.Equal);
+				}                
+				return _bDSupplierAccountCollectionSupplierID; 
+			}
+			set 
+			{
+				  _bDSupplierAccountCollectionSupplierID = value;
 			}
 		}
 
@@ -360,7 +396,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -425,6 +461,18 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@IsActive", DBNull.Value );
 			  
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			if(_debitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Debit", _debitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Debit", DBNull.Value );
+			  
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -455,7 +503,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -511,6 +559,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@IsActive", _isActiveNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@IsActive", DBNull.Value );
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			if(_debitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Debit", _debitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Debit", DBNull.Value );
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -530,7 +588,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -571,6 +629,12 @@ namespace POS.DataLayer
 			// Pass the value of '_isActive' as parameter 'IsActive' of the stored procedure.
 			oDatabaseHelper.AddParameter("@IsActive", _isActiveNonDefault );
 			
+			// Pass the value of '_debit' as parameter 'Debit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Debit", _debitNonDefault );
+			
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Credit", _creditNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -590,7 +654,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -627,7 +691,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -666,7 +730,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -701,7 +765,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -749,7 +813,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -786,7 +850,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -828,7 +892,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -874,7 +938,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -915,7 +979,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -948,13 +1012,13 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM				Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
 		/// </remarks>
 		///
-		public static BDSupplier SelectOneWithPURPurchaseHeaderUsingSupplierID(BDSupplierPrimaryKey pk)
+		public static BDSupplier SelectOneWithBDSupplierAccountsUsingSupplierID(BDSupplierPrimaryKey pk)
 		{
 			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
 			bool ExecutionState = false;
@@ -970,7 +1034,7 @@ namespace POS.DataLayer
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDSupplier_SelectOneWithPURPurchaseHeaderUsingSupplierID", ref ExecutionState);
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDSupplier_SelectOneWithBDSupplierAccountsUsingSupplierID", ref ExecutionState);
 			if (dr.Read())
 			{
 				obj= new BDSupplier();
@@ -979,7 +1043,7 @@ namespace POS.DataLayer
 				dr.NextResult();
 				
 				//Get the child records.
-				obj.PURPurchaseHeaderCollectionUsingSupplierID=PURPurchaseHeader.PopulateObjectsFromReader(dr);
+				obj.BDSupplierAccountCollectionUsingSupplierID=BDSupplierAccount.PopulateObjectsFromReader(dr);
 			}
 			dr.Close();  
 			oDatabaseHelper.Dispose();
@@ -1004,7 +1068,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1041,7 +1105,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1092,6 +1156,8 @@ namespace POS.DataLayer
 				obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDSupplierFields.IsActive));
 			}
 			
+			obj.Debit = rdr.GetDecimal(rdr.GetOrdinal(BDSupplierFields.Debit));
+			obj.Credit = rdr.GetDecimal(rdr.GetOrdinal(BDSupplierFields.Credit));
 
 		}
 
@@ -1107,7 +1173,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1139,7 +1205,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:54 PM		Created function
+		/// DLGenerator			2/28/2015 11:31:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -219,12 +219,12 @@
     <Compile Include="Service\ADRoleService.svc.cs" />
     <Compile Include="Service\ADUserService.svc.cs" />
     <Compile Include="Service\BDCustomerAccountService.cs" />
-    <Compile Include="Service\BDCustomerService.svc.cs" />
+    <Compile Include="Service\BDCustomerService.cs" />
     <Compile Include="Service\BDProductGroupService.svc.cs" />
     <Compile Include="Service\BDProductService.svc.cs" />
     <Compile Include="Service\BDRefuseReasonService.svc.cs" />
     <Compile Include="Service\BDSupplierAccountService.cs" />
-    <Compile Include="Service\BDSupplierService.svc.cs" />
+    <Compile Include="Service\BDSupplierService.cs" />
     <Compile Include="Service\BDTaxTypeService.svc.cs" />
     <Compile Include="Service\INVAdjustStockReasonService.svc.cs" />
     <Compile Include="Service\INVAdjustStockService.svc.cs" />
@@ -263,6 +263,8 @@
     <Compile Include="Wrapper\BDProductWrapper.cs" />
     <Compile Include="Wrapper\BDSupplierWrapper.cs" />
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
+    <Compile Include="Wrapper\BDCustomerAccountsWrapper.cs" />
+    <Compile Include="Wrapper\BDSupplierAccountsWrapper.cs" />
     <Compile Include="Wrapper\INVBatchWrapper.cs" />
     <Compile Include="Wrapper\INVTransferHeaderWrapper.cs" />
     <Compile Include="Wrapper\INVInventoryWrapper.cs" />

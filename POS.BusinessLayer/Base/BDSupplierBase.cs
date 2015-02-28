@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:54 PM
+// Date		:	2/28/2015 11:31:47 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -48,6 +48,12 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public bool? IsActive {get;set;}
+
+		[DataMember]
+		public decimal? Debit {get;set;}
+
+		[DataMember]
+		public decimal? Credit {get;set;}
 
 		
 		#endregion

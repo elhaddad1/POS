@@ -20,17 +20,26 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         private void FrmCustomerSearch_Load(object sender, EventArgs e)
         {
-           // grb_Search.Height = 150;
-            dgrid_Result .Size = new Size(10, 250);
+            InitionGrid();
+            Search();
+           
+        }
+
+        public void InitionGrid()
+        {
+
+            // grb_Search.Height = 150;
+            dgrid_Result.Size = new Size(10, 250);
             //dgrid_Result.Anchor = AnchorStyles.Top;
             dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
-             addColumnToGrid("رقم العميل", "CustomerID", 120, false );
+            addColumnToGrid("رقم العميل", "CustomerID", 120, false);
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);
             addColumnToGrid("إسم العميل", "CustomerName", 200, true);
             addColumnToGrid(" رقم تليفون ", "CustomerPhone1", 100, true);
             addColumnToGrid("رقم موبيل", "CustomerMobile1", 100, true);
-            Search();
-           
+            /////////
+            addColumnToGrid("دائن", "Debit", 100, true);
+            addColumnToGrid("مدين", "Credit", 100, true);
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
