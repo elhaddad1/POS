@@ -14,18 +14,33 @@ namespace POS.UserInterfaceLayer.Purcase
 {
     public partial class frmPurchaseOrderSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
-        PURPurchaseHeaderWrapper sALPurchaseHeaderWrapper;
+        PURPurchaseHeaderWrapper pURPurchaseHeaderWrapper;
+        INVInventoryWrapper invInventoryWerapper;
 
         public frmPurchaseOrderSearch()
         {
             InitializeComponent();
             // base.toggelButton(base.btn_Close);
             base.lbl_FormHeader.Text = "فواتير الشراء";
-            sALPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
+            pURPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
+            invInventoryWerapper = new INVInventoryWrapper();
             InitiateGrid();
         }
 
         #region --Events
+        private void frmPurchaseOrderSearch_Load(object sender, EventArgs e)
+        {
+
+            FillInventoryCombo();
+        }
+
+        private void FillInventoryCombo()
+        {
+            cbx_Inventory.DataSource = invInventoryWerapper.SelectAll();
+            cbx_Inventory.DisplayMember = "InventoryName";
+            cbx_Inventory.ValueMember = "InventoryID";
+            cbx_Inventory.SelectedIndex = -1;
+        }
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
             FrmSupplierAddEdit frm = new FrmSupplierAddEdit();
@@ -42,7 +57,9 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-
+                    frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit();
+                    frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;
+                    frm.ShowDialog();
                 }
                 else
                     MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
@@ -52,7 +69,7 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    sALPurchaseHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurcaseHeaderID"].Value));
+                    pURPurchaseHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurcaseHeaderID"].Value));
                     BindGrid();
                 }
                 else
@@ -67,7 +84,7 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    if (sALPurchaseHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurchaseHeaderID"].Value)))
+                    if (pURPurchaseHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurchaseHeaderID"].Value)))
                     {
                         BindGrid();
                         // Utility.Print(null, 1); 
@@ -78,7 +95,15 @@ namespace POS.UserInterfaceLayer.Purcase
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            BindGrid();
+
+            if (cbx_Inventory.SelectedValue!=null)
+            {
+                BindGrid(); 
+            }
+            else
+            {
+                MessageBox.Show("لابد من اختيار مخزن اولا", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void frmPurchaseOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -94,7 +119,7 @@ namespace POS.UserInterfaceLayer.Purcase
             dgrid_Result.AutoGenerateColumns = false;
             addColumnToGrid("", "PurcaseHeaderID", 20, false);
             addColumnToGrid("مسلسل الفاتورة", "InvoiceNumber", 120, true);
-            addColumnToGrid("أسم المورد", "CustomerName", 120, true);
+            addColumnToGrid("أسم المورد", "SupplierName", 120, true);
             addColumnToGrid("تاريخ الأصدار", "InvoiceDate", 120, true);
             addColumnToGrid("المبلغ المطلوب", "TotalPrice", 120, true);
             addColumnToGrid("مغلق", "IsClosed", 60, true);
@@ -103,9 +128,11 @@ namespace POS.UserInterfaceLayer.Purcase
         private void BindGrid()
         {
             dgrid_Result.DataSource = null;
-            dgrid_Result.DataSource = sALPurchaseHeaderWrapper.HeaderSearch(tbx_SupplierName.Text, tbx_OrderSerial.Text);
+            dgrid_Result.DataSource = pURPurchaseHeaderWrapper.HeaderSearch(Convert.ToInt32( cbx_Inventory.SelectedValue), dtp_fromDate.Value, dtp_toDate.Value, tbx_SupplierName.Text, tbx_OrderSerial.Text);
         }
         #endregion
+
+       
 
 
     }

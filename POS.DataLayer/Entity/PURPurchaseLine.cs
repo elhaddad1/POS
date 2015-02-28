@@ -164,6 +164,13 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@PaymentTypeID", sALPurchaseHeader.PaymentTypeID);
             else
                 oDatabaseHelper.AddParameter("@PaymentTypeID", DBNull.Value);
+
+            if (sALPurchaseHeader.InventoryID != null)
+                oDatabaseHelper.AddParameter("@InventoryID", sALPurchaseHeader.InventoryID);
+            else
+                oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value);
+
+
             // Pass the value of '_totalPrice' as parameter 'TotalPrice' of the stored procedure.
             if (sALPurchaseHeader.TotalPrice != null)
                 oDatabaseHelper.AddParameter("@TotalPrice", sALPurchaseHeader.TotalPrice);

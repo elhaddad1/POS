@@ -55,15 +55,18 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
-        public static PURPurchaseHeaderCollection HeaderSearch(string SupplierName, string InvoiceNumber)
+        public static PURPurchaseHeaderCollection HeaderSearch(int InventoryID, DateTime FromDate, DateTime ToDate, string SupplierName, string InvoiceNumber)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
 
             // Pass the specified field and its value to the stored procedure.
+            oDatabaseHelper.AddParameter("@InventoryID", InventoryID );
+            oDatabaseHelper.AddParameter("@FromDate", FromDate);
+            oDatabaseHelper.AddParameter("@ToDate", ToDate );
             oDatabaseHelper.AddParameter("@SupplierName", SupplierName);
-            oDatabaseHelper.AddParameter("@InvoiceDate", null);
             oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
+
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -133,10 +136,10 @@ namespace POS.DataLayer
               //      obj.SellerID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseHeaderFields.SellerID));
               //  }
 
-                if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.PaymentTypeID)))
-                {
-                    obj.PaymentTypeID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseHeaderFields.PaymentTypeID));
-                }
+                //if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.PaymentTypeID)))
+                //{
+                //    obj.PaymentTypeID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseHeaderFields.PaymentTypeID));
+                //}
 
                 obj.TotalPrice = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseHeaderFields.TotalPrice));
                 obj.PaidAmount = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseHeaderFields.PaidAmount));
