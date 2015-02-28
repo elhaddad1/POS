@@ -10,19 +10,20 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 
-	/// <summary>
-	/// This class describes the attributes of a INVProductStock and is the public interface for this service.
-	/// </summary>
-	[DataContract(Namespace = "POS.BusinessLayer")]
-	public class INVProductStock : INVProductStockBase
-	{ string _productCode;
+    /// <summary>
+    /// This class describes the attributes of a INVProductStock and is the public interface for this service.
+    /// </summary>
+    [DataContract(Namespace = "POS.BusinessLayer")]
+    public class INVProductStock : INVProductStockBase
+    {
+        string _productCode;
         string _productName;
         string _stockType;
         decimal _batchQty;
         string _batchNo;
 
-       
-        DateTime _expiryDate;
+
+        DateTime? _expiryDate = null;
         public string ProductCode
         {
             get { return _productCode; }
@@ -43,16 +44,16 @@ namespace POS.BusinessLayer
             get { return _batchQty; }
             set { _batchQty = value; }
         }
-        public DateTime ExpiryDate
+        public DateTime? ExpiryDate
         {
             get { return _expiryDate; }
             set { _expiryDate = value; }
         }
-         public string BatchNo
-                {
-                    get { return _batchNo; }
-                    set { _batchNo = value; }
-                }
-	}
+        public string BatchNo
+        {
+            get { return _batchNo; }
+            set { _batchNo = value; }
+        }
+    }
 }
-			
+

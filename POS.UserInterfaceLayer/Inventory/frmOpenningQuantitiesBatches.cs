@@ -14,35 +14,27 @@ namespace POS.UserInterfaceLayer.Inventory
 {
     public partial class frmOpenningQuantitiesBatches : Form
     {
-        INVBatchCollection _iNVBatchCollection;
-        INVBatchWrapper _iNVBatchWrapper;
-        private int _productStockID;
-
-
-        public frmOpenningQuantitiesBatches(int ProductStockID)
+        INVProductStock iNVProductStock;
+        private INVProductStockWrapper _iNVProductStockWrapper;
+        frmOpenningQuantities frmOpenningQuantitiesObj;
+        public frmOpenningQuantitiesBatches(INVProductStock iNVProductStock, frmOpenningQuantities frm)
         {
             InitializeComponent();
-            _iNVBatchCollection = new INVBatchCollection();
-            _iNVBatchWrapper = new INVBatchWrapper();
-            _productStockID = ProductStockID;
+            _iNVProductStockWrapper = new INVProductStockWrapper();
+            this.iNVProductStock = iNVProductStock;
+            this.frmOpenningQuantitiesObj = frm;
         }
-
         #region -- Events
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (_iNVBatchCollection.Count == 0)
+            if (dgrd_Batches.Rows.Count == 0)
             {
                 MessageBox.Show("برجاء أدخال أرقام تشغيله أولا");
                 return;
             }
-            if (_iNVBatchWrapper.SaveProductStockWithBatches(_iNVBatchCollection, _productStockID))
-            {
-                MessageBox.Show("تم العملية بنجاح");
+            if (CollectScreenData())
                 this.Close();
-
-            }
         }
-
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,22 +44,59 @@ namespace POS.UserInterfaceLayer.Inventory
 
         #endregion
         #region -- Private Methods
-        private void CollectScreenData()
+        private bool CollectScreenData()
         {
             foreach (DataGridViewRow row in dgrd_Batches.Rows)
             {
-                if (!string.IsNullOrEmpty(row.Cells["ExpiryDate"].Value.ToString()) && !string.IsNullOrEmpty(row.Cells["BatchNumber"].Value.ToString()) && !string.IsNullOrEmpty(row.Cells["Qty"].Value.ToString()))
+                if (row.Index != dgrd_Batches.Rows.Count - 1)
                 {
-                    INVBatch _iNVBatch = new INVBatch();
-                    _iNVBatch.BatchNumber = row.Cells["BatchNumber"].Value.ToString();
-                    _iNVBatch.ExpiryDate = Convert.ToDateTime(row.Cells["ExpiryDate"].Value);
-                    _iNVBatch.Qty = Convert.ToDecimal(row.Cells["Qty"].Value);
-
-                    _iNVBatchCollection.Add(_iNVBatch);
+                    if (!Validate(row))
+                        return false;
+                    INVProductStock _iNVProductStock = new INVProductStock();
+                    _iNVProductStock.InventoryID = this.iNVProductStock.InventoryID;
+                    _iNVProductStock.CreateDate = this.iNVProductStock.CreateDate;
+                    _iNVProductStock.CreatedBy = this.iNVProductStock.CreatedBy;
+                    _iNVProductStock.OpeningQty = this.iNVProductStock.OpeningQty;
+                    _iNVProductStock.OpennigDate = this.iNVProductStock.OpennigDate;
+                    _iNVProductStock.ProductID = this.iNVProductStock.ProductID;
+                    _iNVProductStock.StockTypeID = this.iNVProductStock.StockTypeID;
+                    _iNVProductStock.TotalQty = this.iNVProductStock.TotalQty;
+                    _iNVProductStock.BatchNo = row.Cells["BatchNumber"].Value.ToString();
+                    _iNVProductStock.ExpiryDate = DateTime.Parse(row.Cells["ExpiryDate"].Value.ToString());
+                    _iNVProductStock.BatchQty = Convert.ToDecimal(row.Cells["Qty"].Value);
+                    frmOpenningQuantitiesObj.iNVProductStockCollection.Add(_iNVProductStock);
                 }
             }
+            return true;
         }
+        new private bool Validate(DataGridViewRow row)
+        {
+            if (row.Cells["BatchNumber"].Value == null)
+            {
+                row.Cells["BatchNumber"].Style.BackColor = Color.Red;
+                return false;
+            }
+            if (row.Cells["ExpiryDate"].Value == null)
+            {
+                row.Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                return false;
+            }
 
+            DateTime result;
+            if (!DateTime.TryParse(row.Cells["ExpiryDate"].Value.ToString(), out result))
+            {
+                MessageBox.Show("صيغة تاريخ الصلاحية غير صحيحة لابد ان تكون (يوم -شهر -سنة)");
+                row.Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                return false;
+            }
+            if (row.Cells["Qty"].Value == null)
+            {
+                row.Cells["Qty"].Style.BackColor = Color.Red;
+                return false;
+            }
+
+            return true;
+        }
         #endregion
 
 

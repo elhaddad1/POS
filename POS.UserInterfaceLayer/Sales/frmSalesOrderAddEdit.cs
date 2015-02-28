@@ -125,7 +125,7 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     if (_sALSalesHeader.SalesHeaderID == null)
                     {
-                        int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
+                         int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
                         if (salesHeaderID != -1)
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using POS.BusinessLayer.Utility;
 
 namespace POS.BusinessLayer.Wrapper
 {
-    public class INVProductStockWrapper:INVProductStockService
+    public class INVProductStockWrapper : INVProductStockService
     {
-        private INVProductStock _iNVProductStockWCF;
-       // private POS.DataLayer.INVProductStock _iNVProductStock;
+
+        // private POS.DataLayer.INVProductStock _iNVProductStock;
         public INVProductStockCollection GetInventoryStock(int? ProductStockID, string productCode, string productName, bool? IsAcceptBatch, bool getWithBatch)
         {
+            INVProductStock _iNVProductStockWCF;
 
             INVProductStockCollection iNVProductStockCollection = new INVProductStockCollection();
             foreach (POS.DataLayer.INVProductStock _iNVProductStock in POS.DataLayer.INVProductStock.GetInventoryStock(ProductStockID, productCode, productName, IsAcceptBatch, getWithBatch))
@@ -38,6 +40,30 @@ namespace POS.BusinessLayer.Wrapper
             }
             return iNVProductStockCollection;
         }
-       
+        public bool SaveProductStockLine(INVProductStockCollection iNVProductStockCollection)
+        {
+            foreach (INVProductStock _iNVProductStockWCF in iNVProductStockCollection)
+            {
+                POS.DataLayer.INVProductStock iNVProductStock = new DataLayer.INVProductStock();
+                iNVProductStock.BatchNo = _iNVProductStockWCF.BatchNo;
+                iNVProductStock.BatchQty = _iNVProductStockWCF.BatchQty;
+                iNVProductStock.CreatedBy = GlobalVariables.CurrentUser.UserID;
+                iNVProductStock.CreateDate = _iNVProductStockWCF.CreateDate;
+                iNVProductStock.ExpiryDate = _iNVProductStockWCF.ExpiryDate;
+                iNVProductStock.InventoryID = _iNVProductStockWCF.InventoryID;
+                iNVProductStock.OpeningQty = _iNVProductStockWCF.OpeningQty;
+                iNVProductStock.OpennigDate = _iNVProductStockWCF.OpennigDate;
+                iNVProductStock.ProductID = _iNVProductStockWCF.ProductID;
+                iNVProductStock.StockTypeID = 1;
+                iNVProductStock.TotalQty = _iNVProductStockWCF.TotalQty;
+                iNVProductStock.UpdateDate = _iNVProductStockWCF.UpdateDate;
+                iNVProductStock.UpdatedBy = _iNVProductStockWCF.UpdatedBy;
+                if (!iNVProductStock.InsertINVProductStockWithBatch(iNVProductStock))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

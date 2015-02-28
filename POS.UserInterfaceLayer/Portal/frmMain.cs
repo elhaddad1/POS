@@ -160,6 +160,11 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
+        private void mnu_MainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
 
 
 

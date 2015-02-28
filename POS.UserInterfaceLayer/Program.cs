@@ -22,7 +22,7 @@ namespace POS.UserInterfaceLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPurchaseOrderSearch  ());
+            Application.Run(new frmLogin  ());
         }
     }
 }
