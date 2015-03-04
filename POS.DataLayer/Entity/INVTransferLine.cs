@@ -58,7 +58,7 @@ namespace POS.DataLayer
             {
                 foreach (INVTransferLine transferLine in transferLineCollection)
                 {
-                    if (!InsertDetails(oDatabaseHelper, transferLine, transferHeaderID))
+                    if (!InsertDetailsAndCommit(oDatabaseHelper, transferLine, transferHeaderID))
                     {
                         ExecutionState = false;
                         break;
@@ -111,7 +111,7 @@ namespace POS.DataLayer
                 {
                     foreach (INVTransferLine transferLine in transferLineCollection)
                     {
-                        if (!InsertDetails(oDatabaseHelper, transferLine, (int)transferHeader.INVTransferHeaderID))
+                        if (!InsertDetailsAndCommit(oDatabaseHelper, transferLine, (int)transferHeader.INVTransferHeaderID))
                         {
                             ExecutionState = false;
                             break;

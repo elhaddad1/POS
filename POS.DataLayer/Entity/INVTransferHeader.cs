@@ -69,16 +69,6 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@INVTransferHeaderID", INVTransferHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
             oDatabaseHelper.ExecuteScalar("usp_INVTransferHader_CloseOrder", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
-            foreach (INVTransferLine transferLine in transferLineCollection)
-            {
-                if (!CommitDetails(oDatabaseHelper, transferLine))
-                {
-                    ExecutionState = false;
-                    break;
-                }
-                else
-                    ExecutionState = true;
-            }
             if (ExecutionState)
                 oDatabaseHelper.CommitTransaction();
             else
