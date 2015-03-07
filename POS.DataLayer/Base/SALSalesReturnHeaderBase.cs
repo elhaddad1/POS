@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:21 PM
+// Date		:	3/8/2015 12:43:27 AM
 //
 
 using System;
@@ -33,6 +33,8 @@ namespace POS.DataLayer
 		public const string IsDeleted                 = "IsDeleted";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string DeleteDate                = "DeleteDate";
+		public const string IsClosed                  = "IsClosed";
+		public const string IsVoid                    = "IsVoid";
 	}
 	
 	/// <summary>
@@ -56,6 +58,8 @@ namespace POS.DataLayer
 		private bool?          	_isDeletedNonDefault     	= false;
 		private string         	_deletedByNonDefault     	= null;
 		private DateTime?      	_deleteDateNonDefault    	= null;
+		private bool?          	_isClosedNonDefault      	= null;
+		private bool?          	_isVoidNonDefault        	= null;
 		
 		#endregion
 		
@@ -245,6 +249,38 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "IsClosed" field.  Mandatory.
+		/// </summary>
+		public bool? IsClosed
+		{
+			get 
+			{ 
+				return _isClosedNonDefault;
+			}
+			set 
+			{
+			
+				_isClosedNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "IsVoid" field.  Mandatory.
+		/// </summary>
+		public bool? IsVoid
+		{
+			get 
+			{ 
+				return _isVoidNonDefault;
+			}
+			set 
+			{
+			
+				_isVoidNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -259,7 +295,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -324,6 +360,18 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value );
 			  
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			if(_isClosedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value );
+			  
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			if(_isVoidNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -354,7 +402,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -410,6 +458,16 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@DeleteDate", _deleteDateNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value );
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			if(_isClosedNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsClosed", DBNull.Value );
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			if(_isVoidNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -429,7 +487,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -470,6 +528,12 @@ namespace POS.DataLayer
 			// Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
 			oDatabaseHelper.AddParameter("@DeleteDate", _deleteDateNonDefault );
 			
+			// Pass the value of '_isClosed' as parameter 'IsClosed' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsClosed", _isClosedNonDefault );
+			
+			// Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
+			oDatabaseHelper.AddParameter("@IsVoid", _isVoidNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -489,7 +553,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -526,7 +590,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -565,7 +629,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -600,7 +664,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -648,7 +712,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -685,7 +749,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -727,7 +791,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -773,7 +837,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -814,7 +878,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -851,7 +915,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -888,7 +952,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -935,6 +999,8 @@ namespace POS.DataLayer
 				obj.DeleteDate = rdr.GetDateTime(rdr.GetOrdinal(SALSalesReturnHeaderFields.DeleteDate));
 			}
 			
+			obj.IsClosed = rdr.GetBoolean(rdr.GetOrdinal(SALSalesReturnHeaderFields.IsClosed));
+			obj.IsVoid = rdr.GetBoolean(rdr.GetOrdinal(SALSalesReturnHeaderFields.IsVoid));
 
 		}
 
@@ -950,7 +1016,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -982,7 +1048,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:21 PM		Created function
+		/// DLGenerator			3/8/2015 12:43:27 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -274,6 +274,7 @@
     <Compile Include="Wrapper\PURPurchaseLineWrapper.cs" />
     <Compile Include="Wrapper\SALSalesHeaderWrapper.cs" />
     <Compile Include="Wrapper\SALSalesLinerWrapper.cs" />
+    <Compile Include="Wrapper\SALSalesReturnHeaderWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POS.DataLayer\POS.DataLayer.csproj">

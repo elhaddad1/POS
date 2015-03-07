@@ -1,8 +1,9 @@
 //
 // Class	:	SALSalesReturnHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:22 PM
+// Date		:	3/8/2015 12:43:28 AM
 //
+
 
 using POS.DataLayer;
 
@@ -60,6 +61,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
 				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
 				
 			return _sALSalesReturnHeaderWCF;
 		}
@@ -86,6 +89,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
 				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -129,6 +134,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
 				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -155,6 +162,8 @@ namespace POS.BusinessLayer
 			_sALSalesReturnHeader.IsDeleted=sALSalesReturnHeader.IsDeleted;
 			_sALSalesReturnHeader.DeletedBy=sALSalesReturnHeader.DeletedBy;
 			_sALSalesReturnHeader.DeleteDate=sALSalesReturnHeader.DeleteDate;
+			_sALSalesReturnHeader.IsClosed=sALSalesReturnHeader.IsClosed;
+			_sALSalesReturnHeader.IsVoid=sALSalesReturnHeader.IsVoid;
 			
 			return _sALSalesReturnHeader.Insert();
 		}
@@ -185,6 +194,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
 				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -222,6 +233,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
 				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -247,6 +260,8 @@ namespace POS.BusinessLayer
 			_sALSalesReturnHeader.IsDeleted=sALSalesReturnHeader.IsDeleted;
 			_sALSalesReturnHeader.DeletedBy=sALSalesReturnHeader.DeletedBy;
 			_sALSalesReturnHeader.DeleteDate=sALSalesReturnHeader.DeleteDate;
+			_sALSalesReturnHeader.IsClosed=sALSalesReturnHeader.IsClosed;
+			_sALSalesReturnHeader.IsVoid=sALSalesReturnHeader.IsVoid;
 			
 			return _sALSalesReturnHeader.Update();
 		}

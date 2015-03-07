@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:21 PM
+// Date		:	3/7/2015 10:40:25 PM
 //
 	
 using System;

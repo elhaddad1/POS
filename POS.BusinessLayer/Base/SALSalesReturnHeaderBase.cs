@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:21 PM
+// Date		:	3/8/2015 12:43:28 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -48,6 +48,12 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public DateTime? DeleteDate {get;set;}
+
+		[DataMember]
+		public bool? IsClosed {get;set;}
+
+		[DataMember]
+		public bool? IsVoid {get;set;}
 
 		
 		#endregion

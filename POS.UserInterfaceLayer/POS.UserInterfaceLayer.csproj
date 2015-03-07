@@ -284,6 +284,12 @@
     <Compile Include="Sales\frmSalesOrderSearch.Designer.cs">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\frmSalesReturnSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmSalesReturnSearch.Designer.cs">
+      <DependentUpon>frmSalesReturnSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transfer\FrmAddEditTransferOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesOrderSearch.resx">
       <DependentUpon>frmSalesOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\frmSalesReturnSearch.resx">
+      <DependentUpon>frmSalesReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transfer\FrmAddEditTransferOrder.resx">
       <DependentUpon>FrmAddEditTransferOrder.cs</DependentUpon>
