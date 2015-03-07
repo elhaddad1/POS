@@ -1,10 +1,10 @@
 //
 // Class	:	INVProductStockBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:11 PM
+// Date		:	3/7/2015 2:37:14 PM
 //
 
-  
+
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -135,133 +135,7 @@ namespace POS.BusinessLayer
 			
 			return _iNVProductStockBatch.Insert();
 		}
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>True if succeeded</returns>
-		public bool DeleteAllByForeignKeyBatchID(INVBatchPrimaryKey pk)
-		{
-			return POS.DataLayer.INVProductStockBatchBase.DeleteAllByForeignKeyBatchID(new POS.DataLayer.INVBatchPrimaryKey(pk.BatchID));
-		}
 		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVProductStockBatchCollection</returns>
-		public INVProductStockBatchCollection SelectAllByForeignKeyBatchID(INVBatchPrimaryKey pk)
-		{
-			INVProductStockBatchCollection iNVProductStockBatchCollection=new INVProductStockBatchCollection();
-			foreach (POS.DataLayer.INVProductStockBatch _iNVProductStockBatch in POS.DataLayer.INVProductStockBatchBase.SelectAllByForeignKeyBatchID(new POS.DataLayer.INVBatchPrimaryKey(pk.BatchID)))
-			{
-				_iNVProductStockBatchWCF = new INVProductStockBatch();
-				_iNVProductStockBatchWCF.ProductStockBatchID = _iNVProductStockBatch.ProductStockBatchID;
-				_iNVProductStockBatchWCF.ProductStockID = _iNVProductStockBatch.ProductStockID;
-				_iNVProductStockBatchWCF.BatchID = _iNVProductStockBatch.BatchID;
-				_iNVProductStockBatchWCF.Qty = _iNVProductStockBatch.Qty;
-				
-				iNVProductStockBatchCollection.Add(_iNVProductStockBatchWCF);
-			}
-			return iNVProductStockBatchCollection;
-		}
-		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number.</param>
-		///
-		/// <returns>object of class INVProductStockBatchCollection</returns>
-		public INVProductStockBatchCollection SelectAllByForeignKeyBatchIDPaged(INVBatchPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			INVProductStockBatchCollection iNVProductStockBatchCollection=new INVProductStockBatchCollection();
-			foreach (POS.DataLayer.INVProductStockBatch _iNVProductStockBatch in POS.DataLayer.INVProductStockBatchBase.SelectAllByForeignKeyBatchIDPaged(new POS.DataLayer.INVBatchPrimaryKey(pk.BatchID), pageSize, skipPages, orderByStatement))
-			{
-				_iNVProductStockBatchWCF = new INVProductStockBatch();
-				_iNVProductStockBatchWCF.ProductStockBatchID = _iNVProductStockBatch.ProductStockBatchID;
-				_iNVProductStockBatchWCF.ProductStockID = _iNVProductStockBatch.ProductStockID;
-				_iNVProductStockBatchWCF.BatchID = _iNVProductStockBatch.BatchID;
-				_iNVProductStockBatchWCF.Qty = _iNVProductStockBatch.Qty;
-				
-				iNVProductStockBatchCollection.Add(_iNVProductStockBatchWCF);
-			}
-			return iNVProductStockBatchCollection;
-		}
-			/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVProductStockPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>True if succeeded</returns>
-		public bool DeleteAllByForeignKeyProductStockID(INVProductStockPrimaryKey pk)
-		{
-			return POS.DataLayer.INVProductStockBatchBase.DeleteAllByForeignKeyProductStockID(new POS.DataLayer.INVProductStockPrimaryKey(pk.ProductStockID));
-		}
-		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVProductStockPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVProductStockBatchCollection</returns>
-		public INVProductStockBatchCollection SelectAllByForeignKeyProductStockID(INVProductStockPrimaryKey pk)
-		{
-			INVProductStockBatchCollection iNVProductStockBatchCollection=new INVProductStockBatchCollection();
-			foreach (POS.DataLayer.INVProductStockBatch _iNVProductStockBatch in POS.DataLayer.INVProductStockBatchBase.SelectAllByForeignKeyProductStockID(new POS.DataLayer.INVProductStockPrimaryKey(pk.ProductStockID)))
-			{
-				_iNVProductStockBatchWCF = new INVProductStockBatch();
-				_iNVProductStockBatchWCF.ProductStockBatchID = _iNVProductStockBatch.ProductStockBatchID;
-				_iNVProductStockBatchWCF.ProductStockID = _iNVProductStockBatch.ProductStockID;
-				_iNVProductStockBatchWCF.BatchID = _iNVProductStockBatch.BatchID;
-				_iNVProductStockBatchWCF.Qty = _iNVProductStockBatch.Qty;
-				
-				iNVProductStockBatchCollection.Add(_iNVProductStockBatchWCF);
-			}
-			return iNVProductStockBatchCollection;
-		}
-		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVProductStockPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number.</param>
-		///
-		/// <returns>object of class INVProductStockBatchCollection</returns>
-		public INVProductStockBatchCollection SelectAllByForeignKeyProductStockIDPaged(INVProductStockPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			INVProductStockBatchCollection iNVProductStockBatchCollection=new INVProductStockBatchCollection();
-			foreach (POS.DataLayer.INVProductStockBatch _iNVProductStockBatch in POS.DataLayer.INVProductStockBatchBase.SelectAllByForeignKeyProductStockIDPaged(new POS.DataLayer.INVProductStockPrimaryKey(pk.ProductStockID), pageSize, skipPages, orderByStatement))
-			{
-				_iNVProductStockBatchWCF = new INVProductStockBatch();
-				_iNVProductStockBatchWCF.ProductStockBatchID = _iNVProductStockBatch.ProductStockBatchID;
-				_iNVProductStockBatchWCF.ProductStockID = _iNVProductStockBatch.ProductStockID;
-				_iNVProductStockBatchWCF.BatchID = _iNVProductStockBatch.BatchID;
-				_iNVProductStockBatchWCF.Qty = _iNVProductStockBatch.Qty;
-				
-				iNVProductStockBatchCollection.Add(_iNVProductStockBatchWCF);
-			}
-			return iNVProductStockBatchCollection;
-		}
-			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>

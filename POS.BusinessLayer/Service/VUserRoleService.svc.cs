@@ -1,7 +1,7 @@
 //
 // Class	:	VUserRoleServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	1/3/2015 2:37:33 AM
+// Date		:	3/7/2015 2:37:30 PM
 //
 
 
@@ -17,7 +17,7 @@ namespace POS.BusinessLayer
 		private VUserRole _vUserRoleWCF;
 		private POS.DataLayer.VUserRole _vUserRole;
 		
-
+	
 
 		/// <summary>
 		/// This method will return an object representing the record matching the primary key information specified.
@@ -106,6 +106,7 @@ namespace POS.BusinessLayer
 			}
 			return vUserRoleCollection;
 		}
+		
 	
 		
 		/// <summary>
@@ -170,6 +171,6 @@ namespace POS.BusinessLayer
 			}
 			return vUserRoleCollection;
 		}
-	
+			
 	} 
 }

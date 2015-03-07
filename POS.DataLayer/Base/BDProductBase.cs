@@ -1,7 +1,7 @@
 //
 // Class	:	BDProductBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/16/2015 7:27:50 PM
+// Date		:	3/7/2015 2:37:24 PM
 //
 
 using System;
@@ -56,18 +56,14 @@ namespace POS.DataLayer
 		private string         	_productCodeNonDefault   	= null;
 		private bool?          	_isAcceptBatchNonDefault 	= false;
 		private decimal?       	_productPriceNonDefault  	= null;
-		private bool?          	_isFixedPriceNonDefault  	= true;
-		private bool?          	_hasDiscountNonDefault   	= false;
+		private bool?          	_isFixedPriceNonDefault  	= null;
+		private bool?          	_hasDiscountNonDefault   	= null;
 		private decimal?       	_discountAmountNonDefault	= null;
 		private double?        	_descountRatioNonDefault 	= null;
-		private bool?          	_isActiveNonDefault      	= true;
+		private bool?          	_isActiveNonDefault      	= null;
 		private string         	_notesNonDefault         	= null;
 		private decimal?       	_minPriceNonDefault      	= null;
 		private decimal?       	_maxPriceNonDefault      	= null;
-
-		private INVTransferLineCollection _iNVTransferLineCollectionProductID = null;
-		private INVAdjustStockCollection _iNVAdjustStockCollectionProductID = null;
-		private PURPurchaseLineCollection _pURPurchaseLineCollectionProductID = null;
 		
 		#endregion
 		
@@ -132,7 +128,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "ProductGroupID" field.  
 		/// </summary>
 		public int? ProductGroupID
 		{
@@ -207,7 +203,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "IsFixedPrice" field.  Mandatory.
+		/// This property is mapped to the "IsFixedPrice" field.  
 		/// </summary>
 		public bool? IsFixedPrice
 		{
@@ -223,7 +219,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "HasDiscount" field.  Mandatory.
+		/// This property is mapped to the "HasDiscount" field.  
 		/// </summary>
 		public bool? HasDiscount
 		{
@@ -271,7 +267,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "IsActive" field.  Mandatory.
+		/// This property is mapped to the "IsActive" field.  
 		/// </summary>
 		public bool? IsActive
 		{
@@ -345,66 +341,6 @@ namespace POS.DataLayer
 			}
 		}
 
-		/// <summary>
-		/// Provides access to the related table 'INVTransferLine'
-		/// </summary>
-		public INVTransferLineCollection INVTransferLineCollectionUsingProductID
-		{
-			get 
-			{
-				if (_iNVTransferLineCollectionProductID == null)
-				{
-					_iNVTransferLineCollectionProductID = new INVTransferLineCollection();
-					_iNVTransferLineCollectionProductID = INVTransferLine.SelectByField("ProductID",ProductID, null, TypeOperation.Equal);
-				}                
-				return _iNVTransferLineCollectionProductID; 
-			}
-			set 
-			{
-				  _iNVTransferLineCollectionProductID = value;
-			}
-		}
-
-		/// <summary>
-		/// Provides access to the related table 'INVAdjustStock'
-		/// </summary>
-		public INVAdjustStockCollection INVAdjustStockCollectionUsingProductID
-		{
-			get 
-			{
-				if (_iNVAdjustStockCollectionProductID == null)
-				{
-					_iNVAdjustStockCollectionProductID = new INVAdjustStockCollection();
-					_iNVAdjustStockCollectionProductID = INVAdjustStock.SelectByField("ProductID",ProductID, null, TypeOperation.Equal);
-				}                
-				return _iNVAdjustStockCollectionProductID; 
-			}
-			set 
-			{
-				  _iNVAdjustStockCollectionProductID = value;
-			}
-		}
-
-		/// <summary>
-		/// Provides access to the related table 'PURPurchaseLine'
-		/// </summary>
-		public PURPurchaseLineCollection PURPurchaseLineCollectionUsingProductID
-		{
-			get 
-			{
-				if (_pURPurchaseLineCollectionProductID == null)
-				{
-					_pURPurchaseLineCollectionProductID = new PURPurchaseLineCollection();
-					_pURPurchaseLineCollectionProductID = PURPurchaseLine.SelectByField("ProductID",ProductID, null, TypeOperation.Equal);
-				}                
-				return _pURPurchaseLineCollectionProductID; 
-			}
-			set 
-			{
-				  _pURPurchaseLineCollectionProductID = value;
-			}
-		}
-
 		#endregion
 		
 		#region Methods (Public)
@@ -419,7 +355,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -538,7 +474,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -633,7 +569,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -705,7 +641,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -742,7 +678,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -781,7 +717,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -816,7 +752,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -864,7 +800,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -901,7 +837,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -943,7 +879,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -989,7 +925,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1030,7 +966,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1050,301 +986,6 @@ namespace POS.DataLayer
 			
 		}
 
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDProduct</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProduct SelectOneWithINVTransferLineUsingProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProduct obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectOneWithINVTransferLineUsingProductID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new BDProduct();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVTransferLineCollectionUsingProductID=INVTransferLine.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDProduct</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProduct SelectOneWithINVAdjustStockUsingProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProduct obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectOneWithINVAdjustStockUsingProductID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new BDProduct();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVAdjustStockCollectionUsingProductID=INVAdjustStock.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDProduct</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProduct SelectOneWithPURPurchaseLineUsingProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProduct obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectOneWithPURPurchaseLineUsingProductID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new BDProduct();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.PURPurchaseLineCollectionUsingProductID=PURPurchaseLine.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductGroupPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDProductCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProductCollection SelectAllByForeignKeyProductGroupID(BDProductGroupPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProductCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectAllByForeignKeyProductGroupID", ref ExecutionState);
-			obj = new BDProductCollection();
-			obj = BDProduct.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductGroupPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class BDProductCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProductCollection SelectAllByForeignKeyProductGroupIDPaged(BDProductGroupPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProductCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProduct_SelectAllByForeignKeyProductGroupIDPaged", ref ExecutionState);
-			obj = new BDProductCollection();
-			obj = BDProduct.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductGroupPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyProductGroupID(BDProductGroupPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_BDProduct_DeleteAllByForeignKeyProductGroupID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
-			
-		}
-
-
-
-
 		#endregion	
 		
 		#region Methods (Private)
@@ -1362,7 +1003,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1399,7 +1040,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1410,7 +1051,11 @@ namespace POS.DataLayer
 
 			obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductID));
 			obj.ProductName = rdr.GetString(rdr.GetOrdinal(BDProductFields.ProductName));
-			obj.ProductGroupID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductGroupID));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.ProductGroupID)))
+			{
+				obj.ProductGroupID = rdr.GetInt32(rdr.GetOrdinal(BDProductFields.ProductGroupID));
+			}
+			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.ProductCode)))
 			{
 				obj.ProductCode = rdr.GetString(rdr.GetOrdinal(BDProductFields.ProductCode));
@@ -1422,8 +1067,16 @@ namespace POS.DataLayer
 				obj.ProductPrice = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.ProductPrice));
 			}
 			
-			obj.IsFixedPrice = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsFixedPrice));
-			obj.HasDiscount = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.HasDiscount));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.IsFixedPrice)))
+			{
+				obj.IsFixedPrice = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsFixedPrice));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.HasDiscount)))
+			{
+				obj.HasDiscount = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.HasDiscount));
+			}
+			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.DiscountAmount)))
 			{
 				obj.DiscountAmount = rdr.GetDecimal(rdr.GetOrdinal(BDProductFields.DiscountAmount));
@@ -1434,7 +1087,11 @@ namespace POS.DataLayer
 				obj.DescountRatio = rdr.GetDouble(rdr.GetOrdinal(BDProductFields.DescountRatio));
 			}
 			
-			obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsActive));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.IsActive)))
+			{
+				obj.IsActive = rdr.GetBoolean(rdr.GetOrdinal(BDProductFields.IsActive));
+			}
+			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDProductFields.Notes)))
 			{
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(BDProductFields.Notes));
@@ -1465,7 +1122,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1497,7 +1154,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/16/2015 7:27:50 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:24 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

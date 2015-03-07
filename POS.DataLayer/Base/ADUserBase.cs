@@ -1,7 +1,7 @@
 //
 // Class	:	ADUserBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:08 PM
+// Date		:	3/7/2015 2:37:27 PM
 //
 
 using System;
@@ -55,6 +55,8 @@ namespace POS.DataLayer
 		private string         	_phoneNonDefault         	= null;
 		private string         	_mobileNonDefault        	= null;
 
+		private BDCustomerAccountCollection _bDCustomerAccountCollectionCreatedBy = null;
+		private BDSupplierAccountCollection _bDSupplierAccountCollectionCreatedBy = null;
 		private SALSalesHeaderCollection _sALSalesHeaderCollectionSellerID = null;
 		
 		#endregion
@@ -176,7 +178,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "GroupID" field.  
 		/// </summary>
 		public int? GroupID
 		{
@@ -300,6 +302,46 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// Provides access to the related table 'BDCustomerAccounts'
+		/// </summary>
+		public BDCustomerAccountCollection BDCustomerAccountCollectionUsingCreatedBy
+		{
+			get 
+			{
+				if (_bDCustomerAccountCollectionCreatedBy == null)
+				{
+					_bDCustomerAccountCollectionCreatedBy = new BDCustomerAccountCollection();
+					_bDCustomerAccountCollectionCreatedBy = BDCustomerAccount.SelectByField("CreatedBy",UserID, null, TypeOperation.Equal);
+				}                
+				return _bDCustomerAccountCollectionCreatedBy; 
+			}
+			set 
+			{
+				  _bDCustomerAccountCollectionCreatedBy = value;
+			}
+		}
+
+		/// <summary>
+		/// Provides access to the related table 'BDSupplierAccounts'
+		/// </summary>
+		public BDSupplierAccountCollection BDSupplierAccountCollectionUsingCreatedBy
+		{
+			get 
+			{
+				if (_bDSupplierAccountCollectionCreatedBy == null)
+				{
+					_bDSupplierAccountCollectionCreatedBy = new BDSupplierAccountCollection();
+					_bDSupplierAccountCollectionCreatedBy = BDSupplierAccount.SelectByField("CreatedBy",UserID, null, TypeOperation.Equal);
+				}                
+				return _bDSupplierAccountCollectionCreatedBy; 
+			}
+			set 
+			{
+				  _bDSupplierAccountCollectionCreatedBy = value;
+			}
+		}
+
+		/// <summary>
 		/// Provides access to the related table 'SALSalesHeader'
 		/// </summary>
 		public SALSalesHeaderCollection SALSalesHeaderCollectionUsingSellerID
@@ -333,7 +375,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -422,7 +464,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -492,7 +534,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -549,7 +591,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -586,7 +628,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -625,7 +667,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -660,7 +702,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -708,7 +750,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -745,7 +787,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -787,7 +829,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -833,7 +875,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -874,7 +916,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -907,7 +949,111 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static ADUser SelectOneWithBDCustomerAccountsUsingCreatedBy(ADUserPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			ADUser obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectOneWithBDCustomerAccountsUsingCreatedBy", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new ADUser();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.BDCustomerAccountCollectionUsingCreatedBy=BDCustomerAccount.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="ADUserPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class ADUser</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			3/7/2015 2:37:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static ADUser SelectOneWithBDSupplierAccountsUsingCreatedBy(ADUserPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			ADUser obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectOneWithBDSupplierAccountsUsingCreatedBy", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new ADUser();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.BDSupplierAccountCollectionUsingCreatedBy=BDSupplierAccount.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="ADUserPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class ADUser</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			3/7/2015 2:37:27 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -946,142 +1092,6 @@ namespace POS.DataLayer
 			
 		}
 
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="ADGroupPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class ADUserCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static ADUserCollection SelectAllByForeignKeyGroupID(ADGroupPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			ADUserCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectAllByForeignKeyGroupID", ref ExecutionState);
-			obj = new ADUserCollection();
-			obj = ADUser.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="ADGroupPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class ADUserCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static ADUserCollection SelectAllByForeignKeyGroupIDPaged(ADGroupPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			ADUserCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_ADUser_SelectAllByForeignKeyGroupIDPaged", ref ExecutionState);
-			obj = new ADUserCollection();
-			obj = ADUser.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="ADGroupPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyGroupID(ADGroupPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_ADUser_DeleteAllByForeignKeyGroupID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
-			
-		}
-
 		#endregion	
 		
 		#region Methods (Private)
@@ -1099,7 +1109,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1136,7 +1146,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1193,7 +1203,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1225,7 +1235,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:08 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

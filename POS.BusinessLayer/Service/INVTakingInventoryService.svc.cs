@@ -1,9 +1,8 @@
 //
 // Class	:	INVTakingInventoryServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:59 PM
+// Date		:	3/7/2015 2:37:12 PM
 //
-
 
 using POS.DataLayer;
 
@@ -62,6 +61,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryWCF.DeletedBy = _iNVTakingInventory.DeletedBy;
 				_iNVTakingInventoryWCF.DeletedDate = _iNVTakingInventory.DeletedDate;
 				_iNVTakingInventoryWCF.Notes = _iNVTakingInventory.Notes;
+				_iNVTakingInventoryWCF.InventoryID = _iNVTakingInventory.InventoryID;
 				
 			return _iNVTakingInventoryWCF;
 		}
@@ -89,6 +89,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryWCF.DeletedBy = _iNVTakingInventory.DeletedBy;
 				_iNVTakingInventoryWCF.DeletedDate = _iNVTakingInventory.DeletedDate;
 				_iNVTakingInventoryWCF.Notes = _iNVTakingInventory.Notes;
+				_iNVTakingInventoryWCF.InventoryID = _iNVTakingInventory.InventoryID;
 				
 				iNVTakingInventoryCollection.Add(_iNVTakingInventoryWCF);
 			}
@@ -133,6 +134,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryWCF.DeletedBy = _iNVTakingInventory.DeletedBy;
 				_iNVTakingInventoryWCF.DeletedDate = _iNVTakingInventory.DeletedDate;
 				_iNVTakingInventoryWCF.Notes = _iNVTakingInventory.Notes;
+				_iNVTakingInventoryWCF.InventoryID = _iNVTakingInventory.InventoryID;
 				
 				iNVTakingInventoryCollection.Add(_iNVTakingInventoryWCF);
 			}
@@ -160,6 +162,7 @@ namespace POS.BusinessLayer
 			_iNVTakingInventory.DeletedBy=iNVTakingInventory.DeletedBy;
 			_iNVTakingInventory.DeletedDate=iNVTakingInventory.DeletedDate;
 			_iNVTakingInventory.Notes=iNVTakingInventory.Notes;
+			_iNVTakingInventory.InventoryID=iNVTakingInventory.InventoryID;
 			
 			return _iNVTakingInventory.Insert();
 		}
@@ -191,6 +194,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryWCF.DeletedBy = _iNVTakingInventory.DeletedBy;
 				_iNVTakingInventoryWCF.DeletedDate = _iNVTakingInventory.DeletedDate;
 				_iNVTakingInventoryWCF.Notes = _iNVTakingInventory.Notes;
+				_iNVTakingInventoryWCF.InventoryID = _iNVTakingInventory.InventoryID;
 				
 				iNVTakingInventoryCollection.Add(_iNVTakingInventoryWCF);
 			}
@@ -229,6 +233,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryWCF.DeletedBy = _iNVTakingInventory.DeletedBy;
 				_iNVTakingInventoryWCF.DeletedDate = _iNVTakingInventory.DeletedDate;
 				_iNVTakingInventoryWCF.Notes = _iNVTakingInventory.Notes;
+				_iNVTakingInventoryWCF.InventoryID = _iNVTakingInventory.InventoryID;
 				
 				iNVTakingInventoryCollection.Add(_iNVTakingInventoryWCF);
 			}
@@ -255,6 +260,7 @@ namespace POS.BusinessLayer
 			_iNVTakingInventory.DeletedBy=iNVTakingInventory.DeletedBy;
 			_iNVTakingInventory.DeletedDate=iNVTakingInventory.DeletedDate;
 			_iNVTakingInventory.Notes=iNVTakingInventory.Notes;
+			_iNVTakingInventory.InventoryID=iNVTakingInventory.InventoryID;
 			
 			return _iNVTakingInventory.Update();
 		}

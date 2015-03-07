@@ -1,7 +1,7 @@
 //
 // Class	:	BDTaxTypeBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:53 PM
+// Date		:	3/7/2015 2:37:03 PM
 //
 
 using System;
@@ -25,6 +25,7 @@ namespace POS.DataLayer
 	{
 		public const string TaxTypeID                 = "TaxTypeID";
 		public const string TaxTypeName               = "TaxTypeName";
+		public const string TaxValue                  = "TaxValue";
 	}
 	
 	/// <summary>
@@ -40,8 +41,8 @@ namespace POS.DataLayer
 
 		private int?           	_taxTypeIDNonDefault     	= null;
 		private string         	_taxTypeNameNonDefault   	= null;
+		private decimal?       	_taxValueNonDefault      	= null;
 
-		private PURPurchaseHeaderCollection _pURPurchaseHeaderCollectionTaxTypeID = null;
 		private SALSalesHeaderCollection _sALSalesHeaderCollectionTaxTypeID = null;
 		
 		#endregion
@@ -105,22 +106,18 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// Provides access to the related table 'PURPurchaseHeader'
+		/// This property is mapped to the "TaxValue" field.  
 		/// </summary>
-		public PURPurchaseHeaderCollection PURPurchaseHeaderCollectionUsingTaxTypeID
+		public decimal? TaxValue
 		{
 			get 
-			{
-				if (_pURPurchaseHeaderCollectionTaxTypeID == null)
-				{
-					_pURPurchaseHeaderCollectionTaxTypeID = new PURPurchaseHeaderCollection();
-					_pURPurchaseHeaderCollectionTaxTypeID = PURPurchaseHeader.SelectByField("TaxTypeID",TaxTypeID, null, TypeOperation.Equal);
-				}                
-				return _pURPurchaseHeaderCollectionTaxTypeID; 
+			{ 
+				return _taxValueNonDefault;
 			}
 			set 
 			{
-				  _pURPurchaseHeaderCollectionTaxTypeID = value;
+			
+				_taxValueNonDefault = value; 
 			}
 		}
 
@@ -158,7 +155,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -174,6 +171,12 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@TaxTypeName", _taxTypeNameNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@TaxTypeName", DBNull.Value );
+			  
+			// Pass the value of '_taxValue' as parameter 'TaxValue' of the stored procedure.
+			if(_taxValueNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@TaxValue", _taxValueNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@TaxValue", DBNull.Value );
 			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -205,7 +208,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -221,6 +224,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@TaxTypeName", _taxTypeNameNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@TaxTypeName", DBNull.Value );
+			// Pass the value of '_taxValue' as parameter 'TaxValue' of the stored procedure.
+			if(_taxValueNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@TaxValue", _taxValueNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@TaxValue", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -240,7 +248,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -256,6 +264,9 @@ namespace POS.DataLayer
 			
 			// Pass the value of '_taxTypeName' as parameter 'TaxTypeName' of the stored procedure.
 			oDatabaseHelper.AddParameter("@TaxTypeName", _taxTypeNameNonDefault );
+			
+			// Pass the value of '_taxValue' as parameter 'TaxValue' of the stored procedure.
+			oDatabaseHelper.AddParameter("@TaxValue", _taxValueNonDefault );
 			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -276,7 +287,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -313,7 +324,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -352,7 +363,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -387,7 +398,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -435,7 +446,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -472,7 +483,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -514,7 +525,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -560,7 +571,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -601,7 +612,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -634,59 +645,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDTaxType SelectOneWithPURPurchaseHeaderUsingTaxTypeID(BDTaxTypePrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDTaxType obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDTaxType_SelectOneWithPURPurchaseHeaderUsingTaxTypeID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new BDTaxType();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.PURPurchaseHeaderCollectionUsingTaxTypeID=PURPurchaseHeader.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDTaxTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDTaxType</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -742,7 +701,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -779,7 +738,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -792,6 +751,11 @@ namespace POS.DataLayer
 			if (!rdr.IsDBNull(rdr.GetOrdinal(BDTaxTypeFields.TaxTypeName)))
 			{
 				obj.TaxTypeName = rdr.GetString(rdr.GetOrdinal(BDTaxTypeFields.TaxTypeName));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDTaxTypeFields.TaxValue)))
+			{
+				obj.TaxValue = rdr.GetDecimal(rdr.GetOrdinal(BDTaxTypeFields.TaxValue));
 			}
 			
 
@@ -809,7 +773,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -841,7 +805,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:53 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:03 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -1,7 +1,7 @@
 //
 // Class	:	ADRoleCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	1/3/2015 2:21:04 AM
+// Date		:	3/7/2015 2:36:59 PM
 //
 
 using System.Runtime.Serialization;

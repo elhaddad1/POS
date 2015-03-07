@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferLineBatchPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/22/2015 7:27:21 PM
+// Date		:	3/7/2015 2:37:02 PM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:21 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:02 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

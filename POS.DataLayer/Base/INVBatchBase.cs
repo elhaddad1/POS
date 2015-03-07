@@ -1,7 +1,7 @@
 //
 // Class	:	INVBatchBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:17 PM
+// Date		:	3/7/2015 2:37:08 PM
 //
 
 using System;
@@ -43,8 +43,6 @@ namespace POS.DataLayer
 		private string         	_batchNumberNonDefault   	= null;
 		private DateTime?      	_expiryDateNonDefault    	= null;
 
-		private INVAdjustStockCollection _iNVAdjustStockCollectionBatchID = null;
-		private INVProductStockBatchCollection _iNVProductStockBatchCollectionBatchID = null;
 		private PURPurchaseLineBatchCollection _pURPurchaseLineBatchCollectionBatchID = null;
 		private PURPurchaseReturnLineCollection _pURPurchaseReturnLineCollectionPurchaseReturnLineID = null;
 		private SALSalesLineBatchCollection _sALSalesLineBatchCollectionBatchID = null;
@@ -128,46 +126,6 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// Provides access to the related table 'INVAdjustStock'
-		/// </summary>
-		public INVAdjustStockCollection INVAdjustStockCollectionUsingBatchID
-		{
-			get 
-			{
-				if (_iNVAdjustStockCollectionBatchID == null)
-				{
-					_iNVAdjustStockCollectionBatchID = new INVAdjustStockCollection();
-					_iNVAdjustStockCollectionBatchID = INVAdjustStock.SelectByField("BatchID",BatchID, null, TypeOperation.Equal);
-				}                
-				return _iNVAdjustStockCollectionBatchID; 
-			}
-			set 
-			{
-				  _iNVAdjustStockCollectionBatchID = value;
-			}
-		}
-
-		/// <summary>
-		/// Provides access to the related table 'INVProductStockBatch'
-		/// </summary>
-		public INVProductStockBatchCollection INVProductStockBatchCollectionUsingBatchID
-		{
-			get 
-			{
-				if (_iNVProductStockBatchCollectionBatchID == null)
-				{
-					_iNVProductStockBatchCollectionBatchID = new INVProductStockBatchCollection();
-					_iNVProductStockBatchCollectionBatchID = INVProductStockBatch.SelectByField("BatchID",BatchID, null, TypeOperation.Equal);
-				}                
-				return _iNVProductStockBatchCollectionBatchID; 
-			}
-			set 
-			{
-				  _iNVProductStockBatchCollectionBatchID = value;
-			}
-		}
-
-		/// <summary>
 		/// Provides access to the related table 'PURPurchaseLineBatch'
 		/// </summary>
 		public PURPurchaseLineBatchCollection PURPurchaseLineBatchCollectionUsingBatchID
@@ -241,7 +199,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -294,7 +252,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -334,7 +292,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -373,7 +331,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -410,7 +368,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -449,7 +407,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -484,7 +442,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -532,7 +490,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -569,7 +527,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -611,7 +569,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -657,7 +615,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -698,7 +656,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -731,111 +689,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVBatch SelectOneWithINVAdjustStockUsingBatchID(INVBatchPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVBatch obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVBatch_SelectOneWithINVAdjustStockUsingBatchID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new INVBatch();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVAdjustStockCollectionUsingBatchID=INVAdjustStock.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVBatch</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVBatch SelectOneWithINVProductStockBatchUsingBatchID(INVBatchPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVBatch obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVBatch_SelectOneWithINVProductStockBatchUsingBatchID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new INVBatch();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVProductStockBatchCollectionUsingBatchID=INVProductStockBatch.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVBatch</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -887,7 +741,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -939,7 +793,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -995,7 +849,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1032,7 +886,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1059,7 +913,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1091,7 +945,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:17 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:08 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

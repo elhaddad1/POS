@@ -28,7 +28,7 @@ namespace POS.BusinessLayer.Wrapper
                               join fromInv in invinventoryService.SelectAll() on item.FromInventoryID equals fromInv.InventoryID
                               join toInv in invinventoryService.SelectAll() on item.ToInventoryID equals toInv.InventoryID
                               join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
-                              where item.IsDeleted==false
+                              where item.IsDeleted == false
                               select new INVTransferHeaderModel()
                               {
                                   INVTransferHeaderID = item.INVTransferHeaderID.Value,
@@ -61,12 +61,12 @@ namespace POS.BusinessLayer.Wrapper
                               join toInv in invinventoryService.SelectAll() on item.ToInventoryID equals toInv.InventoryID
                               join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
                               where (
-                              item.IsDeleted==false
+                              item.IsDeleted == false
                               &&
                               (!invtransferHeader.FromInventoryID.HasValue || item.FromInventoryID == invtransferHeader.FromInventoryID)
                               && (!invtransferHeader.ToInventoryID.HasValue || item.ToInventoryID == invtransferHeader.ToInventoryID)
                               && (string.IsNullOrEmpty(invtransferHeader.InvoiceNumber) || item.InvoiceNumber.Contains(invtransferHeader.InvoiceNumber))
-                              //&& (!invtransferHeader.CreateDate.HasValue || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))
+                                  //&& (!invtransferHeader.CreateDate.HasValue || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))
                               )
                               select new INVTransferHeaderModel()
                               {
@@ -275,7 +275,7 @@ namespace POS.BusinessLayer.Wrapper
         {
             INVTransferHeaderPrimaryKey pk = new INVTransferHeaderPrimaryKey();
             pk.INVTransferHeaderID = INVTransferHeaderID;
-            INVTransferLineCollection transferLineCollection = transferLineService.SelectAllByForeignKeyTransferHeaderID(pk);
+            INVTransferLineCollection transferLineCollection = null;// transferLineService.SelectAllByForeignKeyTransferHeaderID(pk);
 
             POS.DataLayer.INVTransferLineCollection _transferLineCollection = new DataLayer.INVTransferLineCollection();
             foreach (INVTransferLine transferLine in transferLineCollection)
@@ -286,12 +286,12 @@ namespace POS.BusinessLayer.Wrapper
                 _transferLine.TransferHeaderID = transferLine.TransferHeaderID;
                 _transferLine.TransferLineID = transferLine.TransferLineID;
                 _transferLine.CreatedBy = transferLine.CreatedBy;
-                _transferLine.CreateDate  = transferLine.CreateDate  ;
-                _transferLine.UpdatedBy   = transferLine.UpdatedBy   ;
-                _transferLine.UpdateDate  = transferLine.UpdateDate  ;
-                _transferLine.IsDeleted   = transferLine.IsDeleted   ;
-                _transferLine.DeletedBy   = transferLine.DeletedBy   ;
-                _transferLine.DeletedDate = transferLine.DeletedDate ;
+                _transferLine.CreateDate = transferLine.CreateDate;
+                _transferLine.UpdatedBy = transferLine.UpdatedBy;
+                _transferLine.UpdateDate = transferLine.UpdateDate;
+                _transferLine.IsDeleted = transferLine.IsDeleted;
+                _transferLine.DeletedBy = transferLine.DeletedBy;
+                _transferLine.DeletedDate = transferLine.DeletedDate;
                 _transferLineCollection.Add(_transferLine);
             }
             return _invTransferHeader.CloseOrder(INVTransferHeaderID, Utility.GlobalVariables.CurrentUser.UserID, _transferLineCollection);

@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:09 PM
+// Date		:	3/7/2015 2:37:15 PM
 //
 
 using System;
@@ -89,7 +89,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "ProductID" field.  Mandatory.
 		/// </summary>
 		public int? ProductID
 		{
@@ -105,7 +105,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "BatchID" field.  
 		/// </summary>
 		public int? BatchID
 		{
@@ -137,7 +137,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "AdjustReasonID" field.  
 		/// </summary>
 		public int? AdjustReasonID
 		{
@@ -230,7 +230,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -319,7 +319,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -389,7 +389,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -446,7 +446,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -483,7 +483,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -522,7 +522,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -557,7 +557,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -605,7 +605,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -642,7 +642,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -684,7 +684,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -730,7 +730,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -771,7 +771,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -788,418 +788,6 @@ namespace POS.DataLayer
 			int count = Convert.ToInt32(dr);		
 			oDatabaseHelper.Dispose();
 			return count;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyProductID", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyProductIDPaged(BDProductPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyProductIDPaged", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_INVAdjustStock_DeleteAllByForeignKeyProductID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
-			
-		}
-
-
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVAdjustStockReasonPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyAdjustReasonID(INVAdjustStockReasonPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyAdjustReasonID", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVAdjustStockReasonPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyAdjustReasonIDPaged(INVAdjustStockReasonPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyAdjustReasonIDPaged", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVAdjustStockReasonPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyAdjustReasonID(INVAdjustStockReasonPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_INVAdjustStock_DeleteAllByForeignKeyAdjustReasonID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
-			
-		}
-
-
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyBatchID(INVBatchPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyBatchID", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class INVAdjustStockCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVAdjustStockCollection SelectAllByForeignKeyBatchIDPaged(INVBatchPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVAdjustStockCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVAdjustStock_SelectAllByForeignKeyBatchIDPaged", ref ExecutionState);
-			obj = new INVAdjustStockCollection();
-			obj = INVAdjustStock.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyBatchID(INVBatchPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_INVAdjustStock_DeleteAllByForeignKeyBatchID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
 			
 		}
 
@@ -1220,7 +808,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1257,7 +845,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1314,7 +902,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1346,7 +934,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:09 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:15 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

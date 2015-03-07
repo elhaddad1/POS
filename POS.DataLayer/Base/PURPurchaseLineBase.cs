@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/24/2015 11:36:30 AM
+// Date		:	3/7/2015 2:37:18 PM
 //
 
 using System;
@@ -67,7 +67,6 @@ namespace POS.DataLayer
 		private DateTime?      	_deleteDateNonDefault    	= null;
 		private int?           	_deletedByNonDefault     	= null;
 
-		private INVTakingInventoryLineBatchCollection _iNVTakingInventoryLineBatchCollectionTakingLineID = null;
 		private PURPurchaseLineBatchCollection _pURPurchaseLineBatchCollectionPurchaseLineID = null;
 		private PURPurchaseReturnLineCollection _pURPurchaseReturnLineCollectionOriginalpurchaseLineID = null;
 		
@@ -121,7 +120,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// The foreign key connected with another persistent object.
+		/// This property is mapped to the "ProductID" field.  Mandatory.
 		/// </summary>
 		public int? ProductID
 		{
@@ -329,26 +328,6 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// Provides access to the related table 'INVTakingInventoryLineBatch'
-		/// </summary>
-		public INVTakingInventoryLineBatchCollection INVTakingInventoryLineBatchCollectionUsingTakingLineID
-		{
-			get 
-			{
-				if (_iNVTakingInventoryLineBatchCollectionTakingLineID == null)
-				{
-					_iNVTakingInventoryLineBatchCollectionTakingLineID = new INVTakingInventoryLineBatchCollection();
-					_iNVTakingInventoryLineBatchCollectionTakingLineID = INVTakingInventoryLineBatch.SelectByField("TakingLineID",PurchaseLineID, null, TypeOperation.Equal);
-				}                
-				return _iNVTakingInventoryLineBatchCollectionTakingLineID; 
-			}
-			set 
-			{
-				  _iNVTakingInventoryLineBatchCollectionTakingLineID = value;
-			}
-		}
-
-		/// <summary>
 		/// Provides access to the related table 'PURPurchaseLineBatch'
 		/// </summary>
 		public PURPurchaseLineBatchCollection PURPurchaseLineBatchCollectionUsingPurchaseLineID
@@ -402,7 +381,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -527,7 +506,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -627,7 +606,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -702,7 +681,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -739,7 +718,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -778,7 +757,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -813,7 +792,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -861,7 +840,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -898,7 +877,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -940,7 +919,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -986,7 +965,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1027,7 +1006,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1060,59 +1039,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static PURPurchaseLine SelectOneWithINVTakingInventoryLineBatchUsingTakingLineID(PURPurchaseLinePrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			PURPurchaseLine obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseLine_SelectOneWithINVTakingInventoryLineBatchUsingTakingLineID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new PURPurchaseLine();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVTakingInventoryLineBatchCollectionUsingTakingLineID=INVTakingInventoryLineBatch.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="PURPurchaseLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class PURPurchaseLine</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1164,7 +1091,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1208,144 +1135,6 @@ namespace POS.DataLayer
 		/// along with the details of the child table.
 		/// </summary>
 		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class PURPurchaseLineCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static PURPurchaseLineCollection SelectAllByForeignKeyProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			PURPurchaseLineCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseLine_SelectAllByForeignKeyProductID", ref ExecutionState);
-			obj = new PURPurchaseLineCollection();
-			obj = PURPurchaseLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number</param>
-		///
-		/// <returns>object of class PURPurchaseLineCollection</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static PURPurchaseLineCollection SelectAllByForeignKeyProductIDPaged(BDProductPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			PURPurchaseLineCollection obj = null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			oDatabaseHelper.AddParameter("@PageSize",pageSize);
-			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
-			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseLine_SelectAllByForeignKeyProductIDPaged", ref ExecutionState);
-			obj = new PURPurchaseLineCollection();
-			obj = PURPurchaseLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
-			
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductPrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>object of boolean type as an indicator for operation success .</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static bool DeleteAllByForeignKeyProductID(BDProductPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			oDatabaseHelper.ExecuteNonQuery("gsp_PURPurchaseLine_DeleteAllByForeignKeyProductID", ref ExecutionState);
-			oDatabaseHelper.Dispose();
-			return ExecutionState;
-			
-		}
-
-
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
 		/// <param name="pk" type="PURPurchaseHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
 		///
 		/// <returns>object of class PURPurchaseLineCollection</returns>
@@ -1354,7 +1143,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1402,7 +1191,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1450,7 +1239,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM				Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1494,7 +1283,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1531,7 +1320,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1594,7 +1383,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1626,7 +1415,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/24/2015 11:36:30 AM		Created function
+		/// DLGenerator			3/7/2015 2:37:18 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

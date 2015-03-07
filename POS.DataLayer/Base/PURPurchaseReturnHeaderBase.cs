@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:12 PM
+// Date		:	3/7/2015 2:37:23 PM
 //
 
 using System;
@@ -259,7 +259,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -354,7 +354,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -429,7 +429,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -489,7 +489,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -526,7 +526,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -565,7 +565,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -600,7 +600,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -648,7 +648,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -685,7 +685,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -727,7 +727,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -773,7 +773,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -814,7 +814,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -847,7 +847,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -895,7 +895,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -943,7 +943,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM				Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -987,7 +987,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1024,7 +1024,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1086,7 +1086,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1118,7 +1118,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:56:12 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:23 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

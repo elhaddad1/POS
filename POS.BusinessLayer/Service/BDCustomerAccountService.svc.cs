@@ -1,14 +1,10 @@
 //
 // Class	:	BDCustomerAccountServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/27/2015 12:29:26 PM
+// Date		:	3/7/2015 2:36:57 PM
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
+
 using POS.DataLayer;
 
 namespace POS.BusinessLayer

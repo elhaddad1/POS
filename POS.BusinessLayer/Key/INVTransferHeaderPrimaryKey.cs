@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/22/2015 7:27:20 PM
+// Date		:	3/7/2015 2:36:58 PM
 //
 	
 using System;

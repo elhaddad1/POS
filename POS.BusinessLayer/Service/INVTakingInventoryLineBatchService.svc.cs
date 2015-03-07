@@ -1,7 +1,7 @@
 //
 // Class	:	INVTakingInventoryLineBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:16 PM
+// Date		:	3/7/2015 2:37:29 PM
 //
 
 
@@ -131,68 +131,7 @@ namespace POS.BusinessLayer
 			
 			return _iNVTakingInventoryLineBatch.Insert();
 		}
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="PURPurchaseLinePrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>True if succeeded</returns>
-		public bool DeleteAllByForeignKeyTakingLineID(PURPurchaseLinePrimaryKey pk)
-		{
-			return POS.DataLayer.INVTakingInventoryLineBatchBase.DeleteAllByForeignKeyTakingLineID(new POS.DataLayer.PURPurchaseLinePrimaryKey(pk.PurchaseLineID));
-		}
 		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="PURPurchaseLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVTakingInventoryLineBatchCollection</returns>
-		public INVTakingInventoryLineBatchCollection SelectAllByForeignKeyTakingLineID(PURPurchaseLinePrimaryKey pk)
-		{
-			INVTakingInventoryLineBatchCollection iNVTakingInventoryLineBatchCollection=new INVTakingInventoryLineBatchCollection();
-			foreach (POS.DataLayer.INVTakingInventoryLineBatch _iNVTakingInventoryLineBatch in POS.DataLayer.INVTakingInventoryLineBatchBase.SelectAllByForeignKeyTakingLineID(new POS.DataLayer.PURPurchaseLinePrimaryKey(pk.PurchaseLineID)))
-			{
-				_iNVTakingInventoryLineBatchWCF = new INVTakingInventoryLineBatch();
-				_iNVTakingInventoryLineBatchWCF.TakingLineBatchID = _iNVTakingInventoryLineBatch.TakingLineBatchID;
-				_iNVTakingInventoryLineBatchWCF.TakingLineID = _iNVTakingInventoryLineBatch.TakingLineID;
-				_iNVTakingInventoryLineBatchWCF.BatchID = _iNVTakingInventoryLineBatch.BatchID;
-				
-				iNVTakingInventoryLineBatchCollection.Add(_iNVTakingInventoryLineBatchWCF);
-			}
-			return iNVTakingInventoryLineBatchCollection;
-		}
-		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="PURPurchaseLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number.</param>
-		///
-		/// <returns>object of class INVTakingInventoryLineBatchCollection</returns>
-		public INVTakingInventoryLineBatchCollection SelectAllByForeignKeyTakingLineIDPaged(PURPurchaseLinePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			INVTakingInventoryLineBatchCollection iNVTakingInventoryLineBatchCollection=new INVTakingInventoryLineBatchCollection();
-			foreach (POS.DataLayer.INVTakingInventoryLineBatch _iNVTakingInventoryLineBatch in POS.DataLayer.INVTakingInventoryLineBatchBase.SelectAllByForeignKeyTakingLineIDPaged(new POS.DataLayer.PURPurchaseLinePrimaryKey(pk.PurchaseLineID), pageSize, skipPages, orderByStatement))
-			{
-				_iNVTakingInventoryLineBatchWCF = new INVTakingInventoryLineBatch();
-				_iNVTakingInventoryLineBatchWCF.TakingLineBatchID = _iNVTakingInventoryLineBatch.TakingLineBatchID;
-				_iNVTakingInventoryLineBatchWCF.TakingLineID = _iNVTakingInventoryLineBatch.TakingLineID;
-				_iNVTakingInventoryLineBatchWCF.BatchID = _iNVTakingInventoryLineBatch.BatchID;
-				
-				iNVTakingInventoryLineBatchCollection.Add(_iNVTakingInventoryLineBatchWCF);
-			}
-			return iNVTakingInventoryLineBatchCollection;
-		}
-			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>

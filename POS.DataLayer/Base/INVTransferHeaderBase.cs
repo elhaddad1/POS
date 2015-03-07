@@ -1,7 +1,7 @@
 //
 // Class	:	INVTransferHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	2/22/2015 7:27:20 PM
+// Date		:	3/7/2015 2:36:58 PM
 //
 
 using System;
@@ -68,8 +68,6 @@ namespace POS.DataLayer
 		private bool?          	_isDeletedNonDefault     	= false;
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deletedDateNonDefault   	= null;
-
-		private INVTransferLineCollection _iNVTransferLineCollectionTransferHeaderID = null;
 		
 		#endregion
 		
@@ -355,26 +353,6 @@ namespace POS.DataLayer
 			}
 		}
 
-		/// <summary>
-		/// Provides access to the related table 'INVTransferLine'
-		/// </summary>
-		public INVTransferLineCollection INVTransferLineCollectionUsingTransferHeaderID
-		{
-			get 
-			{
-				if (_iNVTransferLineCollectionTransferHeaderID == null)
-				{
-					_iNVTransferLineCollectionTransferHeaderID = new INVTransferLineCollection();
-					_iNVTransferLineCollectionTransferHeaderID = INVTransferLine.SelectByField("TransferHeaderID",INVTransferHeaderID, null, TypeOperation.Equal);
-				}                
-				return _iNVTransferLineCollectionTransferHeaderID; 
-			}
-			set 
-			{
-				  _iNVTransferLineCollectionTransferHeaderID = value;
-			}
-		}
-
 		#endregion
 		
 		#region Methods (Public)
@@ -389,7 +367,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -520,7 +498,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -625,7 +603,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -703,7 +681,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -740,7 +718,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -779,7 +757,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -814,7 +792,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -862,7 +840,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -899,7 +877,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -941,7 +919,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -987,7 +965,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1028,7 +1006,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1045,58 +1023,6 @@ namespace POS.DataLayer
 			int count = Convert.ToInt32(dr);		
 			oDatabaseHelper.Dispose();
 			return count;
-			
-		}
-
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVTransferHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVTransferHeader</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static INVTransferHeader SelectOneWithINVTransferLineUsingTransferHeaderID(INVTransferHeaderPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			INVTransferHeader obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVTransferHeader_SelectOneWithINVTransferLineUsingTransferHeaderID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new INVTransferHeader();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.INVTransferLineCollectionUsingTransferHeaderID=INVTransferLine.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
 			
 		}
 
@@ -1117,7 +1043,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1154,7 +1080,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1222,7 +1148,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1254,7 +1180,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			2/22/2015 7:27:20 PM		Created function
+		/// DLGenerator			3/7/2015 2:36:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -1,7 +1,7 @@
 //
 // Class	:	VProductCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	1/13/2015 9:43:39 PM
+// Date		:	3/7/2015 2:37:31 PM
 //
 
 using System;

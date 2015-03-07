@@ -1,7 +1,7 @@
 //
 // Class	:	BDProductGroupBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:55 PM
+// Date		:	3/7/2015 2:37:07 PM
 //
 
 using System;
@@ -42,9 +42,6 @@ namespace POS.DataLayer
 		private int?           	_productGroupIDNonDefault	= null;
 		private string         	_productGroupNameNonDefault	= null;
 		private string         	_notesNonDefault         	= null;
-
-		private BDProductCollection _bDProductCollectionProductGroupID = null;
-
 		
 		#endregion
 		
@@ -135,31 +132,6 @@ namespace POS.DataLayer
 			}
 		}
 
-		/// <summary>
-		/// Provides access to the related table 'BDProduct'
-		/// </summary>
-		public BDProductCollection BDProductCollectionUsingProductGroupID
-		{
-			get 
-			{
-				if (_bDProductCollectionProductGroupID == null)
-				{
-					_bDProductCollectionProductGroupID = new BDProductCollection();
-					_bDProductCollectionProductGroupID = BDProduct.SelectByField("ProductGroupID",ProductGroupID, null, TypeOperation.Equal);
-				}                
-				return _bDProductCollectionProductGroupID; 
-			}
-			set 
-			{
-				  _bDProductCollectionProductGroupID = value;
-			}
-		}
-
-		/// <summary>
-		/// Provides access to the related table 'BDProduct'
-		/// </summary>
-	
-
 		#endregion
 		
 		#region Methods (Public)
@@ -174,7 +146,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -227,7 +199,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -267,7 +239,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -306,7 +278,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -343,7 +315,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -382,7 +354,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -417,7 +389,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -465,7 +437,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -502,7 +474,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -544,7 +516,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -590,7 +562,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -631,7 +603,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -651,59 +623,6 @@ namespace POS.DataLayer
 			
 		}
 
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="BDProductGroupPrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class BDProductGroup</returns>
-		///
-		/// <remarks>
-		///
-		/// <RevisionHistory>
-		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM				Created function
-		/// 
-		/// </RevisionHistory>
-		///
-		/// </remarks>
-		///
-		public static BDProductGroup SelectOneWithBDProductUsingProductGroupID(BDProductGroupPrimaryKey pk)
-		{
-			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
-			bool ExecutionState = false;
-			BDProductGroup obj=null;
-			
-			// Pass the values of all key parameters to the stored procedure.
-			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
-			foreach (string key in nvc.Keys)
-			{
-				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
-			}
-			
-			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
-			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-			
-			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_BDProductGroup_SelectOneWithBDProductUsingProductGroupID", ref ExecutionState);
-			if (dr.Read())
-			{
-				obj= new BDProductGroup();
-				PopulateObjectFromReader(obj,dr);
-				
-				dr.NextResult();
-				
-				//Get the child records.
-				obj.BDProductCollectionUsingProductGroupID=BDProduct.PopulateObjectsFromReader(dr);
-			}
-			dr.Close();  
-			oDatabaseHelper.Dispose();
-			return obj;
-			
-		}
-
-		
 		#endregion	
 		
 		#region Methods (Private)
@@ -721,7 +640,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -758,7 +677,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -789,7 +708,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -821,7 +740,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:55 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:07 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

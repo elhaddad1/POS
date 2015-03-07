@@ -1,14 +1,10 @@
 //
 // Class	:	INVTransferLineBatchServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/22/2015 7:27:21 PM
+// Date		:	3/7/2015 2:37:03 PM
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
+
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -139,70 +135,7 @@ namespace POS.BusinessLayer
 			
 			return _iNVTransferLineBatch.Insert();
 		}
-		/// <summary>
-		/// This method will delete row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVTransferLinePrimaryKey">Primary Key information based on which data is to be deleted.</param>
-		///
-		/// <returns>True if succeeded</returns>
-		public bool DeleteAllByForeignKeyTransferLineID(INVTransferLinePrimaryKey pk)
-		{
-			return POS.DataLayer.INVTransferLineBatchBase.DeleteAllByForeignKeyTransferLineID(new POS.DataLayer.INVTransferLinePrimaryKey(pk.TransferLineID));
-		}
 		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVTransferLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		///
-		/// <returns>object of class INVTransferLineBatchCollection</returns>
-		public INVTransferLineBatchCollection SelectAllByForeignKeyTransferLineID(INVTransferLinePrimaryKey pk)
-		{
-			INVTransferLineBatchCollection iNVTransferLineBatchCollection=new INVTransferLineBatchCollection();
-			foreach (POS.DataLayer.INVTransferLineBatch _iNVTransferLineBatch in POS.DataLayer.INVTransferLineBatchBase.SelectAllByForeignKeyTransferLineID(new POS.DataLayer.INVTransferLinePrimaryKey(pk.TransferLineID)))
-			{
-				_iNVTransferLineBatchWCF = new INVTransferLineBatch();
-				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
-				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
-				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
-				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
-				
-				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
-			}
-			return iNVTransferLineBatchCollection;
-		}
-		
-		/// <summary>
-		/// This method will get row(s) from the database using the value of the field specified 
-		/// along with the details of the child table.
-		/// </summary>
-		///
-		/// <param name="pk" type="INVTransferLinePrimaryKey">Primary Key information based on which data is to be fetched.</param>
-		/// <param name="pageSize" type="int">Number of records returned.</param>
-		/// <param name="skipPages" type="int">The number of missing pages.</param>
-		/// <param name="orderByStatement" type="string">The field value to number.</param>
-		///
-		/// <returns>object of class INVTransferLineBatchCollection</returns>
-		public INVTransferLineBatchCollection SelectAllByForeignKeyTransferLineIDPaged(INVTransferLinePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
-		{
-			INVTransferLineBatchCollection iNVTransferLineBatchCollection=new INVTransferLineBatchCollection();
-			foreach (POS.DataLayer.INVTransferLineBatch _iNVTransferLineBatch in POS.DataLayer.INVTransferLineBatchBase.SelectAllByForeignKeyTransferLineIDPaged(new POS.DataLayer.INVTransferLinePrimaryKey(pk.TransferLineID), pageSize, skipPages, orderByStatement))
-			{
-				_iNVTransferLineBatchWCF = new INVTransferLineBatch();
-				_iNVTransferLineBatchWCF.TransferLineBatchID = _iNVTransferLineBatch.TransferLineBatchID;
-				_iNVTransferLineBatchWCF.TransferLineID = _iNVTransferLineBatch.TransferLineID;
-				_iNVTransferLineBatchWCF.BatchID = _iNVTransferLineBatch.BatchID;
-				_iNVTransferLineBatchWCF.Qty = _iNVTransferLineBatch.Qty;
-				
-				iNVTransferLineBatchCollection.Add(_iNVTransferLineBatchWCF);
-			}
-			return iNVTransferLineBatchCollection;
-		}
-			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>

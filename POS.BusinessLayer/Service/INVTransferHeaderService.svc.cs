@@ -1,14 +1,10 @@
 //
 // Class	:	INVTransferHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	2/22/2015 7:27:20 PM
+// Date		:	3/7/2015 2:36:58 PM
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
+
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -83,7 +79,7 @@ namespace POS.BusinessLayer
 		public INVTransferHeaderCollection SelectAll()
 		{
 			INVTransferHeaderCollection iNVTransferHeaderCollection = new INVTransferHeaderCollection();
-            foreach (POS.DataLayer.INVTransferHeader _iNVTransferHeader in POS.DataLayer.INVTransferHeaderBase.SelectAll())
+			foreach (POS.DataLayer.INVTransferHeader _iNVTransferHeader in POS.DataLayer.INVTransferHeaderBase.SelectAll())
 			{
 				_iNVTransferHeaderWCF = new INVTransferHeader();
 				

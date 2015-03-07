@@ -1,7 +1,7 @@
 //
 // Class	:	VProductServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	1/13/2015 9:43:40 PM
+// Date		:	3/7/2015 2:37:31 PM
 //
 
 using POS.DataLayer;
@@ -16,6 +16,7 @@ namespace POS.BusinessLayer
 		private VProduct _vProductWCF;
 		private POS.DataLayer.VProduct _vProduct;
 		
+	
 
 		/// <summary>
 		/// This method will return an object representing the record matching the primary key information specified.
@@ -125,7 +126,7 @@ namespace POS.BusinessLayer
 			}
 			return vProductCollection;
 		}
-		
+	
 		
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
@@ -203,6 +204,13 @@ namespace POS.BusinessLayer
 			}
 			return vProductCollection;
 		}
-		
+			///<summary>
+		/// This method will update one new row into the database using the property Information
+		/// </summary>
+		///
+		/// <param name="vProduct" type="VProduct">This VProduct  will be updated in the database.</param>
+		///
+		/// <returns>True if succeeded</returns>
+	
 	} 
 }

@@ -39,6 +39,19 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panl_Header
+            // 
+            this.panl_Header.Size = new System.Drawing.Size(704, 47);
+            // 
+            // lbl_FormHeader
+            // 
+            this.lbl_FormHeader.Location = new System.Drawing.Point(336, 17);
+            // 
+            // panl_Footer
+            // 
+            this.panl_Footer.Location = new System.Drawing.Point(0, 389);
+            this.panl_Footer.Size = new System.Drawing.Size(704, 62);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_Close);
@@ -114,11 +127,11 @@
             this.btn_AddCustomer.UseVisualStyleBackColor = true;
             this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
             // 
-            // _frmSalesOrderSearch
+            // frmSalesOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(698, 403);
-            this.Name = "_frmSalesOrderSearch";
+            this.ClientSize = new System.Drawing.Size(704, 451);
+            this.Name = "frmSalesOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.groupBox2.ResumeLayout(false);

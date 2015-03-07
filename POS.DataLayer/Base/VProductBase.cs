@@ -1,7 +1,7 @@
 //
 // Class	:	VProductBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	1/13/2015 9:43:39 PM
+// Date		:	3/7/2015 2:37:30 PM
 //
 
 using System;
@@ -62,8 +62,8 @@ namespace POS.DataLayer
 		private double?        	_descountRatioNonDefault 	= null;
 		private bool?          	_isActiveNonDefault      	= null;
 		private string         	_notesNonDefault         	= null;
-		private string         	_productGroupNameNonDefault	= null;
-		private string         	_expr1NonDefault         	= null;
+		private decimal?       	_productGroupNameNonDefault	= null;
+		private decimal?       	_expr1NonDefault         	= null;
 		
 		#endregion
 		
@@ -310,58 +310,34 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "ProductGroupName" field. Length must be between 0 and 50 characters. Mandatory.
+		/// This property is mapped to the "ProductGroupName" field.  
 		/// </summary>
-		public string ProductGroupName
+		public decimal? ProductGroupName
 		{
 			get 
 			{ 
-				if(_productGroupNameNonDefault==null)return _productGroupNameNonDefault;
-				else return _productGroupNameNonDefault.Trim(); 
+				return _productGroupNameNonDefault;
 			}
 			set 
 			{
-			    if (value == null)
-					throw new ArgumentNullException("value", "Value is null.");
-				   if (value != null && value.Length > 50)
-					throw new ArgumentException("ProductGroupName length must be between 0 and 50 characters.");
-
-				
-				if(value ==null)
-				{
-					_productGroupNameNonDefault =null;//null value 
-				}
-				else
-				{		           
-					_productGroupNameNonDefault = value.Trim(); 
-				}
+			
+				_productGroupNameNonDefault = value; 
 			}
 		}
 
 		/// <summary>
-		/// This property is mapped to the "Expr1" field. Length must be between 0 and 2147483647 characters. 
+		/// This property is mapped to the "Expr1" field.  
 		/// </summary>
-		public string Expr1
+		public decimal? Expr1
 		{
 			get 
 			{ 
-				if(_expr1NonDefault==null)return _expr1NonDefault;
-				else return _expr1NonDefault.Trim(); 
+				return _expr1NonDefault;
 			}
 			set 
 			{
-			    if (value != null && value.Length > 2147483647)
-					throw new ArgumentException("Expr1 length must be between 0 and 2147483647 characters.");
-
-				
-				if(value ==null)
-				{
-					_expr1NonDefault =null;//null value 
-				}
-				else
-				{		           
-					_expr1NonDefault = value.Trim(); 
-				}
+			
+				_expr1NonDefault = value; 
 			}
 		}
 
@@ -381,7 +357,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -429,7 +405,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -466,7 +442,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -508,7 +484,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -554,7 +530,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -595,7 +571,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -632,7 +608,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -669,7 +645,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -726,10 +702,14 @@ namespace POS.DataLayer
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(VProductFields.Notes));
 			}
 			
-			obj.ProductGroupName = rdr.GetString(rdr.GetOrdinal(VProductFields.ProductGroupName));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.ProductGroupName)))
+			{
+				obj.ProductGroupName = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.ProductGroupName));
+			}
+			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.Expr1)))
 			{
-				obj.Expr1 = rdr.GetString(rdr.GetOrdinal(VProductFields.Expr1));
+				obj.Expr1 = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.Expr1));
 			}
 			
 
@@ -747,7 +727,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -779,7 +759,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			1/13/2015 9:43:39 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

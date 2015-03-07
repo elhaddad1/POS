@@ -95,7 +95,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 pk.ProductGroupID = groupID;
                 this.cbx_Product.SelectedIndexChanged -= new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
                 cbx_Product.DataSource = null;
-                cbx_Product.DataSource = _bDProductWrapper.SelectAllByForeignKeyProductGroupID(pk);
+                cbx_Product.DataSource = null;//_bDProductWrapper.SelectAllByForeignKeyProductGroupID(pk);
                 cbx_Product.DisplayMember = "ProductName";
                 cbx_Product.ValueMember = "ProductID";
                 this.cbx_Product.SelectedIndexChanged += new System.EventHandler(this.cbx_Product_SelectedIndexChanged);

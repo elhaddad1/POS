@@ -1,7 +1,7 @@
 //
 // Class	:	INVTakingInventoryBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:55:58 PM
+// Date		:	3/7/2015 2:37:11 PM
 //
 
 using System;
@@ -34,6 +34,7 @@ namespace POS.DataLayer
 		public const string DeletedBy                 = "DeletedBy";
 		public const string DeletedDate               = "DeletedDate";
 		public const string Notes                     = "Notes";
+		public const string InventoryID               = "InventoryID";
 	}
 	
 	/// <summary>
@@ -58,6 +59,7 @@ namespace POS.DataLayer
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deletedDateNonDefault   	= null;
 		private string         	_notesNonDefault         	= null;
+		private int?           	_inventoryIDNonDefault   	= null;
 		
 		#endregion
 		
@@ -276,6 +278,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "InventoryID" field.  
+		/// </summary>
+		public int? InventoryID
+		{
+			get 
+			{ 
+				return _inventoryIDNonDefault;
+			}
+			set 
+			{
+			
+				_inventoryIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -290,7 +308,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -361,6 +379,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
 			  
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -391,7 +415,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -452,6 +476,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@Notes", _notesNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@Notes", DBNull.Value );
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			if(_inventoryIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -471,7 +500,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,6 +544,9 @@ namespace POS.DataLayer
 			// Pass the value of '_notes' as parameter 'Notes' of the stored procedure.
 			oDatabaseHelper.AddParameter("@Notes", _notesNonDefault );
 			
+			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -534,7 +566,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -571,7 +603,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -610,7 +642,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -645,7 +677,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -693,7 +725,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -730,7 +762,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -772,7 +804,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -818,7 +850,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -859,7 +891,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -896,7 +928,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -933,7 +965,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -981,6 +1013,11 @@ namespace POS.DataLayer
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(INVTakingInventoryFields.Notes));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTakingInventoryFields.InventoryID)))
+			{
+				obj.InventoryID = rdr.GetInt32(rdr.GetOrdinal(INVTakingInventoryFields.InventoryID));
+			}
+			
 
 		}
 
@@ -996,7 +1033,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1028,7 +1065,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			12/27/2014 6:55:58 PM		Created function
+		/// DLGenerator			3/7/2015 2:37:11 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
