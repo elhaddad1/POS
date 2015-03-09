@@ -80,6 +80,7 @@
     <Compile Include="Base\SALSalesReturnHeaderBase.cs" />
     <Compile Include="Base\SALSalesReturnLineBase.cs" />
     <Compile Include="Base\VProductBase.cs" />
+    <Compile Include="Base\VSalesReturnHeaderBase.cs" />
     <Compile Include="Base\VUserRoleBase.cs" />
     <Compile Include="Collection\ADGroupCollection.cs" />
     <Compile Include="Collection\ADGroupRoleCollection.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Collection\SALSalesReturnHeaderCollection.cs" />
     <Compile Include="Collection\SALSalesReturnLineCollection.cs" />
     <Compile Include="Collection\VProductCollection.cs" />
+    <Compile Include="Collection\VSalesReturnHeaderCollection.cs" />
     <Compile Include="Collection\VUserRoleCollection.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="Entity\ADGroup.cs" />
@@ -157,6 +159,7 @@
     <Compile Include="Entity\SALSalesReturnHeader.cs" />
     <Compile Include="Entity\SALSalesReturnLine.cs" />
     <Compile Include="Entity\VProduct.cs" />
+    <Compile Include="Entity\VSalesReturnHeader.cs" />
     <Compile Include="Entity\VUserRole.cs" />
     <Compile Include="EnumTypeOperation.cs" />
     <Compile Include="Key\ADGroupPrimaryKey.cs" />
@@ -196,6 +199,7 @@
     <Compile Include="Key\SALSalesReturnHeaderPrimaryKey.cs" />
     <Compile Include="Key\SALSalesReturnLinePrimaryKey.cs" />
     <Compile Include="Key\VProductPrimaryKey.cs" />
+    <Compile Include="Key\VSalesReturnHeaderPrimaryKey.cs" />
     <Compile Include="Key\VUserRolePrimaryKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

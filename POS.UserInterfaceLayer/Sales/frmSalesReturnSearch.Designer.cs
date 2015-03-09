@@ -96,6 +96,7 @@
             this.btn_Close.TabIndex = 5;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // btn_Add
             // 
@@ -106,6 +107,7 @@
             this.btn_Add.TabIndex = 0;
             this.btn_Add.Text = "أضافة ";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Delete
             // 
@@ -116,6 +118,7 @@
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "حذف";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Back
             // 
@@ -126,6 +129,7 @@
             this.btn_Back.TabIndex = 2;
             this.btn_Back.Text = "رجوع";
             this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Edit
             // 
@@ -136,6 +140,7 @@
             this.btn_Edit.TabIndex = 4;
             this.btn_Edit.Text = "تعديل";
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // dgrid_SalesReturnSearch
             // 
