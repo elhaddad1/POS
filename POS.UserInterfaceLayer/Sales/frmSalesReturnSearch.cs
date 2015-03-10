@@ -26,8 +26,8 @@ namespace POS.UserInterfaceLayer.Sales
 
         public void btn_Add_Click(object sender, EventArgs e)
         {
-            frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
-            frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
+            frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit();
+            frm.FormClosed += frmSalesReturnOrderAddEdit_FormClosed;
             frm.ShowDialog();
         }
         public void btn_Edit_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
                     frm.ShowDialog();
                 }
                 else
@@ -46,7 +46,7 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    // sALSalesReturnHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    sALSalesReturnHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
                     BindGrid();
                 }
                 else
@@ -58,13 +58,20 @@ namespace POS.UserInterfaceLayer.Sales
         }
         public void btn_Close_Click(object sender, EventArgs e)
         {
-
+            if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
+                {
+                    sALSalesReturnHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    BindGrid();
+                }
+                else
+                    MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
             BindGrid();
         }
-        private void frmSalesOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmSalesReturnOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
         }
@@ -78,7 +85,7 @@ namespace POS.UserInterfaceLayer.Sales
             addColumnToGrid("", "SlaesReturnHeaderID", 0, false);
             addColumnToGrid("مسلسل فاتورة البيع", "InvoiceNumber", 120, true);
             addColumnToGrid("أسم العميل", "CustomerName", 120, true);
-            addColumnToGrid("تاريخ الأصدار", "InvoiceDate", 120, true);
+            addColumnToGrid("تاريخ الأرجاع", "ReturnDate", 120, true);
             addColumnToGrid("مغلق", "IsClosed", 60, true);
 
         }
@@ -102,9 +109,8 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void BindGrid()
         {
-            //dgrid_SalesReturnSearch.DataSource = null;
-            //dgrid_SalesReturnSearch.DataSource = sALSalesHeaderWrapper.HeaderSearch(tbx_CustomerName.Text, tbx_OrderSerial.Text);
-
+            dgrid_SalesReturnSearch.DataSource = null;
+            dgrid_SalesReturnSearch.DataSource = sALSalesReturnHeaderWrapper.SearchByCriteria(tbx_CustomerName.Text, tbx_VoucherSerial.Text, dtb_From.Value, dtb_To.Value);
         }
         #endregion
     }

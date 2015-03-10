@@ -44,7 +44,21 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
+        public static VSalesReturnHeaderCollection SearchByriteria()
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
 
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_VSalesReturnHeader_SearchByCriteria", ref ExecutionState);
+            VSalesReturnHeaderCollection VSalesReturnHeaderCollection = PopulateObjectsFromReader(dr);
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return VSalesReturnHeaderCollection;
+
+        }
 		#endregion
 		
 		#region Methods (Private)

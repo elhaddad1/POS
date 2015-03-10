@@ -39,7 +39,6 @@
             this.dgrid_SalesReturnSearch = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.cbx_CustomerName = new System.Windows.Forms.ComboBox();
             this.tbx_VoucherSerial = new System.Windows.Forms.TextBox();
             this.dtb_To = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_From = new System.Windows.Forms.DateTimePicker();
+            this.tbx_CustomerName = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_SalesReturnSearch)).BeginInit();
@@ -157,8 +157,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbx_CustomerName);
             this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Controls.Add(this.cbx_CustomerName);
             this.groupBox2.Controls.Add(this.tbx_VoucherSerial);
             this.groupBox2.Controls.Add(this.dtb_To);
             this.groupBox2.Controls.Add(this.label4);
@@ -182,15 +182,6 @@
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = true;
             // 
-            // cbx_CustomerName
-            // 
-            this.cbx_CustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_CustomerName.FormattingEnabled = true;
-            this.cbx_CustomerName.Location = new System.Drawing.Point(2, 60);
-            this.cbx_CustomerName.Name = "cbx_CustomerName";
-            this.cbx_CustomerName.Size = new System.Drawing.Size(256, 23);
-            this.cbx_CustomerName.TabIndex = 7;
-            // 
             // tbx_VoucherSerial
             // 
             this.tbx_VoucherSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -203,7 +194,7 @@
             // 
             this.dtb_To.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtb_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtb_To.Location = new System.Drawing.Point(2, 20);
+            this.dtb_To.Location = new System.Drawing.Point(14, 20);
             this.dtb_To.Name = "dtb_To";
             this.dtb_To.RightToLeftLayout = true;
             this.dtb_To.Size = new System.Drawing.Size(256, 21);
@@ -214,7 +205,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(265, 61);
+            this.label4.Location = new System.Drawing.Point(277, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 19);
             this.label4.TabIndex = 4;
@@ -236,7 +227,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(310, 21);
+            this.label2.Location = new System.Drawing.Point(322, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 19);
             this.label2.TabIndex = 2;
@@ -262,6 +253,14 @@
             this.dtb_From.RightToLeftLayout = true;
             this.dtb_From.Size = new System.Drawing.Size(256, 21);
             this.dtb_From.TabIndex = 0;
+            // 
+            // tbx_CustomerName
+            // 
+            this.tbx_CustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_CustomerName.Location = new System.Drawing.Point(14, 59);
+            this.tbx_CustomerName.Name = "tbx_CustomerName";
+            this.tbx_CustomerName.Size = new System.Drawing.Size(256, 21);
+            this.tbx_CustomerName.TabIndex = 19;
             // 
             // frmSalesReturnSearch
             // 
@@ -308,9 +307,9 @@
         private System.Windows.Forms.DateTimePicker dtb_From;
         private System.Windows.Forms.DateTimePicker dtb_To;
         private System.Windows.Forms.TextBox tbx_VoucherSerial;
-        private System.Windows.Forms.ComboBox cbx_CustomerName;
         private System.Windows.Forms.Button btn_Search;
         protected System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.TextBox tbx_CustomerName;
 
     }
 }
