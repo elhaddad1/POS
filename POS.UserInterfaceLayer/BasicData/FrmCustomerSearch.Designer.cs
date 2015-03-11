@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(160, 18);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(277, 20);
             this.lbl_FormHeader.Size = new System.Drawing.Size(73, 19);
             this.lbl_FormHeader.Text = "بحث العملاء";
             // 
@@ -61,7 +62,24 @@
             this.groupBox2.Controls.Add(this.tbx_cusomerName);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.tbx_customerCode);
+            this.groupBox2.Location = new System.Drawing.Point(0, 53);
             this.groupBox2.Size = new System.Drawing.Size(635, 82);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(430, 2);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(115, 2);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(325, 2);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(220, 2);
             // 
             // label1
             // 
@@ -129,6 +147,7 @@
             this.Load += new System.EventHandler(this.FrmCustomerSearch_Load);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

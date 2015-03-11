@@ -314,6 +314,14 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\secrecy-icon.png" />
+    <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
+    <None Include="Resources\payment-icon.png" />
+    <None Include="Resources\Medical-invoice-information-icon.png" />
+    <None Include="Resources\invoice-icon.png" />
+    <None Include="Resources\Office-Client-Male-Light-icon.png" />
+    <None Include="Resources\Client-icon.png" />
+    <None Include="Resources\product-icon.png" />
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,6 +391,9 @@
     <EmbeddedResource Include="Inventory\frmOpenningQuantitiesBatches.resx">
       <DependentUpon>frmOpenningQuantitiesBatches.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FrmOpenTakingInventory.resx">
+      <DependentUpon>FrmOpenTakingInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
       <DependentUpon>frmStockInquiry.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +417,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Purcase\frmPurchaseLineAddEdit.resx">
       <DependentUpon>frmPurchaseLineAddEdit.cs</DependentUpon>
