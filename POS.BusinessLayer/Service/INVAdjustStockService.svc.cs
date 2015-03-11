@@ -1,10 +1,14 @@
 //
 // Class	:	INVAdjustStockServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:16 PM
+// Date		:	3/12/2015 1:28:42 AM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -60,6 +64,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.CredateDate = _iNVAdjustStock.CredateDate;
 				_iNVAdjustStockWCF.UpdatedBy = _iNVAdjustStock.UpdatedBy;
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
+				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
+				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
 				
 			return _iNVAdjustStockWCF;
 		}
@@ -85,6 +91,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.CredateDate = _iNVAdjustStock.CredateDate;
 				_iNVAdjustStockWCF.UpdatedBy = _iNVAdjustStock.UpdatedBy;
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
+				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
+				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -127,6 +135,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.CredateDate = _iNVAdjustStock.CredateDate;
 				_iNVAdjustStockWCF.UpdatedBy = _iNVAdjustStock.UpdatedBy;
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
+				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
+				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -152,6 +162,8 @@ namespace POS.BusinessLayer
 			_iNVAdjustStock.CredateDate=iNVAdjustStock.CredateDate;
 			_iNVAdjustStock.UpdatedBy=iNVAdjustStock.UpdatedBy;
 			_iNVAdjustStock.UpdateDate=iNVAdjustStock.UpdateDate;
+			_iNVAdjustStock.StockTypeID=iNVAdjustStock.StockTypeID;
+			_iNVAdjustStock.InventoryID=iNVAdjustStock.InventoryID;
 			
 			return _iNVAdjustStock.Insert();
 		}
@@ -181,6 +193,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.CredateDate = _iNVAdjustStock.CredateDate;
 				_iNVAdjustStockWCF.UpdatedBy = _iNVAdjustStock.UpdatedBy;
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
+				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
+				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -217,6 +231,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.CredateDate = _iNVAdjustStock.CredateDate;
 				_iNVAdjustStockWCF.UpdatedBy = _iNVAdjustStock.UpdatedBy;
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
+				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
+				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -241,6 +257,8 @@ namespace POS.BusinessLayer
 			_iNVAdjustStock.CredateDate=iNVAdjustStock.CredateDate;
 			_iNVAdjustStock.UpdatedBy=iNVAdjustStock.UpdatedBy;
 			_iNVAdjustStock.UpdateDate=iNVAdjustStock.UpdateDate;
+			_iNVAdjustStock.StockTypeID=iNVAdjustStock.StockTypeID;
+			_iNVAdjustStock.InventoryID=iNVAdjustStock.InventoryID;
 			
 			return _iNVAdjustStock.Update();
 		}
