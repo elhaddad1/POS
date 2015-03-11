@@ -44,7 +44,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(168, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(173, 9);
             // 
             // panl_Footer
             // 
@@ -53,11 +53,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(200, 3);
+            this.btn_Save.Location = new System.Drawing.Point(195, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(95, 3);
+            this.btn_Back.Location = new System.Drawing.Point(90, 4);
             // 
             // dgrid_Roles
             // 
@@ -66,9 +66,10 @@
             this.RoleID,
             this.Check,
             this.RoleName});
-            this.dgrid_Roles.Location = new System.Drawing.Point(0, 59);
+            this.dgrid_Roles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgrid_Roles.Location = new System.Drawing.Point(0, 53);
             this.dgrid_Roles.Name = "dgrid_Roles";
-            this.dgrid_Roles.Size = new System.Drawing.Size(357, 150);
+            this.dgrid_Roles.Size = new System.Drawing.Size(381, 157);
             this.dgrid_Roles.TabIndex = 2;
             // 
             // RoleID

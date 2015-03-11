@@ -149,12 +149,12 @@
             this.ProductID,
             this.ProductName,
             this.TotalQty});
-            this.dgrd_OrderLines.Location = new System.Drawing.Point(23, 56);
+            this.dgrd_OrderLines.Location = new System.Drawing.Point(6, 56);
             this.dgrd_OrderLines.Name = "dgrd_OrderLines";
             this.dgrd_OrderLines.ReadOnly = true;
             this.dgrd_OrderLines.RowHeadersVisible = false;
             this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrd_OrderLines.Size = new System.Drawing.Size(595, 187);
+            this.dgrd_OrderLines.Size = new System.Drawing.Size(612, 266);
             this.dgrd_OrderLines.TabIndex = 37;
             // 
             // ProductID

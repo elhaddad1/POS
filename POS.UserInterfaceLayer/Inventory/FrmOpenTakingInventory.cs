@@ -1,10 +1,12 @@
 ﻿using POS.BusinessLayer;
+using POS.BusinessLayer.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,6 +68,26 @@ namespace POS.UserInterfaceLayer.Inventory
         private void ridb_ProductGroup_CheckedChanged(object sender, EventArgs e)
         {
             cmb_productGroup.Enabled = ridb_ProductGroup.Checked;
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            INVTakingInventoryLineWrapper _TakingInventoryWrapper = new INVTakingInventoryLineWrapper();
+            int takingType = 0;
+            if(ridb_Product.Checked)
+                takingType =1;
+            else if (ridb_ProductGroup.Checked)
+                takingType=2;
+            
+            int? _productID = (cmb_Product.SelectedValue!= null)? cmb_Product.SelectedValue as int? : null;
+            int? _productGroupID=(cmb_productGroup.SelectedValue!=null)?cmb_productGroup.SelectedValue as int? : null ;
+
+            bool result =_TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value,(int) cmb_inventory.SelectedValue,
+                                                        takingType, _productID, _productGroupID, tbx_notes.Text);
+            if (result == false)
+            {
+                MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
+            }
         }
 
         

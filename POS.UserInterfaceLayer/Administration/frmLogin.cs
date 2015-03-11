@@ -33,6 +33,7 @@ namespace POS.UserInterfaceLayer.Administration
                     {
                         frmMain frm = new frmMain();
                         frm.ShowDialog();
+                        this.Close();
                     }
                     else
                         MessageBox.Show(_message);

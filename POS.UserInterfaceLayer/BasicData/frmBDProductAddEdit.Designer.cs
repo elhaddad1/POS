@@ -50,6 +50,7 @@
             this.nmr_MinPrice = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_ProductPrice)).BeginInit();
@@ -61,11 +62,14 @@
             // 
             // panl_Header
             // 
+            this.panl_Header.Controls.Add(this.label3);
             this.panl_Header.Size = new System.Drawing.Size(693, 53);
+            this.panl_Header.Controls.SetChildIndex(this.lbl_FormHeader, 0);
+            this.panl_Header.Controls.SetChildIndex(this.label3, 0);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2811, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(3259, 9);
             // 
             // panl_Footer
             // 
@@ -74,11 +78,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(350, 3);
+            this.btn_Save.Location = new System.Drawing.Point(573, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(245, 3);
+            this.btn_Back.Location = new System.Drawing.Point(468, 4);
             // 
             // lbl_ProductName
             // 
@@ -295,6 +299,15 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "اقل سعر";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(316, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "إضافه\\تعديل منتج";
+            // 
             // frmBDProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -385,6 +398,7 @@
         private System.Windows.Forms.NumericUpDown nmr_MinPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
 
     }
 }

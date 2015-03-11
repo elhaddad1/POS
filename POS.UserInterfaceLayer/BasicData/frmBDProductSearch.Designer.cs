@@ -44,7 +44,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(237, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(316, 20);
             // 
             // panl_Footer
             // 
@@ -58,7 +58,8 @@
             this.groupBox2.Controls.Add(this.tbx_productName);
             this.groupBox2.Controls.Add(this.lbl_ProductCode);
             this.groupBox2.Controls.Add(this.lbl_ProductName);
-            this.groupBox2.Size = new System.Drawing.Size(635, 119);
+            this.groupBox2.Location = new System.Drawing.Point(0, 53);
+            this.groupBox2.Size = new System.Drawing.Size(635, 85);
             // 
             // btn_Search
             // 
