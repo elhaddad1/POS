@@ -1,7 +1,7 @@
 //
-// Class	:	SALSalesHeaderCollection.cs
+// Class	:	VSALSalesOrderCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 10:40:24 PM
+// Date		:	3/10/2015 5:24:25 PM
 //
 
 using System;
@@ -12,7 +12,7 @@ using System.Reflection;
 
 namespace POS.DataLayer
 {
-	public class SALSalesHeaderCollection :Collection<SALSalesHeader>, IEnumerable<SALSalesHeader>, IComparer
+	public class VSALSalesOrderCollection :Collection<VSALSalesOrder>, IEnumerable<VSALSalesOrder>, IComparer
 	{
 	
 		 #region Inner Types
@@ -25,9 +25,9 @@ namespace POS.DataLayer
 		 {
 			
 			private int position = -1;
-			private SALSalesHeaderCollection t;
+			private VSALSalesOrderCollection t;
 
-			public Enumerator (SALSalesHeaderCollection t)
+			public Enumerator (VSALSalesOrderCollection t)
 			{
 				this.t = t;
 			}
@@ -116,12 +116,12 @@ namespace POS.DataLayer
 			if(this.Items.Count==0)
 				return;
 			PrepareSorting( sortingExpression);
-			SALSalesHeader[] elements =new SALSalesHeader[this.Items.Count];
+			VSALSalesOrder[] elements =new VSALSalesOrder[this.Items.Count];
 			this.Items.CopyTo(elements,0);
 			Array.Sort(elements,this);
 			//clear old order and copy new order here
 			this.Items.Clear();
-			foreach(SALSalesHeader item in elements)
+			foreach(VSALSalesOrder item in elements)
 				this.Items.Add(item);
 		}
 		
@@ -131,7 +131,7 @@ namespace POS.DataLayer
 		/// <returns>the associated enumerator</returns>
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return new SALSalesHeaderCollection.Enumerator(this);
+			return new VSALSalesOrderCollection.Enumerator(this);
 		}
 		
 		/// <summary>

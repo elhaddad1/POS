@@ -1,9 +1,8 @@
 //
 // Class	:	SALSalesHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:21 PM
+// Date		:	3/7/2015 10:40:25 PM
 //
-
 
 using POS.DataLayer;
 
@@ -79,6 +78,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 			return _sALSalesHeaderWCF;
 		}
@@ -123,6 +123,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -184,6 +185,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -228,6 +230,7 @@ namespace POS.BusinessLayer
 			_sALSalesHeader.DeletDate=sALSalesHeader.DeletDate;
 			_sALSalesHeader.InventoryID=sALSalesHeader.InventoryID;
 			_sALSalesHeader.FinalPrice=sALSalesHeader.FinalPrice;
+			_sALSalesHeader.ChequeNumber=sALSalesHeader.ChequeNumber;
 			
 			return _sALSalesHeader.Insert();
 		}
@@ -286,6 +289,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -337,6 +341,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -397,6 +402,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -448,6 +454,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -508,6 +515,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -559,6 +567,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -619,6 +628,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -670,6 +680,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -730,6 +741,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -781,6 +793,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -841,6 +854,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -892,6 +906,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -942,6 +957,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -997,6 +1013,7 @@ namespace POS.BusinessLayer
 				_sALSalesHeaderWCF.DeletDate = _sALSalesHeader.DeletDate;
 				_sALSalesHeaderWCF.InventoryID = _sALSalesHeader.InventoryID;
 				_sALSalesHeaderWCF.FinalPrice = _sALSalesHeader.FinalPrice;
+				_sALSalesHeaderWCF.ChequeNumber = _sALSalesHeader.ChequeNumber;
 				
 				sALSalesHeaderCollection.Add(_sALSalesHeaderWCF);
 			}
@@ -1040,6 +1057,7 @@ namespace POS.BusinessLayer
 			_sALSalesHeader.DeletDate=sALSalesHeader.DeletDate;
 			_sALSalesHeader.InventoryID=sALSalesHeader.InventoryID;
 			_sALSalesHeader.FinalPrice=sALSalesHeader.FinalPrice;
+			_sALSalesHeader.ChequeNumber=sALSalesHeader.ChequeNumber;
 			
 			return _sALSalesHeader.Update();
 		}

@@ -1,7 +1,7 @@
 //
-// Class	:	SALSalesReturnHeaderCollection.cs
+// Class	:	VSalesReturnHeaderCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/8/2015 12:43:28 AM
+// Date		:	3/9/2015 4:39:23 PM
 //
 
 using System.Runtime.Serialization;
@@ -11,7 +11,7 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 	[CollectionDataContract(Namespace = "POS.BusinessLayer")]
-	public class SALSalesReturnHeaderCollection : List<SALSalesReturnHeader>
+	public class VSalesReturnHeaderCollection : List<VSalesReturnHeader>
 	{
 	}
 }

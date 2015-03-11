@@ -64,7 +64,17 @@ namespace POS.UserInterfaceLayer.Sales
         }
         public void btn_Close_Click(object sender, EventArgs e)
         {
-
+            if (dgrid_Result.SelectedRows.Count != 0)
+                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                    if (sALSalesHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)))
+                    {
+                        List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                        paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)));
+                        Utility.Print("SalesOrder.rpt", 1, paramList);
+                        MessageBox.Show("تمت العملية بنجاح");
+                    }
+                    else
+                        MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {

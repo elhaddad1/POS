@@ -1,7 +1,7 @@
 //
-// Class	:	SALSalesHeaderPrimaryKey.cs
+// Class	:	VSALSalesOrderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 10:40:24 PM
+// Date		:	3/10/2015 5:24:25 PM
 //
 
 using System;
@@ -11,11 +11,13 @@ using System.Collections.Specialized;
 
 namespace POS.DataLayer
 {
-	public class SALSalesHeaderPrimaryKey
+	public class VSALSalesOrderPrimaryKey
 	{
 
 	#region Class Level Variables
-			private int?           	_salesHeaderIDNonDefault 	= null;
+			private int?           	_customerIDNonDefault    	= null;
+		private int?           	_salesLineIDNonDefault   	= null;
+		private int?           	_salesHeaderIDNonDefault 	= null;
 	#endregion
 
 	#region Constants
@@ -27,9 +29,13 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public SALSalesHeaderPrimaryKey(int? salesHeaderID) 
+		public VSALSalesOrderPrimaryKey(int? customerID,int? salesLineID,int? salesHeaderID) 
 		{
 	
+			
+			this._customerIDNonDefault = customerID;
+			
+			this._salesLineIDNonDefault = salesLineID;
 			
 			this._salesHeaderIDNonDefault = salesHeaderID;
 
@@ -38,6 +44,38 @@ namespace POS.DataLayer
 		#endregion
 
 	#region Properties
+
+		/// <summary>
+		/// This property is mapped to the "CustomerID" field.  Mandatory.
+		/// </summary>
+		public int? CustomerID
+		{
+			get 
+			{ 
+				return _customerIDNonDefault;
+			}
+			set 
+			{
+			
+				_customerIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "SalesLineID" field.  Mandatory.
+		/// </summary>
+		public int? SalesLineID
+		{
+			get 
+			{ 
+				return _salesLineIDNonDefault;
+			}
+			set 
+			{
+			
+				_salesLineIDNonDefault = value; 
+			}
+		}
 
 		/// <summary>
 		/// This property is mapped to the "SalesHeaderID" field.  Mandatory.
@@ -69,7 +107,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 10:40:24 PM				Created function
+		/// DLGenerator			3/10/2015 5:24:25 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -79,6 +117,8 @@ namespace POS.DataLayer
 		{
 			NameValueCollection nvc=new NameValueCollection();
 			
+			nvc.Add("CustomerID",_customerIDNonDefault.ToString());
+			nvc.Add("SalesLineID",_salesLineIDNonDefault.ToString());
 			nvc.Add("SalesHeaderID",_salesHeaderIDNonDefault.ToString());
 			return nvc;
 			

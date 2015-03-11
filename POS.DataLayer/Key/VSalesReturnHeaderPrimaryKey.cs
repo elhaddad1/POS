@@ -1,7 +1,7 @@
 //
-// Class	:	SALSalesReturnHeaderPrimaryKey.cs
+// Class	:	VSalesReturnHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/8/2015 12:43:27 AM
+// Date		:	3/9/2015 4:39:22 PM
 //
 
 using System;
@@ -11,11 +11,12 @@ using System.Collections.Specialized;
 
 namespace POS.DataLayer
 {
-	public class SALSalesReturnHeaderPrimaryKey
+	public class VSalesReturnHeaderPrimaryKey
 	{
 
 	#region Class Level Variables
 			private int?           	_slaesReturnHeaderIDNonDefault	= null;
+		private int?           	_salesHeaderIDNonDefault 	= null;
 	#endregion
 
 	#region Constants
@@ -27,11 +28,13 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public SALSalesReturnHeaderPrimaryKey(int? slaesReturnHeaderID) 
+		public VSalesReturnHeaderPrimaryKey(int? slaesReturnHeaderID,int? salesHeaderID) 
 		{
 	
 			
 			this._slaesReturnHeaderIDNonDefault = slaesReturnHeaderID;
+			
+			this._salesHeaderIDNonDefault = salesHeaderID;
 
 		}
 
@@ -55,6 +58,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "SalesHeaderID" field.  Mandatory.
+		/// </summary>
+		public int? SalesHeaderID
+		{
+			get 
+			{ 
+				return _salesHeaderIDNonDefault;
+			}
+			set 
+			{
+			
+				_salesHeaderIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 
 	#region Methods (Public)
@@ -69,7 +88,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/8/2015 12:43:27 AM				Created function
+		/// DLGenerator			3/9/2015 4:39:22 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -80,6 +99,7 @@ namespace POS.DataLayer
 			NameValueCollection nvc=new NameValueCollection();
 			
 			nvc.Add("SlaesReturnHeaderID",_slaesReturnHeaderIDNonDefault.ToString());
+			nvc.Add("SalesHeaderID",_salesHeaderIDNonDefault.ToString());
 			return nvc;
 			
 		}

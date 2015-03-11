@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:21 PM
+// Date		:	3/7/2015 10:40:24 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -102,6 +102,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public decimal? FinalPrice {get;set;}
+
+		[DataMember]
+		public int? ChequeNumber {get;set;}
 
 		
 		#endregion
