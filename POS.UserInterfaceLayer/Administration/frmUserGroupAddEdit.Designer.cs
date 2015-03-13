@@ -40,7 +40,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(177, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(187, 9);
             // 
             // panl_Footer
             // 
@@ -49,11 +49,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(280, 4);
+            this.btn_Save.Location = new System.Drawing.Point(213, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(175, 4);
+            this.btn_Back.Location = new System.Drawing.Point(108, 3);
             // 
             // tbx_GroupName
             // 

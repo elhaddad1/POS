@@ -90,6 +90,12 @@
     <Compile Include="Administration\frmUserGroupSearch.Designer.cs">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\FrmAdjustmentSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\FrmAdjustmentSearch.Designer.cs">
+      <DependentUpon>FrmAdjustmentSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmSupplierAccountEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,14 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\secrecy-icon.png" />
+    <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
+    <None Include="Resources\payment-icon.png" />
+    <None Include="Resources\Medical-invoice-information-icon.png" />
+    <None Include="Resources\invoice-icon.png" />
+    <None Include="Resources\Office-Client-Male-Light-icon.png" />
+    <None Include="Resources\Client-icon.png" />
+    <None Include="Resources\product-icon.png" />
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmUserGroupSearch.resx">
       <DependentUpon>frmUserGroupSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\FrmAdjustmentSearch.resx">
+      <DependentUpon>FrmAdjustmentSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmSupplierAccountEdit.resx">
       <DependentUpon>frmSupplierAccountEdit.cs</DependentUpon>
@@ -383,6 +400,9 @@
     <EmbeddedResource Include="Inventory\frmOpenningQuantitiesBatches.resx">
       <DependentUpon>frmOpenningQuantitiesBatches.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FrmOpenTakingInventory.resx">
+      <DependentUpon>FrmOpenTakingInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmStockInquiry.resx">
       <DependentUpon>frmStockInquiry.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +426,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Purcase\frmPurchaseLineAddEdit.resx">
       <DependentUpon>frmPurchaseLineAddEdit.cs</DependentUpon>

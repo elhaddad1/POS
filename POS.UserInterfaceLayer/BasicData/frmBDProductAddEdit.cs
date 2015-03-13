@@ -132,5 +132,6 @@ namespace POS.UserInterfaceLayer.BasicData
 
             this.Close();
         }
+
     }
 }

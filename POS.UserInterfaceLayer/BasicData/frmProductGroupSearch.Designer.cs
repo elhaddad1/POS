@@ -32,6 +32,7 @@
             this.tbx_Name = new System.Windows.Forms.TextBox();
             this.lbl_name = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(213, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(265, 9);
             // 
             // panl_Footer
             // 
@@ -53,8 +54,25 @@
             this.groupBox2.Controls.Add(this.btn_Search);
             this.groupBox2.Controls.Add(this.lbl_name);
             this.groupBox2.Controls.Add(this.tbx_Name);
+            this.groupBox2.Location = new System.Drawing.Point(0, 53);
             this.groupBox2.Size = new System.Drawing.Size(609, 62);
             this.groupBox2.Text = "بحث مجموعات الاصناف";
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(417, 2);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(102, 2);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(312, 2);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(207, 2);
             // 
             // btn_Search
             // 
@@ -93,6 +111,7 @@
             this.Text = "مجموعات الأصناف";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

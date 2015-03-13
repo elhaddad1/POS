@@ -75,6 +75,9 @@ namespace POS.UserInterfaceLayer.Portal
             //frm.Dock = DockStyle.None;
             //pnlContent.Controls.Clear();
             //pnlContent.Controls.Add(frm);
+            //pnl_content.Controls.Add(frm);
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.Show();
             activeForm = frm;
         }
@@ -147,46 +150,49 @@ namespace POS.UserInterfaceLayer.Portal
         private void mnuItem_SalesOrders_Click(object sender, EventArgs e)
         {
             frmSalesOrderSearch frm = new frmSalesOrderSearch();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_SalesOrder_Click(object sender, EventArgs e)
         {
             frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_OpenningQuantities_Click(object sender, EventArgs e)
         {
             frmOpenningQuantities frm = new frmOpenningQuantities();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_CustomerAccount_Click(object sender, EventArgs e)
         {
             frmCustomerAccounts frm = new frmCustomerAccounts();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void mnuItem_SupplierAccount_Click(object sender, EventArgs e)
         {
             frmSupplierAccounts frm = new frmSupplierAccounts();
-            frm.ShowDialog();
+            switchForm(frm);
         }
 
         private void btn_AddProduct_Click(object sender, EventArgs e)
         {
-
+            frmBDProductAddEdit frm = new frmBDProductAddEdit(null);
+            switchForm(frm);
         }
 
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
-
+            FrmCustomerAddEdit frm = new FrmCustomerAddEdit();
+            switchForm(frm);
         }
 
         private void btn_AddSupplier_Click(object sender, EventArgs e)
         {
-
+            FrmSupplierAddEdit frm = new FrmSupplierAddEdit();
+            switchForm(frm);
         }
 
         private void btn_CustomerAccount_Click(object sender, EventArgs e)
@@ -201,7 +207,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_SalesOrder_Click(object sender, EventArgs e)
         {
-
+            frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
+            switchForm(frm);
         }
 
         private void btn_ReturnSalesOrder_Click(object sender, EventArgs e)
@@ -216,7 +223,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_PurchaceOrder_Click(object sender, EventArgs e)
         {
-
+            frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit();
+            switchForm(frm);
         }
 
       

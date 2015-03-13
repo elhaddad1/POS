@@ -58,7 +58,7 @@
             this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_name.AutoSize = true;
             this.lbl_name.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_name.Location = new System.Drawing.Point(39, 90);
+            this.lbl_name.Location = new System.Drawing.Point(20, 97);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(51, 16);
             this.lbl_name.TabIndex = 0;
@@ -67,7 +67,7 @@
             // tbx_takingName
             // 
             this.tbx_takingName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_takingName.Location = new System.Drawing.Point(133, 84);
+            this.tbx_takingName.Location = new System.Drawing.Point(114, 91);
             this.tbx_takingName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbx_takingName.Name = "tbx_takingName";
             this.tbx_takingName.Size = new System.Drawing.Size(359, 22);
@@ -81,7 +81,7 @@
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(543, 65);
+            this.panl_Header.Size = new System.Drawing.Size(610, 65);
             this.panl_Header.TabIndex = 2;
             // 
             // lbl_FormHeader
@@ -89,7 +89,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(249, 25);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(283, 25);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(51, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -100,7 +100,7 @@
             this.lbl_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_date.AutoSize = true;
             this.lbl_date.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.Location = new System.Drawing.Point(39, 121);
+            this.lbl_date.Location = new System.Drawing.Point(20, 128);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(59, 16);
             this.lbl_date.TabIndex = 3;
@@ -111,7 +111,7 @@
             this.dtp_takingDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_takingDate.CustomFormat = "dd/MM/yyyy";
             this.dtp_takingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_takingDate.Location = new System.Drawing.Point(133, 115);
+            this.dtp_takingDate.Location = new System.Drawing.Point(114, 122);
             this.dtp_takingDate.Name = "dtp_takingDate";
             this.dtp_takingDate.RightToLeftLayout = true;
             this.dtp_takingDate.Size = new System.Drawing.Size(147, 22);
@@ -125,7 +125,7 @@
             this.grb_takingOn.Controls.Add(this.ridb_All);
             this.grb_takingOn.Controls.Add(this.ridb_ProductGroup);
             this.grb_takingOn.Controls.Add(this.ridb_Product);
-            this.grb_takingOn.Location = new System.Drawing.Point(42, 187);
+            this.grb_takingOn.Location = new System.Drawing.Point(23, 194);
             this.grb_takingOn.Name = "grb_takingOn";
             this.grb_takingOn.Size = new System.Drawing.Size(450, 166);
             this.grb_takingOn.TabIndex = 5;
@@ -188,8 +188,10 @@
             // 
             // btn_newTaking
             // 
+            this.btn_newTaking.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_newTaking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newTaking.Location = new System.Drawing.Point(358, 8);
+            this.btn_newTaking.Location = new System.Drawing.Point(383, 7);
             this.btn_newTaking.Name = "btn_newTaking";
             this.btn_newTaking.Size = new System.Drawing.Size(104, 48);
             this.btn_newTaking.TabIndex = 6;
@@ -205,13 +207,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 454);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(543, 63);
+            this.panel1.Size = new System.Drawing.Size(610, 63);
             this.panel1.TabIndex = 6;
             // 
             // btn_back
             // 
+            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_back.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.Location = new System.Drawing.Point(98, 8);
+            this.btn_back.Location = new System.Drawing.Point(123, 7);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(104, 48);
             this.btn_back.TabIndex = 8;
@@ -221,20 +225,23 @@
             // 
             // btn_save
             // 
+            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_save.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(231, 8);
+            this.btn_save.Location = new System.Drawing.Point(256, 7);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(104, 48);
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "حفظ";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 154);
+            this.label1.Location = new System.Drawing.Point(20, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 7;
@@ -244,7 +251,7 @@
             // 
             this.cmb_inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_inventory.FormattingEnabled = true;
-            this.cmb_inventory.Location = new System.Drawing.Point(136, 146);
+            this.cmb_inventory.Location = new System.Drawing.Point(117, 153);
             this.cmb_inventory.Name = "cmb_inventory";
             this.cmb_inventory.Size = new System.Drawing.Size(144, 24);
             this.cmb_inventory.TabIndex = 8;
@@ -254,7 +261,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 379);
+            this.label2.Location = new System.Drawing.Point(20, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 9;
@@ -262,17 +269,19 @@
             // 
             // tbx_notes
             // 
-            this.tbx_notes.Location = new System.Drawing.Point(142, 372);
+            this.tbx_notes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_notes.Location = new System.Drawing.Point(123, 379);
             this.tbx_notes.Multiline = true;
             this.tbx_notes.Name = "tbx_notes";
             this.tbx_notes.Size = new System.Drawing.Size(350, 69);
             this.tbx_notes.TabIndex = 10;
+            this.tbx_notes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmOpenTakingInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 517);
+            this.ClientSize = new System.Drawing.Size(610, 517);
             this.Controls.Add(this.tbx_notes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmb_inventory);
@@ -289,6 +298,7 @@
             this.Name = "FrmOpenTakingInventory";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "شاشه فتح جرد";
             this.Load += new System.EventHandler(this.FrmOpenTakingInventory_Load);
             this.panl_Header.ResumeLayout(false);

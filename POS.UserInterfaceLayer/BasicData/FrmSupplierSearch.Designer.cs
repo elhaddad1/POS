@@ -35,6 +35,7 @@
             this.lbl_code = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(137, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(252, 19);
             this.lbl_FormHeader.Size = new System.Drawing.Size(82, 19);
             this.lbl_FormHeader.Text = "بحث الموردين";
             // 
@@ -61,8 +62,25 @@
             this.groupBox2.Controls.Add(this.tbx_cusomerName);
             this.groupBox2.Controls.Add(this.lbl_name);
             this.groupBox2.Controls.Add(this.tbx_customerCode);
+            this.groupBox2.Location = new System.Drawing.Point(0, 53);
             this.groupBox2.Size = new System.Drawing.Size(613, 78);
             this.groupBox2.Text = "بحث الموردين";
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(419, 2);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(104, 2);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(314, 2);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(209, 2);
             // 
             // btn_Search
             // 
@@ -94,7 +112,7 @@
             // 
             this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(547, 53);
+            this.lbl_name.Location = new System.Drawing.Point(547, 50);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(55, 16);
             this.lbl_name.TabIndex = 7;
@@ -104,7 +122,7 @@
             // 
             this.lbl_code.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_code.AutoSize = true;
-            this.lbl_code.Location = new System.Drawing.Point(547, 18);
+            this.lbl_code.Location = new System.Drawing.Point(547, 24);
             this.lbl_code.Name = "lbl_code";
             this.lbl_code.Size = new System.Drawing.Size(54, 16);
             this.lbl_code.TabIndex = 6;
@@ -131,6 +149,7 @@
             this.Load += new System.EventHandler(this.FrmSupplierSearch_Load);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

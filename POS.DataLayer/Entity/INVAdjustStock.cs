@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStock.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	12/27/2014 6:56:10 PM
+// Date		:	3/12/2015 1:28:41 AM
 //
 
 using System;

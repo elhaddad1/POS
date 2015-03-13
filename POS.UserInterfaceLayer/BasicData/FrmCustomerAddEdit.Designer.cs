@@ -45,13 +45,32 @@
             this.tbx_Name = new System.Windows.Forms.TextBox();
             this.tbx_Email = new System.Windows.Forms.TextBox();
             this.tbx_Mobile2 = new System.Windows.Forms.TextBox();
+            this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panl_Header
+            // 
+            this.panl_Header.Size = new System.Drawing.Size(570, 53);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(228, 19);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(228, 9);
             this.lbl_FormHeader.Size = new System.Drawing.Size(106, 19);
             this.lbl_FormHeader.Text = "إضافه /تعديل عميل";
+            // 
+            // panl_Footer
+            // 
+            this.panl_Footer.Location = new System.Drawing.Point(0, 384);
+            this.panl_Footer.Size = new System.Drawing.Size(570, 62);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(289, 4);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(184, 4);
             // 
             // label1
             // 
@@ -218,6 +237,8 @@
             this.Name = "FrmCustomerAddEdit";
             this.Text = "العملاء";
             this.Load += new System.EventHandler(this.FrmCustomerAddEdit_Load);
+            this.Controls.SetChildIndex(this.panl_Header, 0);
+            this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -235,6 +256,9 @@
             this.Controls.SetChildIndex(this.tbx_Name, 0);
             this.Controls.SetChildIndex(this.tbx_Email, 0);
             this.Controls.SetChildIndex(this.tbx_Mobile2, 0);
+            this.panl_Header.ResumeLayout(false);
+            this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

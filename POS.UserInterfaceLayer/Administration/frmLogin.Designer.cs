@@ -42,7 +42,7 @@
             // 
             this.lbl_UserName.AutoSize = true;
             this.lbl_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_UserName.Location = new System.Drawing.Point(43, 63);
+            this.lbl_UserName.Location = new System.Drawing.Point(12, 50);
             this.lbl_UserName.Name = "lbl_UserName";
             this.lbl_UserName.Size = new System.Drawing.Size(66, 20);
             this.lbl_UserName.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.lbl_Password.AutoSize = true;
             this.lbl_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Password.Location = new System.Drawing.Point(43, 114);
+            this.lbl_Password.Location = new System.Drawing.Point(12, 101);
             this.lbl_Password.Name = "lbl_Password";
             this.lbl_Password.Size = new System.Drawing.Size(69, 20);
             this.lbl_Password.TabIndex = 2;
@@ -60,14 +60,14 @@
             // 
             // tbx_UserName
             // 
-            this.tbx_UserName.Location = new System.Drawing.Point(135, 63);
+            this.tbx_UserName.Location = new System.Drawing.Point(104, 52);
             this.tbx_UserName.Name = "tbx_UserName";
             this.tbx_UserName.Size = new System.Drawing.Size(180, 20);
             this.tbx_UserName.TabIndex = 3;
             // 
             // tbx_Password
             // 
-            this.tbx_Password.Location = new System.Drawing.Point(135, 114);
+            this.tbx_Password.Location = new System.Drawing.Point(104, 101);
             this.tbx_Password.Name = "tbx_Password";
             this.tbx_Password.PasswordChar = '*';
             this.tbx_Password.Size = new System.Drawing.Size(180, 20);
@@ -86,6 +86,7 @@
             // 
             // btn_Back
             // 
+            this.btn_Back.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Back.Location = new System.Drawing.Point(228, 160);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(87, 50);
@@ -96,17 +97,20 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(72, 7);
+            this.pictureBox1.Image = global::POS.UserInterfaceLayer.Properties.Resources.secrecy_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(290, 32);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(288, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(131, 122);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btn_Enter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.CancelButton = this.btn_Back;
             this.ClientSize = new System.Drawing.Size(433, 222);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
