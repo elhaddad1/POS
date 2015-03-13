@@ -13,7 +13,7 @@ namespace POS.BusinessLayer.Wrapper
         public VSalesReturnHeaderCollection SearchByCriteria(string CustomerName, string InvoiceNumber, DateTime DateFrom, DateTime DateTo)
         {
             VSalesReturnHeaderCollection vSalesReturnHeaderCollection = new VSalesReturnHeaderCollection();
-            foreach (POS.DataLayer.VSalesReturnHeader _vSalesReturnHeader in POS.DataLayer.VSalesReturnHeader.SearchByriteria())
+            foreach (POS.DataLayer.VSalesReturnHeader _vSalesReturnHeader in POS.DataLayer.VSalesReturnHeader.SearchByriteria(CustomerName, DateFrom, DateTo, InvoiceNumber))
             {
                 VSalesReturnHeader _vSalesReturnHeaderWCF = new VSalesReturnHeader();
 
@@ -32,7 +32,6 @@ namespace POS.BusinessLayer.Wrapper
         {
             return POS.DataLayer.SALSalesReturnHeader.DeleteOrder(SalesReturnHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
         }
-
         public bool CloseOrder(int SalesReturnHeaderID)
         {
             return POS.DataLayer.SALSalesReturnHeader.CloseOrder(SalesReturnHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
