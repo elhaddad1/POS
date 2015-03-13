@@ -15,7 +15,18 @@ namespace POS.BusinessLayer
 	/// </summary>
 	[DataContract(Namespace = "POS.UserInterfaceLayer")]
 	public class INVAdjustStock : INVAdjustStockBase
-	{
+    {
+        [DataMember]
+        public string ProductName { get; set; }
+        [DataMember]
+        public string CreatedByName { get; set; }
+
+        [DataMember]
+        public string InventoryName { get; set; }
+        [DataMember]
+        public string AdjustReasonName { get; set; }
+        [DataMember]
+        public string StockTypeName { get; set; }
 	}
 }
 			

@@ -10,7 +10,7 @@ using System.Text;
 using System.Collections.Specialized;
 using System.Runtime.Serialization;
 
-namespace POS.UserInterfaceLayer
+namespace POS.BusinessLayer
 {
 	[DataContract(Namespace = "POS.UserInterfaceLayer")]
 	public class INVAdjustStockPrimaryKey
