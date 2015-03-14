@@ -21,5 +21,32 @@ namespace POS.UserInterfaceLayer.Sales
         {
             InitializeComponent();
         }
+
+        #region --Events
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ClosePrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+        #region --Public  Methods
+        #endregion
+        #region --Private Methods
+        #endregion
+
     }
 }

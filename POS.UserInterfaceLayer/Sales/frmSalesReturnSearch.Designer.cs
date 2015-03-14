@@ -38,6 +38,7 @@
             this.btn_Edit = new System.Windows.Forms.Button();
             this.dgrid_SalesReturnSearch = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbx_CustomerName = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
             this.tbx_VoucherSerial = new System.Windows.Forms.TextBox();
             this.dtb_To = new System.Windows.Forms.DateTimePicker();
@@ -46,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_From = new System.Windows.Forms.DateTimePicker();
-            this.tbx_CustomerName = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_SalesReturnSearch)).BeginInit();
@@ -173,6 +173,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "بحث";
             // 
+            // tbx_CustomerName
+            // 
+            this.tbx_CustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_CustomerName.Location = new System.Drawing.Point(14, 59);
+            this.tbx_CustomerName.Name = "tbx_CustomerName";
+            this.tbx_CustomerName.Size = new System.Drawing.Size(256, 21);
+            this.tbx_CustomerName.TabIndex = 19;
+            // 
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(331, 102);
@@ -181,6 +189,7 @@
             this.btn_Search.TabIndex = 18;
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // tbx_VoucherSerial
             // 
@@ -253,14 +262,6 @@
             this.dtb_From.RightToLeftLayout = true;
             this.dtb_From.Size = new System.Drawing.Size(256, 21);
             this.dtb_From.TabIndex = 0;
-            // 
-            // tbx_CustomerName
-            // 
-            this.tbx_CustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_CustomerName.Location = new System.Drawing.Point(14, 59);
-            this.tbx_CustomerName.Name = "tbx_CustomerName";
-            this.tbx_CustomerName.Size = new System.Drawing.Size(256, 21);
-            this.tbx_CustomerName.TabIndex = 19;
             // 
             // frmSalesReturnSearch
             // 
