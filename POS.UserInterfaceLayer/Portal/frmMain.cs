@@ -227,6 +227,12 @@ namespace POS.UserInterfaceLayer.Portal
             switchForm(frm);
         }
 
+        private void mnuItem_Adjustment_Click(object sender, EventArgs e)
+        {
+            FrmAdjustmentSearch frm = new FrmAdjustmentSearch();
+            switchForm(frm);
+        }
+
       
 
 

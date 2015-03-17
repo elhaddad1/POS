@@ -65,6 +65,7 @@ namespace POS.UserInterfaceLayer.BasicData
         #region/// Private functions
         private void FillProductStock()
         {
+            dgrid_stock.AutoGenerateColumns = false;
             dgrid_stock.DataSource = _invProductStockWrapper.SelectByField(Convert.ToInt32(cbx_Store.SelectedValue));
         }
 
@@ -99,7 +100,7 @@ namespace POS.UserInterfaceLayer.BasicData
 
             try
             {
-                cbx_StockTypeTO.DataSource = _inventoryWrapper.SelectAll();
+                cbx_StockTypeTO.DataSource = _stockTypeWrapper.SelectAll();
                 cbx_StockTypeTO.DisplayMember = "StockTypeName";
                 cbx_StockTypeTO.ValueMember = "StockTypeID";
                 cbx_StockTypeTO.SelectedIndex = -1;
@@ -126,6 +127,24 @@ namespace POS.UserInterfaceLayer.BasicData
 
                 throw;
             }
+        }
+
+        private bool validation()
+        {
+            bool isValid = false;
+
+            int ProductID=0;
+            int BatchID = 0;
+            int AdjustReasonID = 0;
+            int StockTypeID = 0;
+            int InventoryID = 0;
+            int.TryParse(dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value.ToString(), out ProductID);
+            int.TryParse(dgrid_batches.SelectedRows[0].Cells["BatchNumber"].Value.ToString(), out BatchID);
+            int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
+            int.TryParse(cbx_StockTypeTO.SelectedValue.ToString(), out StockTypeID);
+            int.TryParse(cbx_Store.SelectedValue.ToString(), out InventoryID);
+
+            return isValid;
         }
         #endregion
     }
