@@ -60,7 +60,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(1729, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2447, 21);
             // 
             // panl_Footer
             // 
@@ -69,11 +69,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(1729, 7);
+            this.btn_Save.Location = new System.Drawing.Point(2447, 7);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(1188, 7);
+            this.btn_Back.Location = new System.Drawing.Point(1906, 7);
             // 
             // cbx_StockTypeTO
             // 
@@ -242,9 +242,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 16);
+            this.label3.Size = new System.Drawing.Size(43, 16);
             this.label3.TabIndex = 65;
-            this.label3.Text = "المخزن المحول منه";
+            this.label3.Text = "المخزن ";
             // 
             // label1
             // 
@@ -269,6 +269,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "FrmAdjustStockAddEdit";
+            this.Load += new System.EventHandler(this.FrmAdjustStockAddEdit_Load);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.label1, 0);

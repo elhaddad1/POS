@@ -275,6 +275,8 @@
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
     <Compile Include="Wrapper\BDCustomerAccountsWrapper.cs" />
     <Compile Include="Wrapper\BDSupplierAccountsWrapper.cs" />
+    <Compile Include="Wrapper\INVAdjustStockReasonWrapper.cs" />
+    <Compile Include="Wrapper\INVStockTypeWrapper.cs" />
     <Compile Include="Wrapper\INVAdjustStockWrapper.cs" />
     <Compile Include="Wrapper\INVBatchWrapper.cs" />
     <Compile Include="Wrapper\INVTakingInventoryLineWrapper.cs" />
