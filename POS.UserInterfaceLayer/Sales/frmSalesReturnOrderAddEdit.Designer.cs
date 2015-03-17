@@ -30,16 +30,13 @@
         {
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Header = new System.Windows.Forms.Panel();
-            this.txt_Total = new System.Windows.Forms.TextBox();
+            this.tbx_Total = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_InvoiceDate = new System.Windows.Forms.DateTimePicker();
@@ -48,9 +45,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtb_SalesDate = new System.Windows.Forms.DateTimePicker();
-            this.tbx_Sales = new System.Windows.Forms.TextBox();
+            this.tbx_SalesMan = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -77,15 +81,15 @@
             this.panl_Header.Size = new System.Drawing.Size(683, 53);
             this.panl_Header.TabIndex = 6;
             // 
-            // txt_Total
+            // tbx_Total
             // 
-            this.txt_Total.Enabled = false;
-            this.txt_Total.Location = new System.Drawing.Point(521, 213);
-            this.txt_Total.Name = "txt_Total";
-            this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(95, 20);
-            this.txt_Total.TabIndex = 30;
-            this.txt_Total.Text = "0";
+            this.tbx_Total.Enabled = false;
+            this.tbx_Total.Location = new System.Drawing.Point(521, 213);
+            this.tbx_Total.Name = "tbx_Total";
+            this.tbx_Total.ReadOnly = true;
+            this.tbx_Total.Size = new System.Drawing.Size(95, 20);
+            this.tbx_Total.TabIndex = 30;
+            this.tbx_Total.Text = "0";
             // 
             // label8
             // 
@@ -135,7 +139,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgrd_ReturnOrderLines);
-            this.groupBox1.Controls.Add(this.txt_Total);
+            this.groupBox1.Controls.Add(this.tbx_Total);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(2, 168);
             this.groupBox1.Name = "groupBox1";
@@ -146,39 +150,22 @@
             // 
             // dgrd_ReturnOrderLines
             // 
-            this.dgrd_ReturnOrderLines.AllowUserToAddRows = false;
-            this.dgrd_ReturnOrderLines.AllowUserToDeleteRows = false;
             this.dgrd_ReturnOrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrd_ReturnOrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductName,
+            this.IsAcceptBatch,
+            this.ExpiryDate,
+            this.BatchNumber,
             this.TotalQty,
-            this.UnitPrice});
+            this.UnitPrice,
+            this.Reason});
             this.dgrd_ReturnOrderLines.Location = new System.Drawing.Point(10, 19);
             this.dgrd_ReturnOrderLines.Name = "dgrd_ReturnOrderLines";
             this.dgrd_ReturnOrderLines.RowHeadersVisible = false;
             this.dgrd_ReturnOrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(658, 187);
             this.dgrd_ReturnOrderLines.TabIndex = 32;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "الصنف";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 210;
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "السعر المباع به";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 120;
+            this.dgrd_ReturnOrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_ReturnOrderLines_CellValueChanged);
             // 
             // label3
             // 
@@ -252,13 +239,13 @@
             this.dtb_SalesDate.Size = new System.Drawing.Size(243, 20);
             this.dtb_SalesDate.TabIndex = 45;
             // 
-            // tbx_Sales
+            // tbx_SalesMan
             // 
-            this.tbx_Sales.Location = new System.Drawing.Point(434, 133);
-            this.tbx_Sales.Name = "tbx_Sales";
-            this.tbx_Sales.ReadOnly = true;
-            this.tbx_Sales.Size = new System.Drawing.Size(243, 20);
-            this.tbx_Sales.TabIndex = 48;
+            this.tbx_SalesMan.Location = new System.Drawing.Point(434, 133);
+            this.tbx_SalesMan.Name = "tbx_SalesMan";
+            this.tbx_SalesMan.ReadOnly = true;
+            this.tbx_SalesMan.Size = new System.Drawing.Size(243, 20);
+            this.tbx_SalesMan.TabIndex = 48;
             // 
             // label5
             // 
@@ -279,6 +266,48 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "الصنف";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 210;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.Width = 150;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم الشتغيلة";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "السعر المباع به";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 120;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "سبب الرجوع";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 300;
+            // 
             // frmSalesReturnOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,7 +316,7 @@
             this.ClientSize = new System.Drawing.Size(683, 486);
             this.ControlBox = false;
             this.Controls.Add(this.btn_Search);
-            this.Controls.Add(this.tbx_Sales);
+            this.Controls.Add(this.tbx_SalesMan);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtb_SalesDate);
@@ -321,7 +350,7 @@
 
         protected System.Windows.Forms.Label lbl_FormHeader;
         protected System.Windows.Forms.Panel panl_Header;
-        private System.Windows.Forms.TextBox txt_Total;
+        private System.Windows.Forms.TextBox tbx_Total;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
@@ -336,11 +365,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtb_SalesDate;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.TextBox tbx_Sales;
+        private System.Windows.Forms.TextBox tbx_SalesMan;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Search;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsAcceptBatch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BatchNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
     }
 }
