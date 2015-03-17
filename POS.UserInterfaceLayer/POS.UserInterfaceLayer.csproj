@@ -96,6 +96,12 @@
     <Compile Include="BasicData\FrmAdjustmentSearch.Designer.cs">
       <DependentUpon>FrmAdjustmentSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicData\FrmAdjustStockAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicData\FrmAdjustStockAddEdit.Designer.cs">
+      <DependentUpon>FrmAdjustStockAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="BasicData\frmSupplierAccountEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmAdjustmentSearch.resx">
       <DependentUpon>FrmAdjustmentSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicData\FrmAdjustStockAddEdit.resx">
+      <DependentUpon>FrmAdjustStockAddEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\frmSupplierAccountEdit.resx">
       <DependentUpon>frmSupplierAccountEdit.cs</DependentUpon>

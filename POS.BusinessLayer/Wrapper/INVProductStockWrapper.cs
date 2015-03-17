@@ -65,5 +65,10 @@ namespace POS.BusinessLayer.Wrapper
             }
             return true;
         }
+
+        public INVProductStockCollection SelectByField(int inventoryID)
+        {
+            return base.SelectByField("InventoryID", inventoryID, null, DataLayer.TypeOperation.Equal);
+        }
     }
 }
