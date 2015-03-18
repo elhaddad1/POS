@@ -185,7 +185,7 @@ namespace POS.UserInterfaceLayer.BasicData
             int StockTypeID = 0;
             int InventoryID = 0;
             decimal Qty = num_Qty.Value;
-            int.TryParse(dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value.ToString(), out ProductID);
+            int.TryParse(dgrid_stock.SelectedRows[0].Cells["ProductStockID"].Value.ToString(), out ProductID);
             int.TryParse(dgrid_batches.SelectedRows[0].Cells["BatchNumber"].Value.ToString(), out BatchID);
             int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
             int.TryParse(cbx_StockTypeTO.SelectedValue.ToString(), out StockTypeID);

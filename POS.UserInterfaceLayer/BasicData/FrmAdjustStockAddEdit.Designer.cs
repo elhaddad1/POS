@@ -61,7 +61,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2806, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(3165, 21);
             // 
             // panl_Footer
             // 
@@ -70,11 +70,12 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(2806, 7);
+            this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Save.Location = new System.Drawing.Point(3165, 7);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(2265, 7);
+            this.btn_Back.Location = new System.Drawing.Point(2624, 7);
             // 
             // cbx_StockTypeTO
             // 
@@ -91,9 +92,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(14, 222);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 16);
+            this.label6.Size = new System.Drawing.Size(51, 16);
             this.label6.TabIndex = 75;
-            this.label6.Text = "نوع الصنف - الى";
+            this.label6.Text = "تحويل من";
             // 
             // label4
             // 
