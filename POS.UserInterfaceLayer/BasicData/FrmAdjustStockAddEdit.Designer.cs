@@ -30,7 +30,6 @@
         {
             this.cbx_StockTypeTO = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.num_Quantity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbx_AdjustReason = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,11 +46,13 @@
             this.cbx_Store = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.num_Qty = new System.Windows.Forms.NumericUpDown();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_batches)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_stock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Qty)).BeginInit();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -60,7 +61,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(2447, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(2806, 21);
             // 
             // panl_Footer
             // 
@@ -69,11 +70,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(2447, 7);
+            this.btn_Save.Location = new System.Drawing.Point(2806, 7);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(1906, 7);
+            this.btn_Back.Location = new System.Drawing.Point(2265, 7);
             // 
             // cbx_StockTypeTO
             // 
@@ -93,14 +94,6 @@
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 75;
             this.label6.Text = "نوع الصنف - الى";
-            // 
-            // num_Quantity
-            // 
-            this.num_Quantity.Location = new System.Drawing.Point(135, 186);
-            this.num_Quantity.Name = "num_Quantity";
-            this.num_Quantity.Size = new System.Drawing.Size(241, 22);
-            this.num_Quantity.TabIndex = 72;
-            this.num_Quantity.Text = "0";
             // 
             // label4
             // 
@@ -255,13 +248,25 @@
             this.label1.TabIndex = 64;
             this.label1.Text = "سبب التسويه";
             // 
+            // num_Qty
+            // 
+            this.num_Qty.Location = new System.Drawing.Point(135, 186);
+            this.num_Qty.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.num_Qty.Name = "num_Qty";
+            this.num_Qty.Size = new System.Drawing.Size(241, 22);
+            this.num_Qty.TabIndex = 77;
+            // 
             // FrmAdjustStockAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(962, 475);
+            this.Controls.Add(this.num_Qty);
             this.Controls.Add(this.cbx_StockTypeTO);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.num_Quantity);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbx_AdjustReason);
             this.Controls.Add(this.groupBox1);
@@ -278,15 +283,16 @@
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.cbx_AdjustReason, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.num_Quantity, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.cbx_StockTypeTO, 0);
+            this.Controls.SetChildIndex(this.num_Qty, 0);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_batches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_stock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Qty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +302,6 @@
 
         private System.Windows.Forms.ComboBox cbx_StockTypeTO;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox num_Quantity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbx_AdjustReason;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -313,5 +318,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_stockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_qty;
+        private System.Windows.Forms.NumericUpDown num_Qty;
     }
 }
