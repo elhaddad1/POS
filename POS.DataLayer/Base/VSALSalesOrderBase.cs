@@ -1,7 +1,7 @@
 //
 // Class	:	VSALSalesOrderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/10/2015 5:24:25 PM
+// Date		:	3/19/2015 1:00:17 PM
 //
 
 using System;
@@ -47,6 +47,7 @@ namespace POS.DataLayer
 		public const string ProductCode               = "ProductCode";
 		public const string IsAcceptBatch             = "IsAcceptBatch";
 		public const string UserFullName              = "UserFullName";
+		public const string ProductID                 = "ProductID";
 	}
 	
 	/// <summary>
@@ -84,6 +85,7 @@ namespace POS.DataLayer
 		private string         	_productCodeNonDefault   	= null;
 		private bool?          	_isAcceptBatchNonDefault 	= null;
 		private string         	_userFullNameNonDefault  	= null;
+		private int?           	_productIDNonDefault     	= null;
 		
 		#endregion
 		
@@ -571,6 +573,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// Returns the identifier of the persistent object. Mandatory.
+		/// </summary>
+		public int? ProductID
+		{
+			get 
+			{ 
+				return _productIDNonDefault;
+			}
+			set 
+			{
+			
+				_productIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -587,7 +605,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -635,7 +653,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -672,7 +690,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -714,7 +732,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -760,7 +778,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -801,7 +819,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -838,7 +856,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -875,7 +893,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -944,6 +962,7 @@ namespace POS.DataLayer
 			
 			obj.IsAcceptBatch = rdr.GetBoolean(rdr.GetOrdinal(VSALSalesOrderFields.IsAcceptBatch));
 			obj.UserFullName = rdr.GetString(rdr.GetOrdinal(VSALSalesOrderFields.UserFullName));
+			obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(VSALSalesOrderFields.ProductID));
 
 		}
 
@@ -959,7 +978,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -991,7 +1010,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM		Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:19 PM
+// Date		:	3/20/2015 2:44:14 PM
 //
 
 using System;
@@ -30,6 +30,7 @@ namespace POS.DataLayer
 		public const string BatchID                   = "BatchID";
 		public const string BatchNumber               = "BatchNumber";
 		public const string ExpiryDate                = "ExpiryDate";
+		public const string SalesReturnHeaderID       = "SalesReturnHeaderID";
 	}
 	
 	/// <summary>
@@ -50,6 +51,7 @@ namespace POS.DataLayer
 		private int?           	_batchIDNonDefault       	= null;
 		private string         	_batchNumberNonDefault   	= null;
 		private DateTime?      	_expiryDateNonDefault    	= null;
+		private int?           	_salesReturnHeaderIDNonDefault	= null;
 		
 		#endregion
 		
@@ -144,7 +146,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "BatchID" field.  Mandatory.
+		/// This property is mapped to the "BatchID" field.  
 		/// </summary>
 		public int? BatchID
 		{
@@ -202,6 +204,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// The foreign key connected with another persistent object.
+		/// </summary>
+		public int? SalesReturnHeaderID
+		{
+			get 
+			{ 
+				return _salesReturnHeaderIDNonDefault;
+			}
+			set 
+			{
+			
+				_salesReturnHeaderIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -216,7 +234,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -263,6 +281,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
 			  
+			// Pass the value of '_salesReturnHeaderID' as parameter 'SalesReturnHeaderID' of the stored procedure.
+			if(_salesReturnHeaderIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@SalesReturnHeaderID", _salesReturnHeaderIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@SalesReturnHeaderID", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -293,7 +317,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -334,6 +358,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
+			// Pass the value of '_salesReturnHeaderID' as parameter 'SalesReturnHeaderID' of the stored procedure.
+			if(_salesReturnHeaderIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@SalesReturnHeaderID", _salesReturnHeaderIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@SalesReturnHeaderID", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -353,7 +382,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -385,6 +414,9 @@ namespace POS.DataLayer
 			// Pass the value of '_expiryDate' as parameter 'ExpiryDate' of the stored procedure.
 			oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault );
 			
+			// Pass the value of '_salesReturnHeaderID' as parameter 'SalesReturnHeaderID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@SalesReturnHeaderID", _salesReturnHeaderIDNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -404,7 +436,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -441,7 +473,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -480,7 +512,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,7 +547,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -563,7 +595,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -600,7 +632,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -642,7 +674,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -688,7 +720,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -729,7 +761,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -746,6 +778,142 @@ namespace POS.DataLayer
 			int count = Convert.ToInt32(dr);		
 			oDatabaseHelper.Dispose();
 			return count;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class SALSalesReturnLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			3/20/2015 2:44:14 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static SALSalesReturnLineCollection SelectAllByForeignKeySalesReturnHeaderID(SALSalesReturnHeaderPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			SALSalesReturnLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_SALSalesReturnLine_SelectAllByForeignKeySalesReturnHeaderID", ref ExecutionState);
+			obj = new SALSalesReturnLineCollection();
+			obj = SALSalesReturnLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class SALSalesReturnLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			3/20/2015 2:44:14 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static SALSalesReturnLineCollection SelectAllByForeignKeySalesReturnHeaderIDPaged(SALSalesReturnHeaderPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			SALSalesReturnLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_SALSalesReturnLine_SelectAllByForeignKeySalesReturnHeaderIDPaged", ref ExecutionState);
+			obj = new SALSalesReturnLineCollection();
+			obj = SALSalesReturnLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			3/20/2015 2:44:14 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeySalesReturnHeaderID(SALSalesReturnHeaderPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_SALSalesReturnLine_DeleteAllByForeignKeySalesReturnHeaderID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
 			
 		}
 
@@ -766,7 +934,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -803,7 +971,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -824,7 +992,11 @@ namespace POS.DataLayer
 				obj.OriginalSalesLineID = rdr.GetInt32(rdr.GetOrdinal(SALSalesReturnLineFields.OriginalSalesLineID));
 			}
 			
-			obj.BatchID = rdr.GetInt32(rdr.GetOrdinal(SALSalesReturnLineFields.BatchID));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(SALSalesReturnLineFields.BatchID)))
+			{
+				obj.BatchID = rdr.GetInt32(rdr.GetOrdinal(SALSalesReturnLineFields.BatchID));
+			}
+			
 			if (!rdr.IsDBNull(rdr.GetOrdinal(SALSalesReturnLineFields.BatchNumber)))
 			{
 				obj.BatchNumber = rdr.GetString(rdr.GetOrdinal(SALSalesReturnLineFields.BatchNumber));
@@ -835,6 +1007,7 @@ namespace POS.DataLayer
 				obj.ExpiryDate = rdr.GetDateTime(rdr.GetOrdinal(SALSalesReturnLineFields.ExpiryDate));
 			}
 			
+			obj.SalesReturnHeaderID = rdr.GetInt32(rdr.GetOrdinal(SALSalesReturnLineFields.SalesReturnHeaderID));
 
 		}
 
@@ -850,7 +1023,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -882,7 +1055,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:19 PM		Created function
+		/// DLGenerator			3/20/2015 2:44:14 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -72,10 +72,12 @@ namespace POS.UserInterfaceLayer.Sales
             CollectHeaderData();
             CollectLinesData();
             if (sALSalesReturnHeader.SlaesReturnHeaderID == null)
-            { //insert
+            {
+                sALSalesReturnLineWrraper.SaveCloseSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
             }
             else
-            { //update
+            {
+                sALSalesReturnLineWrraper.UpdateCloseSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
             }
         }
 
@@ -84,10 +86,12 @@ namespace POS.UserInterfaceLayer.Sales
             CollectHeaderData();
             CollectLinesData();
             if (sALSalesReturnHeader.SlaesReturnHeaderID == null)
-            { //insert
+            {
+                sALSalesReturnLineWrraper.SaveSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
             }
             else
-            { //update
+            {
+                sALSalesReturnLineWrraper.UpdateSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
             }
         }
 
@@ -106,7 +110,7 @@ namespace POS.UserInterfaceLayer.Sales
                     MessageBox.Show("أختر صنف أولا");
                     return;
                 }
-                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductName == senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value).SingleOrDefault();
+                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
                 if (vSALSalesOrder == null)
                 {
                     MessageBox.Show("هذا الصنف غير موجود بالفاتورة الاصليه");
@@ -181,7 +185,6 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void CollectHeaderData()
         {
-            sALSalesReturnHeader.CreateDate = DateTime.Now.Date;
             sALSalesReturnHeader.OriginalSalesHeadeID = _vSALSalesOrder.SalesHeaderID;
             sALSalesReturnHeader.ReturnDate = DateTime.Now.Date;
         }
@@ -203,7 +206,7 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesReturnLineCollection.Clear();
             foreach (DataGridViewRow row in dgrd_ReturnOrderLines.Rows)
             {
-                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductName == row.Cells["ProductName"].Value).SingleOrDefault();
+                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(row.Cells["ProductName"].Value)).SingleOrDefault();
                 if (vSALSalesOrder != null)
                     sALSalesReturnLineCollection.Add(new SALSalesReturnLine()
                                           {

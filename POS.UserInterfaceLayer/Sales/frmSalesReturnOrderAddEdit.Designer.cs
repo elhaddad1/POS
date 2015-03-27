@@ -37,6 +37,13 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_InvoiceDate = new System.Windows.Forms.DateTimePicker();
@@ -48,13 +55,6 @@
             this.tbx_SalesMan = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -65,7 +65,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(325, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(336, 20);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(79, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -78,7 +78,7 @@
             this.panl_Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(683, 53);
+            this.panl_Header.Size = new System.Drawing.Size(704, 53);
             this.panl_Header.TabIndex = 6;
             // 
             // tbx_Total
@@ -104,7 +104,7 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(399, 421);
+            this.btn_Cancel.Location = new System.Drawing.Point(410, 421);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 41;
@@ -116,7 +116,7 @@
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(292, 421);
+            this.btn_Save.Location = new System.Drawing.Point(303, 421);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 55);
             this.btn_Save.TabIndex = 40;
@@ -128,7 +128,7 @@
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(185, 421);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(196, 421);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 39;
@@ -143,7 +143,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(2, 168);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(678, 246);
+            this.groupBox1.Size = new System.Drawing.Size(702, 246);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "المرتجعات";
@@ -163,9 +163,51 @@
             this.dgrd_ReturnOrderLines.Name = "dgrd_ReturnOrderLines";
             this.dgrd_ReturnOrderLines.RowHeadersVisible = false;
             this.dgrd_ReturnOrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(658, 187);
+            this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(686, 187);
             this.dgrd_ReturnOrderLines.TabIndex = 32;
             this.dgrd_ReturnOrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_ReturnOrderLines_CellValueChanged);
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "الصنف";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 210;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.Width = 150;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم الشتغيلة";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "السعر المباع به";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 120;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "سبب الرجوع";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 300;
             // 
             // label3
             // 
@@ -266,54 +308,12 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "الصنف";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 210;
-            // 
-            // IsAcceptBatch
-            // 
-            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
-            this.IsAcceptBatch.Name = "IsAcceptBatch";
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.Width = 150;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "رقم الشتغيلة";
-            this.BatchNumber.Name = "BatchNumber";
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "السعر المباع به";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 120;
-            // 
-            // Reason
-            // 
-            this.Reason.HeaderText = "سبب الرجوع";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 300;
-            // 
             // frmSalesReturnOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(683, 486);
+            this.ClientSize = new System.Drawing.Size(704, 486);
             this.ControlBox = false;
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tbx_SalesMan);
