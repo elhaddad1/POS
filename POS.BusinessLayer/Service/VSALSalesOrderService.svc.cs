@@ -1,8 +1,9 @@
 //
 // Class	:	VSALSalesOrderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/10/2015 5:24:26 PM
+// Date		:	3/19/2015 1:00:18 PM
 //
+
 
 using POS.DataLayer;
 
@@ -16,7 +17,6 @@ namespace POS.BusinessLayer
 		private VSALSalesOrder _vSALSalesOrderWCF;
 		private POS.DataLayer.VSALSalesOrder _vSALSalesOrder;
 		
-		
 
 		/// <summary>
 		/// This method will return an object representing the record matching the primary key information specified.
@@ -28,7 +28,7 @@ namespace POS.BusinessLayer
 		public VSALSalesOrder SelectOne(VSALSalesOrderPrimaryKey pk)
 		{
 			_vSALSalesOrderWCF = new VSALSalesOrder();
-			_vSALSalesOrder = POS.DataLayer.VSALSalesOrderBase.SelectOne(new POS.DataLayer.VSALSalesOrderPrimaryKey(pk.CustomerID, pk.SalesLineID, pk.SalesHeaderID));
+			_vSALSalesOrder = POS.DataLayer.VSALSalesOrderBase.SelectOne(new POS.DataLayer.VSALSalesOrderPrimaryKey(pk.CustomerID, pk.SalesLineID, pk.SalesHeaderID, pk.ProductID));
 			
 				_vSALSalesOrderWCF.CustomerID = _vSALSalesOrder.CustomerID;
 				_vSALSalesOrderWCF.CustomerName = _vSALSalesOrder.CustomerName;
@@ -54,6 +54,7 @@ namespace POS.BusinessLayer
 				_vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
 				_vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
 				_vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+				_vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
 				
 			return _vSALSalesOrderWCF;
 		}
@@ -94,6 +95,7 @@ namespace POS.BusinessLayer
 				_vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
 				_vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
 				_vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+				_vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
 				
 				vSALSalesOrderCollection.Add(_vSALSalesOrderWCF);
 			}
@@ -151,13 +153,15 @@ namespace POS.BusinessLayer
 				_vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
 				_vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
 				_vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+				_vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
 				
 				vSALSalesOrderCollection.Add(_vSALSalesOrderWCF);
 			}
 			return vSALSalesOrderCollection;
 		}
 		
-			
+	
+		
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -198,6 +202,7 @@ namespace POS.BusinessLayer
 				_vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
 				_vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
 				_vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+				_vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
 				
 				vSALSalesOrderCollection.Add(_vSALSalesOrderWCF);
 			}
@@ -249,11 +254,12 @@ namespace POS.BusinessLayer
 				_vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
 				_vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
 				_vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+				_vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
 				
 				vSALSalesOrderCollection.Add(_vSALSalesOrderWCF);
 			}
 			return vSALSalesOrderCollection;
 		}
-			
+	
 	} 
 }

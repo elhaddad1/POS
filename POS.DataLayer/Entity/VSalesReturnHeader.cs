@@ -15,41 +15,44 @@ using System.Data.Common;
 
 namespace POS.DataLayer
 {
-	
-	/// <summary>
-	/// Data access class for the "VSalesReturnHeader" table.
-	/// </summary>
-	[Serializable]
-	public class VSalesReturnHeader : VSalesReturnHeaderBase
-	{
-	
-		#region Class Level Variables
 
-		#endregion
-		
-		#region Constants
-		
-		#endregion
+    /// <summary>
+    /// Data access class for the "VSalesReturnHeader" table.
+    /// </summary>
+    [Serializable]
+    public class VSalesReturnHeader : VSalesReturnHeaderBase
+    {
 
-		#region Constructors / Destructors 
-		
-		public VSalesReturnHeader() : base()
-		{
-		}
+        #region Class Level Variables
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Constants
 
-		#endregion
+        #endregion
 
-		#region Methods (Public)
-        public static VSalesReturnHeaderCollection SearchByriteria()
+        #region Constructors / Destructors
+
+        public VSalesReturnHeader()
+            : base()
+        {
+        }
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Methods (Public)
+        public static VSalesReturnHeaderCollection SearchByriteria(string CustomerName, DateTime FromDate, DateTime ToDate, string InvoiceNumber)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
-
-            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
+            oDatabaseHelper.AddParameter("@FromDate", FromDate);
+            oDatabaseHelper.AddParameter("@DateTo", ToDate);
+            oDatabaseHelper.AddParameter("@@InvoiceNumber", InvoiceNumber);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
             IDataReader dr = oDatabaseHelper.ExecuteReader("usp_VSalesReturnHeader_SearchByCriteria", ref ExecutionState);
@@ -59,12 +62,12 @@ namespace POS.DataLayer
             return VSalesReturnHeaderCollection;
 
         }
-		#endregion
-		
-		#region Methods (Private)
+        #endregion
 
-		#endregion
+        #region Methods (Private)
 
-	}
-	
+        #endregion
+
+    }
+
 }

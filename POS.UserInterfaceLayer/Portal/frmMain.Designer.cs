@@ -56,15 +56,16 @@
             this.mnuItem_CustomerAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_SupplierAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
             this.btn_AddProduct = new System.Windows.Forms.Button();
             this.btn_ReturnPurchaceOrder = new System.Windows.Forms.Button();
             this.btn_SupplierAccount = new System.Windows.Forms.Button();
             this.btn_CustomerAccount = new System.Windows.Forms.Button();
             this.btn_AddSupplier = new System.Windows.Forms.Button();
             this.btn_AddCustomer = new System.Windows.Forms.Button();
+            this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
             this.btn_PurchaceOrder = new System.Windows.Forms.Button();
             this.btn_SalesOrder = new System.Windows.Forms.Button();
+            this.mnuItem_Adjustment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,8 @@
             this.mnuItem_Products,
             this.mnuItem_Customers,
             this.mnuItem_Suppliers,
-            this.mnuItem_AdjustReason});
+            this.mnuItem_AdjustReason,
+            this.mnuItem_Adjustment});
             this.mnuItem_BasicData.Enabled = false;
             this.mnuItem_BasicData.Name = "mnuItem_BasicData";
             this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 19);
@@ -121,7 +123,7 @@
             // 
             this.mnuItem_Inventory.Enabled = false;
             this.mnuItem_Inventory.Name = "mnuItem_Inventory";
-            this.mnuItem_Inventory.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Inventory.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Inventory.Text = "المخازن";
             this.mnuItem_Inventory.Click += new System.EventHandler(this.mnuItem_Inventory_Click);
             // 
@@ -129,7 +131,7 @@
             // 
             this.mnuItem_ProductGroup.Enabled = false;
             this.mnuItem_ProductGroup.Name = "mnuItem_ProductGroup";
-            this.mnuItem_ProductGroup.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_ProductGroup.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_ProductGroup.Text = "مجموعة الاصناف";
             this.mnuItem_ProductGroup.Click += new System.EventHandler(this.mnuItem_ProductGroup_Click);
             // 
@@ -137,7 +139,7 @@
             // 
             this.mnuItem_Products.Enabled = false;
             this.mnuItem_Products.Name = "mnuItem_Products";
-            this.mnuItem_Products.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Products.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Products.Text = "الاصناف";
             this.mnuItem_Products.Click += new System.EventHandler(this.mnuItem_Products_Click);
             // 
@@ -145,7 +147,7 @@
             // 
             this.mnuItem_Customers.Enabled = false;
             this.mnuItem_Customers.Name = "mnuItem_Customers";
-            this.mnuItem_Customers.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Customers.Text = "بيانات العملاء";
             this.mnuItem_Customers.Click += new System.EventHandler(this.mnuItem_Customers_Click);
             // 
@@ -153,7 +155,7 @@
             // 
             this.mnuItem_Suppliers.Enabled = false;
             this.mnuItem_Suppliers.Name = "mnuItem_Suppliers";
-            this.mnuItem_Suppliers.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Suppliers.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Suppliers.Text = "بيانات الموردين";
             this.mnuItem_Suppliers.Click += new System.EventHandler(this.mnuItem_Suppliers_Click);
             // 
@@ -161,7 +163,7 @@
             // 
             this.mnuItem_AdjustReason.Enabled = false;
             this.mnuItem_AdjustReason.Name = "mnuItem_AdjustReason";
-            this.mnuItem_AdjustReason.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_AdjustReason.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_AdjustReason.Text = "أسباب التسويه";
             this.mnuItem_AdjustReason.Click += new System.EventHandler(this.mnuItem_AdjustReason_Click);
             // 
@@ -331,21 +333,6 @@
             this.pnlContent.Size = new System.Drawing.Size(148, 722);
             this.pnlContent.TabIndex = 6;
             // 
-            // btn_ReturnSalesOrder
-            // 
-            this.btn_ReturnSalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ReturnSalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btn_ReturnSalesOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.Ecommerce_Return_Purchase_icon;
-            this.btn_ReturnSalesOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_ReturnSalesOrder.Location = new System.Drawing.Point(8, 470);
-            this.btn_ReturnSalesOrder.Name = "btn_ReturnSalesOrder";
-            this.btn_ReturnSalesOrder.Size = new System.Drawing.Size(132, 71);
-            this.btn_ReturnSalesOrder.TabIndex = 3;
-            this.btn_ReturnSalesOrder.Text = "مرتجع مبيعات";
-            this.btn_ReturnSalesOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_ReturnSalesOrder.UseVisualStyleBackColor = true;
-            this.btn_ReturnSalesOrder.Click += new System.EventHandler(this.btn_ReturnSalesOrder_Click);
-            // 
             // btn_AddProduct
             // 
             this.btn_AddProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -436,6 +423,21 @@
             this.btn_AddCustomer.UseVisualStyleBackColor = true;
             this.btn_AddCustomer.Click += new System.EventHandler(this.btn_AddCustomer_Click);
             // 
+            // btn_ReturnSalesOrder
+            // 
+            this.btn_ReturnSalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReturnSalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btn_ReturnSalesOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.Ecommerce_Return_Purchase_icon;
+            this.btn_ReturnSalesOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_ReturnSalesOrder.Location = new System.Drawing.Point(8, 470);
+            this.btn_ReturnSalesOrder.Name = "btn_ReturnSalesOrder";
+            this.btn_ReturnSalesOrder.Size = new System.Drawing.Size(132, 71);
+            this.btn_ReturnSalesOrder.TabIndex = 3;
+            this.btn_ReturnSalesOrder.Text = "مرتجع مبيعات";
+            this.btn_ReturnSalesOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_ReturnSalesOrder.UseVisualStyleBackColor = true;
+            this.btn_ReturnSalesOrder.Click += new System.EventHandler(this.btn_ReturnSalesOrder_Click);
+            // 
             // btn_PurchaceOrder
             // 
             this.btn_PurchaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -465,6 +467,13 @@
             this.btn_SalesOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_SalesOrder.UseVisualStyleBackColor = true;
             this.btn_SalesOrder.Click += new System.EventHandler(this.btn_SalesOrder_Click);
+            // 
+            // mnuItem_Adjustment
+            // 
+            this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
+            this.mnuItem_Adjustment.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Adjustment.Text = "التسوية";
+            this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
             // 
             // frmMain
             // 
@@ -533,5 +542,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_Accounts;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_CustomerAccount;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SupplierAccount;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Adjustment;
     }
 }

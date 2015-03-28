@@ -1,7 +1,7 @@
 //
 // Class	:	VSALSalesOrderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/10/2015 5:24:25 PM
+// Date		:	3/19/2015 1:00:17 PM
 //
 
 using System;
@@ -18,6 +18,7 @@ namespace POS.DataLayer
 			private int?           	_customerIDNonDefault    	= null;
 		private int?           	_salesLineIDNonDefault   	= null;
 		private int?           	_salesHeaderIDNonDefault 	= null;
+		private int?           	_productIDNonDefault     	= null;
 	#endregion
 
 	#region Constants
@@ -29,7 +30,7 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public VSALSalesOrderPrimaryKey(int? customerID,int? salesLineID,int? salesHeaderID) 
+		public VSALSalesOrderPrimaryKey(int? customerID,int? salesLineID,int? salesHeaderID,int? productID) 
 		{
 	
 			
@@ -38,6 +39,8 @@ namespace POS.DataLayer
 			this._salesLineIDNonDefault = salesLineID;
 			
 			this._salesHeaderIDNonDefault = salesHeaderID;
+			
+			this._productIDNonDefault = productID;
 
 		}
 
@@ -93,6 +96,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "ProductID" field.  Mandatory.
+		/// </summary>
+		public int? ProductID
+		{
+			get 
+			{ 
+				return _productIDNonDefault;
+			}
+			set 
+			{
+			
+				_productIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 
 	#region Methods (Public)
@@ -107,7 +126,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/10/2015 5:24:25 PM				Created function
+		/// DLGenerator			3/19/2015 1:00:17 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -120,6 +139,7 @@ namespace POS.DataLayer
 			nvc.Add("CustomerID",_customerIDNonDefault.ToString());
 			nvc.Add("SalesLineID",_salesLineIDNonDefault.ToString());
 			nvc.Add("SalesHeaderID",_salesHeaderIDNonDefault.ToString());
+			nvc.Add("ProductID",_productIDNonDefault.ToString());
 			return nvc;
 			
 		}

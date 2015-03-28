@@ -1,9 +1,8 @@
 //
 // Class	:	SALSalesReturnLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:20 PM
+// Date		:	3/20/2015 2:44:14 PM
 //
-
 
 using POS.DataLayer;
 
@@ -58,6 +57,7 @@ namespace POS.BusinessLayer
 				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
 				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
 				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
 				
 			return _sALSalesReturnLineWCF;
 		}
@@ -81,6 +81,7 @@ namespace POS.BusinessLayer
 				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
 				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
 				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
 				
 				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
 			}
@@ -121,6 +122,7 @@ namespace POS.BusinessLayer
 				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
 				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
 				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
 				
 				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
 			}
@@ -144,10 +146,82 @@ namespace POS.BusinessLayer
 			_sALSalesReturnLine.BatchID=sALSalesReturnLine.BatchID;
 			_sALSalesReturnLine.BatchNumber=sALSalesReturnLine.BatchNumber;
 			_sALSalesReturnLine.ExpiryDate=sALSalesReturnLine.ExpiryDate;
+			_sALSalesReturnLine.SalesReturnHeaderID=sALSalesReturnLine.SalesReturnHeaderID;
 			
 			return _sALSalesReturnLine.Insert();
 		}
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeySalesReturnHeaderID(SALSalesReturnHeaderPrimaryKey pk)
+		{
+			return POS.DataLayer.SALSalesReturnLineBase.DeleteAllByForeignKeySalesReturnHeaderID(new POS.DataLayer.SALSalesReturnHeaderPrimaryKey(pk.SlaesReturnHeaderID));
+		}
 		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class SALSalesReturnLineCollection</returns>
+		public SALSalesReturnLineCollection SelectAllByForeignKeySalesReturnHeaderID(SALSalesReturnHeaderPrimaryKey pk)
+		{
+			SALSalesReturnLineCollection sALSalesReturnLineCollection=new SALSalesReturnLineCollection();
+			foreach (POS.DataLayer.SALSalesReturnLine _sALSalesReturnLine in POS.DataLayer.SALSalesReturnLineBase.SelectAllByForeignKeySalesReturnHeaderID(new POS.DataLayer.SALSalesReturnHeaderPrimaryKey(pk.SlaesReturnHeaderID)))
+			{
+				_sALSalesReturnLineWCF = new SALSalesReturnLine();
+				_sALSalesReturnLineWCF.SalesReturnLineID = _sALSalesReturnLine.SalesReturnLineID;
+				_sALSalesReturnLineWCF.Qty = _sALSalesReturnLine.Qty;
+				_sALSalesReturnLineWCF.Reason = _sALSalesReturnLine.Reason;
+				_sALSalesReturnLineWCF.OriginalSalesLineID = _sALSalesReturnLine.OriginalSalesLineID;
+				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
+				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
+				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
+				
+				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
+			}
+			return sALSalesReturnLineCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="SALSalesReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class SALSalesReturnLineCollection</returns>
+		public SALSalesReturnLineCollection SelectAllByForeignKeySalesReturnHeaderIDPaged(SALSalesReturnHeaderPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			SALSalesReturnLineCollection sALSalesReturnLineCollection=new SALSalesReturnLineCollection();
+			foreach (POS.DataLayer.SALSalesReturnLine _sALSalesReturnLine in POS.DataLayer.SALSalesReturnLineBase.SelectAllByForeignKeySalesReturnHeaderIDPaged(new POS.DataLayer.SALSalesReturnHeaderPrimaryKey(pk.SlaesReturnHeaderID), pageSize, skipPages, orderByStatement))
+			{
+				_sALSalesReturnLineWCF = new SALSalesReturnLine();
+				_sALSalesReturnLineWCF.SalesReturnLineID = _sALSalesReturnLine.SalesReturnLineID;
+				_sALSalesReturnLineWCF.Qty = _sALSalesReturnLine.Qty;
+				_sALSalesReturnLineWCF.Reason = _sALSalesReturnLine.Reason;
+				_sALSalesReturnLineWCF.OriginalSalesLineID = _sALSalesReturnLine.OriginalSalesLineID;
+				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
+				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
+				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
+				
+				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
+			}
+			return sALSalesReturnLineCollection;
+		}
+			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -171,6 +245,7 @@ namespace POS.BusinessLayer
 				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
 				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
 				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
 				
 				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
 			}
@@ -205,6 +280,7 @@ namespace POS.BusinessLayer
 				_sALSalesReturnLineWCF.BatchID = _sALSalesReturnLine.BatchID;
 				_sALSalesReturnLineWCF.BatchNumber = _sALSalesReturnLine.BatchNumber;
 				_sALSalesReturnLineWCF.ExpiryDate = _sALSalesReturnLine.ExpiryDate;
+				_sALSalesReturnLineWCF.SalesReturnHeaderID = _sALSalesReturnLine.SalesReturnHeaderID;
 				
 				sALSalesReturnLineCollection.Add(_sALSalesReturnLineWCF);
 			}
@@ -227,6 +303,7 @@ namespace POS.BusinessLayer
 			_sALSalesReturnLine.BatchID=sALSalesReturnLine.BatchID;
 			_sALSalesReturnLine.BatchNumber=sALSalesReturnLine.BatchNumber;
 			_sALSalesReturnLine.ExpiryDate=sALSalesReturnLine.ExpiryDate;
+			_sALSalesReturnLine.SalesReturnHeaderID=sALSalesReturnLine.SalesReturnHeaderID;
 			
 			return _sALSalesReturnLine.Update();
 		}

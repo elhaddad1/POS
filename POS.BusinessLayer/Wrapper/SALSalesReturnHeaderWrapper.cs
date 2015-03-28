@@ -9,11 +9,12 @@ namespace POS.BusinessLayer.Wrapper
     public class SALSalesReturnHeaderWrapper : SALSalesReturnHeaderService
     {
         //VSalesReturnHeaderService vSalesReturnHeaderService;
+        VSALSalesOrderService vSALSalesOrderService;
 
         public VSalesReturnHeaderCollection SearchByCriteria(string CustomerName, string InvoiceNumber, DateTime DateFrom, DateTime DateTo)
         {
             VSalesReturnHeaderCollection vSalesReturnHeaderCollection = new VSalesReturnHeaderCollection();
-            foreach (POS.DataLayer.VSalesReturnHeader _vSalesReturnHeader in POS.DataLayer.VSalesReturnHeader.SearchByriteria())
+            foreach (POS.DataLayer.VSalesReturnHeader _vSalesReturnHeader in POS.DataLayer.VSalesReturnHeader.SearchByriteria(CustomerName, DateFrom, DateTo, InvoiceNumber))
             {
                 VSalesReturnHeader _vSalesReturnHeaderWCF = new VSalesReturnHeader();
 
@@ -32,11 +33,25 @@ namespace POS.BusinessLayer.Wrapper
         {
             return POS.DataLayer.SALSalesReturnHeader.DeleteOrder(SalesReturnHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
         }
-
         public bool CloseOrder(int SalesReturnHeaderID)
         {
             return POS.DataLayer.SALSalesReturnHeader.CloseOrder(SalesReturnHeaderID, Utility.GlobalVariables.CurrentUser.UserID);
 
         }
+
+        public VSALSalesOrderCollection VSALSalesOrder_SelectOneByInvoiceNumber(string InvoiceNumber)
+        {
+            vSALSalesOrderService = new VSALSalesOrderService();
+            return vSALSalesOrderService.SelectByField("InvoiceNumber", InvoiceNumber, null, DataLayer.TypeOperation.Equal);
+        }
+
+        public VSALSalesOrderCollection VSALSalesOrder_SelectOne(int SalesHeaderID)
+        {
+            vSALSalesOrderService = new VSALSalesOrderService();
+            return vSALSalesOrderService.SelectByField("SalesHeaderID", SalesHeaderID, null, DataLayer.TypeOperation.Equal);
+
+        }
+
+
     }
 }
