@@ -31,12 +31,12 @@
             this.panl_Header = new System.Windows.Forms.Panel();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Footer = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Dgrid_Result = new System.Windows.Forms.DataGridView();
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
-            this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Dgrid_Result = new System.Windows.Forms.DataGridView();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgrid_Result)).BeginInit();
@@ -76,6 +76,54 @@
             this.panl_Footer.Size = new System.Drawing.Size(646, 70);
             this.panl_Footer.TabIndex = 1;
             // 
+            // btn_Add
+            // 
+            this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Location = new System.Drawing.Point(436, 6);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(99, 55);
+            this.btn_Add.TabIndex = 5;
+            this.btn_Add.Text = "أضافة";
+            this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Back.Location = new System.Drawing.Point(121, 6);
+            this.btn_Back.Name = "btn_Back";
+            this.btn_Back.Size = new System.Drawing.Size(99, 55);
+            this.btn_Back.TabIndex = 6;
+            this.btn_Back.Text = "رجوع";
+            this.btn_Back.UseVisualStyleBackColor = true;
+            this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Edit.Location = new System.Drawing.Point(331, 6);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(99, 55);
+            this.btn_Edit.TabIndex = 8;
+            this.btn_Edit.Text = "تعديل";
+            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(226, 6);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(99, 55);
+            this.btn_Delete.TabIndex = 7;
+            this.btn_Delete.Text = "حذف";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -94,50 +142,6 @@
             this.Dgrid_Result.Name = "Dgrid_Result";
             this.Dgrid_Result.Size = new System.Drawing.Size(646, 350);
             this.Dgrid_Result.TabIndex = 8;
-            // 
-            // btn_Add
-            // 
-            this.btn_Add.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(436, 6);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(99, 55);
-            this.btn_Add.TabIndex = 5;
-            this.btn_Add.Text = "أضافة";
-            this.btn_Add.UseVisualStyleBackColor = true;
-            // 
-            // btn_Back
-            // 
-            this.btn_Back.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(121, 6);
-            this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(99, 55);
-            this.btn_Back.TabIndex = 6;
-            this.btn_Back.Text = "رجوع";
-            this.btn_Back.UseVisualStyleBackColor = true;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(226, 6);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(99, 55);
-            this.btn_Delete.TabIndex = 7;
-            this.btn_Delete.Text = "حذف";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Edit.Location = new System.Drawing.Point(331, 6);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(99, 55);
-            this.btn_Edit.TabIndex = 8;
-            this.btn_Edit.Text = "تعديل";
-            this.btn_Edit.UseVisualStyleBackColor = true;
             // 
             // frmBaseSearchForm
             // 

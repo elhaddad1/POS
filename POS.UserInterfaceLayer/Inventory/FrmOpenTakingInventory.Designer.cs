@@ -48,6 +48,7 @@
             this.cmb_inventory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbx_notes = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panl_Header.SuspendLayout();
             this.grb_takingOn.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +82,7 @@
             this.panl_Header.Location = new System.Drawing.Point(0, 0);
             this.panl_Header.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panl_Header.Name = "panl_Header";
-            this.panl_Header.Size = new System.Drawing.Size(610, 65);
+            this.panl_Header.Size = new System.Drawing.Size(600, 65);
             this.panl_Header.TabIndex = 2;
             // 
             // lbl_FormHeader
@@ -89,7 +90,7 @@
             this.lbl_FormHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_FormHeader.AutoSize = true;
             this.lbl_FormHeader.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_FormHeader.Location = new System.Drawing.Point(283, 25);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(278, 25);
             this.lbl_FormHeader.Name = "lbl_FormHeader";
             this.lbl_FormHeader.Size = new System.Drawing.Size(51, 19);
             this.lbl_FormHeader.TabIndex = 0;
@@ -188,10 +189,9 @@
             // 
             // btn_newTaking
             // 
-            this.btn_newTaking.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_newTaking.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_newTaking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newTaking.Location = new System.Drawing.Point(383, 7);
+            this.btn_newTaking.Location = new System.Drawing.Point(378, 7);
             this.btn_newTaking.Name = "btn_newTaking";
             this.btn_newTaking.Size = new System.Drawing.Size(104, 48);
             this.btn_newTaking.TabIndex = 6;
@@ -207,15 +207,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 454);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(610, 63);
+            this.panel1.Size = new System.Drawing.Size(600, 63);
             this.panel1.TabIndex = 6;
             // 
             // btn_back
             // 
-            this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_back.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.Location = new System.Drawing.Point(123, 7);
+            this.btn_back.Location = new System.Drawing.Point(118, 7);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(104, 48);
             this.btn_back.TabIndex = 8;
@@ -225,10 +224,9 @@
             // 
             // btn_save
             // 
-            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_save.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(256, 7);
+            this.btn_save.Location = new System.Drawing.Point(251, 7);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(104, 48);
             this.btn_save.TabIndex = 7;
@@ -277,6 +275,14 @@
             this.tbx_notes.TabIndex = 10;
             this.tbx_notes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(600, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 517);
+            this.panel2.TabIndex = 11;
+            // 
             // FrmOpenTakingInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,12 +299,13 @@
             this.Controls.Add(this.panl_Header);
             this.Controls.Add(this.tbx_takingName);
             this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmOpenTakingInventory";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "شاشه فتح جرد";
             this.Load += new System.EventHandler(this.FrmOpenTakingInventory_Load);
             this.panl_Header.ResumeLayout(false);
@@ -333,5 +340,6 @@
         private System.Windows.Forms.ComboBox cmb_inventory;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbx_notes;
+        private System.Windows.Forms.Panel panel2;
     }
 }
