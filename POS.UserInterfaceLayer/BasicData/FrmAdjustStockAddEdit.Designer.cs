@@ -38,15 +38,16 @@
             this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_stock = new System.Windows.Forms.DataGridView();
-            this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbx_Store = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.num_Qty = new System.Windows.Forms.NumericUpDown();
+            this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(3165, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(3524, 21);
             // 
             // panl_Footer
             // 
@@ -75,7 +76,7 @@
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(2624, 7);
+            this.btn_Back.Location = new System.Drawing.Point(2983, 7);
             // 
             // cbx_StockTypeTO
             // 
@@ -172,6 +173,7 @@
             this.dgrid_stock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_code,
             this.col_invProductStock,
+            this.StockTypeID,
             this.col_name,
             this.col_stockType,
             this.col_qty});
@@ -184,43 +186,6 @@
             this.dgrid_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_stock.Size = new System.Drawing.Size(562, 169);
             this.dgrid_stock.TabIndex = 4;
-            // 
-            // col_code
-            // 
-            this.col_code.DataPropertyName = "ProductCode";
-            this.col_code.HeaderText = "كود المنتج";
-            this.col_code.Name = "col_code";
-            this.col_code.ReadOnly = true;
-            // 
-            // col_invProductStock
-            // 
-            this.col_invProductStock.DataPropertyName = "ProductStockID";
-            this.col_invProductStock.HeaderText = "Column1";
-            this.col_invProductStock.Name = "col_invProductStock";
-            this.col_invProductStock.ReadOnly = true;
-            this.col_invProductStock.Visible = false;
-            // 
-            // col_name
-            // 
-            this.col_name.DataPropertyName = "ProductName";
-            this.col_name.HeaderText = "اسم المنتج";
-            this.col_name.Name = "col_name";
-            this.col_name.ReadOnly = true;
-            this.col_name.Width = 200;
-            // 
-            // col_stockType
-            // 
-            this.col_stockType.DataPropertyName = "StockType";
-            this.col_stockType.HeaderText = "نوع المخزون";
-            this.col_stockType.Name = "col_stockType";
-            this.col_stockType.ReadOnly = true;
-            // 
-            // col_qty
-            // 
-            this.col_qty.DataPropertyName = "TotalQty";
-            this.col_qty.HeaderText = "الكميه";
-            this.col_qty.Name = "col_qty";
-            this.col_qty.ReadOnly = true;
             // 
             // cbx_Store
             // 
@@ -260,6 +225,50 @@
             this.num_Qty.Name = "num_Qty";
             this.num_Qty.Size = new System.Drawing.Size(241, 22);
             this.num_Qty.TabIndex = 77;
+            // 
+            // col_code
+            // 
+            this.col_code.DataPropertyName = "ProductCode";
+            this.col_code.HeaderText = "كود المنتج";
+            this.col_code.Name = "col_code";
+            this.col_code.ReadOnly = true;
+            // 
+            // col_invProductStock
+            // 
+            this.col_invProductStock.DataPropertyName = "ProductStockID";
+            this.col_invProductStock.HeaderText = "Column1";
+            this.col_invProductStock.Name = "col_invProductStock";
+            this.col_invProductStock.ReadOnly = true;
+            this.col_invProductStock.Visible = false;
+            // 
+            // StockTypeID
+            // 
+            this.StockTypeID.HeaderText = "StockTypeID";
+            this.StockTypeID.Name = "StockTypeID";
+            this.StockTypeID.ReadOnly = true;
+            this.StockTypeID.Visible = false;
+            // 
+            // col_name
+            // 
+            this.col_name.DataPropertyName = "ProductName";
+            this.col_name.HeaderText = "اسم المنتج";
+            this.col_name.Name = "col_name";
+            this.col_name.ReadOnly = true;
+            this.col_name.Width = 200;
+            // 
+            // col_stockType
+            // 
+            this.col_stockType.DataPropertyName = "StockType";
+            this.col_stockType.HeaderText = "نوع المخزون";
+            this.col_stockType.Name = "col_stockType";
+            this.col_stockType.ReadOnly = true;
+            // 
+            // col_qty
+            // 
+            this.col_qty.DataPropertyName = "TotalQty";
+            this.col_qty.HeaderText = "الكميه";
+            this.col_qty.Name = "col_qty";
+            this.col_qty.ReadOnly = true;
             // 
             // FrmAdjustStockAddEdit
             // 
@@ -314,11 +323,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_expiry;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_batchQty;
         private System.Windows.Forms.DataGridView dgrid_stock;
+        private System.Windows.Forms.NumericUpDown num_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_invProductStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StockTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_stockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_qty;
-        private System.Windows.Forms.NumericUpDown num_Qty;
     }
 }

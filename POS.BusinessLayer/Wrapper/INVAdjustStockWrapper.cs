@@ -109,7 +109,7 @@ namespace POS.BusinessLayer.Wrapper
         }
 
 
-        public bool SaveTransferOrder(INVAdjustStockCollection adjustStockCollection)
+        public bool SaveAdjustStock(INVAdjustStockCollection adjustStockCollection)
         {
 
             POS.DataLayer.INVAdjustStockCollection _adjustStockCollection = new DataLayer.INVAdjustStockCollection();
