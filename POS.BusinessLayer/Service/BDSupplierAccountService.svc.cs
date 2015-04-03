@@ -1,10 +1,14 @@
 //
 // Class	:	BDSupplierAccountServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:36:57 PM
+// Date		:	4/4/2015 12:03:47 AM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -67,6 +71,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 			return _bDSupplierAccountWCF;
 		}
@@ -99,6 +104,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -148,6 +154,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -180,6 +187,7 @@ namespace POS.BusinessLayer
 			_bDSupplierAccount.IsDeleted=bDSupplierAccount.IsDeleted;
 			_bDSupplierAccount.DeleteDate=bDSupplierAccount.DeleteDate;
 			_bDSupplierAccount.DeletedBy=bDSupplierAccount.DeletedBy;
+			_bDSupplierAccount.InvoiceType=bDSupplierAccount.InvoiceType;
 			
 			return _bDSupplierAccount.Insert();
 		}
@@ -226,6 +234,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -265,6 +274,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -313,6 +323,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -352,6 +363,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -400,6 +412,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -439,6 +452,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -477,6 +491,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -520,6 +535,7 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.IsDeleted = _bDSupplierAccount.IsDeleted;
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
+				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -551,6 +567,7 @@ namespace POS.BusinessLayer
 			_bDSupplierAccount.IsDeleted=bDSupplierAccount.IsDeleted;
 			_bDSupplierAccount.DeleteDate=bDSupplierAccount.DeleteDate;
 			_bDSupplierAccount.DeletedBy=bDSupplierAccount.DeletedBy;
+			_bDSupplierAccount.InvoiceType=bDSupplierAccount.InvoiceType;
 			
 			return _bDSupplierAccount.Update();
 		}

@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierAccountBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:36:57 PM
+// Date		:	4/4/2015 12:03:47 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -66,6 +66,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public int? DeletedBy {get;set;}
+
+		[DataMember]
+		public int? InvoiceType {get;set;}
 
 		
 		#endregion

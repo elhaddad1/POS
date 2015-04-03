@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/12/2015 1:28:42 AM
+// Date		:	4/4/2015 12:03:46 AM
 //
 	
 using System;
@@ -12,7 +12,7 @@ using System.Runtime.Serialization;
 
 namespace POS.BusinessLayer
 {
-	[DataContract(Namespace = "POS.UserInterfaceLayer")]
+	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class INVAdjustStockPrimaryKey
 	{
 		#region Data Contract (Business Object Interface To Service)

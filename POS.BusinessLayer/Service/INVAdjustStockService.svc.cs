@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/12/2015 1:28:42 AM
+// Date		:	4/4/2015 12:03:46 AM
 //
 
 using System;
@@ -66,6 +66,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
 				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
 				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
+				_iNVAdjustStockWCF.ExpiryDate = _iNVAdjustStock.ExpiryDate;
+				_iNVAdjustStockWCF.BatchNumber = _iNVAdjustStock.BatchNumber;
 				
 			return _iNVAdjustStockWCF;
 		}
@@ -93,6 +95,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
 				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
 				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
+				_iNVAdjustStockWCF.ExpiryDate = _iNVAdjustStock.ExpiryDate;
+				_iNVAdjustStockWCF.BatchNumber = _iNVAdjustStock.BatchNumber;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -137,6 +141,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
 				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
 				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
+				_iNVAdjustStockWCF.ExpiryDate = _iNVAdjustStock.ExpiryDate;
+				_iNVAdjustStockWCF.BatchNumber = _iNVAdjustStock.BatchNumber;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -164,6 +170,8 @@ namespace POS.BusinessLayer
 			_iNVAdjustStock.UpdateDate=iNVAdjustStock.UpdateDate;
 			_iNVAdjustStock.StockTypeID=iNVAdjustStock.StockTypeID;
 			_iNVAdjustStock.InventoryID=iNVAdjustStock.InventoryID;
+			_iNVAdjustStock.ExpiryDate=iNVAdjustStock.ExpiryDate;
+			_iNVAdjustStock.BatchNumber=iNVAdjustStock.BatchNumber;
 			
 			return _iNVAdjustStock.Insert();
 		}
@@ -195,6 +203,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
 				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
 				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
+				_iNVAdjustStockWCF.ExpiryDate = _iNVAdjustStock.ExpiryDate;
+				_iNVAdjustStockWCF.BatchNumber = _iNVAdjustStock.BatchNumber;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -233,6 +243,8 @@ namespace POS.BusinessLayer
 				_iNVAdjustStockWCF.UpdateDate = _iNVAdjustStock.UpdateDate;
 				_iNVAdjustStockWCF.StockTypeID = _iNVAdjustStock.StockTypeID;
 				_iNVAdjustStockWCF.InventoryID = _iNVAdjustStock.InventoryID;
+				_iNVAdjustStockWCF.ExpiryDate = _iNVAdjustStock.ExpiryDate;
+				_iNVAdjustStockWCF.BatchNumber = _iNVAdjustStock.BatchNumber;
 				
 				iNVAdjustStockCollection.Add(_iNVAdjustStockWCF);
 			}
@@ -259,6 +271,8 @@ namespace POS.BusinessLayer
 			_iNVAdjustStock.UpdateDate=iNVAdjustStock.UpdateDate;
 			_iNVAdjustStock.StockTypeID=iNVAdjustStock.StockTypeID;
 			_iNVAdjustStock.InventoryID=iNVAdjustStock.InventoryID;
+			_iNVAdjustStock.ExpiryDate=iNVAdjustStock.ExpiryDate;
+			_iNVAdjustStock.BatchNumber=iNVAdjustStock.BatchNumber;
 			
 			return _iNVAdjustStock.Update();
 		}
