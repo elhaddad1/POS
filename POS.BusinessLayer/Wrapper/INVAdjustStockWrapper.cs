@@ -107,5 +107,30 @@ namespace POS.BusinessLayer.Wrapper
             }
             return resultList;
         }
+
+
+        public bool SaveTransferOrder(INVAdjustStockCollection adjustStockCollection)
+        {
+
+            POS.DataLayer.INVAdjustStockCollection _adjustStockCollection = new DataLayer.INVAdjustStockCollection();
+            foreach (INVAdjustStock adjustStock in adjustStockCollection)
+            {
+                POS.DataLayer.INVAdjustStock _adjustStock = new POS.DataLayer.INVAdjustStock();
+                _adjustStock.ProductID = adjustStock.ProductID;
+                _adjustStock.AdjustReasonID = adjustStock.AdjustReasonID;
+                _adjustStock.AdjustStockID = adjustStock.AdjustStockID;
+                _adjustStock.BatchID = adjustStock.BatchID;
+                _adjustStock.InventoryID = adjustStock.InventoryID;
+                _adjustStock.StockTypeID = adjustStock.StockTypeID;
+                _adjustStock.Qty = adjustStock.Qty;
+                _adjustStock.UpdateDate = adjustStock.UpdateDate;
+                _adjustStock.UpdatedBy = adjustStock.UpdatedBy;
+                _adjustStock.CredateDate = adjustStock.CredateDate;
+                _adjustStock.CreatedBy = adjustStock.CreatedBy;
+                _adjustStockCollection.Add(_adjustStock);
+            }
+            POS.DataLayer.INVAdjustStock adjustStockEntity = new DataLayer.INVAdjustStock();
+            return adjustStockEntity.SaveTransaction(_adjustStockCollection);
+        }
     }
 }
