@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/12/2015 1:28:42 AM
+// Date		:	4/4/2015 1:32:30 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -12,7 +12,7 @@ namespace POS.BusinessLayer
 	/// <summary>
 	/// Class for the properties of the object
 	/// </summary>
-	[DataContract(Namespace = "POS.UserInterfaceLayer")]
+	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class INVAdjustStockBase
 	{
 
@@ -50,7 +50,16 @@ namespace POS.BusinessLayer
 		public int? StockTypeID {get;set;}
 
 		[DataMember]
+		public int? OldStockTypeID {get;set;}
+
+		[DataMember]
 		public int? InventoryID {get;set;}
+
+		[DataMember]
+		public DateTime? ExpiryDate {get;set;}
+
+		[DataMember]
+		public string BatchNumber {get;set;}
 
 		
 		#endregion

@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/12/2015 1:28:41 AM
+// Date		:	4/4/2015 1:32:30 PM
 //
 
 using System;
@@ -33,7 +33,10 @@ namespace POS.DataLayer
 		public const string UpdatedBy                 = "UpdatedBy";
 		public const string UpdateDate                = "UpdateDate";
 		public const string StockTypeID               = "StockTypeID";
+		public const string OldStockTypeID            = "OldStockTypeID";
 		public const string InventoryID               = "InventoryID";
+		public const string ExpiryDate                = "ExpiryDate";
+		public const string BatchNumber               = "BatchNumber";
 	}
 	
 	/// <summary>
@@ -57,7 +60,10 @@ namespace POS.DataLayer
 		private int?           	_updatedByNonDefault     	= null;
 		private DateTime?      	_updateDateNonDefault    	= null;
 		private int?           	_stockTypeIDNonDefault   	= null;
+		private int?           	_oldStockTypeIDNonDefault	= null;
 		private int?           	_inventoryIDNonDefault   	= null;
+		private DateTime?      	_expiryDateNonDefault    	= null;
+		private string         	_batchNumberNonDefault   	= null;
 		
 		#endregion
 		
@@ -237,6 +243,22 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// This property is mapped to the "OldStockTypeID" field.  Mandatory.
+		/// </summary>
+		public int? OldStockTypeID
+		{
+			get 
+			{ 
+				return _oldStockTypeIDNonDefault;
+			}
+			set 
+			{
+			
+				_oldStockTypeIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
 		/// This property is mapped to the "InventoryID" field.  Mandatory.
 		/// </summary>
 		public int? InventoryID
@@ -249,6 +271,49 @@ namespace POS.DataLayer
 			{
 			
 				_inventoryIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "ExpiryDate" field.  
+		/// </summary>
+		public DateTime? ExpiryDate
+		{
+			get 
+			{ 
+				return _expiryDateNonDefault;
+			}
+			set 
+			{
+			
+				_expiryDateNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "BatchNumber" field. Length must be between 0 and 2147483647 characters. 
+		/// </summary>
+		public string BatchNumber
+		{
+			get 
+			{ 
+				if(_batchNumberNonDefault==null)return _batchNumberNonDefault;
+				else return _batchNumberNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value != null && value.Length > 2147483647)
+					throw new ArgumentException("BatchNumber length must be between 0 and 2147483647 characters.");
+
+				
+				if(value ==null)
+				{
+					_batchNumberNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_batchNumberNonDefault = value.Trim(); 
+				}
 			}
 		}
 
@@ -266,7 +331,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -331,11 +396,29 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
 			  
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			if(_oldStockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", DBNull.Value );
+			  
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			if(_inventoryIDNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			  
+			// Pass the value of '_expiryDate' as parameter 'ExpiryDate' of the stored procedure.
+			if(_expiryDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
+			  
+			// Pass the value of '_batchNumber' as parameter 'BatchNumber' of the stored procedure.
+			if(_batchNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@BatchNumber", _batchNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@BatchNumber", DBNull.Value );
 			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -367,7 +450,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -423,11 +506,26 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			if(_oldStockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", DBNull.Value );
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			if(_inventoryIDNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value );
+			// Pass the value of '_expiryDate' as parameter 'ExpiryDate' of the stored procedure.
+			if(_expiryDateNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
+			// Pass the value of '_batchNumber' as parameter 'BatchNumber' of the stored procedure.
+			if(_batchNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@BatchNumber", _batchNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@BatchNumber", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -447,7 +545,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -488,8 +586,17 @@ namespace POS.DataLayer
 			// Pass the value of '_stockTypeID' as parameter 'StockTypeID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault );
 			
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault );
+			
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault );
+			
+			// Pass the value of '_expiryDate' as parameter 'ExpiryDate' of the stored procedure.
+			oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault );
+			
+			// Pass the value of '_batchNumber' as parameter 'BatchNumber' of the stored procedure.
+			oDatabaseHelper.AddParameter("@BatchNumber", _batchNumberNonDefault );
 			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
@@ -510,7 +617,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -547,7 +654,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -586,7 +693,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -621,7 +728,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -669,7 +776,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -706,7 +813,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -748,7 +855,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -794,7 +901,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -835,7 +942,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -872,7 +979,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -909,7 +1016,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -952,7 +1059,18 @@ namespace POS.DataLayer
 			}
 			
 			obj.StockTypeID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.StockTypeID));
+			obj.OldStockTypeID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.OldStockTypeID));
 			obj.InventoryID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.InventoryID));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVAdjustStockFields.ExpiryDate)))
+			{
+				obj.ExpiryDate = rdr.GetDateTime(rdr.GetOrdinal(INVAdjustStockFields.ExpiryDate));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVAdjustStockFields.BatchNumber)))
+			{
+				obj.BatchNumber = rdr.GetString(rdr.GetOrdinal(INVAdjustStockFields.BatchNumber));
+			}
+			
 
 		}
 
@@ -968,7 +1086,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1000,7 +1118,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/12/2015 1:28:41 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -48,7 +48,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(227, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(189, 9);
             // 
             // panl_Footer
             // 
@@ -72,20 +72,21 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(379, 2);
+            this.btn_Add.Location = new System.Drawing.Point(341, 2);
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(64, 2);
+            this.btn_Back.Location = new System.Drawing.Point(26, 2);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(274, 2);
+            this.btn_Edit.Location = new System.Drawing.Point(236, 2);
+            this.btn_Edit.Visible = false;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(169, 2);
+            this.btn_Delete.Location = new System.Drawing.Point(131, 2);
             // 
             // btn_Search
             // 
