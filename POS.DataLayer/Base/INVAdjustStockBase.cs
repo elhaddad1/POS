@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:46 AM
+// Date		:	4/4/2015 1:32:30 PM
 //
 
 using System;
@@ -33,6 +33,7 @@ namespace POS.DataLayer
 		public const string UpdatedBy                 = "UpdatedBy";
 		public const string UpdateDate                = "UpdateDate";
 		public const string StockTypeID               = "StockTypeID";
+		public const string OldStockTypeID            = "OldStockTypeID";
 		public const string InventoryID               = "InventoryID";
 		public const string ExpiryDate                = "ExpiryDate";
 		public const string BatchNumber               = "BatchNumber";
@@ -59,6 +60,7 @@ namespace POS.DataLayer
 		private int?           	_updatedByNonDefault     	= null;
 		private DateTime?      	_updateDateNonDefault    	= null;
 		private int?           	_stockTypeIDNonDefault   	= null;
+		private int?           	_oldStockTypeIDNonDefault	= null;
 		private int?           	_inventoryIDNonDefault   	= null;
 		private DateTime?      	_expiryDateNonDefault    	= null;
 		private string         	_batchNumberNonDefault   	= null;
@@ -241,6 +243,22 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// This property is mapped to the "OldStockTypeID" field.  Mandatory.
+		/// </summary>
+		public int? OldStockTypeID
+		{
+			get 
+			{ 
+				return _oldStockTypeIDNonDefault;
+			}
+			set 
+			{
+			
+				_oldStockTypeIDNonDefault = value; 
+			}
+		}
+
+		/// <summary>
 		/// This property is mapped to the "InventoryID" field.  Mandatory.
 		/// </summary>
 		public int? InventoryID
@@ -313,7 +331,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -378,6 +396,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
 			  
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			if(_oldStockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", DBNull.Value );
+			  
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			if(_inventoryIDNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
@@ -426,7 +450,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -482,6 +506,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			if(_oldStockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@OldStockTypeID", DBNull.Value );
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			if(_inventoryIDNonDefault!=null)
 			  oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault);
@@ -516,7 +545,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -557,6 +586,9 @@ namespace POS.DataLayer
 			// Pass the value of '_stockTypeID' as parameter 'StockTypeID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault );
 			
+			// Pass the value of '_oldStockTypeID' as parameter 'OldStockTypeID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@OldStockTypeID", _oldStockTypeIDNonDefault );
+			
 			// Pass the value of '_inventoryID' as parameter 'InventoryID' of the stored procedure.
 			oDatabaseHelper.AddParameter("@InventoryID", _inventoryIDNonDefault );
 			
@@ -585,7 +617,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -622,7 +654,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -661,7 +693,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -696,7 +728,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -744,7 +776,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -781,7 +813,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -823,7 +855,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -869,7 +901,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -910,7 +942,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -947,7 +979,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -984,7 +1016,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1027,6 +1059,7 @@ namespace POS.DataLayer
 			}
 			
 			obj.StockTypeID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.StockTypeID));
+			obj.OldStockTypeID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.OldStockTypeID));
 			obj.InventoryID = rdr.GetInt32(rdr.GetOrdinal(INVAdjustStockFields.InventoryID));
 			if (!rdr.IsDBNull(rdr.GetOrdinal(INVAdjustStockFields.ExpiryDate)))
 			{
@@ -1053,7 +1086,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1085,7 +1118,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

@@ -1,7 +1,7 @@
 //
 // Class	:	INVAdjustStockPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:46 AM
+// Date		:	4/4/2015 1:32:30 PM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			4/4/2015 1:32:30 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

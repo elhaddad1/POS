@@ -21,6 +21,8 @@ namespace POS.BusinessLayer.Wrapper
 
         private ADUserService aduserService = new ADUserService();
 
+        private INVProductStockWrapper _invProductStockWrapper = new INVProductStockWrapper();
+
         public List<INVAdjustStock> getAllINVAdjustStock()
         {
             List<INVAdjustStock> resultList = new List<INVAdjustStock>();
@@ -108,6 +110,48 @@ namespace POS.BusinessLayer.Wrapper
             return resultList;
         }
 
+
+        public List<INVProductStock> GetProductStockList(int invId)
+        {
+            List<INVProductStock> productStockList = new List<INVProductStock>();
+
+            try
+            {
+                productStockList = (from item in _invProductStockWrapper.SelectByField(invId)
+                                    join product in productService.SelectAll() on item.ProductID equals product.ProductID
+                                    join invt in invinventoryService.SelectAll() on item.InventoryID equals invt.InventoryID
+                                    join sType in invStockTypeService.SelectAll() on item.StockTypeID equals sType.StockTypeID
+                                    join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
+                                    select new INVProductStock()
+                                    {
+                                        BatchNo = item.BatchNo,
+                                        BatchQty = item.BatchQty,
+                                        CreateDate = item.CreateDate,
+                                        CreatedBy = item.CreatedBy,
+                                        ExpiryDate = item.ExpiryDate,
+                                        InventoryID = item.InventoryID,
+                                        ProductID = item.ProductID,
+                                        ProductName = product.ProductName,
+                                        IsBlocked = item.IsBlocked,
+                                        StockTypeID = item.StockTypeID,
+                                        UpdateDate = item.UpdateDate,
+                                        UpdatedBy = item.UpdatedBy,
+                                        StockType = sType.StockTypeName,
+                                        OpeningQty = item.ProductID,
+                                        OpennigDate = item.OpennigDate,
+                                        ProductCode = product.ProductCode,
+                                        ProductStockID = item.ProductStockID,
+                                        TotalQty = item.TotalQty
+                                    }
+                                  ).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return productStockList;
+        }
 
         public bool SaveAdjustStock(INVAdjustStockCollection adjustStockCollection)
         {

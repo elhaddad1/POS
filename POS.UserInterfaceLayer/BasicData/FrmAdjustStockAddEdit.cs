@@ -117,8 +117,9 @@ namespace POS.UserInterfaceLayer.BasicData
         private void FillProductStock()
         {
             dgrid_stock.AutoGenerateColumns = false;
-            dgrid_stock.DataSource = _invProductStockWrapper.SelectByField(Convert.ToInt32(cbx_Store.SelectedValue));
+            dgrid_stock.DataSource = _adjustStockWrapper.GetProductStockList(Convert.ToInt32(cbx_Store.SelectedValue));
         }
+
 
         private void FillBatches()
         {
@@ -185,7 +186,7 @@ namespace POS.UserInterfaceLayer.BasicData
             bool isValid = false;
             bool isValidProduct = false;
             int ProductID=0;
-            int oldStockTypeId = dgrid_stock.SelectedRows.Count > 0 ? int.Parse(dgrid_stock.SelectedRows[0].Cells["StockTypeID"].Value.ToString()) : 0;
+            int? oldStockTypeId = dgrid_stock.SelectedRows.Count > 0 ? int.Parse(dgrid_stock.SelectedRows[0].Cells["StockTypeID"].Value.ToString()) : 0;
             string BatchID = dgrid_batches.SelectedRows.Count > 0 ? dgrid_batches.SelectedRows[0].Cells["BatchNumber"].Value.ToString() : "";
             DateTime? ExpiryDate = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDateTime(dgrid_batches.SelectedRows[0].Cells["ExpiryDate"].Value.ToString()) : (DateTime?)null;
             int AdjustReasonID = 0;
@@ -210,13 +211,25 @@ namespace POS.UserInterfaceLayer.BasicData
                 isValid= false;
             else
             {
+
                 isValid = true;
+
+                if (_isEdit)
+                {
+                    INVAdjustStock _EditNewAdjustStock = _adjustStock;
+                    _EditNewAdjustStock.Qty *= -1;
+                    _adjustStockCollection.Add(_EditNewAdjustStock);
+                    INVAdjustStock _EditOldAdjustStock = _adjustStock;
+                    _adjustStock.StockTypeID = _adjustStock.OldStockTypeID;
+                    _adjustStockCollection.Add(_EditOldAdjustStock);
+                }
                 _adjustStock.ProductID = ProductID;
                 _adjustStock.AdjustReasonID = AdjustReasonID;
                 _adjustStock.AdjustStockID = _adjustStockID;
                 _adjustStock.BatchID = null;
                 _adjustStock.InventoryID = InventoryID;
                 _adjustStock.StockTypeID = StockTypeID;
+                _adjustStock.OldStockTypeID = oldStockTypeId;
                 _adjustStock.Qty = Qty;
                 _adjustStock.BatchNumber = BatchID;
                 _adjustStock.ExpiryDate = ExpiryDate;
