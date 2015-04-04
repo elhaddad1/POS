@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrid_Roles = new System.Windows.Forms.DataGridView();
             this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -44,7 +44,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(173, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(158, 9);
             // 
             // panl_Footer
             // 
@@ -53,11 +53,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(195, 4);
+            this.btn_Save.Location = new System.Drawing.Point(263, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(90, 4);
+            this.btn_Back.Location = new System.Drawing.Point(158, 4);
             // 
             // dgrid_Roles
             // 
@@ -80,8 +80,8 @@
             // 
             // Check
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Check.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Check.DefaultCellStyle = dataGridViewCellStyle2;
             this.Check.HeaderText = "";
             this.Check.Name = "Check";
             // 
@@ -96,6 +96,8 @@
             this.ClientSize = new System.Drawing.Size(381, 272);
             this.Controls.Add(this.dgrid_Roles);
             this.Name = "frmGroupPriviliges";
+            this.TopMost = false;
+            this.Load += new System.EventHandler(this.frmGroupPriviliges_Load);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.dgrid_Roles, 0);

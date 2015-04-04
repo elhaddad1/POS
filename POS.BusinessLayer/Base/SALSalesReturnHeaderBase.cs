@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/8/2015 12:43:28 AM
+// Date		:	4/4/2015 6:56:39 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -54,6 +54,12 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public bool? IsVoid {get;set;}
+
+		[DataMember]
+		public int? InventoryID {get;set;}
+
+		[DataMember]
+		public decimal? ReturnMoney {get;set;}
 
 		
 		#endregion

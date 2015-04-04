@@ -1,9 +1,8 @@
 //
 // Class	:	SALSalesReturnHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/8/2015 12:43:28 AM
+// Date		:	4/4/2015 6:56:39 PM
 //
-
 
 using POS.DataLayer;
 
@@ -63,6 +62,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
 				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
 				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
 				
 			return _sALSalesReturnHeaderWCF;
 		}
@@ -91,6 +92,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
 				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
 				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -136,6 +139,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
 				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
 				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -164,10 +169,95 @@ namespace POS.BusinessLayer
 			_sALSalesReturnHeader.DeleteDate=sALSalesReturnHeader.DeleteDate;
 			_sALSalesReturnHeader.IsClosed=sALSalesReturnHeader.IsClosed;
 			_sALSalesReturnHeader.IsVoid=sALSalesReturnHeader.IsVoid;
+			_sALSalesReturnHeader.InventoryID=sALSalesReturnHeader.InventoryID;
+			_sALSalesReturnHeader.ReturnMoney=sALSalesReturnHeader.ReturnMoney;
 			
 			return _sALSalesReturnHeader.Insert();
 		}
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			return POS.DataLayer.SALSalesReturnHeaderBase.DeleteAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID));
+		}
 		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class SALSalesReturnHeaderCollection</returns>
+		public SALSalesReturnHeaderCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			SALSalesReturnHeaderCollection sALSalesReturnHeaderCollection=new SALSalesReturnHeaderCollection();
+			foreach (POS.DataLayer.SALSalesReturnHeader _sALSalesReturnHeader in POS.DataLayer.SALSalesReturnHeaderBase.SelectAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID)))
+			{
+				_sALSalesReturnHeaderWCF = new SALSalesReturnHeader();
+				_sALSalesReturnHeaderWCF.SlaesReturnHeaderID = _sALSalesReturnHeader.SlaesReturnHeaderID;
+				_sALSalesReturnHeaderWCF.ReturnDate = _sALSalesReturnHeader.ReturnDate;
+				_sALSalesReturnHeaderWCF.OriginalSalesHeadeID = _sALSalesReturnHeader.OriginalSalesHeadeID;
+				_sALSalesReturnHeaderWCF.CreatedBy = _sALSalesReturnHeader.CreatedBy;
+				_sALSalesReturnHeaderWCF.CreateDate = _sALSalesReturnHeader.CreateDate;
+				_sALSalesReturnHeaderWCF.UpdatedBy = _sALSalesReturnHeader.UpdatedBy;
+				_sALSalesReturnHeaderWCF.UpdateDate = _sALSalesReturnHeader.UpdateDate;
+				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
+				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
+				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
+				
+				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
+			}
+			return sALSalesReturnHeaderCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class SALSalesReturnHeaderCollection</returns>
+		public SALSalesReturnHeaderCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			SALSalesReturnHeaderCollection sALSalesReturnHeaderCollection=new SALSalesReturnHeaderCollection();
+			foreach (POS.DataLayer.SALSalesReturnHeader _sALSalesReturnHeader in POS.DataLayer.SALSalesReturnHeaderBase.SelectAllByForeignKeyInventoryIDPaged(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID), pageSize, skipPages, orderByStatement))
+			{
+				_sALSalesReturnHeaderWCF = new SALSalesReturnHeader();
+				_sALSalesReturnHeaderWCF.SlaesReturnHeaderID = _sALSalesReturnHeader.SlaesReturnHeaderID;
+				_sALSalesReturnHeaderWCF.ReturnDate = _sALSalesReturnHeader.ReturnDate;
+				_sALSalesReturnHeaderWCF.OriginalSalesHeadeID = _sALSalesReturnHeader.OriginalSalesHeadeID;
+				_sALSalesReturnHeaderWCF.CreatedBy = _sALSalesReturnHeader.CreatedBy;
+				_sALSalesReturnHeaderWCF.CreateDate = _sALSalesReturnHeader.CreateDate;
+				_sALSalesReturnHeaderWCF.UpdatedBy = _sALSalesReturnHeader.UpdatedBy;
+				_sALSalesReturnHeaderWCF.UpdateDate = _sALSalesReturnHeader.UpdateDate;
+				_sALSalesReturnHeaderWCF.IsDeleted = _sALSalesReturnHeader.IsDeleted;
+				_sALSalesReturnHeaderWCF.DeletedBy = _sALSalesReturnHeader.DeletedBy;
+				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
+				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
+				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
+				
+				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
+			}
+			return sALSalesReturnHeaderCollection;
+		}
+			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -196,6 +286,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
 				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
 				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -235,6 +327,8 @@ namespace POS.BusinessLayer
 				_sALSalesReturnHeaderWCF.DeleteDate = _sALSalesReturnHeader.DeleteDate;
 				_sALSalesReturnHeaderWCF.IsClosed = _sALSalesReturnHeader.IsClosed;
 				_sALSalesReturnHeaderWCF.IsVoid = _sALSalesReturnHeader.IsVoid;
+				_sALSalesReturnHeaderWCF.InventoryID = _sALSalesReturnHeader.InventoryID;
+				_sALSalesReturnHeaderWCF.ReturnMoney = _sALSalesReturnHeader.ReturnMoney;
 				
 				sALSalesReturnHeaderCollection.Add(_sALSalesReturnHeaderWCF);
 			}
@@ -262,6 +356,8 @@ namespace POS.BusinessLayer
 			_sALSalesReturnHeader.DeleteDate=sALSalesReturnHeader.DeleteDate;
 			_sALSalesReturnHeader.IsClosed=sALSalesReturnHeader.IsClosed;
 			_sALSalesReturnHeader.IsVoid=sALSalesReturnHeader.IsVoid;
+			_sALSalesReturnHeader.InventoryID=sALSalesReturnHeader.InventoryID;
+			_sALSalesReturnHeader.ReturnMoney=sALSalesReturnHeader.ReturnMoney;
 			
 			return _sALSalesReturnHeader.Update();
 		}
