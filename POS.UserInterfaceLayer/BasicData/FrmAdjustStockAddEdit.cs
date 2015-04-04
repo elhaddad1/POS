@@ -191,19 +191,20 @@ namespace POS.UserInterfaceLayer.BasicData
         }
 
 
-        private bool validation()
+        new private bool Validate()
         {
             bool isValid = false;
             bool isValidProduct = false;
             int ProductID=0;
-            int? oldStockTypeId = dgrid_stock.SelectedRows.Count > 0 ? int.Parse(dgrid_stock.SelectedRows[0].Cells["StockTypeID"].Value.ToString()) : 0;
-            string BatchID = dgrid_batches.SelectedRows.Count > 0 ? dgrid_batches.SelectedRows[0].Cells["BatchNumber"].Value.ToString() : "";
-            DateTime? ExpiryDate = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDateTime(dgrid_batches.SelectedRows[0].Cells["ExpiryDate"].Value.ToString()) : (DateTime?)null;
+            int? oldStockTypeId = dgrid_stock.SelectedRows.Count > 0 ? int.Parse(dgrid_stock.SelectedRows[0].Cells["col_StockTypeID"].Value.ToString()) : 0;
+            string BatchID = dgrid_batches.SelectedRows.Count > 0 ? dgrid_batches.SelectedRows[0].Cells["col_batch"].Value.ToString() : "";
+            DateTime? ExpiryDate = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDateTime(dgrid_batches.SelectedRows[0].Cells["col_expiry"].Value.ToString()) : (DateTime?)null;
+            decimal oldQty = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDecimal(dgrid_batches.SelectedRows[0].Cells["col_batchQty"].Value.ToString()) : Convert.ToDecimal(dgrid_stock.SelectedRows[0].Cells["col_qty"].Value.ToString());
             int AdjustReasonID = 0;
             int StockTypeID = 0;
             int InventoryID = 0;
             decimal Qty = num_Qty.Value;
-            int.TryParse(dgrid_stock.SelectedRows[0].Cells["ProductStockID"].Value.ToString(), out ProductID);
+            int.TryParse(dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value.ToString(), out ProductID);
             int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
             int.TryParse(cbx_StockTypeTO.SelectedValue.ToString(), out StockTypeID);
             int.TryParse(cbx_Store.SelectedValue.ToString(), out InventoryID);
@@ -217,7 +218,7 @@ namespace POS.UserInterfaceLayer.BasicData
                     isValidProduct = (!string.IsNullOrEmpty(BatchID) && ExpiryDate.HasValue);
             }
 
-            if (!isValidProduct || AdjustReasonID == 0 || StockTypeID == 0 || InventoryID == 0 || Qty == 0)
+            if (!isValidProduct || AdjustReasonID == 0 || StockTypeID == 0 || InventoryID == 0 || Qty == 0 || Qty > oldQty)
                 isValid= false;
             else
             {
