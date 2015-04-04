@@ -326,7 +326,6 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
-    <None Include="POS.BusinessLayer.Wrapper.INVTakingInventoryLineWrapper.datasource" />
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -403,9 +402,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FrmCloseTakingInventory.cs.resx">
-      <DependentUpon>FrmCloseTakingInventory.cs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
       <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
