@@ -38,16 +38,16 @@
             this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_stock = new System.Windows.Forms.DataGridView();
-            this.cbx_Store = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.num_Qty = new System.Windows.Forms.NumericUpDown();
             this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StockTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbx_Store = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.num_Qty = new System.Windows.Forms.NumericUpDown();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(3524, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(3883, 21);
             // 
             // panl_Footer
             // 
@@ -72,11 +72,11 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Save.Location = new System.Drawing.Point(3165, 7);
+            this.btn_Save.Location = new System.Drawing.Point(540, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(2983, 7);
+            this.btn_Back.Location = new System.Drawing.Point(384, 4);
             // 
             // cbx_StockTypeTO
             // 
@@ -187,45 +187,6 @@
             this.dgrid_stock.Size = new System.Drawing.Size(562, 169);
             this.dgrid_stock.TabIndex = 4;
             // 
-            // cbx_Store
-            // 
-            this.cbx_Store.FormattingEnabled = true;
-            this.cbx_Store.Location = new System.Drawing.Point(135, 101);
-            this.cbx_Store.Name = "cbx_Store";
-            this.cbx_Store.Size = new System.Drawing.Size(241, 24);
-            this.cbx_Store.TabIndex = 66;
-            this.cbx_Store.SelectedIndexChanged += new System.EventHandler(this.cbx_Store_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "المخزن ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "سبب التسويه";
-            // 
-            // num_Qty
-            // 
-            this.num_Qty.Location = new System.Drawing.Point(135, 186);
-            this.num_Qty.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.num_Qty.Name = "num_Qty";
-            this.num_Qty.Size = new System.Drawing.Size(241, 22);
-            this.num_Qty.TabIndex = 77;
-            // 
             // col_code
             // 
             this.col_code.DataPropertyName = "ProductCode";
@@ -269,6 +230,45 @@
             this.col_qty.HeaderText = "الكميه";
             this.col_qty.Name = "col_qty";
             this.col_qty.ReadOnly = true;
+            // 
+            // cbx_Store
+            // 
+            this.cbx_Store.FormattingEnabled = true;
+            this.cbx_Store.Location = new System.Drawing.Point(135, 101);
+            this.cbx_Store.Name = "cbx_Store";
+            this.cbx_Store.Size = new System.Drawing.Size(241, 24);
+            this.cbx_Store.TabIndex = 66;
+            this.cbx_Store.SelectedIndexChanged += new System.EventHandler(this.cbx_Store_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "المخزن ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "سبب التسويه";
+            // 
+            // num_Qty
+            // 
+            this.num_Qty.Location = new System.Drawing.Point(135, 186);
+            this.num_Qty.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.num_Qty.Name = "num_Qty";
+            this.num_Qty.Size = new System.Drawing.Size(241, 22);
+            this.num_Qty.TabIndex = 77;
             // 
             // FrmAdjustStockAddEdit
             // 
