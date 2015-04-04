@@ -61,7 +61,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(3524, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(3883, 21);
             // 
             // panl_Footer
             // 
@@ -71,11 +71,11 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Save.Location = new System.Drawing.Point(482, 4);
+            this.btn_Save.Location = new System.Drawing.Point(441, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(354, 4);
+            this.btn_Back.Location = new System.Drawing.Point(283, 4);
             // 
             // cbx_StockTypeTO
             // 
