@@ -73,15 +73,13 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
-            int? productGroupID = 0;
+            int? adjustStockID = 0;
             if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value != null)
             {
                 if (MessageBox.Show("هل نت متأكد من حذف المجموعة؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    productGroupID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value);
-                    INVAdjustStockPrimaryKey adjustStockPK = new INVAdjustStockPrimaryKey();
-                    adjustStockPK.AdjustStockID = productGroupID;
-                    _invAdjustStockWrapper.Delete(adjustStockPK);
+                    adjustStockID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value);
+                    _invAdjustStockWrapper.DeleteAdjustStock(adjustStockID.Value);
                 }
                 else
                 {
@@ -117,5 +115,6 @@ namespace POS.UserInterfaceLayer.BasicData
             List<INVAdjustStock> adjustStocks = _invAdjustStockWrapper.SearchByCriteria(searchModel);
             dgrid_Result.DataSource = adjustStocks;
         }
+
     }
 }

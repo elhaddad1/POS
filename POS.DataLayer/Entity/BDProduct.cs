@@ -17,7 +17,7 @@ namespace POS.DataLayer
 {
 
     /// <summary>
-    /// Data access class for the "BDProduct" table.
+    /// Data access class for the "BDProduct" table
     /// </summary>
     [Serializable]
     public class BDProduct : BDProductBase

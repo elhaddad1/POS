@@ -14,6 +14,7 @@ namespace POS.UserInterfaceLayer.Administration
     {
         ADRoleWrapper _aDRoleWrapper;
         ADGroupRoleWrapper _aDGroupRoleWrapper;
+        int _groupID;
         public frmGroupPriviliges(int groupID)
         {
             InitializeComponent();
@@ -21,8 +22,8 @@ namespace POS.UserInterfaceLayer.Administration
             _aDGroupRoleWrapper = new ADGroupRoleWrapper();
             lbl_FormHeader.Text = "صلاحيات مجموعة المستخدمين";
 
-            FillRolesDataGrid();
-            GetGroupRoles(groupID);
+          
+            _groupID = groupID;
         }
 
         /// Events
@@ -110,6 +111,12 @@ namespace POS.UserInterfaceLayer.Administration
             //    DataGridViewCheckBoxCell x = (DataGridViewCheckBoxCell)row.Cells["Check"];
             //}
 
+        }
+
+        private void frmGroupPriviliges_Load(object sender, EventArgs e)
+        {
+            FillRolesDataGrid();
+            GetGroupRoles(_groupID);
         }
     }
 }

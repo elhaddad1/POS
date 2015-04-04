@@ -72,6 +72,36 @@ namespace POS.DataLayer
             return ExecutionState;
         }
 
+
+        public bool DeleteTransaction(int ProductStockID,INVAdjustStockCollection ajustStockCollection)
+        {
+            oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            oDatabaseHelper.BeginTransaction();
+            if (DeleteProductStock(oDatabaseHelper,ProductStockID))
+            {
+
+                foreach (INVAdjustStock adjustStock in ajustStockCollection)
+                {
+                    if (!InsertDetailsAndCommit(oDatabaseHelper, adjustStock))
+                    {
+                        ExecutionState = false;
+                        break;
+                    }
+                    else
+                        ExecutionState = true;
+                }
+            }
+            else
+                ExecutionState = false;
+            if (ExecutionState)
+                oDatabaseHelper.CommitTransaction();
+            else
+                oDatabaseHelper.RollbackTransaction();
+            return ExecutionState;
+        }
+
 		#endregion
 		
 		#region Methods (Private)
@@ -119,6 +149,21 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
             oDatabaseHelper.ExecuteScalar("usp_INVInventory_AddQtyToInventory", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+
+            return ExecutionState;
+        }
+
+        private bool DeleteProductStock(DatabaseHelper oDatabaseHelper, int ProductStockID)
+        {
+            bool ExecutionState = false;
+            // Pass the value of '_TransferHeaderID' as parameter 'TransferHeaderID' of the stored procedure.
+
+            oDatabaseHelper.AddParameter("@ProductStockID", ProductStockID);
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            oDatabaseHelper.ExecuteScalar("gsp_INVProductStock_Delete", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
             return ExecutionState;
         }

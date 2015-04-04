@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnLinePrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/20/2015 2:44:14 PM
+// Date		:	4/4/2015 6:56:38 PM
 //
 	
 using System;

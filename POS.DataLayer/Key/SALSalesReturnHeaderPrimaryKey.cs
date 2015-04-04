@@ -1,7 +1,7 @@
 //
 // Class	:	SALSalesReturnHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/8/2015 12:43:27 AM
+// Date		:	4/4/2015 6:56:38 PM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/8/2015 12:43:27 AM				Created function
+		/// DLGenerator			4/4/2015 6:56:38 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
