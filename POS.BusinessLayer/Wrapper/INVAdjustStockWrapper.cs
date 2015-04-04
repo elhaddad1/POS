@@ -110,6 +110,31 @@ namespace POS.BusinessLayer.Wrapper
             return resultList;
         }
 
+        public bool DeleteAdjustStock(int id)
+        {
+            bool deleted = false;
+            try
+            {
+                INVAdjustStockCollection ajustStockCollection = new INVAdjustStockCollection();
+                INVAdjustStock _adjustStock = new INVAdjustStock();
+                INVAdjustStockPrimaryKey pk = new INVAdjustStockPrimaryKey();
+                pk.AdjustStockID = id;
+                _adjustStock = SelectOne(pk);
+                INVAdjustStock _EditNewAdjustStock = _adjustStock;
+                _EditNewAdjustStock.Qty *= -1;
+                ajustStockCollection.Add(_EditNewAdjustStock);
+                INVAdjustStock _EditOldAdjustStock = _adjustStock;
+                _adjustStock.StockTypeID = _adjustStock.OldStockTypeID;
+                ajustStockCollection.Add(_EditOldAdjustStock);
+                POS.DataLayer.INVAdjustStock adjustStockEntity = new DataLayer.INVAdjustStock();
+                deleted = adjustStockEntity.DeleteTransaction(id, GetAdjustStockFromBLLayer(ajustStockCollection));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return deleted;
+        }
 
         public List<INVProductStock> GetProductStockList(int invId)
         {
@@ -155,6 +180,13 @@ namespace POS.BusinessLayer.Wrapper
 
         public bool SaveAdjustStock(INVAdjustStockCollection adjustStockCollection)
         {
+            POS.DataLayer.INVAdjustStockCollection _adjustStockCollection = GetAdjustStockFromBLLayer(adjustStockCollection);
+            POS.DataLayer.INVAdjustStock adjustStockEntity = new DataLayer.INVAdjustStock();
+            return adjustStockEntity.SaveTransaction(_adjustStockCollection);
+        }
+
+        private static DataLayer.INVAdjustStockCollection GetAdjustStockFromBLLayer(INVAdjustStockCollection adjustStockCollection)
+        {
 
             POS.DataLayer.INVAdjustStockCollection _adjustStockCollection = new DataLayer.INVAdjustStockCollection();
             foreach (INVAdjustStock adjustStock in adjustStockCollection)
@@ -171,10 +203,11 @@ namespace POS.BusinessLayer.Wrapper
                 _adjustStock.UpdatedBy = adjustStock.UpdatedBy;
                 _adjustStock.CredateDate = adjustStock.CredateDate;
                 _adjustStock.CreatedBy = adjustStock.CreatedBy;
+                _adjustStock.ExpiryDate = adjustStock.ExpiryDate;
+                _adjustStock.BatchNumber = adjustStock.BatchNumber;
                 _adjustStockCollection.Add(_adjustStock);
             }
-            POS.DataLayer.INVAdjustStock adjustStockEntity = new DataLayer.INVAdjustStock();
-            return adjustStockEntity.SaveTransaction(_adjustStockCollection);
+            return _adjustStockCollection;
         }
     }
 }

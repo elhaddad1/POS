@@ -57,6 +57,7 @@ namespace POS.UserInterfaceLayer.BasicData
             this._ProductWrapper = new BDProductWrapper();
             this._isEdit = true;
             this._adjustStockID = id;
+            GetAdjustStockData(_adjustStockID.Value);
             this._frmAdjustmentSearch = frmAdjustmentSearch;
         }
 
@@ -180,6 +181,15 @@ namespace POS.UserInterfaceLayer.BasicData
                 throw;
             }
         }
+
+
+        private void GetAdjustStockData(int adjustStockID)
+        {
+            INVAdjustStockPrimaryKey pk = new INVAdjustStockPrimaryKey();
+            pk.AdjustStockID = adjustStockID;
+            _adjustStock = _adjustStockWrapper.SelectOne(pk);
+        }
+
 
         private bool validation()
         {
