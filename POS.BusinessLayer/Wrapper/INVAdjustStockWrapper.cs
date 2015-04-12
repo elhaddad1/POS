@@ -116,15 +116,17 @@ namespace POS.BusinessLayer.Wrapper
             try
             {
                 INVAdjustStockCollection ajustStockCollection = new INVAdjustStockCollection();
-                INVAdjustStock _adjustStock = new INVAdjustStock();
+                INVAdjustStock _adjustNewStock = new INVAdjustStock();
+                INVAdjustStock _adjustOldStock = new INVAdjustStock();
                 INVAdjustStockPrimaryKey pk = new INVAdjustStockPrimaryKey();
                 pk.AdjustStockID = id;
-                _adjustStock = SelectOne(pk);
-                INVAdjustStock _EditNewAdjustStock = _adjustStock;
+                _adjustNewStock = SelectOne(pk);
+                _adjustOldStock = SelectOne(pk);
+                INVAdjustStock _EditNewAdjustStock = _adjustNewStock;
                 _EditNewAdjustStock.Qty *= -1;
                 ajustStockCollection.Add(_EditNewAdjustStock);
-                INVAdjustStock _EditOldAdjustStock = _adjustStock;
-                _adjustStock.StockTypeID = _adjustStock.OldStockTypeID;
+                INVAdjustStock _EditOldAdjustStock = _adjustOldStock;
+                _EditOldAdjustStock.StockTypeID = _adjustOldStock.OldStockTypeID;
                 ajustStockCollection.Add(_EditOldAdjustStock);
                 POS.DataLayer.INVAdjustStock adjustStockEntity = new DataLayer.INVAdjustStock();
                 deleted = adjustStockEntity.DeleteTransaction(id, GetAdjustStockFromBLLayer(ajustStockCollection));

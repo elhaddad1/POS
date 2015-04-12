@@ -44,8 +44,8 @@
             this.num_Qty = new System.Windows.Forms.NumericUpDown();
             this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_StockTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(3524, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(5678, 21);
             // 
             // panl_Footer
             // 
@@ -72,11 +72,11 @@
             // btn_Save
             // 
             this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Save.Location = new System.Drawing.Point(3165, 7);
+            this.btn_Save.Location = new System.Drawing.Point(540, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(2983, 7);
+            this.btn_Back.Location = new System.Drawing.Point(2179, 4);
             // 
             // cbx_StockTypeTO
             // 
@@ -173,8 +173,8 @@
             this.dgrid_stock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_code,
             this.col_invProductStock,
-            this.StockTypeID,
             this.col_name,
+            this.col_StockTypeID,
             this.col_stockType,
             this.col_qty});
             this.dgrid_stock.Dock = System.Windows.Forms.DockStyle.Top;
@@ -241,13 +241,6 @@
             this.col_invProductStock.ReadOnly = true;
             this.col_invProductStock.Visible = false;
             // 
-            // StockTypeID
-            // 
-            this.StockTypeID.HeaderText = "StockTypeID";
-            this.StockTypeID.Name = "StockTypeID";
-            this.StockTypeID.ReadOnly = true;
-            this.StockTypeID.Visible = false;
-            // 
             // col_name
             // 
             this.col_name.DataPropertyName = "ProductName";
@@ -255,6 +248,14 @@
             this.col_name.Name = "col_name";
             this.col_name.ReadOnly = true;
             this.col_name.Width = 200;
+            // 
+            // col_StockTypeID
+            // 
+            this.col_StockTypeID.DataPropertyName = "StockTypeID";
+            this.col_StockTypeID.HeaderText = "StockTypeID";
+            this.col_StockTypeID.Name = "col_StockTypeID";
+            this.col_StockTypeID.ReadOnly = true;
+            this.col_StockTypeID.Visible = false;
             // 
             // col_stockType
             // 
@@ -326,8 +327,8 @@
         private System.Windows.Forms.NumericUpDown num_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_invProductStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_StockTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_stockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_qty;
     }
