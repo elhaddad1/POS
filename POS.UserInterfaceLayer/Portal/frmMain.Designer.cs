@@ -31,6 +31,7 @@
             this.mnu_MainMenu = new System.Windows.Forms.MenuStrip();
             this.mnuItem_Administration = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_UserGroups = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Users = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_BasicData = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Inventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_ProductGroup = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +39,7 @@
             this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Suppliers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_AdjustReason = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Adjustment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Invntory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_OpenningQuantities = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_StockInquiry = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +67,6 @@
             this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
             this.btn_PurchaceOrder = new System.Windows.Forms.Button();
             this.btn_SalesOrder = new System.Windows.Forms.Button();
-            this.mnuItem_Adjustment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +91,8 @@
             // mnuItem_Administration
             // 
             this.mnuItem_Administration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItem_UserGroups});
+            this.mnuItem_UserGroups,
+            this.mnuItem_Users});
             this.mnuItem_Administration.Enabled = false;
             this.mnuItem_Administration.Name = "mnuItem_Administration";
             this.mnuItem_Administration.Size = new System.Drawing.Size(71, 19);
@@ -103,6 +105,13 @@
             this.mnuItem_UserGroups.Size = new System.Drawing.Size(170, 22);
             this.mnuItem_UserGroups.Text = "مجموعات المستخدمين";
             this.mnuItem_UserGroups.Click += new System.EventHandler(this.mnuItem_UserGroups_Click);
+            // 
+            // mnuItem_Users
+            // 
+            this.mnuItem_Users.Name = "mnuItem_Users";
+            this.mnuItem_Users.Size = new System.Drawing.Size(170, 22);
+            this.mnuItem_Users.Text = "مستخدمن النظام";
+            this.mnuItem_Users.Click += new System.EventHandler(this.mnuItem_Users_Click);
             // 
             // mnuItem_BasicData
             // 
@@ -123,7 +132,7 @@
             // 
             this.mnuItem_Inventory.Enabled = false;
             this.mnuItem_Inventory.Name = "mnuItem_Inventory";
-            this.mnuItem_Inventory.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Inventory.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_Inventory.Text = "المخازن";
             this.mnuItem_Inventory.Click += new System.EventHandler(this.mnuItem_Inventory_Click);
             // 
@@ -131,7 +140,7 @@
             // 
             this.mnuItem_ProductGroup.Enabled = false;
             this.mnuItem_ProductGroup.Name = "mnuItem_ProductGroup";
-            this.mnuItem_ProductGroup.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_ProductGroup.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_ProductGroup.Text = "مجموعة الاصناف";
             this.mnuItem_ProductGroup.Click += new System.EventHandler(this.mnuItem_ProductGroup_Click);
             // 
@@ -139,7 +148,7 @@
             // 
             this.mnuItem_Products.Enabled = false;
             this.mnuItem_Products.Name = "mnuItem_Products";
-            this.mnuItem_Products.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Products.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_Products.Text = "الاصناف";
             this.mnuItem_Products.Click += new System.EventHandler(this.mnuItem_Products_Click);
             // 
@@ -147,7 +156,7 @@
             // 
             this.mnuItem_Customers.Enabled = false;
             this.mnuItem_Customers.Name = "mnuItem_Customers";
-            this.mnuItem_Customers.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Customers.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_Customers.Text = "بيانات العملاء";
             this.mnuItem_Customers.Click += new System.EventHandler(this.mnuItem_Customers_Click);
             // 
@@ -155,7 +164,7 @@
             // 
             this.mnuItem_Suppliers.Enabled = false;
             this.mnuItem_Suppliers.Name = "mnuItem_Suppliers";
-            this.mnuItem_Suppliers.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_Suppliers.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_Suppliers.Text = "بيانات الموردين";
             this.mnuItem_Suppliers.Click += new System.EventHandler(this.mnuItem_Suppliers_Click);
             // 
@@ -163,9 +172,16 @@
             // 
             this.mnuItem_AdjustReason.Enabled = false;
             this.mnuItem_AdjustReason.Name = "mnuItem_AdjustReason";
-            this.mnuItem_AdjustReason.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_AdjustReason.Size = new System.Drawing.Size(149, 22);
             this.mnuItem_AdjustReason.Text = "أسباب التسويه";
             this.mnuItem_AdjustReason.Click += new System.EventHandler(this.mnuItem_AdjustReason_Click);
+            // 
+            // mnuItem_Adjustment
+            // 
+            this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
+            this.mnuItem_Adjustment.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Adjustment.Text = "التسوية";
+            this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
             // 
             // mnuItem_Invntory
             // 
@@ -468,13 +484,6 @@
             this.btn_SalesOrder.UseVisualStyleBackColor = true;
             this.btn_SalesOrder.Click += new System.EventHandler(this.btn_SalesOrder_Click);
             // 
-            // mnuItem_Adjustment
-            // 
-            this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
-            this.mnuItem_Adjustment.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_Adjustment.Text = "التسوية";
-            this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -543,5 +552,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_CustomerAccount;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SupplierAccount;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_Adjustment;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_Users;
     }
 }
