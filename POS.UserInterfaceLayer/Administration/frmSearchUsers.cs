@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POS.BusinessLayer.Wrapper;
+using POS.BusinessLayer;
 
 namespace POS.UserInterfaceLayer.Administration
 {
@@ -24,17 +25,17 @@ namespace POS.UserInterfaceLayer.Administration
 
         public override void btn_Add_Click(object sender, EventArgs e)
         {
-            //frmUserGroupAddEdit frm = new frmUserGroupAddEdit();
-            //frm.FormClosed += frmUserGroupAddEditClosed;
-            //frm.ShowDialog();
+            frmUserAddEdit frm = new frmUserAddEdit();
+            frm.FormClosed += frmUserAddEditClosed;
+            frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
             if (dgrid_Result.SelectedRows.Count != 0)
             {
-                //frmUserGroupAddEdit frm = new frmUserGroupAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value.ToString()));
-                //frm.FormClosed += frmUserGroupAddEditClosed;
-                //frm.ShowDialog();
+                frmUserAddEdit frm = new frmUserAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["UserID"].Value.ToString()));
+                frm.FormClosed += frmUserAddEditClosed;
+                frm.ShowDialog();
             }
             else { MessageBox.Show("اختر عنصر اولا"); }
         }
@@ -42,13 +43,13 @@ namespace POS.UserInterfaceLayer.Administration
         {
             if (dgrid_Result.SelectedRows.Count != 0)
             {
-                //ADGroupPrimaryKey pk = new ADGroupPrimaryKey();
-                //pk.GroupID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["GroupID"].Value);
-                //if (_aDGroupWrapper.Delete(pk))
-                //{
-                //    MessageBox.Show("تم الحذف");
-                //    BindGrid();
-                //}
+                ADUserPrimaryKey pk = new ADUserPrimaryKey();
+                pk.UserID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["UserID"].Value);
+                if (aDUserWrapper.Delete(pk))
+                {
+                    MessageBox.Show("تم الحذف");
+                    BindGrid();
+                }
             }
             else { MessageBox.Show("اختر عنصر اولا"); }
 
@@ -58,7 +59,7 @@ namespace POS.UserInterfaceLayer.Administration
             this.Close();
         }
 
-        private void frmUserGroupAddEditClosed(object sender, FormClosedEventArgs e)
+        private void frmUserAddEditClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
         }
@@ -69,16 +70,13 @@ namespace POS.UserInterfaceLayer.Administration
         /// <param name="e"></param>
         private void InitiateGrid()
         {
-            // dgrid_Result.Size = new Size(10, 250);
             dgrid_Result.DataSource = null;
-
             dgrid_Result.DataSource = aDUserWrapper.SelectAll();
-            addColumnToGrid("رقم المجموعه", "UserID", 20, false);
+            addColumnToGrid("رقم المستخدم", "UserID", 20, false);
             addColumnToGrid("أسم المستخدم", "UserFullName", 200, true);
-            addColumnToGrid("أسم الدخةول", "UserName", 100, true);
+            addColumnToGrid("أسم الدخول", "UserName", 100, true);
             addColumnToGrid("محمول", "Mobile", 100, true);
             addColumnToGrid("العنوان", "Address", 200, true);
-
             dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgrid_Result.RowHeadersVisible = false;
         }

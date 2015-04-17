@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\frmUserAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\frmUserAddEdit.Designer.cs">
+      <DependentUpon>frmUserAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\frmGroupPriviliges.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     <None Include="Resources\Office-Client-Male-Light-icon.png" />
     <None Include="Resources\Client-icon.png" />
     <None Include="Resources\product-icon.png" />
+    <EmbeddedResource Include="Administration\frmUserAddEdit.resx">
+      <DependentUpon>frmUserAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>

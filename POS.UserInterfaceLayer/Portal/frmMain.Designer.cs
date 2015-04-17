@@ -108,6 +108,7 @@
             // 
             // mnuItem_Users
             // 
+            this.mnuItem_Users.Enabled = false;
             this.mnuItem_Users.Name = "mnuItem_Users";
             this.mnuItem_Users.Size = new System.Drawing.Size(170, 22);
             this.mnuItem_Users.Text = "مستخدمن النظام";
