@@ -44,7 +44,31 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
+        public static bool DeleteOrder(int PurchaseHeaderID, int UserID)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            oDatabaseHelper.AddParameter("@UserID", UserID);
+            oDatabaseHelper.AddParameter("@SlaesReturnHeaderID", PurchaseHeaderID);
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseReturnHader_DeleteOrder", ref ExecutionState);
+            oDatabaseHelper.Dispose();
+            return ExecutionState;
+        }
 
+        public static bool CloseOrder(int PurchaseHeaderID, int UserID)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            oDatabaseHelper.AddParameter("@UserID", UserID);
+            oDatabaseHelper.AddParameter("@PurchaseHeaderID", PurchaseHeaderID);
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseReturnHader_CloseOrder", ref ExecutionState);
+            oDatabaseHelper.Dispose();
+            return ExecutionState;
+        }
 		#endregion
 		
 		#region Methods (Private)

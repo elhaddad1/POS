@@ -35,6 +35,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
+            this.PurchaseLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.num_OtherPayments = new System.Windows.Forms.TextBox();
@@ -69,15 +78,6 @@
             this.panl_Header = new System.Windows.Forms.Panel();
             this.dtb_Date = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.PurchaseLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panl_Header.SuspendLayout();
@@ -106,7 +106,81 @@
             this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgrd_OrderLines.Size = new System.Drawing.Size(741, 291);
             this.dgrd_OrderLines.TabIndex = 32;
+//            this.dgrd_OrderLines.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_OrderLines_CellContentClick);
             this.dgrd_OrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_OrderLines_CellValueChanged);
+            // 
+            // PurchaseLineID
+            // 
+            this.PurchaseLineID.HeaderText = "PurchaseLineID";
+            this.PurchaseLineID.Name = "PurchaseLineID";
+            this.PurchaseLineID.ReadOnly = true;
+            this.PurchaseLineID.Width = 70;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "إسم المنتج";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 250;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل تشغيله";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            this.IsAcceptBatch.ReadOnly = true;
+            this.IsAcceptBatch.Width = 50;
+            // 
+            // TotalQty
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 60;
+            // 
+            // Bonus
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Bonus.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Bonus.HeaderText = "إضافي";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Bonus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Bonus.Width = 60;
+            // 
+            // PurchasePrice
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PurchasePrice.HeaderText = "سعر الشراء";
+            this.PurchasePrice.Name = "PurchasePrice";
+            this.PurchasePrice.Width = 60;
+            // 
+            // ItemDiscount
+            // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ItemDiscount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ItemDiscount.HeaderText = "الخصم%";
+            this.ItemDiscount.Name = "ItemDiscount";
+            this.ItemDiscount.Width = 50;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم التشغيله";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // ExpiryDate
+            // 
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
+            this.ExpiryDate.Name = "ExpiryDate";
             // 
             // cbx_Inventory
             // 
@@ -430,79 +504,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // PurchaseLineID
-            // 
-            this.PurchaseLineID.HeaderText = "PurchaseLineID";
-            this.PurchaseLineID.Name = "PurchaseLineID";
-            this.PurchaseLineID.ReadOnly = true;
-            this.PurchaseLineID.Width = 70;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "إسم المنتج";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 250;
-            // 
-            // IsAcceptBatch
-            // 
-            this.IsAcceptBatch.HeaderText = "يقبل تشغيله";
-            this.IsAcceptBatch.Name = "IsAcceptBatch";
-            this.IsAcceptBatch.ReadOnly = true;
-            this.IsAcceptBatch.Width = 50;
-            // 
-            // TotalQty
-            // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.Width = 60;
-            // 
-            // Bonus
-            // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Bonus.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Bonus.HeaderText = "إضافي";
-            this.Bonus.Name = "Bonus";
-            this.Bonus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Bonus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Bonus.Width = 60;
-            // 
-            // PurchasePrice
-            // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PurchasePrice.HeaderText = "سعر الشراء";
-            this.PurchasePrice.Name = "PurchasePrice";
-            this.PurchasePrice.Width = 60;
-            // 
-            // ItemDiscount
-            // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ItemDiscount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ItemDiscount.HeaderText = "الخصم%";
-            this.ItemDiscount.Name = "ItemDiscount";
-            this.ItemDiscount.Width = 50;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "رقم التشغيله";
-            this.BatchNumber.Name = "BatchNumber";
-            // 
-            // ExpiryDate
-            // 
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
-            this.ExpiryDate.Name = "ExpiryDate";
             // 
             // frmPurchaseOrderAddEdit
             // 

@@ -57,8 +57,10 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit();
-                    frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;
+                    int headerID=Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurchaseHeaderID"].Value);
+
+                    frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit(headerID);
+                    //frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;
                     frm.ShowDialog();
                 }
                 else
@@ -84,7 +86,7 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    if (pURPurchaseHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurchaseHeaderID"].Value)))
+                    if (pURPurchaseHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells[0].Value)))
                     {
                         BindGrid();
                         // Utility.Print(null, 1); 
@@ -123,10 +125,11 @@ namespace POS.UserInterfaceLayer.Purcase
             addColumnToGrid("تاريخ الأصدار", "InvoiceDate", 120, true);
             addColumnToGrid("المبلغ المطلوب", "TotalPrice", 120, true);
             addColumnToGrid("مغلق", "IsClosed", 60, true);
-
+           // dgrid_Result.Columns[5].
         }
         private void BindGrid()
         {
+            dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgrid_Result.DataSource = null;
             dgrid_Result.DataSource = pURPurchaseHeaderWrapper.HeaderSearch(Convert.ToInt32( cbx_Inventory.SelectedValue), dtp_fromDate.Value, dtp_toDate.Value, tbx_SupplierName.Text, tbx_OrderSerial.Text);
         }

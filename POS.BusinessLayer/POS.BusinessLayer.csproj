@@ -97,6 +97,8 @@
     <Compile Include="Base\SALSalesReturnHeaderBase.cs" />
     <Compile Include="Base\SALSalesReturnLineBase.cs" />
     <Compile Include="Base\VProductBase.cs" />
+    <Compile Include="Base\VPurchaseReturnHeaderBase.cs" />
+    <Compile Include="Base\VPURPurchaseOrderBase.cs" />
     <Compile Include="Base\VSalesReturnHeaderBase.cs" />
     <Compile Include="Base\VSALSalesOrderBase.cs" />
     <Compile Include="Base\VUserRoleBase.cs" />
@@ -137,6 +139,8 @@
     <Compile Include="Collection\SALSalesReturnHeaderCollection.cs" />
     <Compile Include="Collection\SALSalesReturnLineCollection.cs" />
     <Compile Include="Collection\VProductCollection.cs" />
+    <Compile Include="Collection\VPurchaseReturnHeaderCollection.cs" />
+    <Compile Include="Collection\VPURPurchaseOrderCollection.cs" />
     <Compile Include="Collection\VSalesReturnHeaderCollection.cs" />
     <Compile Include="Collection\VSALSalesOrderCollection.cs" />
     <Compile Include="Collection\VUserRoleCollection.cs" />
@@ -177,6 +181,8 @@
     <Compile Include="Entity\SALSalesReturnHeader.cs" />
     <Compile Include="Entity\SALSalesReturnLine.cs" />
     <Compile Include="Entity\VProduct.cs" />
+    <Compile Include="Entity\VPurchaseReturnHeader.cs" />
+    <Compile Include="Entity\VPURPurchaseOrder.cs" />
     <Compile Include="Entity\VSalesReturnHeader.cs" />
     <Compile Include="Entity\VSALSalesOrder.cs" />
     <Compile Include="Entity\VUserRole.cs" />
@@ -217,6 +223,8 @@
     <Compile Include="Key\SALSalesReturnHeaderPrimaryKey.cs" />
     <Compile Include="Key\SALSalesReturnLinePrimaryKey.cs" />
     <Compile Include="Key\VProductPrimaryKey.cs" />
+    <Compile Include="Key\VPurchaseReturnHeaderPrimaryKey.cs" />
+    <Compile Include="Key\VPURPurchaseOrderPrimaryKey.cs" />
     <Compile Include="Key\VSalesReturnHeaderPrimaryKey.cs" />
     <Compile Include="Key\VSALSalesOrderPrimaryKey.cs" />
     <Compile Include="Key\VUserRolePrimaryKey.cs" />
@@ -259,6 +267,8 @@
     <Compile Include="Service\SALSalesReturnHeaderService.svc.cs" />
     <Compile Include="Service\SALSalesReturnLineService.svc.cs" />
     <Compile Include="Service\VProductService.svc.cs" />
+    <Compile Include="Service\VPurchaseReturnHeaderService.svc.cs" />
+    <Compile Include="Service\VPURPurchaseOrderService.svc.cs" />
     <Compile Include="Service\VSalesReturnHeaderService.svc.cs" />
     <Compile Include="Service\VSALSalesOrderService.svc.cs" />
     <Compile Include="Service\VUserRoleService.svc.cs" />
@@ -275,6 +285,8 @@
     <Compile Include="Wrapper\BDVProductWrapper.cs" />
     <Compile Include="Wrapper\BDCustomerAccountsWrapper.cs" />
     <Compile Include="Wrapper\BDSupplierAccountsWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseReturnHeaderWrapper.cs" />
+    <Compile Include="Wrapper\PURPurchaseReturnLineWrraper.cs" />
     <Compile Include="Wrapper\INVAdjustStockReasonWrapper.cs" />
     <Compile Include="Wrapper\INVStockTypeWrapper.cs" />
     <Compile Include="Wrapper\INVAdjustStockWrapper.cs" />

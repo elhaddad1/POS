@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseReturnHeaderPrimaryKey.cs
+// Class	:	VPurchaseReturnHeaderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	11/4/2015 8:46:45 PM
+// Date		:	11/4/2015 9:57:48 PM
 //
 
 using System;
@@ -11,11 +11,12 @@ using System.Collections.Specialized;
 
 namespace POS.DataLayer
 {
-	public class PURPurchaseReturnHeaderPrimaryKey
+	public class VPurchaseReturnHeaderPrimaryKey
 	{
 
 	#region Class Level Variables
 			private int?           	_purchaseReturnIDNonDefault	= null;
+		private int?           	_purcaseHeaderIDNonDefault	= null;
 	#endregion
 
 	#region Constants
@@ -27,11 +28,13 @@ namespace POS.DataLayer
 		/// <summary>
 		/// Constructor setting values for all fields
 		/// </summary>
-		public PURPurchaseReturnHeaderPrimaryKey(int? purchaseReturnID) 
+		public VPurchaseReturnHeaderPrimaryKey(int? purchaseReturnID,int? purcaseHeaderID) 
 		{
 	
 			
 			this._purchaseReturnIDNonDefault = purchaseReturnID;
+			
+			this._purcaseHeaderIDNonDefault = purcaseHeaderID;
 
 		}
 
@@ -55,6 +58,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "PurcaseHeaderID" field.  Mandatory.
+		/// </summary>
+		public int? PurcaseHeaderID
+		{
+			get 
+			{ 
+				return _purcaseHeaderIDNonDefault;
+			}
+			set 
+			{
+			
+				_purcaseHeaderIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 
 	#region Methods (Public)
@@ -69,7 +88,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			11/4/2015 8:46:45 PM				Created function
+		/// DLGenerator			11/4/2015 9:57:48 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -80,6 +99,7 @@ namespace POS.DataLayer
 			NameValueCollection nvc=new NameValueCollection();
 			
 			nvc.Add("PurchaseReturnID",_purchaseReturnIDNonDefault.ToString());
+			nvc.Add("PurcaseHeaderID",_purcaseHeaderIDNonDefault.ToString());
 			return nvc;
 			
 		}

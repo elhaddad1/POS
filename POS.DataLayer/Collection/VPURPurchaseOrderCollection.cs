@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseReturnHeaderCollection.cs
+// Class	:	VPURPurchaseOrderCollection.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	11/4/2015 8:46:45 PM
+// Date		:	11/4/2015 9:57:47 PM
 //
 
 using System;
@@ -12,7 +12,7 @@ using System.Reflection;
 
 namespace POS.DataLayer
 {
-	public class PURPurchaseReturnHeaderCollection :Collection<PURPurchaseReturnHeader>, IEnumerable<PURPurchaseReturnHeader>, IComparer
+	public class VPURPurchaseOrderCollection :Collection<VPURPurchaseOrder>, IEnumerable<VPURPurchaseOrder>, IComparer
 	{
 	
 		 #region Inner Types
@@ -25,9 +25,9 @@ namespace POS.DataLayer
 		 {
 			
 			private int position = -1;
-			private PURPurchaseReturnHeaderCollection t;
+			private VPURPurchaseOrderCollection t;
 
-			public Enumerator (PURPurchaseReturnHeaderCollection t)
+			public Enumerator (VPURPurchaseOrderCollection t)
 			{
 				this.t = t;
 			}
@@ -116,12 +116,12 @@ namespace POS.DataLayer
 			if(this.Items.Count==0)
 				return;
 			PrepareSorting( sortingExpression);
-			PURPurchaseReturnHeader[] elements =new PURPurchaseReturnHeader[this.Items.Count];
+			VPURPurchaseOrder[] elements =new VPURPurchaseOrder[this.Items.Count];
 			this.Items.CopyTo(elements,0);
 			Array.Sort(elements,this);
 			//clear old order and copy new order here
 			this.Items.Clear();
-			foreach(PURPurchaseReturnHeader item in elements)
+			foreach(VPURPurchaseOrder item in elements)
 				this.Items.Add(item);
 		}
 		
@@ -131,7 +131,7 @@ namespace POS.DataLayer
 		/// <returns>the associated enumerator</returns>
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return new PURPurchaseReturnHeaderCollection.Enumerator(this);
+			return new VPURPurchaseOrderCollection.Enumerator(this);
 		}
 		
 		/// <summary>

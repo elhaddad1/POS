@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:23 PM
+// Date		:	11/4/2015 8:46:46 PM
 //
 
 
@@ -61,6 +61,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 			return _pURPurchaseReturnHeaderWCF;
 		}
@@ -87,6 +90,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -130,6 +136,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -156,6 +165,9 @@ namespace POS.BusinessLayer
 			_pURPurchaseReturnHeader.IsDeleted=pURPurchaseReturnHeader.IsDeleted;
 			_pURPurchaseReturnHeader.DeletedBy=pURPurchaseReturnHeader.DeletedBy;
 			_pURPurchaseReturnHeader.DeleteDate=pURPurchaseReturnHeader.DeleteDate;
+			_pURPurchaseReturnHeader.IsClosed=pURPurchaseReturnHeader.IsClosed;
+			_pURPurchaseReturnHeader.IsVoid=pURPurchaseReturnHeader.IsVoid;
+			_pURPurchaseReturnHeader.ReturnMoney=pURPurchaseReturnHeader.ReturnMoney;
 			
 			return _pURPurchaseReturnHeader.Insert();
 		}
@@ -196,6 +208,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -229,6 +244,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -261,6 +279,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -298,6 +319,9 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnHeaderWCF.IsDeleted = _pURPurchaseReturnHeader.IsDeleted;
 				_pURPurchaseReturnHeaderWCF.DeletedBy = _pURPurchaseReturnHeader.DeletedBy;
 				_pURPurchaseReturnHeaderWCF.DeleteDate = _pURPurchaseReturnHeader.DeleteDate;
+				_pURPurchaseReturnHeaderWCF.IsClosed = _pURPurchaseReturnHeader.IsClosed;
+				_pURPurchaseReturnHeaderWCF.IsVoid = _pURPurchaseReturnHeader.IsVoid;
+				_pURPurchaseReturnHeaderWCF.ReturnMoney = _pURPurchaseReturnHeader.ReturnMoney;
 				
 				pURPurchaseReturnHeaderCollection.Add(_pURPurchaseReturnHeaderWCF);
 			}
@@ -323,6 +347,9 @@ namespace POS.BusinessLayer
 			_pURPurchaseReturnHeader.IsDeleted=pURPurchaseReturnHeader.IsDeleted;
 			_pURPurchaseReturnHeader.DeletedBy=pURPurchaseReturnHeader.DeletedBy;
 			_pURPurchaseReturnHeader.DeleteDate=pURPurchaseReturnHeader.DeleteDate;
+			_pURPurchaseReturnHeader.IsClosed=pURPurchaseReturnHeader.IsClosed;
+			_pURPurchaseReturnHeader.IsVoid=pURPurchaseReturnHeader.IsVoid;
+			_pURPurchaseReturnHeader.ReturnMoney=pURPurchaseReturnHeader.ReturnMoney;
 			
 			return _pURPurchaseReturnHeader.Update();
 		}

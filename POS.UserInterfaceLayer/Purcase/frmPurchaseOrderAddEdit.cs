@@ -24,33 +24,17 @@ namespace POS.UserInterfaceLayer.Purcase
         public frmPurchaseOrderAddEdit()
         {
             InitializeComponent();
-            _bDTaxTypeWrapper = new BDTaxTypeWrapper();
-            _paymentTypeWrapper = new PaymentTypeWrapper();
-            _bDSupplierWrapper = new BDSupplierWrapper();
-            pURPurchaseLineCollection = new PURPurchaseLineCollection();
-            _pURPurchaseLinerWrapper = new PURPurchaseLineWrapper();
-            _productWrapper=new BDProductWrapper ();
-            _invInventoryService=new INVInventoryService ();
-            FillSupplierCBX();
-            FillPaymentTypeCBX();
-            FillTaxTypeCBX();
-            FillInventoryCBX();
+            LoadScreenData();
 
         }
+
+       
         public frmPurchaseOrderAddEdit(int HeaderID)
         {
             InitializeComponent();
-            _bDTaxTypeWrapper = new BDTaxTypeWrapper();
-            _paymentTypeWrapper = new PaymentTypeWrapper();
-            _bDSupplierWrapper = new BDSupplierWrapper();
-            pURPurchaseLineCollection = new PURPurchaseLineCollection();
-            _pURPurchaseLinerWrapper = new PURPurchaseLineWrapper();
-            _productWrapper = new BDProductWrapper();
-            _invInventoryService = new INVInventoryService();
-            FillSupplierCBX();
-            FillPaymentTypeCBX();
-            FillTaxTypeCBX();
-            FillInventoryCBX();
+            LoadScreenData();
+            LoadLines(HeaderID);
+
 
         }
 
@@ -84,7 +68,7 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                dgrd_OrderLines.Rows .RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedCells[0].RowIndex);
                  //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
                 //  BindGrid();
                 CalculateTotal();
@@ -237,6 +221,62 @@ namespace POS.UserInterfaceLayer.Purcase
         #endregion
 
         #region -- Private Methods
+        private void LoadScreenData()
+        {
+            _bDTaxTypeWrapper = new BDTaxTypeWrapper();
+            _paymentTypeWrapper = new PaymentTypeWrapper();
+            _bDSupplierWrapper = new BDSupplierWrapper();
+            pURPurchaseLineCollection = new PURPurchaseLineCollection();
+            _pURPurchaseLinerWrapper = new PURPurchaseLineWrapper();
+            _productWrapper = new BDProductWrapper();
+            _invInventoryService = new INVInventoryService();
+            FillSupplierCBX();
+            FillPaymentTypeCBX();
+            FillTaxTypeCBX();
+            FillInventoryCBX();
+        }
+        private void LoadLines(int HeaderID)
+        { PURPurchaseHeaderPrimaryKey headerKey=  new PURPurchaseHeaderPrimaryKey();
+          headerKey.PurcaseHeaderID = HeaderID;
+          PURPurchaseHeaderService headerService=new PURPurchaseHeaderService ();
+          PURPurchaseHeader selectedHeader= headerService.SelectOne(headerKey);
+
+          PURPurchaseLineService LineService = new PURPurchaseLineService();
+          PURPurchaseLineCollection selectedLines = LineService.SelectAllByForeignKeyPurchaseHeaderID(headerKey);
+          LoadHeaderControls(selectedHeader);
+          LoadGridLines(selectedLines);
+        }
+        private void LoadHeaderControls(PURPurchaseHeader Header)
+        {
+            dtb_Date.Value = Header.InvoiceDate.Value;
+            cbx_Inventory.SelectedValue = Header.InventoryID;
+            cbx_Supplier.SelectedValue = Header.SupplierID;
+            cbx_PaymentType.SelectedValue = Header.PaymentTypeID;
+            num_Paied.Text = Header.PaidAmount.ToString();
+            num_Remaining.Text = Header.RemainingAmount.ToString();
+            dtb_LastTimeToPay.Value = Header.LastDayToPay.Value;
+            cbx_TaxType.SelectedValue = Header.TaxTypeID;
+            num_OtherPayments.Text = Header.ServicePrice.ToString();
+            txt_Total.Text = Header.TotalPrice.ToString();
+            txt_DiscountRatio.Text = Header.TotalDiscountRatio.ToString();
+        }
+        private void LoadGridLines(PURPurchaseLineCollection Lines) 
+        {
+            dgrd_OrderLines.Rows.Add(Lines.Count);
+            for (int i = 0; i < Lines.Count; i++)
+            {
+                dgrd_OrderLines.Rows[i].Cells["PurchaseLineID"].Value = Lines[i].PurchaseLineID;
+                dgrd_OrderLines.Rows[i].Cells["ProductName"].Value = Lines[i].ProductID;
+                dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value = Lines[i].IsAcceptBatch;
+                dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value = Lines[i].BatchQty;
+                dgrd_OrderLines.Rows[i].Cells["Bonus"].Value = Lines[i].BonusQty;
+                dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value = Lines[i].Unitprice;
+                dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value = Lines[i].DiscountRatio;
+                dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value = Lines[i].BatchNumber;
+                dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value = Lines[i].ExpiryDate;
+            }
+        }
+
         private void FillSupplierCBX()
         {
 
@@ -347,12 +387,17 @@ namespace POS.UserInterfaceLayer.Purcase
                 MessageBox.Show("اختار المخزن أولا");
                 return false;
             }
-
-
-
+            if (cbx_PaymentType.SelectedIndex == -1)
+            {
+                MessageBox.Show("اختار طريقه دفع أولا");
+                return false;
+            }
+           
             return true;
         }
         #endregion
+
+      
 
        
 

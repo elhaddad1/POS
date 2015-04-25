@@ -27,8 +27,13 @@ namespace POS.DataLayer
         private DatabaseHelper oDatabaseHelper;
         private string _productNameNonDefault = null;
         private string _batchNumberNonDefault = null;
-        private DateTime _expiryDateNonDefault;
+        private DateTime? _expiryDateNonDefault;
         private decimal _batchQtyNonDefault;
+        private bool _isAcceptBatchNonDefault;
+        private int _batchIDNonDefault;
+        private int _PurchaseLineBatchIDNonDefault;
+
+        
 		#endregion
 		
 		#region Constants
@@ -61,7 +66,7 @@ namespace POS.DataLayer
             get { return _batchNumberNonDefault; }
             set { _batchNumberNonDefault = value; }
         }
-        public DateTime ExpiryDate
+        public DateTime? ExpiryDate
         {
             get { return _expiryDateNonDefault; }
             set { _expiryDateNonDefault = value; }
@@ -71,6 +76,22 @@ namespace POS.DataLayer
             get { return _batchQtyNonDefault; }
             set { _batchQtyNonDefault = value; }
         }
+        public bool IsAcceptBatch
+        {
+            get { return _isAcceptBatchNonDefault; }
+            set { _isAcceptBatchNonDefault = value; }
+        }
+        public int BatchID
+        {
+            get { return _batchIDNonDefault; }
+            set { _batchIDNonDefault = value; }
+        }
+        public int PurchaseLineBatchID
+        {
+            get { return _PurchaseLineBatchIDNonDefault; }
+            set { _PurchaseLineBatchIDNonDefault = value; }
+        }
+       
 		#endregion
 
 		#region Methods (Public)
@@ -131,7 +152,31 @@ namespace POS.DataLayer
                 ExecutionState = false;
             return ExecutionState;
         }
+         public  PURPurchaseLineCollection SelectByHeaderID(int HeaderID)
+                {
+                    DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+                    bool ExecutionState = false;
+                    oDatabaseHelper.AddParameter("@HeaderID", HeaderID);
+                    oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
+                    IDataReader dr = oDatabaseHelper.ExecuteReader("usp_PURPurchaseLine_SelectByHeaderID", ref ExecutionState);
+                    if (dr.Read())
+                    {
+                        PURPurchaseLineCollection obj = new PURPurchaseLineCollection();
+                        obj = FillCollection(dr);
+                        dr.Close();
+                        oDatabaseHelper.Dispose();
+                        return obj;
+                    }
+                    else
+                    {
+                        dr.Close();
+                        oDatabaseHelper.Dispose();
+                        return null;
+                    }
+			
+
+                }
 		#endregion
 		
 		#region Methods (Private)
@@ -296,9 +341,9 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@ProductID", DBNull.Value);
             // Pass the value of '_totalQty' as parameter 'TotalQty' of the stored procedure.
             if (sALPurchaseLine.TotalQty != null)
-                oDatabaseHelper.AddParameter("@TotalQty", sALPurchaseLine.TotalQty);
+                oDatabaseHelper.AddParameter("@BatchQty", sALPurchaseLine.TotalQty);
             else
-                oDatabaseHelper.AddParameter("@TotalQty", DBNull.Value);
+                oDatabaseHelper.AddParameter("@BatchQty", DBNull.Value);
             // Pass the value of '_totalBonus' as parameter 'TotalBonus' of the stored procedure.
             if (sALPurchaseLine.BonusQty != null)
                 oDatabaseHelper.AddParameter("@BonusQty", sALPurchaseLine.BonusQty);
@@ -325,8 +370,6 @@ namespace POS.DataLayer
             if (sALPurchaseLine.ExpiryDate != null || sALPurchaseLine.ExpiryDate != null )
                 oDatabaseHelper.AddParameter("@ExpiryDate", sALPurchaseLine.ExpiryDate);
 
-            if (sALPurchaseLine.BatchQty != null || sALPurchaseLine.BatchQty !=0)
-                oDatabaseHelper.AddParameter("@BatchQty", sALPurchaseLine.BatchQty);
             // Pass the value of '_createdBy' as parameter 'CreatedBy' of the stored procedure.
             if (sALPurchaseLine.CreatedBy != null)
                 oDatabaseHelper.AddParameter("@CreatedBy", sALPurchaseLine.CreatedBy);
@@ -337,37 +380,13 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@CreateDate", sALPurchaseLine.CreatedDate);
             else
                 oDatabaseHelper.AddParameter("@CreateDate", DBNull.Value);
-            // Pass the value of '_updatedBy' as parameter 'UpdatedBy' of the stored procedure.
-            if (sALPurchaseLine.UpdatedBy != null)
-                oDatabaseHelper.AddParameter("@UpdatedBy", sALPurchaseLine.UpdatedBy);
-            else
-                oDatabaseHelper.AddParameter("@UpdatedBy", DBNull.Value);
-            // Pass the value of '_updateDate' as parameter 'UpdateDate' of the stored procedure.
-            if (sALPurchaseLine.UpdateDate != null)
-                oDatabaseHelper.AddParameter("@UpdateDate", sALPurchaseLine.UpdateDate);
-            else
-                oDatabaseHelper.AddParameter("@UpdateDate", DBNull.Value);
-            // Pass the value of '_isDeleted' as parameter 'IsDeleted' of the stored procedure.
-            if (sALPurchaseLine.IsDeleted != null)
-                oDatabaseHelper.AddParameter("@IsDeleted", sALPurchaseLine.IsDeleted);
-            else
-                oDatabaseHelper.AddParameter("@IsDeleted", DBNull.Value);
-            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
-            if (sALPurchaseLine.DeletedBy != null)
-                oDatabaseHelper.AddParameter("@DeletedBy", sALPurchaseLine.DeletedBy);
-            else
-                oDatabaseHelper.AddParameter("@DeletedBy", DBNull.Value);
-            // Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
-            if (sALPurchaseLine.DeleteDate != null)
-                oDatabaseHelper.AddParameter("@DeleteDate", sALPurchaseLine.DeleteDate);
-            else
-                oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value);
+
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
             try
             {
-                oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+                oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_SaveLine", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
             }
             catch (Exception ex)
@@ -519,7 +538,51 @@ namespace POS.DataLayer
 
             return ExecutionState;
         }
-        
+        internal static PURPurchaseLineCollection FillCollection( IDataReader rdr)
+        {
+            PURPurchaseLineCollection list = new PURPurchaseLineCollection();
+
+            while (rdr.Read())
+            {
+                PURPurchaseLine obj = new PURPurchaseLine();
+                obj.PurchaseLineID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseLineFields.PurchaseLineID));
+                //obj.PurchaseHeaderID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseLineFields.PurchaseHeaderID));
+                obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseLineFields.ProductID));
+                obj.TotalQty = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseLineFields.TotalQty));
+                obj.BonusQty = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseLineFields.BonusQty));
+                obj.DiscountRatio = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseLineFields.DiscountRatio));
+                //obj.DiscountAmount = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseLineFields.DiscountAmount));
+                obj.Unitprice = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseLineFields.Unitprice));
+                if (rdr.GetOrdinal("PurchaseLineBatchID") != null)
+                {
+                    obj.PurchaseLineBatchID = rdr.GetInt32(rdr.GetOrdinal("PurchaseLineBatchID")); 
+                }
+                else
+                {
+                    obj.PurchaseLineBatchID = 0;
+                }
+                if (rdr.GetOrdinal("BatchID") != null)
+                {
+                    obj.BatchID = rdr.GetInt32(rdr.GetOrdinal("BatchID"));
+                }
+                else
+                {
+                    obj.BatchID = 0;
+                }
+                if (rdr.GetOrdinal("BatchNumber") != null)
+                {
+                    obj.BatchID = rdr.GetInt32(rdr.GetOrdinal("BatchNumber"));
+                }
+                if (rdr.GetOrdinal("ExpiryDate") != null)
+                {
+                    obj.ExpiryDate = rdr.GetDateTime(rdr.GetOrdinal("ExpiryDate"));
+                }
+
+                PopulateObjectFromReader(obj, rdr);
+                list.Add(obj);
+            }
+            return list;
+        }
 		#endregion
 
 	}

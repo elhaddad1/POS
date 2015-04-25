@@ -266,17 +266,23 @@
     <Compile Include="Purcase\frmPurchaseOrderAddEdit.Designer.cs">
       <DependentUpon>frmPurchaseOrderAddEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purcase\FrmReturnPurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
-      <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.Designer.cs">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
@@ -326,7 +332,6 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
-    <None Include="POS.BusinessLayer.Wrapper.INVTakingInventoryLineWrapper.datasource" />
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -449,6 +454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseOrderSearch.resx">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnOrderAddEdit.resx">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>

@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnLineCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:27 PM
+// Date		:	11/4/2015 8:46:46 PM
 //
 
 using System.Runtime.Serialization;

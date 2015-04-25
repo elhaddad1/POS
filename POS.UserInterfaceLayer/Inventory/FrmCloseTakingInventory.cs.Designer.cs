@@ -36,6 +36,13 @@
             this.txtbox_Date = new System.Windows.Forms.TextBox();
             this.txtbox_InventoryName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Col_TakingInventoryLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col_Productname = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Col_IsAcceptBantch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Col_BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col_ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col_ExpectedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Col_ActualQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -47,7 +54,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(393, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(370, 9);
             this.lbl_FormHeader.Size = new System.Drawing.Size(73, 19);
             this.lbl_FormHeader.Text = "اغلاق الجرد";
             // 
@@ -62,11 +69,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(502, 4);
+            this.btn_Save.Location = new System.Drawing.Point(504, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(258, 4);
+            this.btn_Back.Location = new System.Drawing.Point(240, 6);
             // 
             // button1
             // 
@@ -132,11 +139,60 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Col_TakingInventoryLineID,
+            this.Col_Productname,
+            this.Col_IsAcceptBantch,
+            this.Col_BatchNumber,
+            this.Col_ExpiryDate,
+            this.Col_ExpectedQty,
+            this.Col_ActualQty});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 131);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(830, 371);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // Col_TakingInventoryLineID
+            // 
+            this.Col_TakingInventoryLineID.HeaderText = "Col_TakingInventoryLineID";
+            this.Col_TakingInventoryLineID.Name = "Col_TakingInventoryLineID";
+            // 
+            // Col_Productname
+            // 
+            this.Col_Productname.HeaderText = "إسم المنتج";
+            this.Col_Productname.Name = "Col_Productname";
+            this.Col_Productname.Width = 180;
+            // 
+            // Col_IsAcceptBantch
+            // 
+            this.Col_IsAcceptBantch.HeaderText = "يقبل تشغيله";
+            this.Col_IsAcceptBantch.Name = "Col_IsAcceptBantch";
+            this.Col_IsAcceptBantch.Width = 60;
+            // 
+            // Col_BatchNumber
+            // 
+            this.Col_BatchNumber.HeaderText = "رقم التشغيله";
+            this.Col_BatchNumber.Name = "Col_BatchNumber";
+            this.Col_BatchNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Col_BatchNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Col_ExpiryDate
+            // 
+            this.Col_ExpiryDate.HeaderText = "تاريخ الصلاحيه";
+            this.Col_ExpiryDate.Name = "Col_ExpiryDate";
+            this.Col_ExpiryDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Col_ExpiryDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Col_ExpectedQty
+            // 
+            this.Col_ExpectedQty.HeaderText = "الكميه المتوقعه";
+            this.Col_ExpectedQty.Name = "Col_ExpectedQty";
+            // 
+            // Col_ActualQty
+            // 
+            this.Col_ActualQty.HeaderText = "الكميه الحقيقيه";
+            this.Col_ActualQty.Name = "Col_ActualQty";
             // 
             // FrmCloseTakingInventory
             // 
@@ -150,9 +206,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmboBox_TakingName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCloseTakingInventory";
             this.Text = "FrmCloseTakingInventory";
+            this.Load += new System.EventHandler(this.FrmCloseTakingInventory_Load);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);
             this.Controls.SetChildIndex(this.cmboBox_TakingName, 0);
@@ -181,5 +238,12 @@
         private System.Windows.Forms.TextBox txtbox_Date;
         private System.Windows.Forms.TextBox txtbox_InventoryName;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_TakingInventoryLineID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Col_Productname;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Col_IsAcceptBantch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_BatchNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_ExpiryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_ExpectedQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Col_ActualQty;
     }
 }

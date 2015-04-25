@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseReturnLineBase.cs
+// Class	:	VPurchaseReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	11/4/2015 8:46:46 PM
+// Date		:	11/4/2015 9:57:48 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -13,35 +13,29 @@ namespace POS.BusinessLayer
 	/// Class for the properties of the object
 	/// </summary>
 	[DataContract(Namespace = "POS.BusinessLayer")]
-	public class PURPurchaseReturnLineBase
+	public class VPurchaseReturnHeaderBase
 	{
 
 		#region Data Contract (Business Object Interface To Service)
 
 		
 		[DataMember]
-		public int? PurchaseReturnLineID {get;set;}
+		public int? PurchaseReturnID {get;set;}
 
 		[DataMember]
-		public decimal? Qty {get;set;}
+		public DateTime? ReturnDate {get;set;}
 
 		[DataMember]
-		public string Reason {get;set;}
+		public bool? IsClosed {get;set;}
 
 		[DataMember]
-		public int? OriginalpurchaseLineID {get;set;}
+		public string InvoiceNumber {get;set;}
 
 		[DataMember]
-		public int? BatchID {get;set;}
+		public string SupplierName {get;set;}
 
 		[DataMember]
-		public string BatchNumber {get;set;}
-
-		[DataMember]
-		public DateTime? ExpiryDate {get;set;}
-
-		[DataMember]
-		public int? PurchaseReturnHeaderID {get;set;}
+		public int? PurcaseHeaderID {get;set;}
 
 		
 		#endregion
