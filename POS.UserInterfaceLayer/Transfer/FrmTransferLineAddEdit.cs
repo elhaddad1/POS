@@ -18,11 +18,14 @@ namespace POS.UserInterfaceLayer.Transfer
         BDProductWrapper _bDProductWrapper;
         public INVTransferLine transferLine;
         public FrmAddEditTransferOrder frmAddEditTransferOrder;
-        public FrmTransferLineAddEdit(FrmAddEditTransferOrder _frmAddEditTransferOrder)
+        private int _inventoryID = -1;
+
+        public FrmTransferLineAddEdit(int inventoryID, FrmAddEditTransferOrder _frmAddEditTransferOrder)
         {
             InitializeComponent();
             _bDProductGroupWrapper = new BDProductGroupWrapper();
             _bDProductWrapper = new BDProductWrapper();
+            _inventoryID = inventoryID;
             this.frmAddEditTransferOrder = _frmAddEditTransferOrder;
             FillProductGroupCBX();
         }
@@ -95,11 +98,15 @@ namespace POS.UserInterfaceLayer.Transfer
                 pk.ProductGroupID = groupID;
                 this.cbx_Product.SelectedIndexChanged -= new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
                 cbx_Product.DataSource = null;
-                cbx_Product.DataSource = null;//_bDProductWrapper.SelectAllByForeignKeyProductGroupID(pk);
-                cbx_Product.DisplayMember = "ProductName";
-                cbx_Product.ValueMember = "ProductID";
-                this.cbx_Product.SelectedIndexChanged += new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
-                cbx_Product.SelectedIndex = -1;
+                var result = _bDProductWrapper.SelectAllProductsByGroupID(_inventoryID, pk);
+                if (result != null)
+                {
+                    cbx_Product.DataSource = result;
+                    cbx_Product.DisplayMember = "ProductName";
+                    cbx_Product.ValueMember = "ProductID";
+                    this.cbx_Product.SelectedIndexChanged += new System.EventHandler(this.cbx_Product_SelectedIndexChanged);
+                    cbx_Product.SelectedIndex = -1;
+                }
             }
             catch (Exception)
             {

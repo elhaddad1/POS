@@ -64,9 +64,14 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@InventoryID", InventoryID );
             oDatabaseHelper.AddParameter("@FromDate", FromDate);
             oDatabaseHelper.AddParameter("@ToDate", ToDate );
-            oDatabaseHelper.AddParameter("@SupplierName", SupplierName);
-            oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
-
+            if (SupplierName!="")
+            {
+                oDatabaseHelper.AddParameter("@SupplierName", SupplierName); 
+            }
+            if (InvoiceNumber != "")
+            {
+                oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
+            }
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -99,7 +104,7 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@UserID", UserID);
             oDatabaseHelper.AddParameter("@PurchaseHeaderID", PurchaseHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
-            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseHeader_CloseOrder", ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("usp_PURPurchaseLine_InsertCommit", ref ExecutionState);
             oDatabaseHelper.Dispose();
             return ExecutionState;
         }

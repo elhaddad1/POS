@@ -19,8 +19,11 @@ namespace POS.BusinessLayer
         [DataMember]
         public string ProductName { get; set; }
         public string BatchNumber { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         public decimal BatchQty { get; set; }
+        public bool IsAcceptBatch { get; set; }
+        public int IsBatch { get; set; }
+          public int PurchaseLineBatchID { get; set; }
 	}
 }
 			

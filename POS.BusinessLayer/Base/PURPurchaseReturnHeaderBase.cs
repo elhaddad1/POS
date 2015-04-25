@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:23 PM
+// Date		:	11/4/2015 8:46:46 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -48,6 +48,15 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public DateTime? DeleteDate {get;set;}
+
+		[DataMember]
+		public bool? IsClosed {get;set;}
+
+		[DataMember]
+		public bool? IsVoid {get;set;}
+
+		[DataMember]
+		public decimal? ReturnMoney {get;set;}
 
 		
 		#endregion

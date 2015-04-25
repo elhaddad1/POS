@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseReturnHeaderPrimaryKey.cs
+// Class	:	VPURPurchaseOrderPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	11/4/2015 8:46:46 PM
+// Date		:	11/4/2015 9:57:48 PM
 //
 	
 using System;
@@ -13,12 +13,21 @@ using System.Runtime.Serialization;
 namespace POS.BusinessLayer
 {
 	[DataContract(Namespace = "POS.BusinessLayer")]
-	public class PURPurchaseReturnHeaderPrimaryKey
+	public class VPURPurchaseOrderPrimaryKey
 	{
 		#region Data Contract (Business Object Interface To Service)
 		
 			[DataMember]
-			public int? PurchaseReturnID {get;set;}
+			public int? SupplierID {get;set;}
+			
+			[DataMember]
+			public int? PurchaseLineID {get;set;}
+			
+			[DataMember]
+			public int? PurcaseHeaderID {get;set;}
+			
+			[DataMember]
+			public int? ProductID {get;set;}
 			
 
 		#endregion

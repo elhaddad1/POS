@@ -1,7 +1,7 @@
 //
-// Class	:	PURPurchaseReturnHeaderCollection.cs
+// Class	:	VPurchaseReturnHeaderCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	11/4/2015 8:46:46 PM
+// Date		:	11/4/2015 9:57:48 PM
 //
 
 using System.Runtime.Serialization;
@@ -11,7 +11,7 @@ using POS.DataLayer;
 namespace POS.BusinessLayer
 {
 	[CollectionDataContract(Namespace = "POS.BusinessLayer")]
-	public class PURPurchaseReturnHeaderCollection : List<PURPurchaseReturnHeader>
+	public class VPurchaseReturnHeaderCollection : List<VPurchaseReturnHeader>
 	{
 	}
 }

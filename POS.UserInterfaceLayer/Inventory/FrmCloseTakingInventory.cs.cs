@@ -17,5 +17,10 @@ namespace POS.UserInterfaceLayer.Inventory
         {
             InitializeComponent();
         }
+
+        private void FrmCloseTakingInventory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

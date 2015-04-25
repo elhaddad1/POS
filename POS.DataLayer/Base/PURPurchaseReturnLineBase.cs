@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:26 PM
+// Date		:	11/4/2015 8:46:46 PM
 //
 
 using System;
@@ -30,6 +30,7 @@ namespace POS.DataLayer
 		public const string BatchID                   = "BatchID";
 		public const string BatchNumber               = "BatchNumber";
 		public const string ExpiryDate                = "ExpiryDate";
+		public const string PurchaseReturnHeaderID    = "PurchaseReturnHeaderID";
 	}
 	
 	/// <summary>
@@ -50,6 +51,7 @@ namespace POS.DataLayer
 		private int?           	_batchIDNonDefault       	= null;
 		private string         	_batchNumberNonDefault   	= null;
 		private DateTime?      	_expiryDateNonDefault    	= null;
+		private int?           	_purchaseReturnHeaderIDNonDefault	= null;
 		
 		#endregion
 		
@@ -202,6 +204,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// The foreign key connected with another persistent object.
+		/// </summary>
+		public int? PurchaseReturnHeaderID
+		{
+			get 
+			{ 
+				return _purchaseReturnHeaderIDNonDefault;
+			}
+			set 
+			{
+			
+				_purchaseReturnHeaderIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -216,7 +234,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -263,6 +281,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
 			  
+			// Pass the value of '_purchaseReturnHeaderID' as parameter 'PurchaseReturnHeaderID' of the stored procedure.
+			if(_purchaseReturnHeaderIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", _purchaseReturnHeaderIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -293,7 +317,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -334,6 +358,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value );
+			// Pass the value of '_purchaseReturnHeaderID' as parameter 'PurchaseReturnHeaderID' of the stored procedure.
+			if(_purchaseReturnHeaderIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", _purchaseReturnHeaderIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -353,7 +382,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -385,6 +414,9 @@ namespace POS.DataLayer
 			// Pass the value of '_expiryDate' as parameter 'ExpiryDate' of the stored procedure.
 			oDatabaseHelper.AddParameter("@ExpiryDate", _expiryDateNonDefault );
 			
+			// Pass the value of '_purchaseReturnHeaderID' as parameter 'PurchaseReturnHeaderID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", _purchaseReturnHeaderIDNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -404,7 +436,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -441,7 +473,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -480,7 +512,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -515,7 +547,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -563,7 +595,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -600,7 +632,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -642,7 +674,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -688,7 +720,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -729,7 +761,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -754,6 +786,144 @@ namespace POS.DataLayer
 		/// along with the details of the child table.
 		/// </summary>
 		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseReturnLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseReturnLineCollection SelectAllByForeignKeyPurchaseReturnHeaderID(PURPurchaseReturnHeaderPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseReturnLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseReturnLine_SelectAllByForeignKeyPurchaseReturnHeaderID", ref ExecutionState);
+			obj = new PURPurchaseReturnLineCollection();
+			obj = PURPurchaseReturnLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class PURPurchaseReturnLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseReturnLineCollection SelectAllByForeignKeyPurchaseReturnHeaderIDPaged(PURPurchaseReturnHeaderPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseReturnLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseReturnLine_SelectAllByForeignKeyPurchaseReturnHeaderIDPaged", ref ExecutionState);
+			obj = new PURPurchaseReturnLineCollection();
+			obj = PURPurchaseReturnLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeyPurchaseReturnHeaderID(PURPurchaseReturnHeaderPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_PURPurchaseReturnLine_DeleteAllByForeignKeyPurchaseReturnHeaderID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
+			
+		}
+
+
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
 		/// <param name="pk" type="INVBatchPrimaryKey">Primary Key information based on which data is to be fetched.</param>
 		///
 		/// <returns>object of class PURPurchaseReturnLineCollection</returns>
@@ -762,7 +932,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -810,7 +980,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -858,7 +1028,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -900,7 +1070,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -948,7 +1118,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -996,7 +1166,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM				Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1040,7 +1210,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1077,7 +1247,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1109,6 +1279,7 @@ namespace POS.DataLayer
 				obj.ExpiryDate = rdr.GetDateTime(rdr.GetOrdinal(PURPurchaseReturnLineFields.ExpiryDate));
 			}
 			
+			obj.PurchaseReturnHeaderID = rdr.GetInt32(rdr.GetOrdinal(PURPurchaseReturnLineFields.PurchaseReturnHeaderID));
 
 		}
 
@@ -1124,7 +1295,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1156,7 +1327,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:26 PM		Created function
+		/// DLGenerator			11/4/2015 8:46:46 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

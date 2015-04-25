@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseReturnLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:27 PM
+// Date		:	11/4/2015 8:46:46 PM
 //
 
 
@@ -58,6 +58,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 			return _pURPurchaseReturnLineWCF;
 		}
@@ -81,6 +82,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -121,6 +123,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -144,10 +147,82 @@ namespace POS.BusinessLayer
 			_pURPurchaseReturnLine.BatchID=pURPurchaseReturnLine.BatchID;
 			_pURPurchaseReturnLine.BatchNumber=pURPurchaseReturnLine.BatchNumber;
 			_pURPurchaseReturnLine.ExpiryDate=pURPurchaseReturnLine.ExpiryDate;
+			_pURPurchaseReturnLine.PurchaseReturnHeaderID=pURPurchaseReturnLine.PurchaseReturnHeaderID;
 			
 			return _pURPurchaseReturnLine.Insert();
 		}
 		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyPurchaseReturnHeaderID(PURPurchaseReturnHeaderPrimaryKey pk)
+		{
+			return POS.DataLayer.PURPurchaseReturnLineBase.DeleteAllByForeignKeyPurchaseReturnHeaderID(new POS.DataLayer.PURPurchaseReturnHeaderPrimaryKey(pk.PurchaseReturnID));
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseReturnLineCollection</returns>
+		public PURPurchaseReturnLineCollection SelectAllByForeignKeyPurchaseReturnHeaderID(PURPurchaseReturnHeaderPrimaryKey pk)
+		{
+			PURPurchaseReturnLineCollection pURPurchaseReturnLineCollection=new PURPurchaseReturnLineCollection();
+			foreach (POS.DataLayer.PURPurchaseReturnLine _pURPurchaseReturnLine in POS.DataLayer.PURPurchaseReturnLineBase.SelectAllByForeignKeyPurchaseReturnHeaderID(new POS.DataLayer.PURPurchaseReturnHeaderPrimaryKey(pk.PurchaseReturnID)))
+			{
+				_pURPurchaseReturnLineWCF = new PURPurchaseReturnLine();
+				_pURPurchaseReturnLineWCF.PurchaseReturnLineID = _pURPurchaseReturnLine.PurchaseReturnLineID;
+				_pURPurchaseReturnLineWCF.Qty = _pURPurchaseReturnLine.Qty;
+				_pURPurchaseReturnLineWCF.Reason = _pURPurchaseReturnLine.Reason;
+				_pURPurchaseReturnLineWCF.OriginalpurchaseLineID = _pURPurchaseReturnLine.OriginalpurchaseLineID;
+				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
+				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
+				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
+				
+				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
+			}
+			return pURPurchaseReturnLineCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PURPurchaseReturnHeaderPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class PURPurchaseReturnLineCollection</returns>
+		public PURPurchaseReturnLineCollection SelectAllByForeignKeyPurchaseReturnHeaderIDPaged(PURPurchaseReturnHeaderPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			PURPurchaseReturnLineCollection pURPurchaseReturnLineCollection=new PURPurchaseReturnLineCollection();
+			foreach (POS.DataLayer.PURPurchaseReturnLine _pURPurchaseReturnLine in POS.DataLayer.PURPurchaseReturnLineBase.SelectAllByForeignKeyPurchaseReturnHeaderIDPaged(new POS.DataLayer.PURPurchaseReturnHeaderPrimaryKey(pk.PurchaseReturnID), pageSize, skipPages, orderByStatement))
+			{
+				_pURPurchaseReturnLineWCF = new PURPurchaseReturnLine();
+				_pURPurchaseReturnLineWCF.PurchaseReturnLineID = _pURPurchaseReturnLine.PurchaseReturnLineID;
+				_pURPurchaseReturnLineWCF.Qty = _pURPurchaseReturnLine.Qty;
+				_pURPurchaseReturnLineWCF.Reason = _pURPurchaseReturnLine.Reason;
+				_pURPurchaseReturnLineWCF.OriginalpurchaseLineID = _pURPurchaseReturnLine.OriginalpurchaseLineID;
+				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
+				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
+				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
+				
+				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
+			}
+			return pURPurchaseReturnLineCollection;
+		}
+			/// <summary>
 		/// This method will delete row(s) from the database using the value of the field specified 
 		/// along with the details of the child table.
 		/// </summary>
@@ -181,6 +256,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -211,6 +287,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -250,6 +327,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -280,6 +358,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -309,6 +388,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -343,6 +423,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseReturnLineWCF.BatchID = _pURPurchaseReturnLine.BatchID;
 				_pURPurchaseReturnLineWCF.BatchNumber = _pURPurchaseReturnLine.BatchNumber;
 				_pURPurchaseReturnLineWCF.ExpiryDate = _pURPurchaseReturnLine.ExpiryDate;
+				_pURPurchaseReturnLineWCF.PurchaseReturnHeaderID = _pURPurchaseReturnLine.PurchaseReturnHeaderID;
 				
 				pURPurchaseReturnLineCollection.Add(_pURPurchaseReturnLineWCF);
 			}
@@ -365,6 +446,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseReturnLine.BatchID=pURPurchaseReturnLine.BatchID;
 			_pURPurchaseReturnLine.BatchNumber=pURPurchaseReturnLine.BatchNumber;
 			_pURPurchaseReturnLine.ExpiryDate=pURPurchaseReturnLine.ExpiryDate;
+			_pURPurchaseReturnLine.PurchaseReturnHeaderID=pURPurchaseReturnLine.PurchaseReturnHeaderID;
 			
 			return _pURPurchaseReturnLine.Update();
 		}

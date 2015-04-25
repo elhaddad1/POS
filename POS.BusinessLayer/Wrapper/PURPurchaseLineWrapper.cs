@@ -117,6 +117,31 @@ namespace POS.BusinessLayer.Wrapper
             POS.DataLayer.PURPurchaseLine pURPurchaseLineObj = new DataLayer.PURPurchaseLine();
             return pURPurchaseLineObj.SaveTransaction(_pURPurchaseHeader, _pURPurchaseLineCollection);
         }
+        public PURPurchaseLineCollection SelectByHeaderID(int HeaderID)
+        {
+            POS.DataLayer.PURPurchaseLineCollection Lines = new POS.DataLayer.PURPurchaseLine().SelectByHeaderID(HeaderID);
+            POS.BusinessLayer.PURPurchaseLineCollection _lines = new PURPurchaseLineCollection();
 
-    }
+            foreach (var item in Lines)
+            {
+                PURPurchaseLine obj = new PURPurchaseLine();
+                obj.PurchaseLineID = item.PurchaseHeaderID;
+                obj.PurchaseLineBatchID = item.PurchaseLineBatchID;
+                obj.ProductID = item.ProductID;
+                obj.ProductName = item.ProductName;
+                obj.IsAcceptBatch = item.IsAcceptBatch;
+                obj.TotalQty  = item.TotalQty;
+                obj.BonusQty = item.BonusQty;
+                obj.Unitprice = item.Unitprice;
+                obj.BonusQty = item.BonusQty;
+
+                obj.BatchNumber = item.BatchNumber;
+                obj.ExpiryDate = item.ExpiryDate;
+                
+              //  obj.= item.
+                _lines.Add(obj);
+            }
+            return _lines;
+        }
+    }  
 }
