@@ -31,7 +31,6 @@
             this.btn_Priviligies = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -40,39 +39,44 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(432, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(443, 20);
             // 
             // panl_Footer
             // 
+            this.panl_Footer.Controls.Add(this.btn_Priviligies);
             this.panl_Footer.Location = new System.Drawing.Point(0, 337);
             this.panl_Footer.Size = new System.Drawing.Size(668, 62);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Delete, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Back, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Priviligies, 0);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_Priviligies);
             this.groupBox2.Location = new System.Drawing.Point(0, 53);
             this.groupBox2.Size = new System.Drawing.Size(668, 72);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(447, 2);
+            this.btn_Add.Location = new System.Drawing.Point(458, 2);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(132, 2);
+            this.btn_Back.Location = new System.Drawing.Point(143, 2);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(342, 2);
+            this.btn_Edit.Location = new System.Drawing.Point(353, 2);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(237, 2);
+            this.btn_Delete.Location = new System.Drawing.Point(248, 2);
             // 
             // btn_Priviligies
             // 
             this.btn_Priviligies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Priviligies.Location = new System.Drawing.Point(54, 10);
+            this.btn_Priviligies.Location = new System.Drawing.Point(38, 3);
             this.btn_Priviligies.Name = "btn_Priviligies";
             this.btn_Priviligies.Size = new System.Drawing.Size(99, 57);
             this.btn_Priviligies.TabIndex = 6;
@@ -89,7 +93,6 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

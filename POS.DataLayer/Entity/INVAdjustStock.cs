@@ -79,7 +79,7 @@ namespace POS.DataLayer
             bool ExecutionState = false;
 
             oDatabaseHelper.BeginTransaction();
-            if (DeleteProductStock(oDatabaseHelper,ProductStockID))
+            if (DeleteAdjustStock(oDatabaseHelper,ProductStockID))
             {
 
                 foreach (INVAdjustStock adjustStock in ajustStockCollection)
@@ -151,17 +151,17 @@ namespace POS.DataLayer
             return ExecutionState;
         }
 
-        private bool DeleteProductStock(DatabaseHelper oDatabaseHelper, int ProductStockID)
+        private bool DeleteAdjustStock(DatabaseHelper oDatabaseHelper, int AdjustStockID)
         {
             bool ExecutionState = false;
             // Pass the value of '_TransferHeaderID' as parameter 'TransferHeaderID' of the stored procedure.
 
-            oDatabaseHelper.AddParameter("@ProductStockID", ProductStockID);
+            oDatabaseHelper.AddParameter("@AdjustStockID", AdjustStockID);
 
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
-            oDatabaseHelper.ExecuteScalar("gsp_INVProductStock_Delete", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            oDatabaseHelper.ExecuteScalar("gsp_INVAdjustStock_Delete", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
             return ExecutionState;
         }

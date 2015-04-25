@@ -69,6 +69,7 @@ namespace POS.DataLayer
                 else
                     oDatabaseHelper.RollbackTransaction();
             }
+            oDatabaseHelper.Dispose();
             return salesReturnHeaderID;
         }
 
@@ -101,6 +102,7 @@ namespace POS.DataLayer
             }
             else
                 ExecutionState = false;
+            oDatabaseHelper.Dispose();
             return ExecutionState;
         }
         #endregion

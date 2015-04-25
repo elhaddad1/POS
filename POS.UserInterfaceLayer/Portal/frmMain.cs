@@ -234,18 +234,17 @@ namespace POS.UserInterfaceLayer.Portal
             switchForm(frm);
         }
 
-      
+        private void mnuItem_Users_Click(object sender, EventArgs e)
+        {
+            frmSearchUsers frm = new frmSearchUsers();
+            frm.ShowDialog();
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+        private void mnuItem_SalesReturnOrder_Click(object sender, EventArgs e)
+        {
+            frmSalesReturnSearch frm = new frmSalesReturnSearch();
+            frm.ShowDialog();
+        }
+        
     }
 }

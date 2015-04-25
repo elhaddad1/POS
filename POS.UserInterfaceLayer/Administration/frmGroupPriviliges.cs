@@ -14,6 +14,8 @@ namespace POS.UserInterfaceLayer.Administration
     {
         ADRoleWrapper _aDRoleWrapper;
         ADGroupRoleWrapper _aDGroupRoleWrapper;
+        ADGroupRoleCollection _aDGroupRoleCollection;
+        // ADGroupRole _aDGroupRole;
         int _groupID;
         public frmGroupPriviliges(int groupID)
         {
@@ -21,30 +23,22 @@ namespace POS.UserInterfaceLayer.Administration
             _aDRoleWrapper = new ADRoleWrapper();
             _aDGroupRoleWrapper = new ADGroupRoleWrapper();
             lbl_FormHeader.Text = "صلاحيات مجموعة المستخدمين";
-
-          
             _groupID = groupID;
+            _aDGroupRoleCollection = new ADGroupRoleCollection();
         }
 
         /// Events
         /// 
         public override void btn_Save_Click(object sender, EventArgs e)
         {
-            // bool b=(bool)dgrid_Roles.Rows[0].Cells["Check"].Value;
-            //if (!Valdation()) { return; }
-            //CollectScreenData();
+            CollectScreenData();
             try
             {
-                test();
-                //if (_groupID == -1)
-                //    _aDGroupWrapper.Insert(_aDGroup);
-                //else
-                //{
-                //    _aDGroup.GroupID = _groupID;
-                //    _aDGroupWrapper.Update(_aDGroup);
-                //}
-                //MessageBox.Show("تم الحفظ بنجاح");
-                //this.Close();
+                if (_aDGroupRoleWrapper.InsertGroupRoles(_aDGroupRoleCollection, _groupID))
+                {
+                    MessageBox.Show("تم الحفظ بنجاح");
+                    this.Close();
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -52,9 +46,11 @@ namespace POS.UserInterfaceLayer.Administration
         {
             this.Close();
         }
-
-
-
+        private void frmGroupPriviliges_Load(object sender, EventArgs e)
+        {
+            FillRolesDataGrid();
+            GetGroupRoles(_groupID);
+        }
 
         /// methods
         /// 
@@ -67,12 +63,6 @@ namespace POS.UserInterfaceLayer.Administration
                 dgrid_Roles.DataSource = _aDRoleWrapper.SelectAll();
                 dgrid_Roles.Columns[0].DataPropertyName = "RoleID";
                 dgrid_Roles.Columns[2].DataPropertyName = "RoleName";
-                //foreach (DataGridViewRow row in dgrid_Roles.Rows)
-                //{
-                //    row.Cells["check"].Value = true;
-                //   // chk.Selected = false;
-
-                //}
             }
             catch (Exception ex)
             {
@@ -85,6 +75,8 @@ namespace POS.UserInterfaceLayer.Administration
             try
             {
                 ADGroupRoleCollection _aDGroupRoleCollection = _aDGroupRoleWrapper.SelectByGroupID(groupID);
+                if (_aDGroupRoleCollection.Count == 0)
+                    return;
                 foreach (ADGroupRole _aDGroupRole in _aDGroupRoleCollection)
                 {
                     foreach (DataGridViewRow row in dgrid_Roles.Rows)
@@ -92,7 +84,6 @@ namespace POS.UserInterfaceLayer.Administration
                         if (Convert.ToInt32(row.Cells["RoleID"].Value) == _aDGroupRole.RoleID)
                         {
                             row.Cells["Check"].Value = true;
-                           
 
                         }
                     }
@@ -104,19 +95,22 @@ namespace POS.UserInterfaceLayer.Administration
             }
         }
 
-        private void test()
+        private void CollectScreenData()
         {
-            //foreach (DataGridViewRow row in dgrid_Roles.Rows)
-            //{
-            //    DataGridViewCheckBoxCell x = (DataGridViewCheckBoxCell)row.Cells["Check"];
-            //}
-
+            ADGroupRole _aDGroupRole;
+            foreach (DataGridViewRow row in dgrid_Roles.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Check"].Value) == true)
+                {
+                    _aDGroupRole = new ADGroupRole();
+                    _aDGroupRole.RoleID = Convert.ToInt32(row.Cells["RoleID"].Value);
+                    _aDGroupRole.GroupID = _groupID;
+                    _aDGroupRoleCollection.Add(_aDGroupRole);
+                }
+            }
+            //_aDGroupRoleCollection.
         }
 
-        private void frmGroupPriviliges_Load(object sender, EventArgs e)
-        {
-            FillRolesDataGrid();
-            GetGroupRoles(_groupID);
-        }
+
     }
 }

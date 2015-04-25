@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\frmUserAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\frmUserAddEdit.Designer.cs">
+      <DependentUpon>frmUserAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\frmGroupPriviliges.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,23 +272,17 @@
     <Compile Include="Purcase\frmPurchaseOrderAddEdit.Designer.cs">
       <DependentUpon>frmPurchaseOrderAddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purcase\FrmReturnPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
+      <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.Designer.cs">
-      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
-      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
@@ -340,6 +340,9 @@
     <None Include="Resources\Office-Client-Male-Light-icon.png" />
     <None Include="Resources\Client-icon.png" />
     <None Include="Resources\product-icon.png" />
+    <EmbeddedResource Include="Administration\frmUserAddEdit.resx">
+      <DependentUpon>frmUserAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\frmGroupPriviliges.resx">
       <DependentUpon>frmGroupPriviliges.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,9 +412,6 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FrmCloseTakingInventory.cs.resx">
-      <DependentUpon>FrmCloseTakingInventory.cs.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
       <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,12 +454,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseOrderSearch.resx">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Purcase\frmPurchaseReturnOrderAddEdit.resx">
-      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
-      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>

@@ -15,42 +15,97 @@ using System.Data.Common;
 
 namespace POS.DataLayer
 {
-	
-	/// <summary>
-	/// Data access class for the "ADGroupRole" table.
-	/// </summary>
-	[Serializable]
-	public class ADGroupRole : ADGroupRoleBase
-	{
-	
-		#region Class Level Variables
 
-		#endregion
-		
-		#region Constants
-		
-		#endregion
+    /// <summary>
+    /// Data access class for the "ADGroupRole" table.
+    /// </summary>
+    [Serializable]
+    public class ADGroupRole : ADGroupRoleBase
+    {
 
-		#region Constructors / Destructors 
-		
-		public ADGroupRole() : base()
-		{
-		}
+        #region Class Level Variables
 
-		#endregion
+        #endregion
 
-		#region Properties
+        #region Constants
 
-		#endregion
+        #endregion
 
-		#region Methods (Public)
+        #region Constructors / Destructors
 
-		#endregion
-		
-		#region Methods (Private)
+        public ADGroupRole()
+            : base()
+        {
+        }
 
-		#endregion
+        #endregion
 
-	}
-	
+        #region Properties
+
+        #endregion
+
+        #region Methods (Public)
+        public static bool InsertGroupRoles(ADGroupRoleCollection aDGroupRoleCollection, int groupID)
+        {
+
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+            oDatabaseHelper.BeginTransaction();
+            if (Deletelines(oDatabaseHelper, groupID))
+            {
+                foreach (ADGroupRole groupRole in aDGroupRoleCollection)
+                {
+                    if (!InsertDetails(oDatabaseHelper, groupRole))
+                    {
+                        ExecutionState = false;
+                        break;
+                    }
+                    else
+                        ExecutionState = true;
+
+                }
+                if (ExecutionState)
+                    oDatabaseHelper.CommitTransaction();
+                else
+                    oDatabaseHelper.RollbackTransaction();
+
+            }
+            else
+                ExecutionState = false;
+
+            oDatabaseHelper.Dispose();
+            return ExecutionState;
+
+        }
+
+
+
+        #endregion
+
+        #region Methods (Private)
+        private static bool Deletelines(DatabaseHelper oDatabaseHelper, int groupID)
+        {
+            bool ExecutionState = false;
+            oDatabaseHelper.AddParameter("@Field", "GroupID");
+            oDatabaseHelper.AddParameter("@Value", groupID);
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+            oDatabaseHelper.ExecuteScalar("gsp_ADGroupRole_DeleteByField", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+
+            return ExecutionState;
+        }
+        private static bool InsertDetails(DatabaseHelper oDatabaseHelper, ADGroupRole groupRole)
+        {
+            bool ExecutionState = false;
+            oDatabaseHelper.AddParameter("@GroupID", groupRole.GroupID);
+            oDatabaseHelper.AddParameter("@RoleID", groupRole.RoleID);
+            oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+            oDatabaseHelper.ExecuteScalar("gsp_ADGroupRole_Insert", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
+            return ExecutionState;
+        }
+
+        #endregion
+
+    }
+
 }

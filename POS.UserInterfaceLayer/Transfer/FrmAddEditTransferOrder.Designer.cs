@@ -45,7 +45,6 @@
             this.btn_DeleteLine = new System.Windows.Forms.Button();
             this.btn_Minus = new System.Windows.Forms.Button();
             this.btn_Plus = new System.Windows.Forms.Button();
-            this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
@@ -218,18 +217,6 @@
             this.btn_Plus.UseVisualStyleBackColor = true;
             this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
-            // btn_ClosePrint
-            // 
-            this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(195, 468);
-            this.btn_ClosePrint.Name = "btn_ClosePrint";
-            this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
-            this.btn_ClosePrint.TabIndex = 16;
-            this.btn_ClosePrint.Text = "أغلاق وطباعة";
-            this.btn_ClosePrint.UseVisualStyleBackColor = true;
-            this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click_1);
-            // 
             // btn_Save
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -238,7 +225,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 55);
             this.btn_Save.TabIndex = 17;
-            this.btn_Save.Text = "حفظ فقط";
+            this.btn_Save.Text = "حفظ ";
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
@@ -263,7 +250,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.btn_ClosePrint);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbx_StoreTo);
             this.Controls.Add(this.cbx_StoreFrom);
@@ -300,7 +286,6 @@
         private System.Windows.Forms.Button btn_DeleteLine;
         private System.Windows.Forms.Button btn_Minus;
         private System.Windows.Forms.Button btn_Plus;
-        private System.Windows.Forms.Button btn_ClosePrint;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.DataGridView dgrd_OrderLines;

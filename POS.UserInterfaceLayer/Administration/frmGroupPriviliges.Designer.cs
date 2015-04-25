@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrid_Roles = new System.Windows.Forms.DataGridView();
             this.RoleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -44,7 +43,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(158, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(236, 9);
             // 
             // panl_Footer
             // 
@@ -53,11 +52,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(263, 4);
+            this.btn_Save.Location = new System.Drawing.Point(344, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(158, 4);
+            this.btn_Back.Location = new System.Drawing.Point(239, 4);
             // 
             // dgrid_Roles
             // 
@@ -69,6 +68,8 @@
             this.dgrid_Roles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_Roles.Location = new System.Drawing.Point(0, 53);
             this.dgrid_Roles.Name = "dgrid_Roles";
+            this.dgrid_Roles.RowHeadersVisible = false;
+            this.dgrid_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_Roles.Size = new System.Drawing.Size(381, 157);
             this.dgrid_Roles.TabIndex = 2;
             // 
@@ -80,8 +81,6 @@
             // 
             // Check
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Check.DefaultCellStyle = dataGridViewCellStyle2;
             this.Check.HeaderText = "";
             this.Check.Name = "Check";
             // 
@@ -89,6 +88,7 @@
             // 
             this.RoleName.HeaderText = "الصلاحيات";
             this.RoleName.Name = "RoleName";
+            this.RoleName.Width = 250;
             // 
             // frmGroupPriviliges
             // 

@@ -85,9 +85,12 @@ namespace POS.UserInterfaceLayer.Administration
         {
            // dgrid_Result.Size = new Size(10, 250);
             dgrid_Result.DataSource = null;
+
             dgrid_Result.DataSource = _aDGroupWrapper.SelectAll();
             addColumnToGrid("رقم المجموعه", "GroupID", 20, false);
             addColumnToGrid("أسم المجموعة", "GroupName", 200, true);
+            dgrid_Result.RowHeadersVisible = false;
+            dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         private void BindGrid()
         {

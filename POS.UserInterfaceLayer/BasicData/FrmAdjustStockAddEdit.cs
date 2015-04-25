@@ -218,7 +218,7 @@ namespace POS.UserInterfaceLayer.BasicData
                     isValidProduct = (!string.IsNullOrEmpty(BatchID) && ExpiryDate.HasValue);
             }
 
-            if (!isValidProduct || AdjustReasonID == 0 || StockTypeID == 0 || InventoryID == 0 || Qty == 0 || Qty > oldQty)
+            if (!isValidProduct || AdjustReasonID == 0 || StockTypeID == 0 || InventoryID == 0 || Qty == 0 || Qty > oldQty || oldStockTypeId == StockTypeID)
                 isValid= false;
             else
             {

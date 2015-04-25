@@ -55,9 +55,19 @@ namespace POS.UserInterfaceLayer.Transfer
 
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
-            FrmTransferLineAddEdit frm = new FrmTransferLineAddEdit(this);
-            frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
-            frm.ShowDialog();
+            int cbxFrom = 0;
+            if (cbx_StoreFrom.SelectedValue != null)
+                int.TryParse(cbx_StoreFrom.SelectedValue.ToString(), out cbxFrom);
+            if (cbxFrom > 0)
+            {
+                FrmTransferLineAddEdit frm = new FrmTransferLineAddEdit(Convert.ToInt32(cbx_StoreFrom.SelectedValue), this);
+                frm.FormClosed += frmSalesOrderAddEdit_FormClosed;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("برجاء أختيار المخزن المحول منه");
+            }
 
         }
 
