@@ -1,7 +1,7 @@
 //
 // Class	:	VProductBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:30 PM
+// Date		:	4/25/2015 1:10:32 PM
 //
 
 using System;
@@ -35,8 +35,9 @@ namespace POS.DataLayer
 		public const string DescountRatio             = "DescountRatio";
 		public const string IsActive                  = "IsActive";
 		public const string Notes                     = "Notes";
+		public const string MinPrice                  = "MinPrice";
+		public const string MaxPrice                  = "MaxPrice";
 		public const string ProductGroupName          = "ProductGroupName";
-		public const string Expr1                     = "Expr1";
 	}
 	
 	/// <summary>
@@ -62,8 +63,9 @@ namespace POS.DataLayer
 		private double?        	_descountRatioNonDefault 	= null;
 		private bool?          	_isActiveNonDefault      	= null;
 		private string         	_notesNonDefault         	= null;
-		private decimal?       	_productGroupNameNonDefault	= null;
-		private decimal?       	_expr1NonDefault         	= null;
+		private decimal?       	_minPriceNonDefault      	= null;
+		private decimal?       	_maxPriceNonDefault      	= null;
+		private string         	_productGroupNameNonDefault	= null;
 		
 		#endregion
 		
@@ -310,34 +312,63 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "ProductGroupName" field.  
+		/// This property is mapped to the "MinPrice" field.  
 		/// </summary>
-		public decimal? ProductGroupName
+		public decimal? MinPrice
 		{
 			get 
 			{ 
-				return _productGroupNameNonDefault;
+				return _minPriceNonDefault;
 			}
 			set 
 			{
 			
-				_productGroupNameNonDefault = value; 
+				_minPriceNonDefault = value; 
 			}
 		}
 
 		/// <summary>
-		/// This property is mapped to the "Expr1" field.  
+		/// This property is mapped to the "MaxPrice" field.  
 		/// </summary>
-		public decimal? Expr1
+		public decimal? MaxPrice
 		{
 			get 
 			{ 
-				return _expr1NonDefault;
+				return _maxPriceNonDefault;
 			}
 			set 
 			{
 			
-				_expr1NonDefault = value; 
+				_maxPriceNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "ProductGroupName" field. Length must be between 0 and 50 characters. Mandatory.
+		/// </summary>
+		public string ProductGroupName
+		{
+			get 
+			{ 
+				if(_productGroupNameNonDefault==null)return _productGroupNameNonDefault;
+				else return _productGroupNameNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value == null)
+					throw new ArgumentNullException("value", "Value is null.");
+				   if (value != null && value.Length > 50)
+					throw new ArgumentException("ProductGroupName length must be between 0 and 50 characters.");
+
+				
+				if(value ==null)
+				{
+					_productGroupNameNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_productGroupNameNonDefault = value.Trim(); 
+				}
 			}
 		}
 
@@ -357,7 +388,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -405,7 +436,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -442,7 +473,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -484,7 +515,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -530,7 +561,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -571,7 +602,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -608,7 +639,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -645,7 +676,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -702,16 +733,17 @@ namespace POS.DataLayer
 				obj.Notes = rdr.GetString(rdr.GetOrdinal(VProductFields.Notes));
 			}
 			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.ProductGroupName)))
+			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.MinPrice)))
 			{
-				obj.ProductGroupName = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.ProductGroupName));
+				obj.MinPrice = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.MinPrice));
 			}
 			
-			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.Expr1)))
+			if (!rdr.IsDBNull(rdr.GetOrdinal(VProductFields.MaxPrice)))
 			{
-				obj.Expr1 = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.Expr1));
+				obj.MaxPrice = rdr.GetDecimal(rdr.GetOrdinal(VProductFields.MaxPrice));
 			}
 			
+			obj.ProductGroupName = rdr.GetString(rdr.GetOrdinal(VProductFields.ProductGroupName));
 
 		}
 
@@ -727,7 +759,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -759,7 +791,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			4/25/2015 1:10:32 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

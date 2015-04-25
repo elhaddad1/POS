@@ -52,7 +52,8 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesReturnHeader.DeleteDate = null;
             _sALSalesReturnHeader.OriginalSalesHeadeID = sALSalesReturnHeader.OriginalSalesHeadeID;
             _sALSalesReturnHeader.ReturnDate = sALSalesReturnHeader.ReturnDate;
-
+            _sALSalesReturnHeader.InventoryID = sALSalesReturnHeader.InventoryID;
+            _sALSalesReturnHeader.ReturnMoney = sALSalesReturnHeader.ReturnMoney;
             POS.DataLayer.SALSalesReturnLineCollection _sALSalesReturnLineCollection = new DataLayer.SALSalesReturnLineCollection();
             foreach (SALSalesReturnLine sALSalesReturnLine in sALSalesReturnLineCollection)
             {
@@ -82,6 +83,8 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesReturnHeader.OriginalSalesHeadeID = sALSalesReturnHeader.OriginalSalesHeadeID;
             _sALSalesReturnHeader.ReturnDate = sALSalesReturnHeader.ReturnDate;
             _sALSalesReturnHeader.SlaesReturnHeaderID = sALSalesReturnHeader.SlaesReturnHeaderID;
+            _sALSalesReturnHeader.InventoryID = sALSalesReturnHeader.InventoryID;
+            _sALSalesReturnHeader.ReturnMoney = sALSalesReturnHeader.ReturnMoney;
 
             POS.DataLayer.SALSalesReturnLineCollection _sALSalesReturnLineCollection = new DataLayer.SALSalesReturnLineCollection();
             foreach (SALSalesReturnLine sALSalesReturnLine in sALSalesReturnLineCollection)

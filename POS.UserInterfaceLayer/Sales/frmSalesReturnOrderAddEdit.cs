@@ -91,10 +91,14 @@ namespace POS.UserInterfaceLayer.Sales
             if (sALSalesReturnHeader.SlaesReturnHeaderID == null)
             {
                 sALSalesReturnLineWrraper.SaveSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
+                MessageBox.Show("تمت العملية بنجاح");
+                this.Close();
             }
             else
             {
                 sALSalesReturnLineWrraper.UpdateSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
+                MessageBox.Show("تمت العملية بنجاح");
+                this.Close();
             }
         }
 
@@ -202,6 +206,7 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesReturnHeader.OriginalSalesHeadeID = _vSALSalesOrder.SalesHeaderID;
             sALSalesReturnHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
             sALSalesReturnHeader.ReturnDate = DateTime.Now.Date;
+            sALSalesReturnHeader.ReturnMoney = Convert.ToDecimal(tbx_Total.Text);
         }
         private double CalculateTotal(double newValue)
         {

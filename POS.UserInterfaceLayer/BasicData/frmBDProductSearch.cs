@@ -17,9 +17,10 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public frmBDProductSearch()
         {
-            InitiateGrid();
+
             InitializeComponent();
             base.lbl_FormHeader.Text = "بحث";
+            InitiateGrid();
         }
 
         public void InitiateGrid()
@@ -33,20 +34,22 @@ namespace POS.UserInterfaceLayer.BasicData
             dgrid_Result.Size = new Size(10, 250);
 
             addColumnToGrid("ProductID", "ProductID", 120, false);
-            
+
             addColumnToGrid("إسم الصنف", "ProductName", 120, true);
-            
+
             addColumnToGrid("رقم الصنف", "ProductCode", 120, true);
-            
+
             addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
 
             addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);
 
+        }
+        private void BindGrid()
+        {
+            dgrid_Result.DataSource = null;
             List<VProduct> productList = _bdVProductWrapper.SelectAll();
 
             dgrid_Result.DataSource = productList;
-
-
         }
 
         private void Search()
@@ -67,7 +70,8 @@ namespace POS.UserInterfaceLayer.BasicData
             frmBDProductAddEdit frm = new frmBDProductAddEdit(this);
             frm.ShowDialog();
         }
-        public override void btn_Edit_Click(object sender, EventArgs e) {
+        public override void btn_Edit_Click(object sender, EventArgs e)
+        {
 
             int productID = 0;
             if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["ProductID"].Value != null)
@@ -78,7 +82,7 @@ namespace POS.UserInterfaceLayer.BasicData
             {
                 MessageBox.Show("لابد من اختيار صنف");
             }
-            frmBDProductAddEdit frm = new frmBDProductAddEdit(productID,this);
+            frmBDProductAddEdit frm = new frmBDProductAddEdit(productID, this);
             frm.ShowDialog();
 
         }
@@ -105,7 +109,8 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             InitiateGrid();
         }
-        public override void btn_Back_Click(object sender, EventArgs e) {
+        public override void btn_Back_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
@@ -113,5 +118,7 @@ namespace POS.UserInterfaceLayer.BasicData
         {
             Search();
         }
+
+
     }
 }

@@ -1,7 +1,7 @@
 //
 // Class	:	VProductBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:31 PM
+// Date		:	4/25/2015 1:10:32 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -56,10 +56,13 @@ namespace POS.BusinessLayer
 		public string Notes {get;set;}
 
 		[DataMember]
-		public decimal? ProductGroupName {get;set;}
+		public decimal? MinPrice {get;set;}
 
 		[DataMember]
-		public decimal? Expr1 {get;set;}
+		public decimal? MaxPrice {get;set;}
+
+		[DataMember]
+		public string ProductGroupName {get;set;}
 
 		
 		#endregion
