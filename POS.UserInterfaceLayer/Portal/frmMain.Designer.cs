@@ -67,6 +67,7 @@
             this.btn_ReturnSalesOrder = new System.Windows.Forms.Button();
             this.btn_PurchaceOrder = new System.Windows.Forms.Button();
             this.btn_SalesOrder = new System.Windows.Forms.Button();
+            this.mnuItem_SalesReturnOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnu_MainMenu.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.SuspendLayout();
@@ -284,7 +285,8 @@
             // 
             this.mnuItem_Sales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItem_SalesOrders,
-            this.mnuItem_SalesOrder});
+            this.mnuItem_SalesOrder,
+            this.mnuItem_SalesReturnOrder});
             this.mnuItem_Sales.Enabled = false;
             this.mnuItem_Sales.Name = "mnuItem_Sales";
             this.mnuItem_Sales.Size = new System.Drawing.Size(40, 19);
@@ -294,7 +296,7 @@
             // 
             this.mnuItem_SalesOrders.Enabled = false;
             this.mnuItem_SalesOrders.Name = "mnuItem_SalesOrders";
-            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(150, 22);
+            this.mnuItem_SalesOrders.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_SalesOrders.Text = "فواتير العملاء";
             this.mnuItem_SalesOrders.Click += new System.EventHandler(this.mnuItem_SalesOrders_Click);
             // 
@@ -302,7 +304,7 @@
             // 
             this.mnuItem_SalesOrder.Enabled = false;
             this.mnuItem_SalesOrder.Name = "mnuItem_SalesOrder";
-            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(150, 22);
+            this.mnuItem_SalesOrder.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_SalesOrder.Text = "فتح فاتورة جديدة";
             this.mnuItem_SalesOrder.Click += new System.EventHandler(this.mnuItem_SalesOrder_Click);
             // 
@@ -485,6 +487,14 @@
             this.btn_SalesOrder.UseVisualStyleBackColor = true;
             this.btn_SalesOrder.Click += new System.EventHandler(this.btn_SalesOrder_Click);
             // 
+            // mnuItem_SalesReturnOrder
+            // 
+            this.mnuItem_SalesReturnOrder.Enabled = false;
+            this.mnuItem_SalesReturnOrder.Name = "mnuItem_SalesReturnOrder";
+            this.mnuItem_SalesReturnOrder.Size = new System.Drawing.Size(152, 22);
+            this.mnuItem_SalesReturnOrder.Text = "مرتجع مبيعات";
+            this.mnuItem_SalesReturnOrder.Click += new System.EventHandler(this.mnuItem_SalesReturnOrder_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -554,5 +564,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItem_SupplierAccount;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_Adjustment;
         private System.Windows.Forms.ToolStripMenuItem mnuItem_Users;
+        private System.Windows.Forms.ToolStripMenuItem mnuItem_SalesReturnOrder;
     }
 }

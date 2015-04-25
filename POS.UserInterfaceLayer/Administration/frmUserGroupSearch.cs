@@ -90,6 +90,7 @@ namespace POS.UserInterfaceLayer.Administration
             addColumnToGrid("رقم المجموعه", "GroupID", 20, false);
             addColumnToGrid("أسم المجموعة", "GroupName", 200, true);
             dgrid_Result.RowHeadersVisible = false;
+            dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         private void BindGrid()
         {

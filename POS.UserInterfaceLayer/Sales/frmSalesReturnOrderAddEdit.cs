@@ -16,6 +16,7 @@ namespace POS.UserInterfaceLayer.Sales
     {
         SALSalesReturnHeaderWrapper sALSalesReturnHeaderWrapper;
         SALSalesReturnLineWrraper sALSalesReturnLineWrraper;
+        private INVInventoryWrapper iNVInventoryWrapper= new INVInventoryWrapper();
         VSALSalesOrderCollection vSALSalesOrderCollection;
         BDProductWrapper bDProductWrapper;
         SALSalesReturnHeader sALSalesReturnHeader;
@@ -31,6 +32,7 @@ namespace POS.UserInterfaceLayer.Sales
             bDProductWrapper = new BDProductWrapper();
             sALSalesReturnHeader = new SALSalesReturnHeader();
             sALSalesReturnLineCollection = new SALSalesReturnLineCollection();
+            FillInventoryCBX();
             FillProductCBX();
         }
 
@@ -41,6 +43,7 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesReturnLineWrraper = new SALSalesReturnLineWrraper();
             bDProductWrapper = new BDProductWrapper();
             FillProductCBX();
+            FillInventoryCBX();
             FillScreenWithDataForEdit(salesReturnHeaderID);
 
         }
@@ -53,7 +56,7 @@ namespace POS.UserInterfaceLayer.Sales
                 if (!string.IsNullOrEmpty(tbx_InvoiceNumber.Text))
                 {
                     vSALSalesOrderCollection = sALSalesReturnHeaderWrapper.VSALSalesOrder_SelectOneByInvoiceNumber(tbx_InvoiceNumber.Text);
-                    if (vSALSalesOrderCollection != null)
+                    if (vSALSalesOrderCollection.Count != 0)
                         FillScreenData();
                     else
                         MessageBox.Show("لايوجد فاتورة بهذا المسلسل");
@@ -103,13 +106,15 @@ namespace POS.UserInterfaceLayer.Sales
         private void dgrd_ReturnOrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-            if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["TotalQty"].Index && !string.IsNullOrEmpty(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value.ToString()))
+
+            if (e.RowIndex != -1 && (e.ColumnIndex == senderGrid.Columns["TotalQty"].Index || e.ColumnIndex == senderGrid.Columns["UnitPrice"].Index) && !string.IsNullOrEmpty(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value.ToString()))
             {
                 if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
                 {
                     MessageBox.Show("أختر صنف أولا");
                     return;
                 }
+
                 VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
                 if (vSALSalesOrder == null)
                 {
@@ -118,36 +123,25 @@ namespace POS.UserInterfaceLayer.Sales
                     senderGrid.Rows[e.RowIndex].Cells["ProductName"].Style.BackColor = Color.Red;
                     return;
                 }
-                //else
-                //{
-                //    if ((sALSalesReturnLineCollection.Where(a => a.OriginalSalesLineID == vSALSalesOrder.SalesLineID).ToList().Count) == 0)
-                //        sALSalesReturnLineCollection.Add(new SALSalesReturnLine()
-                //        {
-                //            OriginalSalesLineID = vSALSalesOrder.SalesLineID,
-                //            Qty = (decimal)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value,
-                //            BatchNumber = vSALSalesOrder.IsAcceptBatch == true ? senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].Value.ToString() : null,
-                //            ExpiryDate = vSALSalesOrder.IsAcceptBatch == true ? Convert.ToDateTime(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value) : (DateTime?)null,
-                //            Reason = senderGrid.Rows[e.RowIndex].Cells["Reason"].Value.ToString()
-                //        });
-                //    else
-                //    {
-                //        sALSalesReturnLineCollection.RemoveAt(sALSalesReturnLineCollection.IndexOf(sALSalesReturnLineCollection.Where(a => a.OriginalSalesLineID == vSALSalesOrder.SalesLineID).SingleOrDefault()));
-                //        sALSalesReturnLineCollection.Add(new SALSalesReturnLine()
-                //        {
-                //            OriginalSalesLineID = vSALSalesOrder.SalesLineID,
-                //            Qty = (decimal)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value,
-                //            BatchNumber = vSALSalesOrder.IsAcceptBatch == true ? senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].Value.ToString() : null,
-                //            ExpiryDate = vSALSalesOrder.IsAcceptBatch == true ? Convert.ToDateTime(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value) : (DateTime?)null,
-                //            Reason = senderGrid.Rows[e.RowIndex].Cells["Reason"].Value.ToString()
-                //        });
-                //    }
-                //}
+                if (senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value != null && senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value != null)
+                    tbx_Total.Text = (CalculateTotal(Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value) * Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value))).ToString();
+                else
+                    return;
 
-                tbx_Total.Text = (CalculateTotal((double)senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value * (double)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value)).ToString();
             }
 
             if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ProductName"].Index)
             {
+                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
+                if (vSALSalesOrder == null)
+                {
+                    MessageBox.Show("هذا الصنف غير موجود بالفاتورة الاصليه");
+                    senderGrid.Rows[e.RowIndex].ErrorText = "هذا الصنف غير موجود بالفاتورة الاصليه";
+                    //senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value = null;
+                    senderGrid.Rows[e.RowIndex].Cells["ProductName"].Style.BackColor = Color.Red;
+                    return;
+                }
+
                 BDProductPrimaryKey pk = new BDProductPrimaryKey();
                 pk.ProductID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value);
 
@@ -165,6 +159,26 @@ namespace POS.UserInterfaceLayer.Sales
                     senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true;
                 }
 
+            }
+
+            if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ExpiryDate"].Index)
+            {
+                if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
+                {
+                    MessageBox.Show("أختر صنف أولا");
+                    return;
+                }
+                DateTime result;
+                if (!DateTime.TryParse(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value.ToString(), out result))
+                {
+                    MessageBox.Show("صيغة تاريخ الصلاحية غير صحيحة لابد ان تكون (يوم -شهر -سنة)");
+                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value = "";
+                }
+                else
+                {
+                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.White;
+                }
             }
         }
 
@@ -186,6 +200,7 @@ namespace POS.UserInterfaceLayer.Sales
         private void CollectHeaderData()
         {
             sALSalesReturnHeader.OriginalSalesHeadeID = _vSALSalesOrder.SalesHeaderID;
+            sALSalesReturnHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
             sALSalesReturnHeader.ReturnDate = DateTime.Now.Date;
         }
         private double CalculateTotal(double newValue)
@@ -206,12 +221,15 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesReturnLineCollection.Clear();
             foreach (DataGridViewRow row in dgrd_ReturnOrderLines.Rows)
             {
+                if (row.Index == dgrd_ReturnOrderLines.Rows.Count - 1)
+                    break;
+
                 VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(row.Cells["ProductName"].Value)).SingleOrDefault();
                 if (vSALSalesOrder != null)
                     sALSalesReturnLineCollection.Add(new SALSalesReturnLine()
                                           {
                                               OriginalSalesLineID = vSALSalesOrder.SalesLineID,
-                                              Qty = (decimal)row.Cells["TotalQty"].Value,
+                                              Qty = Convert.ToDecimal(row.Cells["TotalQty"].Value),
                                               BatchNumber = vSALSalesOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null,
                                               ExpiryDate = vSALSalesOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null,
                                               Reason = row.Cells["Reason"].Value.ToString()
@@ -246,6 +264,21 @@ namespace POS.UserInterfaceLayer.Sales
             sALSalesReturnLineCollection = GetSalesReturnLines(salesReturnHeaderID);
             vSALSalesOrderCollection = GetSalesOriginalSalesOrderData((int)sALSalesReturnHeader.OriginalSalesHeadeID);
             FillScreenData();
+        }
+        private void FillInventoryCBX()
+        {
+            try
+            {
+                cbx_Inventory.DataSource = iNVInventoryWrapper.SelectAll();
+                cbx_Inventory.DisplayMember = "InventoryName";
+                cbx_Inventory.ValueMember = "InventoryID";
+                cbx_Inventory.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 

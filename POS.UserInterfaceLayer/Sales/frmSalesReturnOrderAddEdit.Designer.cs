@@ -55,6 +55,8 @@
             this.tbx_SalesMan = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
+            this.cbx_Inventory = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -182,7 +184,7 @@
             // 
             // ExpiryDate
             // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية yyyy-mm-dd";
             this.ExpiryDate.Name = "ExpiryDate";
             this.ExpiryDate.Width = 150;
             // 
@@ -308,6 +310,23 @@
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
+            // cbx_Inventory
+            // 
+            this.cbx_Inventory.FormattingEnabled = true;
+            this.cbx_Inventory.Location = new System.Drawing.Point(480, 59);
+            this.cbx_Inventory.Name = "cbx_Inventory";
+            this.cbx_Inventory.Size = new System.Drawing.Size(197, 21);
+            this.cbx_Inventory.TabIndex = 51;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(437, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "المخزن";
+            // 
             // frmSalesReturnOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +334,8 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(704, 486);
             this.ControlBox = false;
+            this.Controls.Add(this.cbx_Inventory);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.tbx_SalesMan);
             this.Controls.Add(this.label5);
@@ -375,5 +396,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
+        private System.Windows.Forms.ComboBox cbx_Inventory;
+        private System.Windows.Forms.Label label12;
     }
 }

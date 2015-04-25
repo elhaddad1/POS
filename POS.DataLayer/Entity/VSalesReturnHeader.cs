@@ -52,7 +52,7 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
             oDatabaseHelper.AddParameter("@FromDate", FromDate);
             oDatabaseHelper.AddParameter("@DateTo", ToDate);
-            oDatabaseHelper.AddParameter("@@InvoiceNumber", InvoiceNumber);
+            oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
             IDataReader dr = oDatabaseHelper.ExecuteReader("usp_VSalesReturnHeader_SearchByCriteria", ref ExecutionState);

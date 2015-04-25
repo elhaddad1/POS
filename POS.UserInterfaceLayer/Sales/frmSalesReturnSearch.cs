@@ -109,8 +109,17 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void BindGrid()
         {
-            dgrid_SalesReturnSearch.DataSource = null;
-            dgrid_SalesReturnSearch.DataSource = sALSalesReturnHeaderWrapper.SearchByCriteria(tbx_CustomerName.Text, tbx_VoucherSerial.Text, dtb_From.Value, dtb_To.Value);
+            try
+            {
+                dgrid_SalesReturnSearch.DataSource = null;
+                dgrid_SalesReturnSearch.DataSource = sALSalesReturnHeaderWrapper.SearchByCriteria(tbx_CustomerName.Text, tbx_VoucherSerial.Text, dtb_From.Value.Date, dtb_To.Value.Date);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

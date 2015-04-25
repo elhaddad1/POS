@@ -43,7 +43,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(168, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(236, 9);
             // 
             // panl_Footer
             // 
@@ -52,11 +52,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(276, 4);
+            this.btn_Save.Location = new System.Drawing.Point(344, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(171, 4);
+            this.btn_Back.Location = new System.Drawing.Point(239, 4);
             // 
             // dgrid_Roles
             // 
@@ -69,6 +69,7 @@
             this.dgrid_Roles.Location = new System.Drawing.Point(0, 53);
             this.dgrid_Roles.Name = "dgrid_Roles";
             this.dgrid_Roles.RowHeadersVisible = false;
+            this.dgrid_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_Roles.Size = new System.Drawing.Size(381, 157);
             this.dgrid_Roles.TabIndex = 2;
             // 

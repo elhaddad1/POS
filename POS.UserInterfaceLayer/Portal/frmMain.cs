@@ -239,18 +239,11 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void mnuItem_SalesReturnOrder_Click(object sender, EventArgs e)
+        {
+            frmSalesReturnSearch frm = new frmSalesReturnSearch();
+            frm.ShowDialog();
+        }
+        
     }
 }
