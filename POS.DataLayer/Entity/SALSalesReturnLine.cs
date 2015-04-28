@@ -166,6 +166,17 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@IsVoid", sALSalesReturnHeader.IsVoid);
             else
                 oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value);
+
+            if (sALSalesReturnHeader.InventoryID != null)
+                oDatabaseHelper.AddParameter("@InventoryID", sALSalesReturnHeader.InventoryID);
+            else
+                oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value);
+
+            if (sALSalesReturnHeader.ReturnMoney != null)
+                oDatabaseHelper.AddParameter("@ReturnMoney", sALSalesReturnHeader.ReturnMoney);
+            else
+                oDatabaseHelper.AddParameter("@ReturnMoney", DBNull.Value);
+
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -214,12 +225,8 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@ExpiryDate", sALSalesReturnLine.ExpiryDate);
             else
                 oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value);
-            // Pass the value of '_salesReturnHeaderID' as parameter 'SalesReturnHeaderID' of the stored procedure.
-            if (sALSalesReturnLine.SalesReturnHeaderID != null)
-                oDatabaseHelper.AddParameter("@SalesReturnHeaderID", salesReturnHeaderID);
-            else
-                oDatabaseHelper.AddParameter("@SalesReturnHeaderID", DBNull.Value);
-            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+
+            oDatabaseHelper.AddParameter("@SalesReturnHeaderID", salesReturnHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
             oDatabaseHelper.ExecuteScalar("usp_SALSalesReturnLine_InsertCommit", CommandType.StoredProcedure, ConnectionState.KeepOpen, ref ExecutionState);
 
@@ -263,6 +270,17 @@ namespace POS.DataLayer
 
             // Pass the value of '_isVoid' as parameter 'IsVoid' of the stored procedure.
             oDatabaseHelper.AddParameter("@IsVoid", sALSalesReturnHeader.IsVoid);
+
+
+            if (sALSalesReturnHeader.InventoryID != null)
+                oDatabaseHelper.AddParameter("@InventoryID", sALSalesReturnHeader.InventoryID);
+            else
+                oDatabaseHelper.AddParameter("@InventoryID", DBNull.Value);
+
+            if (sALSalesReturnHeader.ReturnMoney != null)
+                oDatabaseHelper.AddParameter("@ReturnMoney", sALSalesReturnHeader.ReturnMoney);
+            else
+                oDatabaseHelper.AddParameter("@ReturnMoney", DBNull.Value);
 
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);

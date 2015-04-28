@@ -29,7 +29,7 @@ namespace POS.BusinessLayer.Wrapper
                 _vProduct.Notes = _bDProduct.Notes;
                 _vProduct.ProductGroupName = _bDProduct.ProductGroupName;
                 _vProduct.IsActive = _bDProduct.IsActive;
-                _vProduct.Expr1 = _bDProduct.Expr1;
+   
                 bDProductCollection.Add(_vProduct);
             }
             return bDProductCollection;
