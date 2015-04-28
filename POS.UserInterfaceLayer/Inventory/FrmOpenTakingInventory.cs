@@ -82,11 +82,19 @@ namespace POS.UserInterfaceLayer.Inventory
             int? _productID = (cmb_Product.SelectedValue!= null)? cmb_Product.SelectedValue as int? : null;
             int? _productGroupID=(cmb_productGroup.SelectedValue!=null)?cmb_productGroup.SelectedValue as int? : null ;
 
-            bool result =_TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value,(int) cmb_inventory.SelectedValue,
-                                                        takingType, _productID, _productGroupID, tbx_notes.Text);
-            if (result == false)
+            try
             {
-                MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
+                bool result = _TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value, (int)cmb_inventory.SelectedValue,
+                                                               takingType, _productID, _productGroupID, tbx_notes.Text);
+                if (result == false)
+                {
+                    MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 

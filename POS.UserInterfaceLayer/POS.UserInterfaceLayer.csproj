@@ -204,11 +204,11 @@
     <Compile Include="BasicData\FrmSupplierSearch.Designer.cs">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FrmCloseTakingInventory.cs.cs">
+    <Compile Include="Inventory\FrmCloseTakingInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\FrmCloseTakingInventory.cs.Designer.cs">
-      <DependentUpon>FrmCloseTakingInventory.cs.cs</DependentUpon>
+    <Compile Include="Inventory\FrmCloseTakingInventory.Designer.cs">
+      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventory\frmOpenningQuantities.cs">
       <SubType>Form</SubType>
@@ -271,12 +271,6 @@
     </Compile>
     <Compile Include="Purcase\frmPurchaseOrderAddEdit.Designer.cs">
       <DependentUpon>frmPurchaseOrderAddEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Purcase\FrmReturnPurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purcase\FrmReturnPurchaseOrder.Designer.cs">
-      <DependentUpon>FrmReturnPurchaseOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.cs">
       <SubType>Form</SubType>
@@ -411,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FrmCloseTakingInventory.resx">
+      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
       <DependentUpon>frmOpenningQuantities.cs</DependentUpon>

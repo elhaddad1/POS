@@ -57,7 +57,7 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrid_Result.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    int headerID=Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["PurchaseHeaderID"].Value);
+                    int headerID=Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells[0].Value);
 
                     frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit(headerID);
                     //frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;

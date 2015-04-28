@@ -1,9 +1,15 @@
 //
 // Class	:	INVTakingInventoryLineServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:11 PM
+// Date		:	27/4/2015 7:28:58 PM
 //
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+//using System.ServiceModel;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -11,7 +17,7 @@ namespace POS.BusinessLayer
 	///<summary>
 	///WCF service for the INVTakingInventoryLine
 	///</summary>
-	public class INVTakingInventoryLineService 
+	public class INVTakingInventoryLineService
 	{
 		private INVTakingInventoryLine _iNVTakingInventoryLineWCF;
 		private POS.DataLayer.INVTakingInventoryLine _iNVTakingInventoryLine;
@@ -62,6 +68,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
 				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
 				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
 				
 			return _iNVTakingInventoryLineWCF;
 		}
@@ -90,6 +97,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
 				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
 				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
 				
 				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
 			}
@@ -135,6 +143,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
 				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
 				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
 				
 				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
 			}
@@ -163,10 +172,92 @@ namespace POS.BusinessLayer
 			_iNVTakingInventoryLine.IsDeleted=iNVTakingInventoryLine.IsDeleted;
 			_iNVTakingInventoryLine.DeletedBy=iNVTakingInventoryLine.DeletedBy;
 			_iNVTakingInventoryLine.DeleteDate=iNVTakingInventoryLine.DeleteDate;
+			_iNVTakingInventoryLine.StockTypeID=iNVTakingInventoryLine.StockTypeID;
 			
 			return _iNVTakingInventoryLine.Insert();
 		}
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyStockTypeID(INVStockTypePrimaryKey pk)
+		{
+			return POS.DataLayer.INVTakingInventoryLineBase.DeleteAllByForeignKeyStockTypeID(new POS.DataLayer.INVStockTypePrimaryKey(pk.StockTypeID));
+		}
 		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVTakingInventoryLineCollection</returns>
+		public INVTakingInventoryLineCollection SelectAllByForeignKeyStockTypeID(INVStockTypePrimaryKey pk)
+		{
+			INVTakingInventoryLineCollection iNVTakingInventoryLineCollection=new INVTakingInventoryLineCollection();
+			foreach (POS.DataLayer.INVTakingInventoryLine _iNVTakingInventoryLine in POS.DataLayer.INVTakingInventoryLineBase.SelectAllByForeignKeyStockTypeID(new POS.DataLayer.INVStockTypePrimaryKey(pk.StockTypeID)))
+			{
+				_iNVTakingInventoryLineWCF = new INVTakingInventoryLine();
+				_iNVTakingInventoryLineWCF.TakingLineID = _iNVTakingInventoryLine.TakingLineID;
+				_iNVTakingInventoryLineWCF.TakingHeaderID = _iNVTakingInventoryLine.TakingHeaderID;
+				_iNVTakingInventoryLineWCF.ProductID = _iNVTakingInventoryLine.ProductID;
+				_iNVTakingInventoryLineWCF.ActualQty = _iNVTakingInventoryLine.ActualQty;
+				_iNVTakingInventoryLineWCF.ExpectedQty = _iNVTakingInventoryLine.ExpectedQty;
+				_iNVTakingInventoryLineWCF.CreatedBy = _iNVTakingInventoryLine.CreatedBy;
+				_iNVTakingInventoryLineWCF.CreateDate = _iNVTakingInventoryLine.CreateDate;
+				_iNVTakingInventoryLineWCF.UpdatedBy = _iNVTakingInventoryLine.UpdatedBy;
+				_iNVTakingInventoryLineWCF.UpdateDate = _iNVTakingInventoryLine.UpdateDate;
+				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
+				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
+				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
+				
+				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
+			}
+			return iNVTakingInventoryLineCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class INVTakingInventoryLineCollection</returns>
+		public INVTakingInventoryLineCollection SelectAllByForeignKeyStockTypeIDPaged(INVStockTypePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			INVTakingInventoryLineCollection iNVTakingInventoryLineCollection=new INVTakingInventoryLineCollection();
+			foreach (POS.DataLayer.INVTakingInventoryLine _iNVTakingInventoryLine in POS.DataLayer.INVTakingInventoryLineBase.SelectAllByForeignKeyStockTypeIDPaged(new POS.DataLayer.INVStockTypePrimaryKey(pk.StockTypeID), pageSize, skipPages, orderByStatement))
+			{
+				_iNVTakingInventoryLineWCF = new INVTakingInventoryLine();
+				_iNVTakingInventoryLineWCF.TakingLineID = _iNVTakingInventoryLine.TakingLineID;
+				_iNVTakingInventoryLineWCF.TakingHeaderID = _iNVTakingInventoryLine.TakingHeaderID;
+				_iNVTakingInventoryLineWCF.ProductID = _iNVTakingInventoryLine.ProductID;
+				_iNVTakingInventoryLineWCF.ActualQty = _iNVTakingInventoryLine.ActualQty;
+				_iNVTakingInventoryLineWCF.ExpectedQty = _iNVTakingInventoryLine.ExpectedQty;
+				_iNVTakingInventoryLineWCF.CreatedBy = _iNVTakingInventoryLine.CreatedBy;
+				_iNVTakingInventoryLineWCF.CreateDate = _iNVTakingInventoryLine.CreateDate;
+				_iNVTakingInventoryLineWCF.UpdatedBy = _iNVTakingInventoryLine.UpdatedBy;
+				_iNVTakingInventoryLineWCF.UpdateDate = _iNVTakingInventoryLine.UpdateDate;
+				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
+				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
+				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
+				
+				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
+			}
+			return iNVTakingInventoryLineCollection;
+		}
+			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -195,6 +286,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
 				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
 				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
 				
 				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
 			}
@@ -234,6 +326,7 @@ namespace POS.BusinessLayer
 				_iNVTakingInventoryLineWCF.IsDeleted = _iNVTakingInventoryLine.IsDeleted;
 				_iNVTakingInventoryLineWCF.DeletedBy = _iNVTakingInventoryLine.DeletedBy;
 				_iNVTakingInventoryLineWCF.DeleteDate = _iNVTakingInventoryLine.DeleteDate;
+				_iNVTakingInventoryLineWCF.StockTypeID = _iNVTakingInventoryLine.StockTypeID;
 				
 				iNVTakingInventoryLineCollection.Add(_iNVTakingInventoryLineWCF);
 			}
@@ -261,6 +354,7 @@ namespace POS.BusinessLayer
 			_iNVTakingInventoryLine.IsDeleted=iNVTakingInventoryLine.IsDeleted;
 			_iNVTakingInventoryLine.DeletedBy=iNVTakingInventoryLine.DeletedBy;
 			_iNVTakingInventoryLine.DeleteDate=iNVTakingInventoryLine.DeleteDate;
+			_iNVTakingInventoryLine.StockTypeID=iNVTakingInventoryLine.StockTypeID;
 			
 			return _iNVTakingInventoryLine.Update();
 		}

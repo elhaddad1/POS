@@ -51,7 +51,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(395, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(453, 9);
             // 
             // panl_Footer
             // 
@@ -81,22 +81,22 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(605, 2);
+            this.btn_Add.Location = new System.Drawing.Point(663, 2);
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(188, 4);
+            this.btn_Back.Location = new System.Drawing.Point(246, 4);
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(500, 2);
+            this.btn_Edit.Location = new System.Drawing.Point(558, 2);
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(395, 2);
+            this.btn_Delete.Location = new System.Drawing.Point(453, 2);
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // label3
@@ -207,7 +207,7 @@
             // btn_Close
             // 
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(292, 5);
+            this.btn_Close.Location = new System.Drawing.Point(351, 5);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(97, 53);
             this.btn_Close.TabIndex = 9;

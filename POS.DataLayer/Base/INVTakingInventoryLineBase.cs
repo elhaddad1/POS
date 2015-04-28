@@ -1,7 +1,7 @@
 //
 // Class	:	INVTakingInventoryLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:10 PM
+// Date		:	27/4/2015 7:28:58 PM
 //
 
 using System;
@@ -35,6 +35,7 @@ namespace POS.DataLayer
 		public const string IsDeleted                 = "IsDeleted";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string DeleteDate                = "DeleteDate";
+		public const string StockTypeID               = "StockTypeID";
 	}
 	
 	/// <summary>
@@ -60,6 +61,7 @@ namespace POS.DataLayer
 		private bool?          	_isDeletedNonDefault     	= false;
 		private int?           	_deletedByNonDefault     	= null;
 		private DateTime?      	_deleteDateNonDefault    	= null;
+		private int?           	_stockTypeIDNonDefault   	= null;
 		
 		#endregion
 		
@@ -270,6 +272,22 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// The foreign key connected with another persistent object.
+		/// </summary>
+		public int? StockTypeID
+		{
+			get 
+			{ 
+				return _stockTypeIDNonDefault;
+			}
+			set 
+			{
+			
+				_stockTypeIDNonDefault = value; 
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -284,7 +302,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -361,6 +379,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value );
 			  
+			// Pass the value of '_stockTypeID' as parameter 'StockTypeID' of the stored procedure.
+			if(_stockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -391,7 +415,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -457,6 +481,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@DeleteDate", _deleteDateNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@DeleteDate", DBNull.Value );
+			// Pass the value of '_stockTypeID' as parameter 'StockTypeID' of the stored procedure.
+			if(_stockTypeIDNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@StockTypeID", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -476,7 +505,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -523,6 +552,9 @@ namespace POS.DataLayer
 			// Pass the value of '_deleteDate' as parameter 'DeleteDate' of the stored procedure.
 			oDatabaseHelper.AddParameter("@DeleteDate", _deleteDateNonDefault );
 			
+			// Pass the value of '_stockTypeID' as parameter 'StockTypeID' of the stored procedure.
+			oDatabaseHelper.AddParameter("@StockTypeID", _stockTypeIDNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -542,7 +574,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -579,7 +611,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -618,7 +650,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -653,7 +685,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -701,7 +733,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -738,7 +770,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -780,7 +812,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -826,7 +858,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -867,7 +899,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -884,6 +916,142 @@ namespace POS.DataLayer
 			int count = Convert.ToInt32(dr);		
 			oDatabaseHelper.Dispose();
 			return count;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVTakingInventoryLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			27/4/2015 7:28:58 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVTakingInventoryLineCollection SelectAllByForeignKeyStockTypeID(INVStockTypePrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVTakingInventoryLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVTakingInventoryLine_SelectAllByForeignKeyStockTypeID", ref ExecutionState);
+			obj = new INVTakingInventoryLineCollection();
+			obj = INVTakingInventoryLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class INVTakingInventoryLineCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			27/4/2015 7:28:58 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVTakingInventoryLineCollection SelectAllByForeignKeyStockTypeIDPaged(INVStockTypePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVTakingInventoryLineCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVTakingInventoryLine_SelectAllByForeignKeyStockTypeIDPaged", ref ExecutionState);
+			obj = new INVTakingInventoryLineCollection();
+			obj = INVTakingInventoryLine.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVStockTypePrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			27/4/2015 7:28:58 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeyStockTypeID(INVStockTypePrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_INVTakingInventoryLine_DeleteAllByForeignKeyStockTypeID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
 			
 		}
 
@@ -904,7 +1072,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -941,7 +1109,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -986,6 +1154,11 @@ namespace POS.DataLayer
 				obj.DeleteDate = rdr.GetDateTime(rdr.GetOrdinal(INVTakingInventoryLineFields.DeleteDate));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(INVTakingInventoryLineFields.StockTypeID)))
+			{
+				obj.StockTypeID = rdr.GetInt32(rdr.GetOrdinal(INVTakingInventoryLineFields.StockTypeID));
+			}
+			
 
 		}
 
@@ -1001,7 +1174,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1033,7 +1206,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:10 PM		Created function
+		/// DLGenerator			27/4/2015 7:28:58 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
