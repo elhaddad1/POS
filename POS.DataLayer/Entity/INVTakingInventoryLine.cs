@@ -25,6 +25,14 @@ namespace POS.DataLayer
 	
 		#region Class Level Variables
          DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+         int? _takingLineBatchID;        
+         string _productName;         
+         bool? _isAcceptBatch;
+         string _stockTypeName;
+         string _batchNumber;
+         DateTime? _expiryDate;
+
+         
 		#endregion
 		
 		#region Constants
@@ -40,7 +48,36 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Properties
-
+        public int? TakingLineBatchID
+        {
+            get { return _takingLineBatchID; }
+            set { _takingLineBatchID = value; }
+        }
+        public string ProductName
+         {
+             get { return _productName; }
+             set { _productName = value; }
+         }
+        public bool? IsAcceptBatch
+         {
+             get { return _isAcceptBatch; }
+             set { _isAcceptBatch = value; }
+         }
+        public string StockTypeName
+         {
+             get { return _stockTypeName; }
+             set { _stockTypeName = value; }
+         }
+        public string BatchNumber
+         {
+             get { return _batchNumber; }
+             set { _batchNumber = value; }
+         }
+        public DateTime? ExpiryDate
+        {
+            get { return _expiryDate; }
+            set { _expiryDate = value; }
+        }
 		#endregion
 
 		#region Methods (Public)
@@ -99,6 +136,61 @@ namespace POS.DataLayer
             oDatabaseHelper.Dispose();
             return ExecutionState;
 
+        }
+
+        public INVTakingInventoryLineCollection GetLines(int HeaderID)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+
+            // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+            oDatabaseHelper.AddParameter("TakingHeaderID", HeaderID);
+           // oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+
+            IDataReader dr = oDatabaseHelper.ExecuteReader("usp_INVTakingInventory_GetLines", ref ExecutionState);
+
+            INVTakingInventoryLineCollection list = new INVTakingInventoryLineCollection();
+
+            while (dr.Read())
+            {
+                INVTakingInventoryLine obj = new INVTakingInventoryLine();
+                 obj.TakingLineID = dr.GetInt32(dr.GetOrdinal(INVTakingInventoryLineFields.TakingLineID));
+                 if (!dr.IsDBNull(dr.GetOrdinal("TakingLineBatchID")))
+                 {
+                     obj.TakingLineBatchID = dr.GetInt32(dr.GetOrdinal("TakingLineBatchID"));
+                 }
+                obj.ProductID = dr.GetInt32(dr.GetOrdinal(INVTakingInventoryLineFields.ProductID));
+                obj.ProductName= dr.GetString(dr.GetOrdinal("ProductName"));
+                obj.StockTypeName = dr.GetString(dr.GetOrdinal("StockTypeName"));
+                obj.ExpectedQty = dr.GetDecimal(dr.GetOrdinal(INVTakingInventoryLineFields.ExpectedQty));
+                obj.ActualQty = dr.GetDecimal(dr.GetOrdinal(INVTakingInventoryLineFields.ActualQty));
+                obj.IsAcceptBatch = dr.GetBoolean(dr.GetOrdinal("IsAcceptBatch"));
+                if (!dr.IsDBNull(dr.GetOrdinal("BatchNumber")))
+                    obj.BatchNumber = dr.GetString(dr.GetOrdinal("BatchNumber"));
+                if (!dr.IsDBNull(dr.GetOrdinal("ExpiryDate")))
+                obj.ExpiryDate = dr.GetDateTime(dr.GetOrdinal("ExpiryDate"));
+                list.Add(obj);
+            }
+
+
+            dr.Close();
+            oDatabaseHelper.Dispose();
+            return list;
+            //usp_INVTakingInventory_GetNotCommited
+        }
+        public static bool SaveLine(int TakingInventoryLineID,int? TakingInventoryLineBatchID, decimal ActualQty)
+        {
+            DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+            bool ExecutionState = false;
+            // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
+            oDatabaseHelper.AddParameter("@TakingInventoryLineID", TakingInventoryLineID);
+            if (TakingInventoryLineBatchID != null && TakingInventoryLineBatchID !=0)
+            oDatabaseHelper.AddParameter("@TakingInventoryLineBatchID", TakingInventoryLineBatchID);
+
+            oDatabaseHelper.AddParameter("@ActualQty", ActualQty);
+            oDatabaseHelper.ExecuteScalar("usp_TakingInventoryLine_SaveLines", ref ExecutionState);
+            oDatabaseHelper.Dispose();
+            return ExecutionState;
         }
 		#endregion
 		

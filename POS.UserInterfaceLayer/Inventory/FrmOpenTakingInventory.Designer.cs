@@ -28,51 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_name = new System.Windows.Forms.Label();
-            this.tbx_takingName = new System.Windows.Forms.TextBox();
             this.panl_Header = new System.Windows.Forms.Panel();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
-            this.lbl_date = new System.Windows.Forms.Label();
-            this.dtp_takingDate = new System.Windows.Forms.DateTimePicker();
+            this.btn_newTaking = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tbx_notes = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmb_inventory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grb_takingOn = new System.Windows.Forms.GroupBox();
             this.cmb_productGroup = new System.Windows.Forms.ComboBox();
             this.cmb_Product = new System.Windows.Forms.ComboBox();
             this.ridb_All = new System.Windows.Forms.RadioButton();
             this.ridb_ProductGroup = new System.Windows.Forms.RadioButton();
             this.ridb_Product = new System.Windows.Forms.RadioButton();
-            this.btn_newTaking = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmb_inventory = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbx_notes = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.dtp_takingDate = new System.Windows.Forms.DateTimePicker();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.tbx_takingName = new System.Windows.Forms.TextBox();
+            this.lbl_name = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
-            this.grb_takingOn.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.grb_takingOn.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbl_name
-            // 
-            this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_name.Location = new System.Drawing.Point(20, 97);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(51, 16);
-            this.lbl_name.TabIndex = 0;
-            this.lbl_name.Text = "إسم الجرد";
-            // 
-            // tbx_takingName
-            // 
-            this.tbx_takingName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_takingName.Location = new System.Drawing.Point(114, 91);
-            this.tbx_takingName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbx_takingName.Name = "tbx_takingName";
-            this.tbx_takingName.Size = new System.Drawing.Size(359, 22);
-            this.tbx_takingName.TabIndex = 1;
             // 
             // panl_Header
             // 
@@ -96,27 +78,118 @@
             this.lbl_FormHeader.TabIndex = 0;
             this.lbl_FormHeader.Text = "فتح جرد";
             // 
-            // lbl_date
+            // btn_newTaking
             // 
-            this.lbl_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.Location = new System.Drawing.Point(20, 128);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(59, 16);
-            this.lbl_date.TabIndex = 3;
-            this.lbl_date.Text = "تاريخ الجرد";
+            this.btn_newTaking.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_newTaking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_newTaking.Location = new System.Drawing.Point(378, 7);
+            this.btn_newTaking.Name = "btn_newTaking";
+            this.btn_newTaking.Size = new System.Drawing.Size(104, 48);
+            this.btn_newTaking.TabIndex = 6;
+            this.btn_newTaking.Text = "جرد جديد";
+            this.btn_newTaking.UseVisualStyleBackColor = true;
+            this.btn_newTaking.Click += new System.EventHandler(this.btn_newTaking_Click);
             // 
-            // dtp_takingDate
+            // panel1
             // 
-            this.dtp_takingDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_takingDate.CustomFormat = "dd/MM/yyyy";
-            this.dtp_takingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_takingDate.Location = new System.Drawing.Point(114, 122);
-            this.dtp_takingDate.Name = "dtp_takingDate";
-            this.dtp_takingDate.RightToLeftLayout = true;
-            this.dtp_takingDate.Size = new System.Drawing.Size(147, 22);
-            this.dtp_takingDate.TabIndex = 4;
+            this.panel1.Controls.Add(this.btn_back);
+            this.panel1.Controls.Add(this.btn_save);
+            this.panel1.Controls.Add(this.btn_newTaking);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 454);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(600, 63);
+            this.panel1.TabIndex = 6;
+            // 
+            // btn_back
+            // 
+            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_back.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(118, 7);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(104, 48);
+            this.btn_back.TabIndex = 8;
+            this.btn_back.Text = "عوده";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_save
+            // 
+            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_save.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Location = new System.Drawing.Point(251, 7);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(104, 48);
+            this.btn_save.TabIndex = 7;
+            this.btn_save.Text = "حفظ";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(600, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 517);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tbx_notes);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.cmb_inventory);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.grb_takingOn);
+            this.panel3.Controls.Add(this.dtp_takingDate);
+            this.panel3.Controls.Add(this.lbl_date);
+            this.panel3.Controls.Add(this.tbx_takingName);
+            this.panel3.Controls.Add(this.lbl_name);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 65);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(600, 390);
+            this.panel3.TabIndex = 12;
+            // 
+            // tbx_notes
+            // 
+            this.tbx_notes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_notes.Location = new System.Drawing.Point(86, 312);
+            this.tbx_notes.Multiline = true;
+            this.tbx_notes.Name = "tbx_notes";
+            this.tbx_notes.Size = new System.Drawing.Size(350, 69);
+            this.tbx_notes.TabIndex = 19;
+            this.tbx_notes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(449, 315);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "ملاحظات";
+            // 
+            // cmb_inventory
+            // 
+            this.cmb_inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_inventory.FormattingEnabled = true;
+            this.cmb_inventory.Location = new System.Drawing.Point(292, 80);
+            this.cmb_inventory.Name = "cmb_inventory";
+            this.cmb_inventory.Size = new System.Drawing.Size(144, 24);
+            this.cmb_inventory.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(465, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "إسم المخزن";
             // 
             // grb_takingOn
             // 
@@ -126,10 +199,10 @@
             this.grb_takingOn.Controls.Add(this.ridb_All);
             this.grb_takingOn.Controls.Add(this.ridb_ProductGroup);
             this.grb_takingOn.Controls.Add(this.ridb_Product);
-            this.grb_takingOn.Location = new System.Drawing.Point(23, 194);
+            this.grb_takingOn.Location = new System.Drawing.Point(77, 120);
             this.grb_takingOn.Name = "grb_takingOn";
             this.grb_takingOn.Size = new System.Drawing.Size(450, 166);
-            this.grb_takingOn.TabIndex = 5;
+            this.grb_takingOn.TabIndex = 15;
             this.grb_takingOn.TabStop = false;
             this.grb_takingOn.Text = "جرد علي";
             // 
@@ -187,118 +260,56 @@
             this.ridb_Product.UseVisualStyleBackColor = true;
             this.ridb_Product.CheckedChanged += new System.EventHandler(this.ridb_Product_CheckedChanged);
             // 
-            // btn_newTaking
+            // dtp_takingDate
             // 
-            this.btn_newTaking.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_newTaking.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_newTaking.Location = new System.Drawing.Point(378, 7);
-            this.btn_newTaking.Name = "btn_newTaking";
-            this.btn_newTaking.Size = new System.Drawing.Size(104, 48);
-            this.btn_newTaking.TabIndex = 6;
-            this.btn_newTaking.Text = "جرد جديد";
-            this.btn_newTaking.UseVisualStyleBackColor = true;
-            this.btn_newTaking.Click += new System.EventHandler(this.btn_newTaking_Click);
+            this.dtp_takingDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_takingDate.CustomFormat = "dd/MM/yyyy";
+            this.dtp_takingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_takingDate.Location = new System.Drawing.Point(289, 52);
+            this.dtp_takingDate.Name = "dtp_takingDate";
+            this.dtp_takingDate.RightToLeftLayout = true;
+            this.dtp_takingDate.Size = new System.Drawing.Size(147, 22);
+            this.dtp_takingDate.TabIndex = 14;
             // 
-            // panel1
+            // lbl_date
             // 
-            this.panel1.Controls.Add(this.btn_back);
-            this.panel1.Controls.Add(this.btn_save);
-            this.panel1.Controls.Add(this.btn_newTaking);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 454);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 63);
-            this.panel1.TabIndex = 6;
+            this.lbl_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_date.Location = new System.Drawing.Point(465, 54);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(59, 16);
+            this.lbl_date.TabIndex = 13;
+            this.lbl_date.Text = "تاريخ الجرد";
             // 
-            // btn_back
+            // tbx_takingName
             // 
-            this.btn_back.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_back.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_back.Location = new System.Drawing.Point(118, 7);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(104, 48);
-            this.btn_back.TabIndex = 8;
-            this.btn_back.Text = "عوده";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            this.tbx_takingName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbx_takingName.Location = new System.Drawing.Point(77, 23);
+            this.tbx_takingName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbx_takingName.Name = "tbx_takingName";
+            this.tbx_takingName.Size = new System.Drawing.Size(359, 22);
+            this.tbx_takingName.TabIndex = 12;
             // 
-            // btn_save
+            // lbl_name
             // 
-            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_save.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(251, 7);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(104, 48);
-            this.btn_save.TabIndex = 7;
-            this.btn_save.Text = "حفظ";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 161);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "إسم المخزن";
-            // 
-            // cmb_inventory
-            // 
-            this.cmb_inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_inventory.FormattingEnabled = true;
-            this.cmb_inventory.Location = new System.Drawing.Point(117, 153);
-            this.cmb_inventory.Name = "cmb_inventory";
-            this.cmb_inventory.Size = new System.Drawing.Size(144, 24);
-            this.cmb_inventory.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 386);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "ملاحظات";
-            // 
-            // tbx_notes
-            // 
-            this.tbx_notes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_notes.Location = new System.Drawing.Point(123, 379);
-            this.tbx_notes.Multiline = true;
-            this.tbx_notes.Name = "tbx_notes";
-            this.tbx_notes.Size = new System.Drawing.Size(350, 69);
-            this.tbx_notes.TabIndex = 10;
-            this.tbx_notes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(600, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 517);
-            this.panel2.TabIndex = 11;
+            this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_name.Location = new System.Drawing.Point(473, 23);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(51, 16);
+            this.lbl_name.TabIndex = 11;
+            this.lbl_name.Text = "إسم الجرد";
             // 
             // FrmOpenTakingInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 517);
-            this.Controls.Add(this.tbx_notes);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmb_inventory);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.grb_takingOn);
-            this.Controls.Add(this.dtp_takingDate);
-            this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.panl_Header);
-            this.Controls.Add(this.tbx_takingName);
-            this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -310,36 +321,38 @@
             this.Load += new System.EventHandler(this.FrmOpenTakingInventory_Load);
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.grb_takingOn.ResumeLayout(false);
             this.grb_takingOn.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_name;
-        private System.Windows.Forms.TextBox tbx_takingName;
         protected System.Windows.Forms.Panel panl_Header;
         protected System.Windows.Forms.Label lbl_FormHeader;
-        private System.Windows.Forms.Label lbl_date;
-        private System.Windows.Forms.DateTimePicker dtp_takingDate;
+        private System.Windows.Forms.Button btn_newTaking;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox tbx_notes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_inventory;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grb_takingOn;
         private System.Windows.Forms.ComboBox cmb_productGroup;
         private System.Windows.Forms.ComboBox cmb_Product;
         private System.Windows.Forms.RadioButton ridb_All;
         private System.Windows.Forms.RadioButton ridb_ProductGroup;
         private System.Windows.Forms.RadioButton ridb_Product;
-        private System.Windows.Forms.Button btn_newTaking;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_back;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmb_inventory;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbx_notes;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DateTimePicker dtp_takingDate;
+        private System.Windows.Forms.Label lbl_date;
+        private System.Windows.Forms.TextBox tbx_takingName;
+        private System.Windows.Forms.Label lbl_name;
     }
 }

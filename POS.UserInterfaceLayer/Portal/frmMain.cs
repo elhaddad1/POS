@@ -120,7 +120,7 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurchaseReturn_Click(object sender, EventArgs e)
         {
-            //frmPurcaseReturnSearch frm = new frmPurcaseReturnSearch();
+            //frmPurchaseReturnSearch frm = new frmPurchaseReturnSearch();
             //switchForm(frm);
         }
 

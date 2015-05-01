@@ -1,7 +1,7 @@
 //
 // Class	:	INVTakingInventoryLineBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:10 PM
+// Date		:	27/4/2015 7:28:58 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -54,6 +54,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public DateTime? DeleteDate {get;set;}
+
+		[DataMember]
+		public int? StockTypeID {get;set;}
 
 		
 		#endregion

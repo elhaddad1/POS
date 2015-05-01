@@ -233,6 +233,8 @@
             this.Controls.Add(this.grb_Search);
             this.Controls.Add(this.label1);
             this.Name = "frmStockInquiry";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
             this.Text = "الاستعلام عن مخزون";
             this.Load += new System.EventHandler(this.frmStockInquiry_Load);
             this.grb_Search.ResumeLayout(false);

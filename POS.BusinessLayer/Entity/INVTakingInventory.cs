@@ -16,6 +16,13 @@ namespace POS.BusinessLayer
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class INVTakingInventory : INVTakingInventoryBase
 	{
+        string _inventoryName;
+
+        public string InventoryName
+        {
+            get { return _inventoryName; }
+            set { _inventoryName = value; }
+        }
 	}
 }
 			
