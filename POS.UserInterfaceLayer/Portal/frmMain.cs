@@ -14,7 +14,7 @@ using POS.UserInterfaceLayer.Inventory;
 using POS.UserInterfaceLayer.Purcase;
 using POS.UserInterfaceLayer.Sales;
 using POS.UserInterfaceLayer.Transfer;
-using POS.UserInterfaceLayer.Purchase;
+using POS.UserInterfaceLayer.Purcase;
 
 namespace POS.UserInterfaceLayer.Portal
 {
@@ -120,8 +120,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurchaseReturn_Click(object sender, EventArgs e)
         {
-            frmPurcaseReturnSearch frm = new frmPurcaseReturnSearch();
-            switchForm(frm);
+            //frmPurcaseReturnSearch frm = new frmPurcaseReturnSearch();
+            //switchForm(frm);
         }
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)
