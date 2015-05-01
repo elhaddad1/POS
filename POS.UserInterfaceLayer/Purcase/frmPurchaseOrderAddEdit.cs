@@ -17,7 +17,7 @@ namespace POS.UserInterfaceLayer.Purcase
         private BDTaxTypeWrapper _bDTaxTypeWrapper;
         private PaymentTypeWrapper _paymentTypeWrapper;
         private BDSupplierWrapper _bDSupplierWrapper;
-        private PURPurchaseLineWrapper  _pURPurchaseLinerWrapper;
+        private PURPurchaseLineWrapper _pURPurchaseLinerWrapper;
         private INVInventoryService _invInventoryService;
         public PURPurchaseLineCollection pURPurchaseLineCollection;
         private BDProductWrapper _productWrapper;
@@ -28,7 +28,7 @@ namespace POS.UserInterfaceLayer.Purcase
 
         }
 
-       
+
         public frmPurchaseOrderAddEdit(int HeaderID)
         {
             InitializeComponent();
@@ -38,14 +38,14 @@ namespace POS.UserInterfaceLayer.Purcase
 
         }
 
-     
+
 
         #region -- Events
 
         private void frmPurchaseOrderAddEdit_Load(object sender, EventArgs e)
         {
-           
-            ((DataGridViewComboBoxColumn)dgrd_OrderLines .Columns ["ProductName"]).DataSource =  _productWrapper.SelectAll();
+
+            ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).DataSource = _productWrapper.SelectAll();
             ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).ValueMember = "ProductID";
             ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).DisplayMember = "ProductName";
             //((DataGridViewTextBoxColumn)dgrd_OrderLines.Columns["ProductName"]).=;
@@ -69,7 +69,7 @@ namespace POS.UserInterfaceLayer.Purcase
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
                 dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedCells[0].RowIndex);
-                 //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
+                //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
                 //  BindGrid();
                 CalculateTotal();
             }
@@ -79,15 +79,15 @@ namespace POS.UserInterfaceLayer.Purcase
 
         private void btn_Plus_Click(object sender, EventArgs e)
         {
-            int selectedRowIndex=dgrd_OrderLines.SelectedCells[0].RowIndex;
-            dgrd_OrderLines.Rows.InsertCopy(selectedRowIndex,selectedRowIndex+1);
-            dgrd_OrderLines.Rows[selectedRowIndex+1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
-            dgrd_OrderLines.Rows[selectedRowIndex+1].Cells["PurchasePrice"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["PurchasePrice"].Value;
+            int selectedRowIndex = dgrd_OrderLines.SelectedCells[0].RowIndex;
+            dgrd_OrderLines.Rows.InsertCopy(selectedRowIndex, selectedRowIndex + 1);
+            dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
+            dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["PurchasePrice"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["PurchasePrice"].Value;
             dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ItemDiscount"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ItemDiscount"].Value;
             // dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
-          
-            
-           // dgrd_OrderLines.Rows.InsertCopy(dgrd_OrderLines.SelectedCells[0].RowIndex, dgrd_OrderLines.SelectedCells[0].RowIndex + 1);
+
+
+            // dgrd_OrderLines.Rows.InsertCopy(dgrd_OrderLines.SelectedCells[0].RowIndex, dgrd_OrderLines.SelectedCells[0].RowIndex + 1);
         }
 
 
@@ -119,30 +119,30 @@ namespace POS.UserInterfaceLayer.Purcase
                 try
                 {
                     //save lines
-                    for (int i = 0; i < dgrd_OrderLines .Rows .Count; i++)
+                    for (int i = 0; i < dgrd_OrderLines.Rows.Count; i++)
                     {
                         PURPurchaseLine _line = new PURPurchaseLine();
-                        _line.ProductID =Convert .ToInt32( dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
+                        _line.ProductID = Convert.ToInt32(dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
                         _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
                         _line.BonusQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value);
                         _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
                         _line.DiscountRatio = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value);
-                        if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value ==true)
+                        if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value == true)
                         {
                             _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
                             DateTime _expiryDate;
-                          if (DateTime.TryParse(dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value.ToString (),out _expiryDate))
-	                            {
-		                              _line.ExpiryDate = _expiryDate ;
-                                      dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.White;
-	                            }
-                          else
-                              {
-                                  dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
-                                  return;
-                              }
-                          _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value) +
-                                            Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value); ;
+                            if (DateTime.TryParse(dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value.ToString(), out _expiryDate))
+                            {
+                                _line.ExpiryDate = _expiryDate;
+                                dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.White;
+                            }
+                            else
+                            {
+                                dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                                return;
+                            }
+                            _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value) +
+                                              Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value); ;
                         }
 
                         pURPurchaseLineCollection.Add(_line);
@@ -213,7 +213,7 @@ namespace POS.UserInterfaceLayer.Purcase
             }
         }
 
-       
+
         #endregion
 
         #region -- Public Methods
@@ -236,15 +236,16 @@ namespace POS.UserInterfaceLayer.Purcase
             FillInventoryCBX();
         }
         private void LoadLines(int HeaderID)
-        { PURPurchaseHeaderPrimaryKey headerKey=  new PURPurchaseHeaderPrimaryKey();
-          headerKey.PurcaseHeaderID = HeaderID;
-          PURPurchaseHeaderService headerService=new PURPurchaseHeaderService ();
-          PURPurchaseHeader selectedHeader= headerService.SelectOne(headerKey);
+        {
+            PURPurchaseHeaderPrimaryKey headerKey = new PURPurchaseHeaderPrimaryKey();
+            headerKey.PurcaseHeaderID = HeaderID;
+            PURPurchaseHeaderService headerService = new PURPurchaseHeaderService();
+            PURPurchaseHeader selectedHeader = headerService.SelectOne(headerKey);
 
-          PURPurchaseLineService LineService = new PURPurchaseLineService();
-          PURPurchaseLineCollection selectedLines = LineService.SelectAllByForeignKeyPurchaseHeaderID(headerKey);
-          LoadHeaderControls(selectedHeader);
-          LoadGridLines(selectedLines);
+            PURPurchaseLineService LineService = new PURPurchaseLineService();
+            PURPurchaseLineCollection selectedLines = LineService.SelectAllByForeignKeyPurchaseHeaderID(headerKey);
+            LoadHeaderControls(selectedHeader);
+            LoadGridLines(selectedLines);
         }
         private void LoadHeaderControls(PURPurchaseHeader Header)
         {
@@ -260,7 +261,7 @@ namespace POS.UserInterfaceLayer.Purcase
             txt_Total.Text = Header.TotalPrice.ToString();
             txt_DiscountRatio.Text = Header.TotalDiscountRatio.ToString();
         }
-        private void LoadGridLines(PURPurchaseLineCollection Lines) 
+        private void LoadGridLines(PURPurchaseLineCollection Lines)
         {
             dgrd_OrderLines.Rows.Add(Lines.Count);
             for (int i = 0; i < Lines.Count; i++)
@@ -392,16 +393,16 @@ namespace POS.UserInterfaceLayer.Purcase
                 MessageBox.Show("اختار طريقه دفع أولا");
                 return false;
             }
-           
+
             return true;
         }
         #endregion
 
-      
 
-       
 
-      
+
+
+
 
 
     }
