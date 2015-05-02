@@ -48,16 +48,36 @@
       <Private>True</Private>
       <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\frmUserAddEdit.cs">
@@ -204,12 +224,6 @@
     <Compile Include="BasicData\FrmSupplierSearch.Designer.cs">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\FrmCloseTakingInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory\FrmCloseTakingInventory.Designer.cs">
-      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventory\frmOpenningQuantities.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +291,18 @@
     </Compile>
     <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.Designer.cs">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
@@ -406,9 +432,6 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\FrmCloseTakingInventory.resx">
-      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
       <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
     </EmbeddedResource>
@@ -451,6 +474,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseOrderSearch.resx">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnOrderAddEdit.resx">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>

@@ -12,12 +12,19 @@ namespace POS.BusinessLayer.Model
         public string UserName { get; set; }
         public string UserFullName { get; set; }
         public List<string> UserRoles = new List<string>();
+        public List<string> UserShrtBtn = new List<string>();
 
-        public List<string> userRoles
+        private List<string> userRoles
         {
             get { return UserRoles; }
             set { UserRoles = value; }
         }
+        private List<string> userShrtBtn
+        {
+            get { return UserShrtBtn; }
+            set { UserShrtBtn = value; }
+        }
+
     }
 
 }

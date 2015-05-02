@@ -1,7 +1,7 @@
 //
 // Class	:	VUserRoleBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:30 PM
+// Date		:	5/2/2015 4:13:15 AM
 //
 
 using System;
@@ -202,7 +202,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "MenuButton" field. Length must be between 0 and 50 characters. Mandatory.
+		/// This property is mapped to the "MenuButton" field. Length must be between 0 and 50 characters. 
 		/// </summary>
 		public string MenuButton
 		{
@@ -213,9 +213,7 @@ namespace POS.DataLayer
 			}
 			set 
 			{
-			    if (value == null)
-					throw new ArgumentNullException("value", "Value is null.");
-				   if (value != null && value.Length > 50)
+			    if (value != null && value.Length > 50)
 					throw new ArgumentException("MenuButton length must be between 0 and 50 characters.");
 
 				
@@ -246,7 +244,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -294,7 +292,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -331,7 +329,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -373,7 +371,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -419,7 +417,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -460,7 +458,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -497,7 +495,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -534,7 +532,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -553,7 +551,11 @@ namespace POS.DataLayer
 			obj.RoleName = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RoleName));
 			obj.RolePath = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.RolePath));
 			obj.Expr1 = rdr.GetInt32(rdr.GetOrdinal(VUserRoleFields.Expr1));
-			obj.MenuButton = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.MenuButton));
+			if (!rdr.IsDBNull(rdr.GetOrdinal(VUserRoleFields.MenuButton)))
+			{
+				obj.MenuButton = rdr.GetString(rdr.GetOrdinal(VUserRoleFields.MenuButton));
+			}
+			
 
 		}
 
@@ -569,7 +571,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -601,7 +603,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:30 PM		Created function
+		/// DLGenerator			5/2/2015 4:13:15 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

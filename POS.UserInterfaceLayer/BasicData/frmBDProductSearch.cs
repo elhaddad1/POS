@@ -26,29 +26,21 @@ namespace POS.UserInterfaceLayer.BasicData
         public void InitiateGrid()
         {
             dgrid_Result.Columns.Clear();
-
             dgrid_Result.AutoGenerateColumns = false;
-
-            dgrid_Result.Height = 150;
-
-            dgrid_Result.Size = new Size(10, 250);
+            dgrid_Result.RowHeadersVisible = false;
+            dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             addColumnToGrid("ProductID", "ProductID", 120, false);
-
-            addColumnToGrid("إسم الصنف", "ProductName", 120, true);
-
-            addColumnToGrid("رقم الصنف", "ProductCode", 120, true);
-
-            addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
-
-            addColumnToGrid("إسم المجموعة", "ProductGroupName", 120, true);
+            addColumnToGrid("كود الصنف", "ProductCode", 120, true);
+            addColumnToGrid("إسم الصنف", "ProductName", 250, true);
+            // addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
+            addColumnToGrid("المجموعه التابع لها", "ProductGroupName", 250, true);
 
         }
         private void BindGrid()
         {
             dgrid_Result.DataSource = null;
             List<VProduct> productList = _bdVProductWrapper.SelectAll();
-
             dgrid_Result.DataSource = productList;
         }
 

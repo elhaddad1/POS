@@ -1,7 +1,7 @@
 //
 // Class	:	INVInventoryBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:06 PM
+// Date		:	5/2/2015 2:22:12 AM
 //
 
 using System;
@@ -45,7 +45,9 @@ namespace POS.DataLayer
 		private string         	_notesNonDefault         	= null;
 		private bool?          	_isBasicNonDefault       	= false;
 
+		private PURPurchaseHeaderCollection _pURPurchaseHeaderCollectionInventoryID = null;
 		private SALSalesHeaderCollection _sALSalesHeaderCollectionInventoryID = null;
+		private SALSalesReturnHeaderCollection _sALSalesReturnHeaderCollectionInventoryID = null;
 		
 		#endregion
 		
@@ -153,6 +155,26 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
+		/// Provides access to the related table 'PURPurchaseHeader'
+		/// </summary>
+		public PURPurchaseHeaderCollection PURPurchaseHeaderCollectionUsingInventoryID
+		{
+			get 
+			{
+				if (_pURPurchaseHeaderCollectionInventoryID == null)
+				{
+					_pURPurchaseHeaderCollectionInventoryID = new PURPurchaseHeaderCollection();
+					_pURPurchaseHeaderCollectionInventoryID = PURPurchaseHeader.SelectByField("InventoryID",InventoryID, null, TypeOperation.Equal);
+				}                
+				return _pURPurchaseHeaderCollectionInventoryID; 
+			}
+			set 
+			{
+				  _pURPurchaseHeaderCollectionInventoryID = value;
+			}
+		}
+
+		/// <summary>
 		/// Provides access to the related table 'SALSalesHeader'
 		/// </summary>
 		public SALSalesHeaderCollection SALSalesHeaderCollectionUsingInventoryID
@@ -172,6 +194,26 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// Provides access to the related table 'SALSalesReturnHeader'
+		/// </summary>
+		public SALSalesReturnHeaderCollection SALSalesReturnHeaderCollectionUsingInventoryID
+		{
+			get 
+			{
+				if (_sALSalesReturnHeaderCollectionInventoryID == null)
+				{
+					_sALSalesReturnHeaderCollectionInventoryID = new SALSalesReturnHeaderCollection();
+					_sALSalesReturnHeaderCollectionInventoryID = SALSalesReturnHeader.SelectByField("InventoryID",InventoryID, null, TypeOperation.Equal);
+				}                
+				return _sALSalesReturnHeaderCollectionInventoryID; 
+			}
+			set 
+			{
+				  _sALSalesReturnHeaderCollectionInventoryID = value;
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -186,7 +228,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -245,7 +287,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -290,7 +332,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -332,7 +374,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -369,7 +411,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -408,7 +450,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -443,7 +485,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -491,7 +533,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -528,7 +570,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -570,7 +612,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -616,7 +658,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -657,7 +699,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -690,7 +732,59 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM				Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVInventory SelectOneWithPURPurchaseHeaderUsingInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVInventory obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVInventory_SelectOneWithPURPurchaseHeaderUsingInventoryID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new INVInventory();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.PURPurchaseHeaderCollectionUsingInventoryID=PURPurchaseHeader.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVInventory</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			5/2/2015 2:22:12 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -729,6 +823,58 @@ namespace POS.DataLayer
 			
 		}
 
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class INVInventory</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			5/2/2015 2:22:12 AM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static INVInventory SelectOneWithSALSalesReturnHeaderUsingInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			INVInventory obj=null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_INVInventory_SelectOneWithSALSalesReturnHeaderUsingInventoryID", ref ExecutionState);
+			if (dr.Read())
+			{
+				obj= new INVInventory();
+				PopulateObjectFromReader(obj,dr);
+				
+				dr.NextResult();
+				
+				//Get the child records.
+				obj.SALSalesReturnHeaderCollectionUsingInventoryID=SALSalesReturnHeader.PopulateObjectsFromReader(dr);
+			}
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
 		#endregion	
 		
 		#region Methods (Private)
@@ -746,7 +892,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -783,7 +929,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -815,7 +961,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -847,7 +993,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:06 PM		Created function
+		/// DLGenerator			5/2/2015 2:22:12 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

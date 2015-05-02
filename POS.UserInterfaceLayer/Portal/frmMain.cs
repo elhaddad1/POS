@@ -98,6 +98,12 @@ namespace POS.UserInterfaceLayer.Portal
                             result.Enabled = true;
                     }
                 }
+                foreach (string btn in GlobalVariables.CurrentUser.UserShrtBtn)
+                {
+                    Control[] btns = this.Controls.Find(btn, true);
+                    if (btns != null && btns.Length > 0)
+                        btns[0].Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -138,8 +144,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_CloseTakingInventory_Click(object sender, EventArgs e)
         {
-            FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
-            switchForm(frm);
+            //FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
+            //switchForm(frm);
         }
 
         private void mnuItem_TransferOrder_Click(object sender, EventArgs e)
@@ -198,12 +204,14 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_CustomerAccount_Click(object sender, EventArgs e)
         {
-
+            frmCustomerAccounts frm = new frmCustomerAccounts();
+            frm.ShowDialog();
         }
 
         private void btn_SupplierAccount_Click(object sender, EventArgs e)
         {
-
+            frmSupplierAccounts frm = new frmSupplierAccounts();
+            frm.ShowDialog();
         }
 
         private void btn_SalesOrder_Click(object sender, EventArgs e)
@@ -214,12 +222,14 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_ReturnSalesOrder_Click(object sender, EventArgs e)
         {
-
+            frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit();
+            frm.ShowDialog();
         }
 
         private void btn_ReturnPurchaceOrder_Click(object sender, EventArgs e)
         {
-
+            frmPurchaseReturnOrderAddEdit frm = new Purcase.frmPurchaseReturnOrderAddEdit();
+            frm.ShowDialog();
         }
 
         private void btn_PurchaceOrder_Click(object sender, EventArgs e)
@@ -245,6 +255,6 @@ namespace POS.UserInterfaceLayer.Portal
             frmSalesReturnSearch frm = new frmSalesReturnSearch();
             frm.ShowDialog();
         }
-        
+
     }
 }
