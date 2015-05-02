@@ -78,6 +78,7 @@ namespace POS.UserInterfaceLayer.BasicData
 
             _invInventory.InventoryName = txt_InventoryName.Text;
             _invInventory.Notes = txt_Notes.Text;
+            _invInventory.IsBasic = false;
             if (_inventoryId == 0)
                 _invInventoryWrapper.Insert(_invInventory);
             else
