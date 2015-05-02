@@ -1,7 +1,7 @@
 //
 // Class	:	ADRolePrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:36:59 PM
+// Date		:	5/2/2015 4:01:01 AM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:36:59 PM				Created function
+		/// DLGenerator			5/2/2015 4:01:01 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///

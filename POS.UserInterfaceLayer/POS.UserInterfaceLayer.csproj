@@ -272,6 +272,14 @@
     <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs" />
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.Designer.cs">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purcase\frmPurchaseReturnSearch.cs" />
+    <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +450,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseOrderSearch.resx">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnOrderAddEdit.resx">
+      <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
+      <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>

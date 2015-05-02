@@ -27,7 +27,10 @@ namespace POS.BusinessLayer.Wrapper
                     foreach (VUserRole userRole in _vUserRoleCollection)
                     {
                         GlobalVariables.CurrentUser.UserRoles.Add(userRole.RolePath);
+                        if (!string.IsNullOrWhiteSpace(userRole.MenuButton))
+                            GlobalVariables.CurrentUser.UserShrtBtn.Add(userRole.MenuButton);
                     }
+
                     Message = "success";
                     return true;
                 }

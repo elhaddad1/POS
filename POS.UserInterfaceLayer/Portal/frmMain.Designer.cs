@@ -180,8 +180,9 @@
             // 
             // mnuItem_Adjustment
             // 
+            this.mnuItem_Adjustment.Enabled = false;
             this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
-            this.mnuItem_Adjustment.Size = new System.Drawing.Size(149, 22);
+            this.mnuItem_Adjustment.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_Adjustment.Text = "التسوية";
             this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
             // 
@@ -364,6 +365,7 @@
             // btn_AddProduct
             // 
             this.btn_AddProduct.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddProduct.Enabled = false;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_AddProduct.Image = global::POS.UserInterfaceLayer.Properties.Resources.product_icon;
             this.btn_AddProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -380,6 +382,7 @@
             // btn_ReturnPurchaceOrder
             // 
             this.btn_ReturnPurchaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReturnPurchaceOrder.Enabled = false;
             this.btn_ReturnPurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ReturnPurchaceOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.Ecommerce_Return_Purchase_icon;
             this.btn_ReturnPurchaceOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -396,6 +399,7 @@
             // btn_SupplierAccount
             // 
             this.btn_SupplierAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SupplierAccount.Enabled = false;
             this.btn_SupplierAccount.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_SupplierAccount.Image = global::POS.UserInterfaceLayer.Properties.Resources.payment_icon;
             this.btn_SupplierAccount.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -412,6 +416,7 @@
             // btn_CustomerAccount
             // 
             this.btn_CustomerAccount.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_CustomerAccount.Enabled = false;
             this.btn_CustomerAccount.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_CustomerAccount.Image = global::POS.UserInterfaceLayer.Properties.Resources.payment_icon;
             this.btn_CustomerAccount.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -428,6 +433,7 @@
             // btn_AddSupplier
             // 
             this.btn_AddSupplier.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddSupplier.Enabled = false;
             this.btn_AddSupplier.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_AddSupplier.Image = global::POS.UserInterfaceLayer.Properties.Resources.Office_Client_Male_Light_icon;
             this.btn_AddSupplier.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -444,6 +450,7 @@
             // btn_AddCustomer
             // 
             this.btn_AddCustomer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_AddCustomer.Enabled = false;
             this.btn_AddCustomer.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_AddCustomer.Image = global::POS.UserInterfaceLayer.Properties.Resources.Client_icon;
             this.btn_AddCustomer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -460,6 +467,7 @@
             // btn_ReturnSalesOrder
             // 
             this.btn_ReturnSalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ReturnSalesOrder.Enabled = false;
             this.btn_ReturnSalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_ReturnSalesOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.Ecommerce_Return_Purchase_icon;
             this.btn_ReturnSalesOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -476,6 +484,7 @@
             // btn_PurchaceOrder
             // 
             this.btn_PurchaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_PurchaceOrder.Enabled = false;
             this.btn_PurchaceOrder.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_PurchaceOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.invoice_icon;
             this.btn_PurchaceOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -492,6 +501,7 @@
             // btn_SalesOrder
             // 
             this.btn_SalesOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_SalesOrder.Enabled = false;
             this.btn_SalesOrder.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_SalesOrder.Image = global::POS.UserInterfaceLayer.Properties.Resources.Medical_invoice_information_icon;
             this.btn_SalesOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;

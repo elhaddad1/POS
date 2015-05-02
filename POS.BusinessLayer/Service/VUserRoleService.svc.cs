@@ -1,9 +1,8 @@
 //
 // Class	:	VUserRoleServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:30 PM
+// Date		:	5/2/2015 4:13:16 AM
 //
-
 
 using POS.DataLayer;
 
@@ -17,7 +16,9 @@ namespace POS.BusinessLayer
 		private VUserRole _vUserRoleWCF;
 		private POS.DataLayer.VUserRole _vUserRole;
 		
-	
+		/// <summary>
+		/// This method will Delete row(s) from the database using the value of the field specified
+		
 
 		/// <summary>
 		/// This method will return an object representing the record matching the primary key information specified.
@@ -107,8 +108,7 @@ namespace POS.BusinessLayer
 			return vUserRoleCollection;
 		}
 		
-	
-		
+				
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -171,6 +171,6 @@ namespace POS.BusinessLayer
 			}
 			return vUserRoleCollection;
 		}
-			
+		
 	} 
 }
