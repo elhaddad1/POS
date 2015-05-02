@@ -48,16 +48,36 @@
       <Private>True</Private>
       <HintPath>..\packages\CrystalDecisions.Windows.Forms.1.0.0\lib\CrystalDecisions.Windows.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\frmUserAddEdit.cs">
@@ -272,11 +292,15 @@
     <Compile Include="Purcase\frmPurchaseOrderSearch.Designer.cs">
       <DependentUpon>frmPurchaseOrderSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs" />
+    <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Purcase\frmPurchaseReturnOrderAddEdit.Designer.cs">
       <DependentUpon>frmPurchaseReturnOrderAddEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purcase\frmPurchaseReturnSearch.cs" />
+    <Compile Include="Purcase\frmPurchaseReturnSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
