@@ -99,7 +99,11 @@ namespace POS.UserInterfaceLayer.Transfer
         {
             if (dgrd_OrderLines.SelectedRows.Count != 0)
             {
-                transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty--;
+                if (Convert.ToInt32(dgrd_OrderLines.SelectedRows[0].Cells["TotalQty"].Value) == 0)
+                    transferLineCollection.RemoveAt(transferLineCollection.IndexOf(transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault()));
+                else
+                    transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty--;
+
                 BindGrid();
             }
             else
