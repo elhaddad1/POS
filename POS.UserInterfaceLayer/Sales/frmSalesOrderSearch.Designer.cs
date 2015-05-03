@@ -36,7 +36,7 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_AddCustomer = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -54,14 +54,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_Close);
-            this.groupBox2.Controls.Add(this.btn_AddCustomer);
-            this.groupBox2.Controls.Add(this.tbx_OrderSerial);
-            this.groupBox2.Controls.Add(this.tbx_CustomerName);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Size = new System.Drawing.Size(698, 87);
+            this.grb_search.Controls.Add(this.btn_Close);
+            this.grb_search.Controls.Add(this.btn_AddCustomer);
+            this.grb_search.Controls.Add(this.tbx_OrderSerial);
+            this.grb_search.Controls.Add(this.tbx_CustomerName);
+            this.grb_search.Controls.Add(this.label3);
+            this.grb_search.Controls.Add(this.label1);
+            this.grb_search.Controls.Add(this.btn_Search);
+            this.grb_search.Size = new System.Drawing.Size(698, 87);
             // 
             // tbx_OrderSerial
             // 
@@ -134,8 +134,8 @@
             this.Name = "frmSalesOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_search.ResumeLayout(false);
+            this.grb_search.PerformLayout();
             this.ResumeLayout(false);
 
         }

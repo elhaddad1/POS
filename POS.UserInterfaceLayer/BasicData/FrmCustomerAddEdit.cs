@@ -54,9 +54,11 @@ namespace POS.UserInterfaceLayer.BasicData
                     customer.Mobile2 = tbx_Mobile2.Text;
                     customer.Email = tbx_Email.Text;
                     customer.IsActive = chk_IsActive.Checked;
+                    customer.Debit = 0;
+                    customer.Credit = 0;
                     customerService.Insert(customer);
-                    ClearControls(); 
                     MessageBox.Show("تم الحفظ بنجاح");
+                   
                 }
                 else
                 {
@@ -75,7 +77,7 @@ namespace POS.UserInterfaceLayer.BasicData
                    customerService.Update(customer);
                    MessageBox.Show("تم التعديل بنجاح");
                 }
-                
+               
                
             
             }
@@ -83,6 +85,8 @@ namespace POS.UserInterfaceLayer.BasicData
             {
                 MessageBox.Show("لابد من ادخال إسم العميل");
             }
+
+            this.Close();
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {

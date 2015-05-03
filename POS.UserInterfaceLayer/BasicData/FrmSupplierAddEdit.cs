@@ -57,8 +57,10 @@ namespace POS.UserInterfaceLayer.BasicData
                     supplier.Mobile2 = tbx_Mobile2.Text;
                     supplier.Email = tbx_Email.Text;
                     supplier.IsActive = chk_IsActive.Checked;
+                    supplier.Debit = 0;
+                    supplier.Credit = 0;
                     supplierService.Insert(supplier);
-                    ClearControls(); 
+                   // ClearControls(); 
                     MessageBox.Show("تم الحفظ بنجاح");
                 }
                 else
@@ -78,7 +80,7 @@ namespace POS.UserInterfaceLayer.BasicData
                    supplierService.Update(supplier);
                    MessageBox.Show("تم التعديل بنجاح");
                 }
-                
+                this.Close();
                
             
             }

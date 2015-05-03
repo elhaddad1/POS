@@ -55,7 +55,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(228, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(240, 21);
             this.lbl_FormHeader.Size = new System.Drawing.Size(106, 19);
             this.lbl_FormHeader.Text = "إضافه /تعديل عميل";
             // 
@@ -66,11 +66,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(289, 4);
+            this.btn_Save.Location = new System.Drawing.Point(279, 7);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(184, 4);
+            this.btn_Back.Location = new System.Drawing.Point(176, 7);
             // 
             // label1
             // 
@@ -236,6 +236,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCustomerAddEdit";
             this.Text = "العملاء";
+            this.TopMost = false;
             this.Load += new System.EventHandler(this.FrmCustomerAddEdit_Load);
             this.Controls.SetChildIndex(this.panl_Header, 0);
             this.Controls.SetChildIndex(this.panl_Footer, 0);

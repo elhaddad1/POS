@@ -35,7 +35,7 @@
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grb_search = new System.Windows.Forms.GroupBox();
             this.Dgrid_Result = new System.Windows.Forms.DataGridView();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
@@ -124,15 +124,15 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
-            // groupBox2
+            // grb_search
             // 
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 47);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 128);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "بحث";
+            this.grb_search.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grb_search.Location = new System.Drawing.Point(0, 47);
+            this.grb_search.Name = "grb_search";
+            this.grb_search.Size = new System.Drawing.Size(646, 128);
+            this.grb_search.TabIndex = 7;
+            this.grb_search.TabStop = false;
+            this.grb_search.Text = "بحث";
             // 
             // Dgrid_Result
             // 
@@ -151,7 +151,7 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(646, 595);
             this.Controls.Add(this.Dgrid_Result);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grb_search);
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,7 +177,7 @@
         protected System.Windows.Forms.Label lbl_FormHeader;
         protected System.Windows.Forms.Button btn_Close;
         protected System.Windows.Forms.Panel panl_Footer;
-        public System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.GroupBox grb_search;
         private System.Windows.Forms.DataGridView Dgrid_Result;
         protected System.Windows.Forms.Button btn_Add;
         protected System.Windows.Forms.Button btn_Back;
