@@ -24,7 +24,7 @@ using POS.BusinessLayer;namespace POS.UserInterfaceLayer.BasicData
 
         private void FrmAdjustmentReasons_Load(object sender, EventArgs e)
         {
-            
+            grb_search.Visible = false;
             dgrid_Result.Dock =   DockStyle.Fill;
            // dgrid_Result .Columns .
             addColumnToGrid("سبب التسويه", "AdjustStockReasonID", 10, false);
@@ -43,7 +43,7 @@ using POS.BusinessLayer;namespace POS.UserInterfaceLayer.BasicData
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
             INVAdjustStockReasonPrimaryKey pk = new INVAdjustStockReasonPrimaryKey();
-            pk.AdjustStockReasonID= (int)dgrid_Result.SelectedRows[0].Cells["AdjustStockReasonID"].Value;
+            pk.AdjustStockReasonID= (int)dgrid_Result.Rows [dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockReasonID"].Value;
             INVAdjustStockReason reason= adjustStock.SelectOne(pk);
             FrmAdjustReasonAddEdit frm = new FrmAdjustReasonAddEdit(reason);
             frm.ShowDialog();
@@ -51,13 +51,22 @@ using POS.BusinessLayer;namespace POS.UserInterfaceLayer.BasicData
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (dgrid_Result .SelectedRows .Count > 0)
+            if (dgrid_Result .SelectedCells.Count > 0)
             {
                 if (MessageBox.Show ("هل نت متأكد من الحذف ؟","تحذير",MessageBoxButtons.YesNo)==  System.Windows.Forms.DialogResult.Yes)
                 {
                     INVAdjustStockReasonPrimaryKey pk = new INVAdjustStockReasonPrimaryKey();
-                    pk.AdjustStockReasonID = (int)dgrid_Result.SelectedRows[0].Cells["AdjustStockReasonID"].Value;
-                    adjustStock.Delete(pk);
+                    pk.AdjustStockReasonID = (int)dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockReasonID"].Value;
+                    try
+                    {
+                        adjustStock.Delete(pk); 
+                        MessageBox.Show("لقد تمت عمليه الحذف بنجاح");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("لم تتم عمليه الحذف .. حيث ان السبب مستخدم ");
+                    }
+                   
                     dgrid_Result.DataSource = adjustStock.SelectAll();
                 }
             }

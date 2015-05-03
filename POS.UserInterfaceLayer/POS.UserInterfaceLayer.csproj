@@ -224,6 +224,12 @@
     <Compile Include="BasicData\FrmSupplierSearch.Designer.cs">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\FrmCloseTakingInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FrmCloseTakingInventory.Designer.cs">
+      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\frmOpenningQuantities.cs">
       <SubType>Form</SubType>
     </Compile>

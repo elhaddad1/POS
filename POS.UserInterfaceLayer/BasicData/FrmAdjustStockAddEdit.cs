@@ -128,7 +128,7 @@ namespace POS.UserInterfaceLayer.BasicData
             int _productStockID = (int)dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value;
              INVProductStockWrapper _iNVProductStockWrapper = new INVProductStockWrapper();
             dgrid_batches.AutoGenerateColumns = false;
-            dgrid_batches.DataSource = _iNVProductStockWrapper.GetInventoryStock(_productStockID, null, null, true, true);
+            dgrid_batches.DataSource = _iNVProductStockWrapper.GetInventoryStock(_productStockID, null, null, true, true,null);
         }
 
         private void FillStokeCBX()

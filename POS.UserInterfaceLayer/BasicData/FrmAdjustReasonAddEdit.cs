@@ -46,6 +46,7 @@ namespace POS.UserInterfaceLayer.BasicData
                     service.Update(_currentReason);
                 }
                 MessageBox.Show("تم الحفظ بنجاح");
+                this.Close();
             }
         }
         public override void btn_Back_Click(object sender, EventArgs e)
