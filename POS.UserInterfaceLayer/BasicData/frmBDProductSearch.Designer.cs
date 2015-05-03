@@ -35,7 +35,7 @@
             this.lbl_ProductCode = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -53,13 +53,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Controls.Add(this.tbx_productCode);
-            this.groupBox2.Controls.Add(this.tbx_productName);
-            this.groupBox2.Controls.Add(this.lbl_ProductCode);
-            this.groupBox2.Controls.Add(this.lbl_ProductName);
-            this.groupBox2.Location = new System.Drawing.Point(0, 53);
-            this.groupBox2.Size = new System.Drawing.Size(635, 85);
+            this.grb_search.Controls.Add(this.btn_Search);
+            this.grb_search.Controls.Add(this.tbx_productCode);
+            this.grb_search.Controls.Add(this.tbx_productName);
+            this.grb_search.Controls.Add(this.lbl_ProductCode);
+            this.grb_search.Controls.Add(this.lbl_ProductName);
+            this.grb_search.Location = new System.Drawing.Point(0, 53);
+            this.grb_search.Size = new System.Drawing.Size(635, 85);
             // 
             // btn_Search
             // 
@@ -117,8 +117,8 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_search.ResumeLayout(false);
+            this.grb_search.PerformLayout();
             this.ResumeLayout(false);
 
         }

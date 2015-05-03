@@ -36,7 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // panl_Header
@@ -56,15 +56,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Controls.Add(this.lbl_code);
-            this.groupBox2.Controls.Add(this.tbx_cusomerName);
-            this.groupBox2.Controls.Add(this.lbl_name);
-            this.groupBox2.Controls.Add(this.tbx_customerCode);
-            this.groupBox2.Location = new System.Drawing.Point(0, 53);
-            this.groupBox2.Size = new System.Drawing.Size(613, 78);
-            this.groupBox2.Text = "بحث الموردين";
+            this.grb_search.Controls.Add(this.button1);
+            this.grb_search.Controls.Add(this.btn_Search);
+            this.grb_search.Controls.Add(this.lbl_code);
+            this.grb_search.Controls.Add(this.tbx_cusomerName);
+            this.grb_search.Controls.Add(this.lbl_name);
+            this.grb_search.Controls.Add(this.tbx_customerCode);
+            this.grb_search.Location = new System.Drawing.Point(0, 53);
+            this.grb_search.Size = new System.Drawing.Size(613, 78);
+            this.grb_search.Text = "بحث الموردين";
             // 
             // btn_Add
             // 
@@ -150,8 +150,8 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_search.ResumeLayout(false);
+            this.grb_search.PerformLayout();
             this.ResumeLayout(false);
 
         }

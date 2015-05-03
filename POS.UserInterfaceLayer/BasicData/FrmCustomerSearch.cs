@@ -39,8 +39,8 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("رقم العميل", "CustomerID", 120, false);
             addColumnToGrid("كود لعميل", "CustomerCode", 80, true);
             addColumnToGrid("إسم العميل", "CustomerName", 200, true);
-            addColumnToGrid(" رقم تليفون ", "CustomerPhone1", 100, true);
-            addColumnToGrid("رقم موبيل", "CustomerMobile1", 100, true);
+            addColumnToGrid(" رقم تليفون ", "Phone1", 100, true);
+            addColumnToGrid("رقم موبيل", "Mobile1", 100, true);
             /////////
             addColumnToGrid("دائن", "Debit", 100, true);
             addColumnToGrid("مدين", "Credit", 100, true);
@@ -83,7 +83,15 @@ namespace POS.UserInterfaceLayer.BasicData
                     customerID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["CustomerID"].Value);
                     BDCustomerPrimaryKey customerPK = new BDCustomerPrimaryKey();
                     customerPK.CustomerID = customerID;
-                    _bDCustomerWrapper.Delete(customerPK); 
+                    try
+                    {
+                        _bDCustomerWrapper.Delete(customerPK);
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                        MessageBox.Show ("لا يمكن مسح هذا العميل .. حيث انه مرتبط بفواتير");
+                    }
                 }
                 else
                 {
