@@ -48,6 +48,24 @@ namespace POS.UserInterfaceLayer.Transfer
                 this.Close();
             }
         }
+        private void num_Quantity_ValueChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(num_Quantity.Text))
+                return;
+            if (cbx_Product.SelectedIndex == -1)
+            {
+                num_Quantity.Text = "0";
+                MessageBox.Show("لابد من أختيار منتج أولا");
+                return;
+            }
+            BDProduct _bDProduct = (BDProduct)cbx_Product.SelectedItem;
+            if (_bDProduct.TotalQty < Convert.ToDecimal(num_Quantity.Text))
+            {
+                MessageBox.Show("الكمية المتاحة فى المخزن أقل من الكمية المدخلة");
+                num_Quantity.Text = "0";
+                return;
+            }
+        }
         private void btn_Back_Click(object sender, EventArgs e)
         {
             this.Close();
