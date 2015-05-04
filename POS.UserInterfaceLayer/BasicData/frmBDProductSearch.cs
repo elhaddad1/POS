@@ -36,6 +36,8 @@ namespace POS.UserInterfaceLayer.BasicData
             // addColumnToGrid("سعر الصنف", "ProductPrice", 120, true);
             addColumnToGrid("المجموعه التابع لها", "ProductGroupName", 250, true);
 
+            BindGrid();
+
         }
         private void BindGrid()
         {
