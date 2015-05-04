@@ -42,8 +42,8 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid(" رقم تليفون ", "Phone1", 100, true);
             addColumnToGrid("رقم موبيل", "Mobile1", 100, true);
             /////////
-            addColumnToGrid("دائن", "Debit", 100, true);
-            addColumnToGrid("مدين", "Credit", 100, true);
+            addColumnToGrid("مدين", "Debit", 100, true);
+            addColumnToGrid("دائن", "Credit", 100, true);
 
             dgrid_Result.DataSource = _bDCustomerWrapper.SelectAll();
         }
