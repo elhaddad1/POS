@@ -29,19 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.PurchaseLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchasePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
@@ -95,9 +91,7 @@
             this.ProductName,
             this.IsAcceptBatch,
             this.TotalQty,
-            this.Bonus,
             this.PurchasePrice,
-            this.ItemDiscount,
             this.BatchNumber,
             this.ExpiryDate});
             this.dgrd_OrderLines.Location = new System.Drawing.Point(6, 54);
@@ -106,7 +100,6 @@
             this.dgrd_OrderLines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgrd_OrderLines.Size = new System.Drawing.Size(741, 291);
             this.dgrd_OrderLines.TabIndex = 32;
-//            this.dgrd_OrderLines.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_OrderLines_CellContentClick);
             this.dgrd_OrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_OrderLines_CellValueChanged);
             // 
             // PurchaseLineID
@@ -133,41 +126,21 @@
             // 
             // TotalQty
             // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle7;
             this.TotalQty.HeaderText = "الكمية";
             this.TotalQty.Name = "TotalQty";
             this.TotalQty.Width = 60;
             // 
-            // Bonus
-            // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Bonus.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Bonus.HeaderText = "إضافي";
-            this.Bonus.Name = "Bonus";
-            this.Bonus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Bonus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Bonus.Width = 60;
-            // 
             // PurchasePrice
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle8;
             this.PurchasePrice.HeaderText = "سعر الشراء";
             this.PurchasePrice.Name = "PurchasePrice";
             this.PurchasePrice.Width = 60;
-            // 
-            // ItemDiscount
-            // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ItemDiscount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ItemDiscount.HeaderText = "الخصم%";
-            this.ItemDiscount.Name = "ItemDiscount";
-            this.ItemDiscount.Width = 50;
             // 
             // BatchNumber
             // 
@@ -176,9 +149,9 @@
             // 
             // ExpiryDate
             // 
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle9;
             this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
             this.ExpiryDate.Name = "ExpiryDate";
             // 
@@ -223,6 +196,7 @@
             this.num_Paied.Size = new System.Drawing.Size(80, 20);
             this.num_Paied.TabIndex = 44;
             this.num_Paied.Text = "0";
+            this.num_Paied.TextChanged += new System.EventHandler(this.num_Paied_TextChanged);
             this.num_Paied.KeyUp += new System.Windows.Forms.KeyEventHandler(this.num_Paied_KeyUp);
             // 
             // label11
@@ -407,6 +381,7 @@
             this.txt_Total.Size = new System.Drawing.Size(100, 20);
             this.txt_Total.TabIndex = 41;
             this.txt_Total.Text = "0";
+            this.txt_Total.TextChanged += new System.EventHandler(this.txt_Total_TextChanged);
             // 
             // txt_DiscountRatio
             // 
@@ -414,16 +389,17 @@
             this.txt_DiscountRatio.Name = "txt_DiscountRatio";
             this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
             this.txt_DiscountRatio.TabIndex = 40;
-            this.txt_DiscountRatio.Text = "%0";
+            this.txt_DiscountRatio.Text = "0";
+            this.txt_DiscountRatio.TextChanged += new System.EventHandler(this.txt_Total_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(638, 355);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 39;
-            this.label8.Text = "المبلغ المدفوع";
+            this.label8.Text = "المبلغ الإجمالي";
             // 
             // btn_AddLine
             // 
@@ -451,7 +427,7 @@
             this.btn_Plus.Name = "btn_Plus";
             this.btn_Plus.Size = new System.Drawing.Size(64, 56);
             this.btn_Plus.TabIndex = 33;
-            this.btn_Plus.Text = "إضافه باتش";
+            this.btn_Plus.Text = "إضافه تشغيله";
             this.btn_Plus.UseVisualStyleBackColor = true;
             this.btn_Plus.Click += new System.EventHandler(this.btn_Plus_Click);
             // 
@@ -590,9 +566,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAcceptBatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchasePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn BatchNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
     }

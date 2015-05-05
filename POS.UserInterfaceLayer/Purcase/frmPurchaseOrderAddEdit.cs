@@ -83,7 +83,7 @@ namespace POS.UserInterfaceLayer.Purcase
             dgrd_OrderLines.Rows.InsertCopy(selectedRowIndex, selectedRowIndex + 1);
             dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
             dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["PurchasePrice"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["PurchasePrice"].Value;
-            dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ItemDiscount"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ItemDiscount"].Value;
+           // dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ItemDiscount"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ItemDiscount"].Value;
             // dgrd_OrderLines.Rows[selectedRowIndex + 1].Cells["ProductName"].Value = dgrd_OrderLines.Rows[selectedRowIndex].Cells["ProductName"].Value;
 
 
@@ -124,9 +124,9 @@ namespace POS.UserInterfaceLayer.Purcase
                         PURPurchaseLine _line = new PURPurchaseLine();
                         _line.ProductID = Convert.ToInt32(dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
                         _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
-                        _line.BonusQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["Bonus"].Value);
+                        _line.BonusQty = 0;
                         _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
-                        _line.DiscountRatio = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value);
+                        _line.DiscountRatio = 0;
                         if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value == true)
                         {
                             _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
@@ -176,19 +176,19 @@ namespace POS.UserInterfaceLayer.Purcase
             decimal totalAfterDiscount = total - (discountRatio * total);
             txt_AfterDescount.Text = totalAfterDiscount.ToString();
             num_Paied_KeyUp(null, null);
-            num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_AfterDescount.Text)).ToString();
+          //  num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_AfterDescount.Text)).ToString();
 
         }
 
         private void frmSalesLineAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
-            CalculateTotal();
+           //CalculateTotal();
         }
 
         private void num_Paied_KeyUp(object sender, KeyEventArgs e)
         {
-            num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_Total.Text)).ToString();
+           // num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_Total.Text)).ToString();
 
         }
         private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -211,6 +211,30 @@ namespace POS.UserInterfaceLayer.Purcase
                     dgrd_OrderLines.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true;
                 }
             }
+
+            if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["TotalQty"].Index
+                || e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["PurchasePrice"].Index)
+            {
+                decimal TotalPrice=0;
+                for (int i = 0; i < dgrd_OrderLines.RowCount; i++)
+                {
+                 decimal Qty =0;
+                    decimal price=0;
+                   if( dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value != null && !decimal.TryParse( dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value.ToString(),out Qty))
+                   {
+                       Qty = 0;
+                      // dgrd_OrderLines.Rows[i].Cells["TotalQty"].Style.BackColor = Color .Red;
+                   }
+                   if (dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value!= null  &&!decimal.TryParse(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value.ToString(), out price))
+                   {
+                       price = 0;
+                      // dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Style.BackColor = Color .Red;
+                   } 
+                 TotalPrice += Qty * price;
+                 txt_Total.Text = TotalPrice.ToString();
+                }
+            }
+
         }
 
 
@@ -272,7 +296,7 @@ namespace POS.UserInterfaceLayer.Purcase
                 dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value = Lines[i].BatchQty;
                 dgrd_OrderLines.Rows[i].Cells["Bonus"].Value = Lines[i].BonusQty;
                 dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value = Lines[i].Unitprice;
-                dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value = Lines[i].DiscountRatio;
+               // dgrd_OrderLines.Rows[i].Cells["ItemDiscount"].Value = Lines[i].DiscountRatio;
                 dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value = Lines[i].BatchNumber;
                 dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value = Lines[i].ExpiryDate;
             }
@@ -369,11 +393,12 @@ namespace POS.UserInterfaceLayer.Purcase
             _pURPurchaseHeader.ServicePrice = string.IsNullOrEmpty(num_OtherPayments.Text) ? 0 : Convert.ToDecimal(num_OtherPayments.Text);
             _pURPurchaseHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
             decimal total = Convert.ToDecimal(txt_Total.Text);
-            decimal discountRatio = (Convert.ToDecimal(txt_DiscountRatio.Text.Trim(new char[] { '%' })) / 100);
-            _pURPurchaseHeader.TotalDiscountAmount = total * discountRatio;
-            _pURPurchaseHeader.TotalDiscountRatio = (double)discountRatio;
+           // decimal discountRatio = (Convert.ToDecimal(txt_DiscountRatio.Text.Trim(new char[] { '%' })) / 100);
+            _pURPurchaseHeader.TotalDiscountAmount = Convert.ToDecimal(txt_DiscountRatio.Text);
+            _pURPurchaseHeader.TotalDiscountRatio = 0;
             _pURPurchaseHeader.TotalPrice = Convert.ToDecimal(txt_Total.Text);
             _pURPurchaseHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
+            _pURPurchaseHeader.TotalPrice = total;
             return _pURPurchaseHeader;
         }
         private bool Validate()
@@ -396,8 +421,21 @@ namespace POS.UserInterfaceLayer.Purcase
 
             return true;
         }
+
         #endregion
 
+        private void txt_Total_TextChanged(object sender, EventArgs e)
+        {
+            txt_AfterDescount.Text = (decimal.Parse (txt_Total.Text ) - decimal.Parse(txt_DiscountRatio.Text )).ToString () ;
+            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
+        }
+
+        private void num_Paied_TextChanged(object sender, EventArgs e)
+        {
+            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
+        }
+
+       
 
 
 
