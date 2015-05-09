@@ -32,6 +32,10 @@
             this.panl_Footer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Visible = false;
+            // 
             // FrmAdjustmentSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
