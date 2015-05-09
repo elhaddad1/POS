@@ -47,24 +47,24 @@
             // 
             // panl_Header
             // 
-            this.panl_Header.Size = new System.Drawing.Size(763, 47);
+            this.panl_Header.Size = new System.Drawing.Size(873, 47);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(453, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(730, 9);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Controls.Add(this.btn_Close);
             this.panl_Footer.Location = new System.Drawing.Point(0, 391);
-            this.panl_Footer.Size = new System.Drawing.Size(763, 62);
+            this.panl_Footer.Size = new System.Drawing.Size(873, 62);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Delete, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Back, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Close, 0);
             // 
-            // groupBox2
+            // grb_search
             // 
             this.grb_search.Controls.Add(this.cbx_Inventory);
             this.grb_search.Controls.Add(this.dtp_toDate);
@@ -77,33 +77,33 @@
             this.grb_search.Controls.Add(this.tbx_SupplierName);
             this.grb_search.Controls.Add(this.label3);
             this.grb_search.Controls.Add(this.label1);
-            this.grb_search.Size = new System.Drawing.Size(763, 128);
+            this.grb_search.Size = new System.Drawing.Size(873, 128);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(663, 2);
+            this.btn_Add.Location = new System.Drawing.Point(811, 6);
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(246, 4);
+            this.btn_Back.Location = new System.Drawing.Point(394, 8);
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(558, 2);
+            this.btn_Edit.Location = new System.Drawing.Point(706, 6);
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(453, 2);
+            this.btn_Delete.Location = new System.Drawing.Point(601, 6);
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(336, 96);
+            this.label3.Location = new System.Drawing.Point(446, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 16;
@@ -113,7 +113,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(649, 99);
+            this.label1.Location = new System.Drawing.Point(759, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 15;
@@ -122,7 +122,7 @@
             // tbx_OrderSerial
             // 
             this.tbx_OrderSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_OrderSerial.Location = new System.Drawing.Point(190, 93);
+            this.tbx_OrderSerial.Location = new System.Drawing.Point(300, 93);
             this.tbx_OrderSerial.Name = "tbx_OrderSerial";
             this.tbx_OrderSerial.Size = new System.Drawing.Size(140, 22);
             this.tbx_OrderSerial.TabIndex = 18;
@@ -130,7 +130,7 @@
             // tbx_SupplierName
             // 
             this.tbx_SupplierName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_SupplierName.Location = new System.Drawing.Point(446, 93);
+            this.tbx_SupplierName.Location = new System.Drawing.Point(556, 93);
             this.tbx_SupplierName.Name = "tbx_SupplierName";
             this.tbx_SupplierName.Size = new System.Drawing.Size(180, 22);
             this.tbx_SupplierName.TabIndex = 17;
@@ -149,7 +149,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(389, 62);
+            this.label2.Location = new System.Drawing.Point(499, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 16);
             this.label2.TabIndex = 20;
@@ -159,7 +159,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(637, 61);
+            this.label4.Location = new System.Drawing.Point(747, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 21;
@@ -169,7 +169,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(649, 22);
+            this.label5.Location = new System.Drawing.Point(759, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 16);
             this.label5.TabIndex = 22;
@@ -179,7 +179,7 @@
             // 
             this.dtp_fromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fromDate.Location = new System.Drawing.Point(446, 55);
+            this.dtp_fromDate.Location = new System.Drawing.Point(556, 55);
             this.dtp_fromDate.Name = "dtp_fromDate";
             this.dtp_fromDate.RightToLeftLayout = true;
             this.dtp_fromDate.Size = new System.Drawing.Size(180, 22);
@@ -189,7 +189,7 @@
             // 
             this.dtp_toDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_toDate.Location = new System.Drawing.Point(190, 56);
+            this.dtp_toDate.Location = new System.Drawing.Point(300, 56);
             this.dtp_toDate.Name = "dtp_toDate";
             this.dtp_toDate.RightToLeftLayout = true;
             this.dtp_toDate.Size = new System.Drawing.Size(140, 22);
@@ -199,15 +199,16 @@
             // 
             this.cbx_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbx_Inventory.FormattingEnabled = true;
-            this.cbx_Inventory.Location = new System.Drawing.Point(446, 14);
+            this.cbx_Inventory.Location = new System.Drawing.Point(556, 14);
             this.cbx_Inventory.Name = "cbx_Inventory";
             this.cbx_Inventory.Size = new System.Drawing.Size(180, 24);
             this.cbx_Inventory.TabIndex = 25;
             // 
             // btn_Close
             // 
+            this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(351, 5);
+            this.btn_Close.Location = new System.Drawing.Point(498, 10);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(97, 53);
             this.btn_Close.TabIndex = 9;
@@ -218,7 +219,7 @@
             // frmPurchaseOrderSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(763, 453);
+            this.ClientSize = new System.Drawing.Size(873, 453);
             this.Name = "frmPurchaseOrderSearch";
             this.Text = "بحث فواتير الشراء";
             this.Load += new System.EventHandler(this.frmPurchaseOrderSearch_Load);

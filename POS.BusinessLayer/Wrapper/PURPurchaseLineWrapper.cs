@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POS.BusinessLayer.Wrapper
 {
-   public class PURPurchaseLineWrapper:PURPurchaseLineService 
+    public class PURPurchaseLineWrapper : PURPurchaseLineService
     {
         public bool SavePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
         {
@@ -18,7 +18,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.InventoryID = pURPurchaseHeader.InventoryID;
             _pURPurchaseHeader.InvoiceNumber = pURPurchaseHeader.InvoiceNumber;
             _pURPurchaseHeader.InvoiceDate = pURPurchaseHeader.InvoiceDate;
-           // _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
+            // _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
             _pURPurchaseHeader.TotalPrice = pURPurchaseHeader.TotalPrice;
             _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
@@ -72,7 +72,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.PurchaseDate = DateTime.Now;
             _pURPurchaseHeader.SupplierID = pURPurchaseHeader.SupplierID;
             _pURPurchaseHeader.InvoiceDate = pURPurchaseHeader.InvoiceDate;
-          //  _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
+            //  _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
             _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
             _pURPurchaseHeader.TotalPrice = pURPurchaseHeader.TotalPrice;
             _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
@@ -125,23 +125,78 @@ namespace POS.BusinessLayer.Wrapper
             foreach (var item in Lines)
             {
                 PURPurchaseLine obj = new PURPurchaseLine();
-                obj.PurchaseLineID = item.PurchaseHeaderID;
+                obj.PurchaseLineID = item.PurchaseLineID;
                 obj.PurchaseLineBatchID = item.PurchaseLineBatchID;
                 obj.ProductID = item.ProductID;
                 obj.ProductName = item.ProductName;
                 obj.IsAcceptBatch = item.IsAcceptBatch;
-                obj.TotalQty  = item.TotalQty;
+                obj.TotalQty = item.TotalQty;
                 obj.BonusQty = item.BonusQty;
                 obj.Unitprice = item.Unitprice;
                 obj.BonusQty = item.BonusQty;
 
                 obj.BatchNumber = item.BatchNumber;
                 obj.ExpiryDate = item.ExpiryDate;
-                
-              //  obj.= item.
+
+                //  obj.= item.
                 _lines.Add(obj);
             }
             return _lines;
         }
-    }  
+
+        public bool UpdatePurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
+        {
+            POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader = new POS.DataLayer.PURPurchaseHeader();
+            _pURPurchaseHeader.PurcaseHeaderID = pURPurchaseHeader.PurcaseHeaderID;
+            _pURPurchaseHeader.PurchaseDate = DateTime.Now;
+            _pURPurchaseHeader.SupplierID = pURPurchaseHeader.SupplierID;
+            _pURPurchaseHeader.InventoryID = pURPurchaseHeader.InventoryID;
+            _pURPurchaseHeader.InvoiceNumber = pURPurchaseHeader.InvoiceNumber;
+            _pURPurchaseHeader.InvoiceDate = pURPurchaseHeader.InvoiceDate;
+            // _pURPurchaseHeader.SellerID = GlobalVariables.CurrentUser.UserID;
+            _pURPurchaseHeader.PaymentTypeID = pURPurchaseHeader.PaymentTypeID;
+            _pURPurchaseHeader.TotalPrice = pURPurchaseHeader.TotalPrice;
+            _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
+            _pURPurchaseHeader.RemainingAmount = pURPurchaseHeader.RemainingAmount;
+            _pURPurchaseHeader.LastDayToPay = pURPurchaseHeader.LastDayToPay;
+            _pURPurchaseHeader.TotalDiscountAmount = pURPurchaseHeader.TotalDiscountAmount;
+            _pURPurchaseHeader.TotalDiscountRatio = pURPurchaseHeader.TotalDiscountRatio;
+            _pURPurchaseHeader.IsClosed = false;
+            _pURPurchaseHeader.IsVoid = false;
+            _pURPurchaseHeader.IsPrinted = false;
+            _pURPurchaseHeader.ServicePrice = pURPurchaseHeader.ServicePrice;
+            _pURPurchaseHeader.TaxTypeID = pURPurchaseHeader.TaxTypeID;
+            _pURPurchaseHeader.RefuseReasonID = null;
+            _pURPurchaseHeader.CreatedBy = GlobalVariables.CurrentUser.UserID;
+            _pURPurchaseHeader.CreateDate = DateTime.Now;
+            _pURPurchaseHeader.UpdatedBy = null;
+            _pURPurchaseHeader.updateDate = null;
+            _pURPurchaseHeader.IsDeleted = false;
+            _pURPurchaseHeader.DeletedBy = null;
+            _pURPurchaseHeader.DeleteDate = null;
+
+            POS.DataLayer.PURPurchaseLineCollection _pURPurchaseLineCollection = new DataLayer.PURPurchaseLineCollection();
+            foreach (PURPurchaseLine pURPurchaseLine in pURPurchaseLineCollection)
+            {
+                POS.DataLayer.PURPurchaseLine _pURPurchaseLine = new POS.DataLayer.PURPurchaseLine();
+                _pURPurchaseLine.ProductID = pURPurchaseLine.ProductID;
+                _pURPurchaseLine.TotalQty = pURPurchaseLine.TotalQty;
+                _pURPurchaseLine.BonusQty = pURPurchaseLine.BonusQty;
+                _pURPurchaseLine.DiscountAmount = pURPurchaseLine.DiscountAmount;
+                _pURPurchaseLine.DiscountRatio = pURPurchaseLine.DiscountRatio;
+                _pURPurchaseLine.Unitprice = pURPurchaseLine.Unitprice;
+                _pURPurchaseLine.BatchNumber = pURPurchaseLine.BatchNumber;
+                _pURPurchaseLine.ExpiryDate = pURPurchaseLine.ExpiryDate;
+                _pURPurchaseLine.BatchQty = pURPurchaseLine.BatchQty;
+                _pURPurchaseLine.UpdatedBy = null;
+                _pURPurchaseLine.UpdateDate = null;
+                _pURPurchaseLine.IsDeleted = false;
+                _pURPurchaseLine.DeletedBy = null;
+                _pURPurchaseLine.DeleteDate = null;
+                _pURPurchaseLineCollection.Add(_pURPurchaseLine);
+            }
+            POS.DataLayer.PURPurchaseLine pURPurchaseLineObj = new DataLayer.PURPurchaseLine();
+            return pURPurchaseLineObj.UpdateTransaction(_pURPurchaseHeader, _pURPurchaseLineCollection);
+        }
+    }
 }
