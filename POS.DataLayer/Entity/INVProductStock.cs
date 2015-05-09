@@ -91,7 +91,7 @@ namespace POS.DataLayer
         #endregion
 
         #region Methods (Public)
-        public static INVProductStockCollection GetInventoryStock(int? ProductStockID, string productCode, string productName, bool? IsAcceptBatch, bool getWithBatch)
+        public static INVProductStockCollection GetInventoryStock(int? ProductStockID, string productCode, string productName, bool? IsAcceptBatch, bool getWithBatch,int? InventoryID)
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
@@ -101,7 +101,10 @@ namespace POS.DataLayer
             oDatabaseHelper.AddParameter("@ProductCode", productCode);
             oDatabaseHelper.AddParameter("@ProductName", productName);
             oDatabaseHelper.AddParameter("@IsAcceptBatch", IsAcceptBatch);
-
+            if (InventoryID != null)
+            {
+                oDatabaseHelper.AddParameter("@InventoryID", InventoryID); 
+            }
             IDataReader dr = oDatabaseHelper.ExecuteReader("USP_GetInventoryStock", ref ExecutionState);
             INVProductStockCollection INVProductStockCollection = Fill(dr, getWithBatch);
             dr.Close();

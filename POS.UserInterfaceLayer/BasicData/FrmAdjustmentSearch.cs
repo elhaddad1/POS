@@ -16,9 +16,11 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public FrmAdjustmentSearch()
         {
-            InitiateGrid();
+           
             InitializeComponent();
+            InitiateGrid();
             base.lbl_FormHeader.Text = "بحث";
+            grb_search.Visible = false;
         }
 
         public void InitiateGrid()
@@ -39,10 +41,10 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("إسم الصنف", "ProductName", 120, true);
             addColumnToGrid("إسم المخزن", "InventoryName", 120, true);
             addColumnToGrid("السبب", "AdjustReasonName", 120, true);
-            addColumnToGrid("نوع الصنف", "StockTypeName", 120, true);
+            addColumnToGrid("نوع الصنف القديم", "OldStockTypeName", 120, true);
+            addColumnToGrid("نوع الصنف الجديد", "StockTypeName", 120, true);
             addColumnToGrid("الكمية", "Qty", 120, true);
             addColumnToGrid("الموظف", "CreatedByName", 120, true);
-            addColumnToGrid("نوع الصنف", "StockTypeName", 120, true);
         }
 
         /// <summary>
@@ -58,9 +60,9 @@ namespace POS.UserInterfaceLayer.BasicData
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
             int productGroupID = 0;
-            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value != null)
+            if (dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value != null)
             {
-                productGroupID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value);
+                productGroupID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value);
             }
             else
             {
@@ -74,11 +76,12 @@ namespace POS.UserInterfaceLayer.BasicData
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
             int? adjustStockID = 0;
-            if (dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value != null)
+            if (dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value != null)
             {
                 if (MessageBox.Show("هل نت متأكد من حذف المجموعة؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    adjustStockID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["AdjustStockID"].Value);
+            if (dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value != null)
+                    adjustStockID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value);
                     _invAdjustStockWrapper.DeleteAdjustStock(adjustStockID.Value);
                 }
                 else
@@ -114,6 +117,11 @@ namespace POS.UserInterfaceLayer.BasicData
             searchModel.AdjustReasonName = tbx_AdjustName.Text != "" ? tbx_AdjustName.Text : null;
             List<INVAdjustStock> adjustStocks = _invAdjustStockWrapper.SearchByCriteria(searchModel);
             dgrid_Result.DataSource = adjustStocks;
+        }
+
+        private void FrmAdjustmentSearch_Load(object sender, EventArgs e)
+        {
+           
         }
 
     }

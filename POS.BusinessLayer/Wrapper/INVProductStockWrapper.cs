@@ -11,12 +11,12 @@ namespace POS.BusinessLayer.Wrapper
     {
 
         // private POS.DataLayer.INVProductStock _iNVProductStock;
-        public INVProductStockCollection GetInventoryStock(int? ProductStockID, string productCode, string productName, bool? IsAcceptBatch, bool getWithBatch)
+        public INVProductStockCollection GetInventoryStock(int? ProductStockID, string productCode, string productName, bool? IsAcceptBatch, bool getWithBatch,int? InventoryID)
         {
             INVProductStock _iNVProductStockWCF;
 
             INVProductStockCollection iNVProductStockCollection = new INVProductStockCollection();
-            foreach (POS.DataLayer.INVProductStock _iNVProductStock in POS.DataLayer.INVProductStock.GetInventoryStock(ProductStockID, productCode, productName, IsAcceptBatch, getWithBatch))
+            foreach (POS.DataLayer.INVProductStock _iNVProductStock in POS.DataLayer.INVProductStock.GetInventoryStock(ProductStockID, productCode, productName, IsAcceptBatch, getWithBatch, InventoryID))
             {
                 _iNVProductStockWCF = new INVProductStock();
 

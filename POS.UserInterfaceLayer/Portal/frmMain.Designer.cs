@@ -123,8 +123,7 @@
             this.mnuItem_Products,
             this.mnuItem_Customers,
             this.mnuItem_Suppliers,
-            this.mnuItem_AdjustReason,
-            this.mnuItem_Adjustment});
+            this.mnuItem_AdjustReason});
             this.mnuItem_BasicData.Enabled = false;
             this.mnuItem_BasicData.Name = "mnuItem_BasicData";
             this.mnuItem_BasicData.Size = new System.Drawing.Size(95, 20);
@@ -191,7 +190,8 @@
             this.mnuItem_Invntory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItem_OpenningQuantities,
             this.mnuItem_StockInquiry,
-            this.mnuItem_takingInventory});
+            this.mnuItem_takingInventory,
+            this.mnuItem_Adjustment});
             this.mnuItem_Invntory.Enabled = false;
             this.mnuItem_Invntory.Name = "mnuItem_Invntory";
             this.mnuItem_Invntory.Size = new System.Drawing.Size(54, 20);

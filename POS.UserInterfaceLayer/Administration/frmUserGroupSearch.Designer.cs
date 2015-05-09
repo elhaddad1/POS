@@ -54,8 +54,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(0, 53);
-            this.groupBox2.Size = new System.Drawing.Size(668, 72);
+            this.grb_search.Location = new System.Drawing.Point(0, 53);
+            this.grb_search.Size = new System.Drawing.Size(668, 72);
             // 
             // btn_Add
             // 

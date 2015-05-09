@@ -27,6 +27,10 @@ namespace POS.BusinessLayer
         public string AdjustReasonName { get; set; }
         [DataMember]
         public string StockTypeName { get; set; }
+
+
+        [DataMember]
+        public string OldStockTypeName { get; set; }
 	}
 }
 			

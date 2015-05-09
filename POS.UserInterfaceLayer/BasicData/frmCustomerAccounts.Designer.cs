@@ -39,21 +39,21 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btn_Search);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.lbl_TotalAmount);
-            this.groupBox2.Controls.Add(this.lbl);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cbx_Customer);
+            this.grb_search.Controls.Add(this.btn_Search);
+            this.grb_search.Controls.Add(this.label8);
+            this.grb_search.Controls.Add(this.lbl_TotalAmount);
+            this.grb_search.Controls.Add(this.lbl);
+            this.grb_search.Controls.Add(this.label5);
+            this.grb_search.Controls.Add(this.label4);
+            this.grb_search.Controls.Add(this.label2);
+            this.grb_search.Controls.Add(this.label1);
+            this.grb_search.Controls.Add(this.label3);
+            this.grb_search.Controls.Add(this.cbx_Customer);
             // 
             // cbx_Customer
             // 
@@ -157,8 +157,8 @@
             this.Name = "frmCustomerAccounts";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_search.ResumeLayout(false);
+            this.grb_search.PerformLayout();
             this.ResumeLayout(false);
 
         }

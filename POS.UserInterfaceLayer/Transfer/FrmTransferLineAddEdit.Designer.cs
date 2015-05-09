@@ -232,8 +232,9 @@
             this.num_Quantity.Size = new System.Drawing.Size(100, 20);
             this.num_Quantity.TabIndex = 36;
             this.num_Quantity.Text = "0";
+            this.num_Quantity.TextChanged += new System.EventHandler(this.num_Quantity_ValueChanged);
             // 
-            // frmSalesLineAddEdit
+            // FrmTransferLineAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,7 +258,7 @@
             this.Controls.Add(this.cbx_ProductGroup);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panl_Header);
-            this.Name = "frmSalesLineAddEdit";
+            this.Name = "FrmTransferLineAddEdit";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

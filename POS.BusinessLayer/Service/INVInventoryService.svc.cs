@@ -1,7 +1,7 @@
 //
 // Class	:	INVInventoryServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	5/2/2015 2:22:12 AM
+// Date		:	5/3/2015 10:23:05 PM
 //
 
 using System;

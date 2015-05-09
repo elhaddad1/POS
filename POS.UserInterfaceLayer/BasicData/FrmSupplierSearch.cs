@@ -42,11 +42,11 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("رقم المورد", "SupplierID", 120, false);
             addColumnToGrid("كود لمورد", "SupplierCode", 80, true);
             addColumnToGrid("إسم العميل", "SupplierName", 200, true);
-            addColumnToGrid(" رقم تليفون ", "SupplierPhone1", 100, true);
-            addColumnToGrid("رقم موبيل", "SupplierMobile1", 100, true);
+            addColumnToGrid(" رقم تليفون ", "Phone1", 100, true);
+            addColumnToGrid("رقم موبيل", "Mobile1", 100, true);
             /////////
-            addColumnToGrid("دائن", "Debit", 100, true);
-            addColumnToGrid("مدين", "Credit", 100, true);
+            addColumnToGrid( "مدين", "Debit", 100, true);
+            addColumnToGrid("دائن", "Credit", 100, true);
 
             dgrid_Result.DataSource = _bDSupplierWrapper.SelectAll();
         }
@@ -86,7 +86,15 @@ namespace POS.UserInterfaceLayer.BasicData
                     supplierID = Convert.ToInt32(dgrid_Result.Rows[dgrid_Result.SelectedCells[0].RowIndex].Cells["SupplierID"].Value);
                     BDSupplierPrimaryKey customerPK = new BDSupplierPrimaryKey();
                     customerPK.SupplierID = supplierID;
-                    _bDSupplierWrapper.Delete(customerPK);
+                    try
+                    {
+                        _bDSupplierWrapper.Delete(customerPK);
+                    }
+                    catch (Exception ex )
+                    {
+                        
+                        MessageBox.Show ("لا يمكن مسح هذا المورد .. حيث انه مرتبط بفواتير");
+                    }
                 }
                 else
                 {

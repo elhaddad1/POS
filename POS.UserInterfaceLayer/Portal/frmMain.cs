@@ -144,8 +144,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_CloseTakingInventory_Click(object sender, EventArgs e)
         {
-            //FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
-            //switchForm(frm);
+            FrmCloseTakingInventory frm = new FrmCloseTakingInventory();
+            switchForm(frm);
         }
 
         private void mnuItem_TransferOrder_Click(object sender, EventArgs e)

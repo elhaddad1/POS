@@ -86,9 +86,14 @@ namespace POS.UserInterfaceLayer.Inventory
             {
                 bool result = _TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value, (int)cmb_inventory.SelectedValue,
                                                                takingType, _productID, _productGroupID, tbx_notes.Text);
+                
                 if (result == false)
                 {
                     MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
+                }
+                else
+                {
+                    MessageBox.Show("تم فتح الجرد بنجاح");
                 }
             }
             catch (Exception ex)

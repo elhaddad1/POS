@@ -51,9 +51,24 @@ namespace POS.UserInterfaceLayer.BasicData
             }
         }
 
-        private bool frmValidation()
+        private string frmValidation()
         {
-            return !string.IsNullOrEmpty(txt_ProductName.Text);
+            if (string.IsNullOrEmpty(txt_ProductName.Text))
+            {
+                return "لابد من ادخال اسم الصنف";
+            }
+
+            if (ddl_ProductGroupID == null || ddl_ProductGroupID.SelectedValue==null)
+            {
+                return "لابد من إختيار المجموعة";
+            }
+            int groupId = 0;
+            int.TryParse(ddl_ProductGroupID.SelectedValue.ToString(), out groupId);
+            if (groupId == 0)
+            {
+                return "لابد من إختيار المجموعة";
+            }
+            return string.Empty;
         }
 
 
@@ -66,9 +81,10 @@ namespace POS.UserInterfaceLayer.BasicData
         public override void btn_Save_Click(object sender, EventArgs e) {
             try
             {
-                if (!frmValidation())
+                string validationMSG = frmValidation();
+                if (!string.IsNullOrEmpty(validationMSG))
                 {
-                    MessageBox.Show("لابد من ادخال اسم المجموعة");
+                    MessageBox.Show(validationMSG);
                     return;
                 }
                 saveChanges();

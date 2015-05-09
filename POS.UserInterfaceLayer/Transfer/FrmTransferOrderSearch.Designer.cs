@@ -38,20 +38,20 @@
             this.tbx_OrderSerial = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.tbx_OrderSerial);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.btn_Close);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.cbx_StoreTo);
-            this.groupBox2.Controls.Add(this.cbx_StoreFrom);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
+            this.grb_search.Controls.Add(this.tbx_OrderSerial);
+            this.grb_search.Controls.Add(this.label1);
+            this.grb_search.Controls.Add(this.btn_Close);
+            this.grb_search.Controls.Add(this.button2);
+            this.grb_search.Controls.Add(this.button1);
+            this.grb_search.Controls.Add(this.cbx_StoreTo);
+            this.grb_search.Controls.Add(this.cbx_StoreFrom);
+            this.grb_search.Controls.Add(this.label3);
+            this.grb_search.Controls.Add(this.label2);
             // 
             // cbx_StoreTo
             // 
@@ -141,8 +141,8 @@
             this.Name = "FrmTransferOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grb_search.ResumeLayout(false);
+            this.grb_search.PerformLayout();
             this.ResumeLayout(false);
 
         }

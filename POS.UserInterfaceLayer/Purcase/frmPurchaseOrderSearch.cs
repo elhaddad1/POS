@@ -55,7 +55,7 @@ namespace POS.UserInterfaceLayer.Purcase
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
             if (dgrid_Result.SelectedRows.Count != 0)
-                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+                //if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
                 {
                     int headerID=Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells[0].Value);
 

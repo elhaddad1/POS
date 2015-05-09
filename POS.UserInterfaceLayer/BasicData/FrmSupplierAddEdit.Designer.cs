@@ -55,7 +55,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(222, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(252, 22);
             this.lbl_FormHeader.Size = new System.Drawing.Size(101, 19);
             this.lbl_FormHeader.Text = "إضافه\\تعديل مورد";
             // 
@@ -66,11 +66,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(288, 4);
+            this.btn_Save.Location = new System.Drawing.Point(296, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(183, 4);
+            this.btn_Back.Location = new System.Drawing.Point(188, 3);
             // 
             // tbx_Mobile2
             // 
