@@ -52,6 +52,7 @@ namespace POS.BusinessLayer.Wrapper
                     _bDProductWCF.ProductName = _bDProduct.ProductName;
                     _bDProductWCF.ProductCode = _bDProduct.ProductCode;
                     _bDProductWCF.IsAcceptBatch = _bDProduct.IsAcceptBatch;
+
                     bDProductCollection.Add(_bDProductWCF);
                 }
             }
