@@ -150,6 +150,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(646, 595);
+            this.ControlBox = false;
             this.Controls.Add(this.Dgrid_Result);
             this.Controls.Add(this.grb_search);
             this.Controls.Add(this.panl_Footer);

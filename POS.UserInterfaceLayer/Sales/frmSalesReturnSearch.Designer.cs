@@ -279,7 +279,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مرتجعات مبيعات";
+            this.Text = "قائمة المنرتجعات";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);

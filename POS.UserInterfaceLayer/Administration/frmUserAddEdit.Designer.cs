@@ -54,7 +54,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(534, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(751, 17);
             // 
             // panl_Footer
             // 
@@ -63,11 +63,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(560, 3);
+            this.btn_Save.Location = new System.Drawing.Point(777, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(455, 3);
+            this.btn_Back.Location = new System.Drawing.Point(672, 3);
             // 
             // tbx_UserFullName
             // 
@@ -203,6 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(679, 257);
+            this.ControlBox = false;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbx_Group);
             this.Controls.Add(this.label6);

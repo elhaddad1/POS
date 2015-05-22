@@ -39,7 +39,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(443, 20);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(454, 20);
             // 
             // panl_Footer
             // 
@@ -52,26 +52,26 @@
             this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
             this.panl_Footer.Controls.SetChildIndex(this.btn_Priviligies, 0);
             // 
-            // groupBox2
+            // grb_search
             // 
             this.grb_search.Location = new System.Drawing.Point(0, 53);
             this.grb_search.Size = new System.Drawing.Size(668, 72);
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(458, 2);
+            this.btn_Add.Location = new System.Drawing.Point(469, 2);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(143, 2);
+            this.btn_Back.Location = new System.Drawing.Point(154, 2);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(353, 2);
+            this.btn_Edit.Location = new System.Drawing.Point(364, 2);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(248, 2);
+            this.btn_Delete.Location = new System.Drawing.Point(259, 2);
             // 
             // btn_Priviligies
             // 
@@ -88,6 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(668, 399);
+            this.ControlBox = false;
             this.Name = "frmUserGroupSearch";
             this.Text = "مجموعات المستخدمين";
             this.panl_Header.ResumeLayout(false);

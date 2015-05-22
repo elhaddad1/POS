@@ -438,6 +438,9 @@
     <EmbeddedResource Include="BasicData\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FrmCloseTakingInventory.resx">
+      <DependentUpon>FrmCloseTakingInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmOpenningQuantities.resx">
       <DependentUpon>frmOpenningQuantities.cs</DependentUpon>
     </EmbeddedResource>

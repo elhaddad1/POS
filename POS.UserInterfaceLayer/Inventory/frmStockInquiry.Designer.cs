@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.grb_Search = new System.Windows.Forms.GroupBox();
+            this.cmb_Inventory = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbx_ProductName = new System.Windows.Forms.TextBox();
             this.tbx_ProductCode = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_batches = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_Inventory = new System.Windows.Forms.ComboBox();
             this.col_batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +80,25 @@
             this.grb_Search.TabIndex = 1;
             this.grb_Search.TabStop = false;
             this.grb_Search.Text = "بحث";
+            // 
+            // cmb_Inventory
+            // 
+            this.cmb_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_Inventory.FormattingEnabled = true;
+            this.cmb_Inventory.Location = new System.Drawing.Point(498, 23);
+            this.cmb_Inventory.Name = "cmb_Inventory";
+            this.cmb_Inventory.Size = new System.Drawing.Size(167, 21);
+            this.cmb_Inventory.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(704, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "المخزن";
             // 
             // tbx_ProductName
             // 
@@ -207,25 +226,6 @@
             this.dgrid_batches.Size = new System.Drawing.Size(784, 133);
             this.dgrid_batches.TabIndex = 3;
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(704, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "المخزن";
-            // 
-            // cmb_Inventory
-            // 
-            this.cmb_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Inventory.FormattingEnabled = true;
-            this.cmb_Inventory.Location = new System.Drawing.Point(498, 23);
-            this.cmb_Inventory.Name = "cmb_Inventory";
-            this.cmb_Inventory.Size = new System.Drawing.Size(167, 21);
-            this.cmb_Inventory.TabIndex = 6;
-            // 
             // col_batch
             // 
             this.col_batch.DataPropertyName = "BatchNo";
@@ -251,7 +251,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(784, 593);
+            this.ControlBox = false;
             this.Controls.Add(this.dgrid_batches);
             this.Controls.Add(this.dgrid_stock);
             this.Controls.Add(this.grb_Search);
