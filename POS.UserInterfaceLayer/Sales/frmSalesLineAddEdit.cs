@@ -44,7 +44,7 @@ namespace POS.UserInterfaceLayer.Sales
                 if ((frmSalesOrderAddEditObj.sALSalesLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).ToList().Count) == 0)
                     frmSalesOrderAddEditObj.sALSalesLineCollection.Add(CollectScreenData());
                 else
-                    frmSalesOrderAddEditObj.sALSalesLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty++;
+                    frmSalesOrderAddEditObj.sALSalesLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty += Convert.ToInt32(num_Quantity.Text); ;
 
                 this.Close();
             }

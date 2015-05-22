@@ -43,7 +43,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(167, 19);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(235, 19);
             // 
             // panl_Footer
             // 
@@ -52,11 +52,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(187, 3);
+            this.btn_Save.Location = new System.Drawing.Point(255, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(84, 3);
+            this.btn_Back.Location = new System.Drawing.Point(152, 3);
             // 
             // dgrid_Roles
             // 
@@ -94,6 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(381, 272);
+            this.ControlBox = false;
             this.Controls.Add(this.dgrid_Roles);
             this.Name = "frmGroupPriviliges";
             this.Text = "صلاحيات المستخدمين";

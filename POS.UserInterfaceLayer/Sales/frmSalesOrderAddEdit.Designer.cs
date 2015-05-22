@@ -67,6 +67,7 @@
             this.num_Remaining = new System.Windows.Forms.TextBox();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -166,6 +167,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txt_AfterDescount);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btn_AddLine);
@@ -311,7 +313,7 @@
             this.txt_DiscountRatio.Name = "txt_DiscountRatio";
             this.txt_DiscountRatio.Size = new System.Drawing.Size(100, 20);
             this.txt_DiscountRatio.TabIndex = 28;
-            this.txt_DiscountRatio.Text = "%0";
+            this.txt_DiscountRatio.Text = "0";
             this.txt_DiscountRatio.TextChanged += new System.EventHandler(this.txt_DiscountRatio_TextChanged);
             // 
             // label8
@@ -450,6 +452,15 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "المخزن";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(197, 248);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "%";
+            // 
             // frmSalesOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,5 +548,6 @@
         private System.Windows.Forms.TextBox num_Remaining;
         private System.Windows.Forms.ComboBox cbx_Inventory;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

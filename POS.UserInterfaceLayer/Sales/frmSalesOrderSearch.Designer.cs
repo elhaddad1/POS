@@ -36,6 +36,7 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_AddCustomer = new System.Windows.Forms.Button();
             this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,14 +46,14 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(336, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(372, 17);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 389);
             this.panl_Footer.Size = new System.Drawing.Size(704, 62);
             // 
-            // groupBox2
+            // grb_search
             // 
             this.grb_search.Controls.Add(this.btn_Close);
             this.grb_search.Controls.Add(this.btn_AddCustomer);
@@ -61,7 +62,23 @@
             this.grb_search.Controls.Add(this.label3);
             this.grb_search.Controls.Add(this.label1);
             this.grb_search.Controls.Add(this.btn_Search);
-            this.grb_search.Size = new System.Drawing.Size(698, 87);
+            this.grb_search.Size = new System.Drawing.Size(704, 87);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(465, 2);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(150, 2);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(360, 2);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(255, 2);
             // 
             // tbx_OrderSerial
             // 
@@ -132,8 +149,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(704, 451);
             this.Name = "frmSalesOrderSearch";
+            this.Text = "قائمة الفواتير";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.grb_search.ResumeLayout(false);
             this.grb_search.PerformLayout();
             this.ResumeLayout(false);

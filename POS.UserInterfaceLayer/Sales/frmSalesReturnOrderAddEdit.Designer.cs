@@ -356,7 +356,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مرتج فاتورة";
+            this.Text = "مرتجع فاتورة";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.groupBox1.ResumeLayout(false);

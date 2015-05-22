@@ -99,6 +99,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(245, 133);
+            this.ControlBox = false;
             this.Controls.Add(this.panl_Footer);
             this.Controls.Add(this.panl_Header);
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

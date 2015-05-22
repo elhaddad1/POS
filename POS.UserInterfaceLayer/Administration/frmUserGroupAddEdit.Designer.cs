@@ -40,7 +40,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(177, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(254, 9);
             // 
             // panl_Footer
             // 
@@ -49,11 +49,11 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(203, 3);
+            this.btn_Save.Location = new System.Drawing.Point(280, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(98, 3);
+            this.btn_Back.Location = new System.Drawing.Point(175, 3);
             // 
             // tbx_GroupName
             // 
@@ -75,6 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(399, 174);
+            this.ControlBox = false;
             this.Controls.Add(this.lbl_GroupName);
             this.Controls.Add(this.tbx_GroupName);
             this.Name = "frmUserGroupAddEdit";

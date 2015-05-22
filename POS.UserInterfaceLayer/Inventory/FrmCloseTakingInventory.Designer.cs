@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_close = new System.Windows.Forms.Button();
             this.dgv_Lines = new System.Windows.Forms.DataGridView();
             this.Col_TakingInventoryLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,8 +164,8 @@
             // Col_ActualQty
             // 
             this.Col_ActualQty.DataPropertyName = "ActualQty";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Col_ActualQty.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Col_ActualQty.DefaultCellStyle = dataGridViewCellStyle6;
             this.Col_ActualQty.HeaderText = "الكميه الحقيقيه";
             this.Col_ActualQty.Name = "Col_ActualQty";
             // 
@@ -259,6 +259,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.MintCream;
             this.panel2.Controls.Add(this.label5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -327,7 +328,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(842, 569);
+            this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);

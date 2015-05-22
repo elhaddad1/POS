@@ -189,7 +189,8 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void txt_DiscountRatio_TextChanged(object sender, EventArgs e)
         {
-            CalculateTotal();
+            if (!string.IsNullOrEmpty(txt_DiscountRatio.Text))
+                CalculateTotal();
         }
         private void frmSalesLineAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
