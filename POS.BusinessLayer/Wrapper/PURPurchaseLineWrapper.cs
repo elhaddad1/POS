@@ -9,7 +9,7 @@ namespace POS.BusinessLayer.Wrapper
 {
     public class PURPurchaseLineWrapper : PURPurchaseLineService
     {
-        public bool SavePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
+        public int SavePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
         {
             POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader = new POS.DataLayer.PURPurchaseHeader();
             _pURPurchaseHeader.PurcaseHeaderID = pURPurchaseHeader.PurcaseHeaderID;
@@ -65,7 +65,7 @@ namespace POS.BusinessLayer.Wrapper
             POS.DataLayer.PURPurchaseLine pURPurchaseLineObj = new DataLayer.PURPurchaseLine();
             return pURPurchaseLineObj.SaveTransaction(_pURPurchaseHeader, _pURPurchaseLineCollection);
         }
-        public bool SaveClosePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
+        public int SaveClosePURPurchaseOrder(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection pURPurchaseLineCollection)
         {
             POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader = new POS.DataLayer.PURPurchaseHeader();
 

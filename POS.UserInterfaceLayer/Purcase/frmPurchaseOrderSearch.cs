@@ -88,6 +88,7 @@ namespace POS.UserInterfaceLayer.Purcase
                 {
                     if (pURPurchaseHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells[0].Value)))
                     {
+                        MessageBox.Show("تم اغلاق الفاتوره بنجاح");
                         BindGrid();
                         // Utility.Print(null, 1); 
                     }

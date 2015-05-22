@@ -95,7 +95,7 @@ namespace POS.DataLayer
 		#endregion
 
 		#region Methods (Public)
-        public bool SaveTransaction(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection sALPurchaseLineCollection)
+        public int SaveTransaction(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection sALPurchaseLineCollection)
         {
             oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
@@ -118,7 +118,7 @@ namespace POS.DataLayer
                 else
                     oDatabaseHelper.RollbackTransaction();
             }
-            return ExecutionState;
+            return salesHeaderID;
         }
 
         public bool UpdateTransaction(PURPurchaseHeader pURPurchaseHeader, PURPurchaseLineCollection sALPurchaseLineCollection)

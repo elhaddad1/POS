@@ -51,20 +51,11 @@ namespace POS.UserInterfaceLayer.Purcase
             ((DataGridViewComboBoxColumn)dgrd_OrderLines.Columns["ProductName"]).DisplayMember = "ProductName";
             //((DataGridViewTextBoxColumn)dgrd_OrderLines.Columns["ProductName"]).=;
         }
-        private void num_Remaining_TextChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToDecimal(num_Remaining.Text) < 0)
-            {
-                dtb_LastTimeToPay.Enabled = true;
-            }
-        }
-
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
             dgrd_OrderLines.Rows.Add();
 
         }
-
         private void btn_DeleteLine_Click(object sender, EventArgs e)
         {
             if (dgrd_OrderLines.SelectedCells.Count != 0)
@@ -77,7 +68,6 @@ namespace POS.UserInterfaceLayer.Purcase
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
         }
-
         private void btn_Plus_Click(object sender, EventArgs e)
         {
             int selectedRowIndex = dgrd_OrderLines.SelectedCells[0].RowIndex;
@@ -96,79 +86,14 @@ namespace POS.UserInterfaceLayer.Purcase
             }
             // dgrd_OrderLines.Rows.InsertCopy(dgrd_OrderLines.SelectedCells[0].RowIndex, dgrd_OrderLines.SelectedCells[0].RowIndex + 1);
         }
-
         private void btn_ClosePrint_Click(object sender, EventArgs e)
         {
-            if (Validate())
+            if (ValidateSaving())
             {
                 try
                 {
-                    if (CurrentHeaderID != null && CurrentHeaderID!=0)
-                    {
-                        PURPurchaseHeaderWrapper pURPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
-                        if (pURPurchaseHeaderWrapper.CloseOrder((int)CurrentHeaderID))
-                        {
-                            // print
-                            //  Utility.Print(null, 1);
-                            MessageBox.Show("تمت العلية");
-                            this.Close();
-                        } 
-                    }
-                    else
-                    {
-                        MessageBox.Show("لابد من حفظ الفاتوره اولا ");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
-                }
-            }
-        }
-
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            if (Validate())
-            {
-                try
-                {
-                    //save lines
-                    for (int i = 0; i < dgrd_OrderLines.Rows.Count; i++)
-                    {
-                        PURPurchaseLine _line = new PURPurchaseLine();
-                        _line.ProductID = Convert.ToInt32(dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
-                        _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
-                        _line.BonusQty = 0;
-                        _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
-                        _line.DiscountRatio = 0;
-                        _line.DiscountAmount = 0;
-                        if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value == true)
-                        {
-                            _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
-                            DateTime _expiryDate;
-                            if (DateTime.TryParse(dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value.ToString(), out _expiryDate))
-                            {
-                                _line.ExpiryDate = _expiryDate;
-                                dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.White;
-                            }
-                            else
-                            {
-                                dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
-                                return;
-                            }
-                            _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value) ; 
-                        }
-
-                        pURPurchaseLineCollection.Add(_line);
-                    }
-                    if (CurrentHeaderID !=0 && CurrentHeaderID !=null)
-                    {
-                         _pURPurchaseLinerWrapper.UpdatePurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection);
-                    }
-                    else
-                    {
-                        _pURPurchaseLinerWrapper.SavePURPurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection);
-                    }
+                    SaveInvoice();
+                    CommitInvoice();
                     MessageBox.Show("تمت العلية");
                     this.Close();
                 }
@@ -177,38 +102,44 @@ namespace POS.UserInterfaceLayer.Purcase
                     MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
                 }
             }
-
+        }
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            if (ValidateSaving())
+            {
+                try
+                {
+                     SaveInvoice();
+                     MessageBox.Show("تمت العملية");
+                     this.Close();
+               
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                }
+            }
 
             //Convert.ToDecimal(float.Parse(tbx_Discount.Text.Trim(new char[] { '%' })) / 100);
         }
-
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void txt_DiscountRatio_Leave(object sender, EventArgs e)
-        {
-            decimal total = Convert.ToDecimal(txt_Total.Text);
-            decimal discountRatio = (Convert.ToDecimal(txt_DiscountAmount.Text.Trim(new char[] { '%' })) / 100);
-            decimal totalAfterDiscount = total - (discountRatio * total);
-            txt_AfterDescount.Text = totalAfterDiscount.ToString();
-            num_Paied_KeyUp(null, null);
-          //  num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_AfterDescount.Text)).ToString();
-
-        }
-
         private void frmSalesLineAddEdit_FormClosed(object sender, FormClosedEventArgs e)
         {
             BindGrid();
            //CalculateTotal();
         }
 
-        private void num_Paied_KeyUp(object sender, KeyEventArgs e)
+        private void num_Remaining_TextChanged(object sender, EventArgs e)
         {
-           // num_Remaining.Text = (Convert.ToDecimal(num_Paied.Text) - Convert.ToDecimal(txt_Total.Text)).ToString();
-
+            if (Convert.ToDecimal(num_Remaining.Text) < 0)
+            {
+                dtb_LastTimeToPay.Enabled = true;
+            }
         }
+      
         private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["ProductName"].Index)
@@ -236,6 +167,18 @@ namespace POS.UserInterfaceLayer.Purcase
                 CalculateTotal();
             }
 
+        }
+        private void txt_Total_TextChanged(object sender, EventArgs e)
+        {
+            decimal totalPrice = decimal.Parse(txt_Total.Text);
+            decimal discountAmount = decimal.Parse(txt_DiscountAmount.Text) * totalPrice / 100;
+
+            txt_AfterDescount.Text =(totalPrice-discountAmount).ToString();
+            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
+        }
+        private void num_Paied_TextChanged(object sender, EventArgs e)
+        {
+            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
         }
 
 
@@ -321,7 +264,6 @@ namespace POS.UserInterfaceLayer.Purcase
                 dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value = Lines[i].ExpiryDate;
             }
         }
-
         private void FillSupplierCBX()
         {
 
@@ -418,6 +360,7 @@ namespace POS.UserInterfaceLayer.Purcase
             }
             _pURPurchaseHeader.SupplierID = Convert.ToInt32(cbx_Supplier.SelectedValue);
             _pURPurchaseHeader.InvoiceDate = dtb_Date.Value.Date;
+            _pURPurchaseHeader.InvoiceNumber = txt_invoiceNumber.Text;
             _pURPurchaseHeader.LastDayToPay = dtb_LastTimeToPay.Value.Date;
             _pURPurchaseHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
             _pURPurchaseHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
@@ -426,14 +369,14 @@ namespace POS.UserInterfaceLayer.Purcase
             _pURPurchaseHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
             decimal total = Convert.ToDecimal(txt_Total.Text);
            // decimal discountRatio = (Convert.ToDecimal(txt_DiscountRatio.Text.Trim(new char[] { '%' })) / 100);
-            _pURPurchaseHeader.TotalDiscountAmount = Convert.ToDecimal(txt_DiscountAmount.Text);
-            _pURPurchaseHeader.TotalDiscountRatio = 0;
+            _pURPurchaseHeader.TotalDiscountRatio = Convert.ToDouble(txt_DiscountAmount.Text);
+            _pURPurchaseHeader.TotalDiscountAmount = 0;
             _pURPurchaseHeader.TotalPrice = Convert.ToDecimal(txt_Total.Text);
             _pURPurchaseHeader.InventoryID = Convert.ToInt32(cbx_Inventory.SelectedValue);
             _pURPurchaseHeader.TotalPrice = total;
             return _pURPurchaseHeader;
         }
-        private bool Validate()
+        private bool ValidateSaving()
         {
             if (cbx_Supplier.SelectedIndex == -1)
             {
@@ -453,20 +396,65 @@ namespace POS.UserInterfaceLayer.Purcase
 
             return true;
         }
+        private void SaveInvoice()
+        {
+              //save lines
+            for (int i = 0; i < dgrd_OrderLines.Rows.Count; i++)
+            {
+                PURPurchaseLine _line = new PURPurchaseLine();
+                _line.ProductID = Convert.ToInt32(dgrd_OrderLines.Rows[i].Cells["ProductName"].Value);
+                _line.TotalQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
+                _line.BonusQty = 0;
+                _line.Unitprice = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["PurchasePrice"].Value);
+                _line.DiscountRatio = 0;
+                _line.DiscountAmount = 0;
+                if ((bool)dgrd_OrderLines.Rows[i].Cells["IsAcceptBatch"].Value == true)
+                {
+                    _line.BatchNumber = dgrd_OrderLines.Rows[i].Cells["BatchNumber"].Value.ToString();
+                    DateTime _expiryDate;
+                    if (DateTime.TryParse(dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Value.ToString(), out _expiryDate))
+                    {
+                        _line.ExpiryDate = _expiryDate;
+                        dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.White;
+                    }
+                    else
+                    {
+                        dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                        return;
+                    }
+                    _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
+                }
+
+                pURPurchaseLineCollection.Add(_line);
+            }
+            if (CurrentHeaderID != 0 && CurrentHeaderID != null)
+            {
+                _pURPurchaseLinerWrapper.UpdatePurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection);
+            }
+            else
+            {
+              CurrentHeaderID=  _pURPurchaseLinerWrapper.SavePURPurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection);
+            }
+                   
+        }
+        private void CommitInvoice()
+        {
+            if (CurrentHeaderID != null && CurrentHeaderID != 0)
+            {
+                PURPurchaseHeaderWrapper pURPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
+                pURPurchaseHeaderWrapper.CloseOrder((int)CurrentHeaderID);
+                
+            }
+            else
+            {
+                MessageBox.Show("لابد من حفظ الفاتوره اولا ");
+            }
+        }
 
         #endregion
 
-        private void txt_Total_TextChanged(object sender, EventArgs e)
-        {
-            txt_AfterDescount.Text = (decimal.Parse (txt_Total.Text ) - decimal.Parse(txt_DiscountAmount.Text )).ToString () ;
-            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
-        }
 
-        private void num_Paied_TextChanged(object sender, EventArgs e)
-        {
-            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
-        }
-
+       
        
 
 

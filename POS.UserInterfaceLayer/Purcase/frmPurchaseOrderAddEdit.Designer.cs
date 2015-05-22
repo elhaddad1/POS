@@ -58,6 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.grb_lineData = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txt_AfterDescount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -74,11 +75,15 @@
             this.dtb_Date = new System.Windows.Forms.DateTimePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnl_footer = new System.Windows.Forms.Panel();
+            this.btn_Print = new System.Windows.Forms.Button();
             this.pnl_headerData = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_invoiceNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
             this.grb_lineData.SuspendLayout();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.pnl_footer.SuspendLayout();
             this.pnl_headerData.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,7 +196,6 @@
             this.num_Paied.TabIndex = 44;
             this.num_Paied.Text = "0";
             this.num_Paied.TextChanged += new System.EventHandler(this.num_Paied_TextChanged);
-            this.num_Paied.KeyUp += new System.Windows.Forms.KeyEventHandler(this.num_Paied_KeyUp);
             // 
             // label11
             // 
@@ -206,7 +210,7 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(471, 577);
+            this.btn_Cancel.Location = new System.Drawing.Point(249, 4);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 42;
@@ -218,7 +222,7 @@
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(261, 577);
+            this.btn_Save.Location = new System.Drawing.Point(552, 2);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 55);
             this.btn_Save.TabIndex = 41;
@@ -230,11 +234,11 @@
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(366, 577);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(448, 3);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 40;
-            this.btn_ClosePrint.Text = "أغلاق ";
+            this.btn_ClosePrint.Text = "حفظ و إغلاق";
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
             this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click);
             // 
@@ -254,7 +258,7 @@
             this.dtb_LastTimeToPay.Location = new System.Drawing.Point(453, 122);
             this.dtb_LastTimeToPay.Name = "dtb_LastTimeToPay";
             this.dtb_LastTimeToPay.RightToLeftLayout = true;
-            this.dtb_LastTimeToPay.Size = new System.Drawing.Size(243, 20);
+            this.dtb_LastTimeToPay.Size = new System.Drawing.Size(78, 20);
             this.dtb_LastTimeToPay.TabIndex = 35;
             // 
             // label5
@@ -295,7 +299,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(367, 97);
+            this.label2.Location = new System.Drawing.Point(243, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 28;
@@ -323,6 +327,7 @@
             // 
             // grb_lineData
             // 
+            this.grb_lineData.Controls.Add(this.label13);
             this.grb_lineData.Controls.Add(this.txt_AfterDescount);
             this.grb_lineData.Controls.Add(this.label9);
             this.grb_lineData.Controls.Add(this.label10);
@@ -339,6 +344,15 @@
             this.grb_lineData.TabIndex = 39;
             this.grb_lineData.TabStop = false;
             this.grb_lineData.Text = "بيانات الفاتورة";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(316, 355);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 13);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "%";
             // 
             // txt_AfterDescount
             // 
@@ -379,9 +393,9 @@
             // 
             // txt_DiscountAmount
             // 
-            this.txt_DiscountAmount.Location = new System.Drawing.Point(310, 351);
+            this.txt_DiscountAmount.Location = new System.Drawing.Point(337, 351);
             this.txt_DiscountAmount.Name = "txt_DiscountAmount";
-            this.txt_DiscountAmount.Size = new System.Drawing.Size(100, 20);
+            this.txt_DiscountAmount.Size = new System.Drawing.Size(73, 20);
             this.txt_DiscountAmount.TabIndex = 40;
             this.txt_DiscountAmount.Text = "0";
             this.txt_DiscountAmount.TextChanged += new System.EventHandler(this.txt_Total_TextChanged);
@@ -437,9 +451,9 @@
             // cbx_PaymentType
             // 
             this.cbx_PaymentType.FormattingEnabled = true;
-            this.cbx_PaymentType.Location = new System.Drawing.Point(144, 31);
+            this.cbx_PaymentType.Location = new System.Drawing.Point(144, 67);
             this.cbx_PaymentType.Name = "cbx_PaymentType";
-            this.cbx_PaymentType.Size = new System.Drawing.Size(241, 21);
+            this.cbx_PaymentType.Size = new System.Drawing.Size(98, 21);
             this.cbx_PaymentType.TabIndex = 33;
             // 
             // cbx_Supplier
@@ -477,24 +491,58 @@
             // 
             // pnl_footer
             // 
+            this.pnl_footer.Controls.Add(this.btn_Print);
+            this.pnl_footer.Controls.Add(this.btn_Cancel);
+            this.pnl_footer.Controls.Add(this.btn_Save);
+            this.pnl_footer.Controls.Add(this.btn_ClosePrint);
             this.pnl_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_footer.Location = new System.Drawing.Point(0, 573);
             this.pnl_footer.Name = "pnl_footer";
             this.pnl_footer.Size = new System.Drawing.Size(852, 67);
             this.pnl_footer.TabIndex = 49;
             // 
+            // btn_Print
+            // 
+            this.btn_Print.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Print.Location = new System.Drawing.Point(349, 3);
+            this.btn_Print.Name = "btn_Print";
+            this.btn_Print.Size = new System.Drawing.Size(99, 55);
+            this.btn_Print.TabIndex = 43;
+            this.btn_Print.Text = "طباعه";
+            this.btn_Print.UseVisualStyleBackColor = true;
+            // 
             // pnl_headerData
             // 
+            this.pnl_headerData.Controls.Add(this.txt_invoiceNumber);
+            this.pnl_headerData.Controls.Add(this.label14);
             this.pnl_headerData.Controls.Add(this.cbx_Inventory);
             this.pnl_headerData.Controls.Add(this.label7);
             this.pnl_headerData.Controls.Add(this.label4);
             this.pnl_headerData.Controls.Add(this.label3);
             this.pnl_headerData.Controls.Add(this.label1);
             this.pnl_headerData.Controls.Add(this.cbx_PaymentType);
+            this.pnl_headerData.Controls.Add(this.label2);
             this.pnl_headerData.Location = new System.Drawing.Point(13, 56);
             this.pnl_headerData.Name = "pnl_headerData";
             this.pnl_headerData.Size = new System.Drawing.Size(827, 128);
             this.pnl_headerData.TabIndex = 50;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(411, 40);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "رقم الفاتوره";
+            // 
+            // txt_invoiceNumber
+            // 
+            this.txt_invoiceNumber.Location = new System.Drawing.Point(144, 37);
+            this.txt_invoiceNumber.Name = "txt_invoiceNumber";
+            this.txt_invoiceNumber.Size = new System.Drawing.Size(241, 20);
+            this.txt_invoiceNumber.TabIndex = 50;
             // 
             // frmPurchaseOrderAddEdit
             // 
@@ -506,14 +554,10 @@
             this.Controls.Add(this.num_Remaining);
             this.Controls.Add(this.num_Paied);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btn_Cancel);
-            this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.btn_ClosePrint);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtb_LastTimeToPay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbx_TaxType);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.grb_lineData);
             this.Controls.Add(this.cbx_Supplier);
             this.Controls.Add(this.panl_Header);
@@ -531,6 +575,7 @@
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.pnl_footer.ResumeLayout(false);
             this.pnl_headerData.ResumeLayout(false);
             this.pnl_headerData.PerformLayout();
             this.ResumeLayout(false);
@@ -583,5 +628,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
         private System.Windows.Forms.Panel pnl_footer;
         private System.Windows.Forms.Panel pnl_headerData;
+        private System.Windows.Forms.Button btn_Print;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_invoiceNumber;
+        private System.Windows.Forms.Label label14;
     }
 }

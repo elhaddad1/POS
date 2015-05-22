@@ -59,6 +59,13 @@ namespace POS.UserInterfaceLayer.Inventory
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
+
        
     }
 }

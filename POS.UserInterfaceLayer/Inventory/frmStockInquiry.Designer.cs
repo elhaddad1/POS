@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.grb_Search = new System.Windows.Forms.GroupBox();
+            this.cmb_Inventory = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbx_ProductName = new System.Windows.Forms.TextBox();
             this.tbx_ProductCode = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
@@ -42,14 +44,16 @@
             this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_batches = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_Inventory = new System.Windows.Forms.ComboBox();
             this.col_batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.grb_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_batches)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -76,15 +80,34 @@
             this.grb_Search.Location = new System.Drawing.Point(0, 50);
             this.grb_Search.Name = "grb_Search";
             this.grb_Search.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.grb_Search.Size = new System.Drawing.Size(784, 138);
+            this.grb_Search.Size = new System.Drawing.Size(784, 104);
             this.grb_Search.TabIndex = 1;
             this.grb_Search.TabStop = false;
             this.grb_Search.Text = "بحث";
             // 
+            // cmb_Inventory
+            // 
+            this.cmb_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_Inventory.FormattingEnabled = true;
+            this.cmb_Inventory.Location = new System.Drawing.Point(498, 23);
+            this.cmb_Inventory.Name = "cmb_Inventory";
+            this.cmb_Inventory.Size = new System.Drawing.Size(167, 21);
+            this.cmb_Inventory.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(722, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "المخزن";
+            // 
             // tbx_ProductName
             // 
             this.tbx_ProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_ProductName.Location = new System.Drawing.Point(498, 96);
+            this.tbx_ProductName.Location = new System.Drawing.Point(498, 76);
             this.tbx_ProductName.Name = "tbx_ProductName";
             this.tbx_ProductName.Size = new System.Drawing.Size(167, 20);
             this.tbx_ProductName.TabIndex = 4;
@@ -92,7 +115,7 @@
             // tbx_ProductCode
             // 
             this.tbx_ProductCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbx_ProductCode.Location = new System.Drawing.Point(498, 61);
+            this.tbx_ProductCode.Location = new System.Drawing.Point(498, 50);
             this.tbx_ProductCode.Name = "tbx_ProductCode";
             this.tbx_ProductCode.Size = new System.Drawing.Size(167, 20);
             this.tbx_ProductCode.TabIndex = 3;
@@ -100,7 +123,7 @@
             // btn_Search
             // 
             this.btn_Search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Search.Location = new System.Drawing.Point(42, 109);
+            this.btn_Search.Location = new System.Drawing.Point(41, 61);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Search.TabIndex = 2;
@@ -112,7 +135,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(704, 96);
+            this.label3.Location = new System.Drawing.Point(704, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 1;
@@ -122,7 +145,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(704, 61);
+            this.label2.Location = new System.Drawing.Point(704, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 0;
@@ -132,8 +155,7 @@
             // 
             this.dgrid_stock.AllowUserToAddRows = false;
             this.dgrid_stock.AllowUserToDeleteRows = false;
-            this.dgrid_stock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgrid_stock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_stock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -142,13 +164,13 @@
             this.col_name,
             this.col_stockType,
             this.col_qty});
-            this.dgrid_stock.Location = new System.Drawing.Point(0, 194);
+            this.dgrid_stock.Location = new System.Drawing.Point(0, 152);
             this.dgrid_stock.Name = "dgrid_stock";
             this.dgrid_stock.ReadOnly = true;
             this.dgrid_stock.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgrid_stock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgrid_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_stock.Size = new System.Drawing.Size(784, 266);
+            this.dgrid_stock.Size = new System.Drawing.Size(784, 268);
             this.dgrid_stock.TabIndex = 2;
             this.dgrid_stock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_stock_CellContentClick);
             this.dgrid_stock.SelectionChanged += new System.EventHandler(this.dgrid_stock_SelectionChanged);
@@ -194,37 +216,19 @@
             // 
             this.dgrid_batches.AllowUserToAddRows = false;
             this.dgrid_batches.AllowUserToDeleteRows = false;
+            this.dgrid_batches.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_batches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_batches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_batch,
             this.col_expiry,
             this.col_batchQty});
-            this.dgrid_batches.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_batches.Location = new System.Drawing.Point(0, 460);
+            this.dgrid_batches.Location = new System.Drawing.Point(0, 418);
             this.dgrid_batches.Name = "dgrid_batches";
             this.dgrid_batches.ReadOnly = true;
             this.dgrid_batches.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgrid_batches.Size = new System.Drawing.Size(784, 133);
             this.dgrid_batches.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(704, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "المخزن";
-            // 
-            // cmb_Inventory
-            // 
-            this.cmb_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Inventory.FormattingEnabled = true;
-            this.cmb_Inventory.Location = new System.Drawing.Point(498, 23);
-            this.cmb_Inventory.Name = "cmb_Inventory";
-            this.cmb_Inventory.Size = new System.Drawing.Size(167, 21);
-            this.cmb_Inventory.TabIndex = 6;
             // 
             // col_batch
             // 
@@ -247,11 +251,43 @@
             this.col_batchQty.Name = "col_batchQty";
             this.col_batchQty.ReadOnly = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 557);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 62);
+            this.panel1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(266, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 46);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "إلغاء";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(424, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 46);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "التقرير";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // frmStockInquiry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 593);
+            this.ClientSize = new System.Drawing.Size(784, 619);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgrid_batches);
             this.Controls.Add(this.dgrid_stock);
             this.Controls.Add(this.grb_Search);
@@ -265,6 +301,7 @@
             this.grb_Search.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_batches)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,5 +328,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_batch;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_expiry;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_batchQty;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
