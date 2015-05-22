@@ -94,6 +94,12 @@ namespace POS.UserInterfaceLayer.Inventory
                 row.Cells["Qty"].Style.BackColor = Color.Red;
                 return false;
             }
+            if (Convert.ToInt32(row.Cells["Qty"].Value) > this.iNVProductStock.TotalQty)
+            {
+                MessageBox.Show("الكمية المدخله اكبر من الكمية الكليه للمنتج");
+                row.Cells["Qty"].Style.BackColor = Color.Red;
+                return false;
+            }
 
             return true;
         }

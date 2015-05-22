@@ -33,6 +33,7 @@ namespace POS.BusinessLayer.Wrapper
                               join invt in invinventoryService.SelectAll() on item.InventoryID equals invt.InventoryID
                               join aRes in invAdjustStockReasonService.SelectAll() on item.AdjustReasonID equals aRes.AdjustStockReasonID
                               join sType in invStockTypeService.SelectAll() on item.StockTypeID equals sType.StockTypeID
+                              join oldSType in invStockTypeService.SelectAll() on item.OldStockTypeID equals oldSType.StockTypeID
                               join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
                               select new INVAdjustStock()
                               {
@@ -50,6 +51,7 @@ namespace POS.BusinessLayer.Wrapper
                                   UpdateDate = item.UpdateDate,
                                   UpdatedBy = item.UpdatedBy,
                                   StockTypeName = sType.StockTypeName,
+                                  OldStockTypeName = oldSType.StockTypeName,
                                   InventoryName = invt.InventoryName,
                                   AdjustReasonName = aRes.AdjustStockreasonName
                               }

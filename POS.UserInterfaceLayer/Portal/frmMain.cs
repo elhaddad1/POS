@@ -186,19 +186,20 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_AddProduct_Click(object sender, EventArgs e)
         {
-            frmBDProductAddEdit frm = new frmBDProductAddEdit(null);
+
+            frmBDProductSearch frm = new frmBDProductSearch();
             switchForm(frm);
         }
 
         private void btn_AddCustomer_Click(object sender, EventArgs e)
         {
-            FrmCustomerAddEdit frm = new FrmCustomerAddEdit();
+            FrmCustomerSearch frm = new FrmCustomerSearch();
             switchForm(frm);
         }
 
         private void btn_AddSupplier_Click(object sender, EventArgs e)
         {
-            FrmSupplierAddEdit frm = new FrmSupplierAddEdit();
+            FrmSupplierSearch frm = new FrmSupplierSearch();
             switchForm(frm);
         }
 
@@ -216,25 +217,25 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void btn_SalesOrder_Click(object sender, EventArgs e)
         {
-            frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit();
+            frmSalesOrderSearch frm = new frmSalesOrderSearch();
             switchForm(frm);
         }
 
         private void btn_ReturnSalesOrder_Click(object sender, EventArgs e)
         {
-            frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit();
+            frmSalesReturnSearch frm = new frmSalesReturnSearch();
             frm.ShowDialog();
         }
 
         private void btn_ReturnPurchaceOrder_Click(object sender, EventArgs e)
         {
-            frmPurchaseReturnOrderAddEdit frm = new Purcase.frmPurchaseReturnOrderAddEdit();
+            frmPurchaseReturnOrderAddEdit frm = new frmPurchaseReturnOrderAddEdit();
             frm.ShowDialog();
         }
 
         private void btn_PurchaceOrder_Click(object sender, EventArgs e)
         {
-            frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit();
+            frmPurchaseOrderSearch frm = new frmPurchaseOrderSearch();
             switchForm(frm);
         }
 

@@ -54,7 +54,11 @@ namespace POS.UserInterfaceLayer.Inventory
                 if (_iNVProductStockWrapper.SaveProductStockLine(iNVProductStockCollection))
                 {
                     MessageBox.Show("تمت العملية بنجاح");
-                    this.Close();
+                    DialogResult dlg = MessageBox.Show("هل تريد اجراء عملية آخرى", "اختيار", MessageBoxButtons.YesNo);
+                    if (dlg == DialogResult.No)
+                        this.Close();
+                    else
+                        BindGrid();
                 }
             }
             catch (Exception ex)
@@ -123,6 +127,7 @@ namespace POS.UserInterfaceLayer.Inventory
                 dgrd_OpeningStockProducts.Columns[1].DataPropertyName = "ProductCode";
                 dgrd_OpeningStockProducts.Columns[2].DataPropertyName = "ProductName";
                 dgrd_OpeningStockProducts.Columns[4].DataPropertyName = "IsAcceptBatch";
+                
             }
             catch (Exception ex)
             {

@@ -41,10 +41,10 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("إسم الصنف", "ProductName", 120, true);
             addColumnToGrid("إسم المخزن", "InventoryName", 120, true);
             addColumnToGrid("السبب", "AdjustReasonName", 120, true);
-            addColumnToGrid("نوع الصنف", "StockTypeName", 120, true);
+            addColumnToGrid("نوع الصنف القديم", "OldStockTypeName", 120, true);
+            addColumnToGrid("نوع الصنف الجديد", "StockTypeName", 120, true);
             addColumnToGrid("الكمية", "Qty", 120, true);
             addColumnToGrid("الموظف", "CreatedByName", 120, true);
-            addColumnToGrid("نوع الصنف", "StockTypeName", 120, true);
         }
 
         /// <summary>
