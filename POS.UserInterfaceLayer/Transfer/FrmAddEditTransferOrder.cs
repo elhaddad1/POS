@@ -124,7 +124,10 @@ namespace POS.UserInterfaceLayer.Transfer
                         rtn_result = _transferHeaderWrapper.SaveTransferOrder(CollectHeaderData(), transferLineCollection);
                     if (rtn_result)
                     {
-                        _frmTransferOrderSearch.InitiateGrid(null);
+                        if (_frmTransferOrderSearch != null)
+                        {
+                            _frmTransferOrderSearch.InitiateGrid(null);
+                        }
                         MessageBox.Show("تمت العملية");
                         this.Close();
                     }
@@ -154,7 +157,10 @@ namespace POS.UserInterfaceLayer.Transfer
 
                     if (rtn_result)
                     {
-                        _frmTransferOrderSearch.InitiateGrid(null);
+                        if (_frmTransferOrderSearch != null)
+                        {
+                            _frmTransferOrderSearch.InitiateGrid(null);
+                        }
                         MessageBox.Show("تمت العملية");
 
                         this.Close();
