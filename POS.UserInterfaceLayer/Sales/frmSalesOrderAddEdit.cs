@@ -249,15 +249,20 @@ namespace POS.UserInterfaceLayer.Sales
 
             try
             {
+                this.cbx_PaymentType.SelectedIndexChanged -= new System.EventHandler(this.cbx_PaymentType_SelectedIndexChanged);
+
                 cbx_PaymentType.DataSource = _paymentTypeWrapper.SelectAll();
                 cbx_PaymentType.DisplayMember = "PaymentTypeName";
                 cbx_PaymentType.ValueMember = "PaymentTypeID";
+                this.cbx_PaymentType.SelectedIndexChanged += new System.EventHandler(this.cbx_PaymentType_SelectedIndexChanged);
+
                 cbx_PaymentType.SelectedIndex = -1;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("حدث خطا برجاء المحاولة مر اخرى وان تكرر الخطا برجاء الاتصال بالمصمم للبرنامج");
+                MessageBox.Show(ex.Message);
             }
         }
         private void FillInventoryCBX()
@@ -313,6 +318,7 @@ namespace POS.UserInterfaceLayer.Sales
                 _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
                 _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
                 _sALSalesHeader.LastDayToPay = null;
+                _sALSalesHeader.ChequeNumber = null;
 
             }
             if (_sALSalesHeader.PaymentTypeID == 2)
@@ -320,6 +326,7 @@ namespace POS.UserInterfaceLayer.Sales
                 _sALSalesHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
                 _sALSalesHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
                 _sALSalesHeader.LastDayToPay = Convert.ToDecimal(num_Remaining.Text) >= 0 ? null : (DateTime?)dtb_LastTimeToPay.Value.Date;
+                _sALSalesHeader.ChequeNumber = null;
 
             }
             if (_sALSalesHeader.PaymentTypeID == 3)
@@ -327,6 +334,7 @@ namespace POS.UserInterfaceLayer.Sales
                 _sALSalesHeader.PaidAmount = 0;
                 _sALSalesHeader.RemainingAmount = 0;
                 _sALSalesHeader.LastDayToPay = null;
+                _sALSalesHeader.ChequeNumber = Convert.ToInt32(txt_ChequeNumber.Text);
             }
             _sALSalesHeader.ServicePrice = string.IsNullOrEmpty(num_OtherPayments.Text) ? 0 : Convert.ToDecimal(num_OtherPayments.Text);
             _sALSalesHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
@@ -361,6 +369,14 @@ namespace POS.UserInterfaceLayer.Sales
                 MessageBox.Show("أختار مخزن أولا");
                 return false;
             }
+            if (Convert.ToInt32(cbx_PaymentType.SelectedValue) == 1)
+            {
+                if (Convert.ToInt32(num_Paied.Text) == 0 || string.IsNullOrEmpty(num_Paied.Text))
+                {
+                    MessageBox.Show("المبلغ المدفوع لايمكن ان يكون صفر فى حالة الدفع كاش");
+                    return false;
+                }
+            }
 
 
 
@@ -391,6 +407,32 @@ namespace POS.UserInterfaceLayer.Sales
         }
 
         #endregion
+
+        private void cbx_PaymentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_PaymentType.SelectedIndex != -1)
+            {
+                int value = Convert.ToInt32(cbx_PaymentType.SelectedValue);
+                if (value == 1)
+                {
+                    txt_ChequeNumber.Visible = false;
+                    dtb_LastTimeToPay.Visible = false;
+                    lblPaymentLable.Text = "";
+                }
+                if (value == 2)
+                {
+                    txt_ChequeNumber.Visible = false;
+                    dtb_LastTimeToPay.Visible = true;
+                    lblPaymentLable.Text = "اخر ميعاد للدفع";
+                }
+                if (value == 3)
+                {
+                    txt_ChequeNumber.Visible = true;
+                    dtb_LastTimeToPay.Visible = false;
+                    lblPaymentLable.Text = "رقم الشيك";
+                }
+            }
+        }
 
 
 

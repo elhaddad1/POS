@@ -39,6 +39,7 @@
             this.cbx_TaxType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txt_AfterDescount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btn_AddLine = new System.Windows.Forms.Button();
@@ -62,12 +63,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtb_LastTimeToPay = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblPaymentLable = new System.Windows.Forms.Label();
             this.num_Paied = new System.Windows.Forms.TextBox();
             this.num_Remaining = new System.Windows.Forms.TextBox();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.txt_ChequeNumber = new System.Windows.Forms.TextBox();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
@@ -147,6 +148,7 @@
             this.cbx_PaymentType.Name = "cbx_PaymentType";
             this.cbx_PaymentType.Size = new System.Drawing.Size(241, 21);
             this.cbx_PaymentType.TabIndex = 7;
+            this.cbx_PaymentType.SelectedIndexChanged += new System.EventHandler(this.cbx_PaymentType_SelectedIndexChanged);
             // 
             // cbx_TaxType
             // 
@@ -185,6 +187,15 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الفاتورة";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(197, 248);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(15, 13);
+            this.label13.TabIndex = 39;
+            this.label13.Text = "%";
             // 
             // txt_AfterDescount
             // 
@@ -406,15 +417,15 @@
             this.dtb_LastTimeToPay.RightToLeftLayout = true;
             this.dtb_LastTimeToPay.Size = new System.Drawing.Size(243, 20);
             this.dtb_LastTimeToPay.TabIndex = 11;
+            this.dtb_LastTimeToPay.Visible = false;
             // 
-            // label6
+            // lblPaymentLable
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(365, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "أخر ميعاد للدفع";
+            this.lblPaymentLable.AutoSize = true;
+            this.lblPaymentLable.Location = new System.Drawing.Point(365, 126);
+            this.lblPaymentLable.Name = "lblPaymentLable";
+            this.lblPaymentLable.Size = new System.Drawing.Size(0, 13);
+            this.lblPaymentLable.TabIndex = 12;
             // 
             // num_Paied
             // 
@@ -452,14 +463,13 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "المخزن";
             // 
-            // label13
+            // txt_ChequeNumber
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(197, 248);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(15, 13);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "%";
+            this.txt_ChequeNumber.Location = new System.Drawing.Point(453, 122);
+            this.txt_ChequeNumber.Name = "txt_ChequeNumber";
+            this.txt_ChequeNumber.Size = new System.Drawing.Size(243, 20);
+            this.txt_ChequeNumber.TabIndex = 26;
+            this.txt_ChequeNumber.Visible = false;
             // 
             // frmSalesOrderAddEdit
             // 
@@ -468,6 +478,7 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(703, 532);
             this.ControlBox = false;
+            this.Controls.Add(this.txt_ChequeNumber);
             this.Controls.Add(this.cbx_Inventory);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.num_OtherPayments);
@@ -480,7 +491,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbx_TaxType);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblPaymentLable);
             this.Controls.Add(this.dtb_LastTimeToPay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbx_PaymentType);
@@ -543,11 +554,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtb_LastTimeToPay;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblPaymentLable;
         private System.Windows.Forms.TextBox num_Paied;
         private System.Windows.Forms.TextBox num_Remaining;
         private System.Windows.Forms.ComboBox cbx_Inventory;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txt_ChequeNumber;
     }
 }
