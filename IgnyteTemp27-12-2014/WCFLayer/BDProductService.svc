@@ -1,1 +1,0 @@
-<%@ ServiceHost Language="C#" Debug="true" Service="POS.BusinessLayer.BDProductService" CodeBehind="BDProductService.svc.cs" %>

@@ -32,8 +32,9 @@ namespace POS.UserInterfaceLayer.Inventory
                 MessageBox.Show("برجاء أدخال أرقام تشغيله أولا");
                 return;
             }
-            if (CollectScreenData())
-                this.Close();
+            if (ValidateTotalQty())
+                if (CollectScreenData())
+                    this.Close();
         }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
@@ -94,10 +95,29 @@ namespace POS.UserInterfaceLayer.Inventory
                 row.Cells["Qty"].Style.BackColor = Color.Red;
                 return false;
             }
-            if (Convert.ToInt32(row.Cells["Qty"].Value) > this.iNVProductStock.TotalQty)
+
+            return true;
+        }
+
+        private bool ValidateTotalQty()
+        {
+            decimal _totalQty = 0;
+            foreach (DataGridViewRow row in dgrd_Batches.Rows)
+            {
+                if (row.Index != dgrd_Batches.Rows.Count - 1)
+                {
+                    _totalQty += Convert.ToDecimal(row.Cells["Qty"].Value);
+                }
+            }
+
+            if (_totalQty > this.iNVProductStock.TotalQty)
             {
                 MessageBox.Show("الكمية المدخله اكبر من الكمية الكليه للمنتج");
-                row.Cells["Qty"].Style.BackColor = Color.Red;
+                return false;
+            }
+            else if (_totalQty < this.iNVProductStock.TotalQty)
+            {
+                MessageBox.Show("الكمية المدخله أقل من الكمية الكليه للمنتج");
                 return false;
             }
 

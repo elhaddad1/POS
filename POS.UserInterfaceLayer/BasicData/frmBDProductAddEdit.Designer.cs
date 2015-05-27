@@ -63,26 +63,28 @@
             // panl_Header
             // 
             this.panl_Header.Controls.Add(this.label3);
-            this.panl_Header.Size = new System.Drawing.Size(693, 53);
+            this.panl_Header.Size = new System.Drawing.Size(738, 53);
             this.panl_Header.Controls.SetChildIndex(this.lbl_FormHeader, 0);
             this.panl_Header.Controls.SetChildIndex(this.label3, 0);
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(3259, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(4760, 9);
             // 
             // panl_Footer
             // 
             this.panl_Footer.Location = new System.Drawing.Point(0, 360);
-            this.panl_Footer.Size = new System.Drawing.Size(693, 62);
+            this.panl_Footer.Size = new System.Drawing.Size(738, 62);
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(573, 4);
+            this.btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Save.Location = new System.Drawing.Point(381, 4);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(468, 4);
+            this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Back.Location = new System.Drawing.Point(260, 4);
             // 
             // lbl_ProductName
             // 
@@ -197,14 +199,13 @@
             // chk_IsFixedPrice
             // 
             this.chk_IsFixedPrice.AutoSize = true;
-            this.chk_IsFixedPrice.Checked = true;
-            this.chk_IsFixedPrice.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_IsFixedPrice.Location = new System.Drawing.Point(359, 134);
             this.chk_IsFixedPrice.Name = "chk_IsFixedPrice";
             this.chk_IsFixedPrice.Size = new System.Drawing.Size(69, 20);
             this.chk_IsFixedPrice.TabIndex = 17;
             this.chk_IsFixedPrice.Text = "سعر ثابت";
             this.chk_IsFixedPrice.UseVisualStyleBackColor = true;
+            this.chk_IsFixedPrice.CheckedChanged += new System.EventHandler(this.chk_IsFixedPrice_CheckedChanged);
             // 
             // chk_HasDiscount
             // 
@@ -311,7 +312,7 @@
             // frmBDProductAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.ClientSize = new System.Drawing.Size(693, 422);
+            this.ClientSize = new System.Drawing.Size(738, 422);
             this.Controls.Add(this.nmr_MaxPrice);
             this.Controls.Add(this.nmr_MinPrice);
             this.Controls.Add(this.label1);

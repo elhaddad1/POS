@@ -58,7 +58,7 @@ namespace POS.UserInterfaceLayer.BasicData
                 return "لابد من ادخال اسم الصنف";
             }
 
-            if (ddl_ProductGroupID == null || ddl_ProductGroupID.SelectedValue==null)
+            if (ddl_ProductGroupID == null || ddl_ProductGroupID.SelectedValue == null)
             {
                 return "لابد من إختيار المجموعة";
             }
@@ -78,7 +78,8 @@ namespace POS.UserInterfaceLayer.BasicData
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// 
-        public override void btn_Save_Click(object sender, EventArgs e) {
+        public override void btn_Save_Click(object sender, EventArgs e)
+        {
             try
             {
                 string validationMSG = frmValidation();
@@ -87,17 +88,25 @@ namespace POS.UserInterfaceLayer.BasicData
                     MessageBox.Show(validationMSG);
                     return;
                 }
-                saveChanges();
-                this._frmBDProductSearch.InitiateGrid();
-                this.Close();
+                if (saveChanges())
+                {
+                    MessageBox.Show("تم الحفظ بنجاح");
+                    this._frmBDProductSearch.InitiateGrid();
+                    this.Close();
+                }
+                else
+                {
+
+                }
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("حدث خطا برجاء الرجوع لمصمم البرنامج ");
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void saveChanges()
+        private bool saveChanges()
         {
 
             _bdProduct.ProductName = txt_ProductName.Text;
@@ -107,18 +116,25 @@ namespace POS.UserInterfaceLayer.BasicData
 
             _bdProduct.MinPrice = (decimal)nmr_MinPrice.Value;
             _bdProduct.MaxPrice = (decimal)nmr_MaxPrice.Value;
-            
+
             _bdProduct.HasDiscount = chk_HasDiscount.Checked;
             _bdProduct.IsAcceptBatch = chk_IsAcceptBatch.Checked;
             _bdProduct.IsActive = chk_IsActive.Checked;
             _bdProduct.IsFixedPrice = chk_IsFixedPrice.Checked;
             _bdProduct.ProductCode = txt_ProductCode.Text;
-            _bdProduct.ProductGroupID = int.Parse(ddl_ProductGroupID.SelectedValue.ToString()); 
+            _bdProduct.ProductGroupID = int.Parse(ddl_ProductGroupID.SelectedValue.ToString());
             _bdProduct.ProductPrice = (decimal)nmr_ProductPrice.Value;
             if (_productId == 0)
-                _bdProductWrapper.Insert(_bdProduct);
+            {
+                if (!_bdProductWrapper.Insert(_bdProduct))
+                    return false;
+            }
             else
-                _bdProductWrapper.Update(_bdProduct);
+            {
+                if (!_bdProductWrapper.Update(_bdProduct))
+                    return false;
+            }
+            return true;
         }
 
         private void loadUI()
@@ -134,6 +150,7 @@ namespace POS.UserInterfaceLayer.BasicData
             chk_IsAcceptBatch.Checked = _bdProduct.IsAcceptBatch.Value;
             chk_IsActive.Checked = _bdProduct.IsActive.Value;
             chk_IsFixedPrice.Checked = _bdProduct.IsFixedPrice.Value;
+            chk_IsFixedPrice_CheckedChanged(chk_IsFixedPrice, new EventArgs());
             txt_ProductCode.Text = _bdProduct.ProductCode;
             ddl_ProductGroupID.SelectedValue = _bdProduct.ProductGroupID;
             nmr_ProductPrice.Value = _bdProduct.ProductPrice.Value;
@@ -144,9 +161,24 @@ namespace POS.UserInterfaceLayer.BasicData
             ddl_ProductGroupID.DisplayMember = "ProductGroupName";
             ddl_ProductGroupID.ValueMember = "ProductGroupID";
         }
-        public override void btn_Back_Click(object sender, EventArgs e) {
+        public override void btn_Back_Click(object sender, EventArgs e)
+        {
 
             this.Close();
+        }
+
+        private void chk_IsFixedPrice_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_IsFixedPrice.Checked)
+            {
+                nmr_MinPrice.ReadOnly = true;
+                nmr_MaxPrice.ReadOnly = true;
+            }
+            else
+            {
+                nmr_MinPrice.ReadOnly = false;
+                nmr_MaxPrice.ReadOnly = false;
+            }
         }
 
     }
