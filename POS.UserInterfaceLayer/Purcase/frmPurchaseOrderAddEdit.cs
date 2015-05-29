@@ -109,9 +109,15 @@ namespace POS.UserInterfaceLayer.Purcase
             {
                 try
                 {
-                     SaveInvoice();
-                     MessageBox.Show("تمت العملية");
-                     this.Close();
+                    bool saved= SaveInvoice();
+                    if (saved)
+                    {
+                        MessageBox.Show("تمت العملية");
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("برجاء تصحيح المعلومات الخاطئه");
+                    
                
                 }
                 catch (Exception ex)
@@ -396,7 +402,7 @@ namespace POS.UserInterfaceLayer.Purcase
 
             return true;
         }
-        private void SaveInvoice()
+        private bool SaveInvoice()
         {
               //save lines
             for (int i = 0; i < dgrd_OrderLines.Rows.Count; i++)
@@ -420,7 +426,8 @@ namespace POS.UserInterfaceLayer.Purcase
                     else
                     {
                         dgrd_OrderLines.Rows[i].Cells["ExpiryDate"].Style.BackColor = Color.Red;
-                        return;
+                        return false;
+                        
                     }
                     _line.BatchQty = Convert.ToDecimal(dgrd_OrderLines.Rows[i].Cells["TotalQty"].Value);
                 }
@@ -435,7 +442,7 @@ namespace POS.UserInterfaceLayer.Purcase
             {
               CurrentHeaderID=  _pURPurchaseLinerWrapper.SavePURPurchaseOrder(CollectHeaderData(), pURPurchaseLineCollection);
             }
-                   
+            return true;       
         }
         private void CommitInvoice()
         {
