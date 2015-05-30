@@ -36,6 +36,7 @@ namespace POS.BusinessLayer.Wrapper
                 _iNVProductStockWCF.BatchNo = _iNVProductStock.BatchNo;
                 _iNVProductStockWCF.ExpiryDate = _iNVProductStock.ExpiryDate;
                 _iNVProductStockWCF.BatchQty = _iNVProductStock.BatchQty;
+                _iNVProductStockWCF.IsAcceptBatch = _iNVProductStock.IsAcceptBatch;
                 iNVProductStockCollection.Add(_iNVProductStockWCF);
             }
             return iNVProductStockCollection;

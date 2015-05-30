@@ -36,8 +36,8 @@ namespace POS.UserInterfaceLayer.Inventory
                 dgrid_stock.AutoGenerateColumns = false;
                 string code = tbx_ProductCode.Text != "" ? tbx_ProductCode.Text : null;
                 string name = tbx_ProductName.Text != "" ? tbx_ProductName.Text : null;
-                dgrid_stock.DataSource = _invProductStockWrapper.GetInventoryStock(null, code, name, null, false, (int)cmb_Inventory.SelectedValue);
-                
+                POS.BusinessLayer.INVProductStockCollection items = _invProductStockWrapper.GetInventoryStock(null, code, name, null, false, (int)cmb_Inventory.SelectedValue);
+                dgrid_stock.DataSource = items;
             }
         }
 

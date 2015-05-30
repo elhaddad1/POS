@@ -21,7 +21,13 @@ namespace POS.BusinessLayer
         string _stockType;
         decimal _batchQty;
         string _batchNo;
+        bool _isAcceptBatch;
 
+        public bool IsAcceptBatch
+        {
+            get { return _isAcceptBatch; }
+            set { _isAcceptBatch = value; }
+        }
 
         DateTime? _expiryDate = null;
         public string ProductCode

@@ -186,7 +186,31 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
         }
+        private void cbx_PaymentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((int)cbx_PaymentType.SelectedValue == 3)
+            {
+                pnl_agel.Visible = false;
+                pnl_cheque.Visible = true;
+                pnl_agel.SendToBack();
+                pnl_cheque.BringToFront ();
+                
 
+            }
+            else if ((int)cbx_PaymentType.SelectedValue == 2)
+            {
+                pnl_cheque.Visible = false;
+                
+                pnl_agel.Visible = true;
+                pnl_cheque.SendToBack();
+                pnl_agel.BringToFront();
+            }
+            else
+            {
+                pnl_cheque.Visible = false;
+                pnl_agel.Visible = false;
+            }
+        }
 
         #endregion
 
@@ -307,12 +331,13 @@ namespace POS.UserInterfaceLayer.Purcase
 
             try
             {
-                cbx_PaymentType.DataSource = _paymentTypeWrapper.SelectAll();
                 cbx_PaymentType.DisplayMember = "PaymentTypeName";
                 cbx_PaymentType.ValueMember = "PaymentTypeID";
-                cbx_PaymentType.SelectedIndex = -1;
+                cbx_PaymentType.DataSource = _paymentTypeWrapper.SelectAll();
+                
+                cbx_PaymentType.SelectedValue = 1;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -367,10 +392,24 @@ namespace POS.UserInterfaceLayer.Purcase
             _pURPurchaseHeader.SupplierID = Convert.ToInt32(cbx_Supplier.SelectedValue);
             _pURPurchaseHeader.InvoiceDate = dtb_Date.Value.Date;
             _pURPurchaseHeader.InvoiceNumber = txt_invoiceNumber.Text;
-            _pURPurchaseHeader.LastDayToPay = dtb_LastTimeToPay.Value.Date;
             _pURPurchaseHeader.PaidAmount = string.IsNullOrEmpty(num_Paied.Text) ? 0 : Convert.ToDecimal(num_Paied.Text);
             _pURPurchaseHeader.RemainingAmount = string.IsNullOrEmpty(num_Remaining.Text) ? 0 : Convert.ToDecimal(num_Remaining.Text);
             _pURPurchaseHeader.PaymentTypeID = Convert.ToInt32(cbx_PaymentType.SelectedValue);
+            if ((int)cbx_PaymentType.SelectedValue == 2)
+            {
+                _pURPurchaseHeader.LastDayToPay = dtb_LastTimeToPay.Value.Date;
+                
+                //_pURPurchaseHeader.che
+            }
+            else if((int)cbx_PaymentType.SelectedValue ==3)
+            {
+                _pURPurchaseHeader.LastDayToPay = null;
+                
+            }
+            else
+            {
+                _pURPurchaseHeader.LastDayToPay = null;
+            }
             _pURPurchaseHeader.ServicePrice = string.IsNullOrEmpty(num_OtherPayments.Text) ? 0 : Convert.ToDecimal(num_OtherPayments.Text);
             _pURPurchaseHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
             decimal total = Convert.ToDecimal(txt_Total.Text);
@@ -460,10 +499,7 @@ namespace POS.UserInterfaceLayer.Purcase
 
         #endregion
 
-        private void cbx_PaymentType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
 
        

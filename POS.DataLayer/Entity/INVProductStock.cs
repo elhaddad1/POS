@@ -37,6 +37,9 @@ namespace POS.DataLayer
         string _stockType;
         decimal _batchQty;
         string _batcNo;
+        bool _isAcceptbatch;
+
+       
 
 
         DateTime? _expiryDate = null;
@@ -87,6 +90,11 @@ namespace POS.DataLayer
         {
             get { return _batcNo; }
             set { _batcNo = value; }
+        }
+        public bool IsAcceptBatch
+        {
+            get { return _isAcceptbatch; }
+            set { _isAcceptbatch = value; }
         }
         #endregion
 
@@ -158,6 +166,10 @@ namespace POS.DataLayer
                 {
                     obj.ProductCode = dr.GetString(dr.GetOrdinal(ALLINVProductStockFields.ProductCode));
                 }
+                if (dr.GetOrdinal("IsAcceptBatch") != null)
+                {
+                    obj.IsAcceptBatch = dr.GetBoolean(dr.GetOrdinal("IsAcceptBatch"));
+                }
                 if (getWithBatch)
                 {
                     if (dr.GetOrdinal(ALLINVProductStockFields.BatchNumber) != null)
@@ -172,6 +184,7 @@ namespace POS.DataLayer
                     {
                         obj.BatchQty = dr.GetDecimal(dr.GetOrdinal(ALLINVProductStockFields.BatchQty));
                     }
+                   
                 }
                 collection.Add(obj);
 
