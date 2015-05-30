@@ -206,7 +206,12 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@SupplierID", DBNull.Value);
             // Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
 
-            oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value);
+            if (pURPurchaseHeader.InvoiceNumber != null)
+                oDatabaseHelper.AddParameter("@InvoiceNumber", pURPurchaseHeader.InvoiceNumber );
+            else
+                oDatabaseHelper.AddParameter("@InvoiceNumber", DBNull.Value);
+            // Pass the value of '_invoiceNumber' as parameter 'InvoiceNumber' of the stored procedure.
+
             // Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
             if (pURPurchaseHeader.InvoiceDate != null)
                 oDatabaseHelper.AddParameter("@InvoiceDate", pURPurchaseHeader.InvoiceDate);

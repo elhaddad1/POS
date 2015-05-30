@@ -460,6 +460,11 @@ namespace POS.UserInterfaceLayer.Purcase
 
         #endregion
 
+        private void cbx_PaymentType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
        
        

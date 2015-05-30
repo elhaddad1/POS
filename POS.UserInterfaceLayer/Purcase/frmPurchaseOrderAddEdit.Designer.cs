@@ -77,8 +77,8 @@
             this.pnl_footer = new System.Windows.Forms.Panel();
             this.btn_Print = new System.Windows.Forms.Button();
             this.pnl_headerData = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
             this.txt_invoiceNumber = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
             this.grb_lineData.SuspendLayout();
             this.panl_Header.SuspendLayout();
@@ -245,7 +245,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(365, 126);
+            this.label6.Location = new System.Drawing.Point(220, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 36;
@@ -255,7 +255,7 @@
             // 
             this.dtb_LastTimeToPay.Enabled = false;
             this.dtb_LastTimeToPay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtb_LastTimeToPay.Location = new System.Drawing.Point(453, 122);
+            this.dtb_LastTimeToPay.Location = new System.Drawing.Point(140, 66);
             this.dtb_LastTimeToPay.Name = "dtb_LastTimeToPay";
             this.dtb_LastTimeToPay.RightToLeftLayout = true;
             this.dtb_LastTimeToPay.Size = new System.Drawing.Size(78, 20);
@@ -299,7 +299,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 73);
+            this.label2.Location = new System.Drawing.Point(413, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 28;
@@ -451,10 +451,11 @@
             // cbx_PaymentType
             // 
             this.cbx_PaymentType.FormattingEnabled = true;
-            this.cbx_PaymentType.Location = new System.Drawing.Point(144, 67);
+            this.cbx_PaymentType.Location = new System.Drawing.Point(295, 67);
             this.cbx_PaymentType.Name = "cbx_PaymentType";
-            this.cbx_PaymentType.Size = new System.Drawing.Size(98, 21);
+            this.cbx_PaymentType.Size = new System.Drawing.Size(89, 21);
             this.cbx_PaymentType.TabIndex = 33;
+            this.cbx_PaymentType.SelectedIndexChanged += new System.EventHandler(this.cbx_PaymentType_SelectedIndexChanged);
             // 
             // cbx_Supplier
             // 
@@ -519,7 +520,9 @@
             this.pnl_headerData.Controls.Add(this.cbx_Inventory);
             this.pnl_headerData.Controls.Add(this.label7);
             this.pnl_headerData.Controls.Add(this.label4);
+            this.pnl_headerData.Controls.Add(this.label6);
             this.pnl_headerData.Controls.Add(this.label3);
+            this.pnl_headerData.Controls.Add(this.dtb_LastTimeToPay);
             this.pnl_headerData.Controls.Add(this.label1);
             this.pnl_headerData.Controls.Add(this.cbx_PaymentType);
             this.pnl_headerData.Controls.Add(this.label2);
@@ -527,6 +530,13 @@
             this.pnl_headerData.Name = "pnl_headerData";
             this.pnl_headerData.Size = new System.Drawing.Size(827, 128);
             this.pnl_headerData.TabIndex = 50;
+            // 
+            // txt_invoiceNumber
+            // 
+            this.txt_invoiceNumber.Location = new System.Drawing.Point(144, 37);
+            this.txt_invoiceNumber.Name = "txt_invoiceNumber";
+            this.txt_invoiceNumber.Size = new System.Drawing.Size(241, 20);
+            this.txt_invoiceNumber.TabIndex = 50;
             // 
             // label14
             // 
@@ -536,13 +546,6 @@
             this.label14.Size = new System.Drawing.Size(62, 13);
             this.label14.TabIndex = 49;
             this.label14.Text = "رقم الفاتوره";
-            // 
-            // txt_invoiceNumber
-            // 
-            this.txt_invoiceNumber.Location = new System.Drawing.Point(144, 37);
-            this.txt_invoiceNumber.Name = "txt_invoiceNumber";
-            this.txt_invoiceNumber.Size = new System.Drawing.Size(241, 20);
-            this.txt_invoiceNumber.TabIndex = 50;
             // 
             // frmPurchaseOrderAddEdit
             // 
@@ -554,8 +557,6 @@
             this.Controls.Add(this.num_Remaining);
             this.Controls.Add(this.num_Paied);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.dtb_LastTimeToPay);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbx_TaxType);
             this.Controls.Add(this.grb_lineData);
