@@ -257,5 +257,17 @@ namespace POS.UserInterfaceLayer.Portal
             frm.ShowDialog();
         }
 
+        private void mnuItem_CustomerAccount_Click_1(object sender, EventArgs e)
+        {
+            frmCustomerAccounts frm = new frmCustomerAccounts();
+            frm.ShowDialog();
+        }
+
+        private void mnuItem_SupplierAccount_Click_1(object sender, EventArgs e)
+        {
+            frmSupplierAccounts frm = new frmSupplierAccounts();
+            frm.ShowDialog();
+        }
+
     }
 }

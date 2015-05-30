@@ -270,6 +270,21 @@ namespace POS.UserInterfaceLayer.Transfer
                 MessageBox.Show("اختار اختيار مخزن مختلف عن المخزن المحول منه");
                 return false;
             }
+            if (cbx_StoreFrom.SelectedIndex == cbx_StoreTo.SelectedIndex)
+            {
+                MessageBox.Show("اختار اختيار مخزن مختلف عن المخزن المحول منه");
+                return false;
+            }
+            if (transferLineCollection.Count==0)
+            {
+                MessageBox.Show("يجب اختيار صنف");
+                return false;
+            }
+            if (transferLineCollection.Where(a=>a.Qty==0).Any())
+            {
+                MessageBox.Show("يجب اختيار صنف بكمية");
+                return false;
+            }
 
 
 

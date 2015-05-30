@@ -39,13 +39,13 @@
             this.mnuItem_Customers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Suppliers = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_AdjustReason = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItem_Adjustment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Invntory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_OpenningQuantities = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_StockInquiry = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_takingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_OpenTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_CloseTakingInventory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItem_Adjustment = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_Purchace = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurcaseOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItem_PurchaseReturn = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,14 +177,6 @@
             this.mnuItem_AdjustReason.Text = "أسباب التسويه";
             this.mnuItem_AdjustReason.Click += new System.EventHandler(this.mnuItem_AdjustReason_Click);
             // 
-            // mnuItem_Adjustment
-            // 
-            this.mnuItem_Adjustment.Enabled = false;
-            this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
-            this.mnuItem_Adjustment.Size = new System.Drawing.Size(152, 22);
-            this.mnuItem_Adjustment.Text = "التسوية";
-            this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
-            // 
             // mnuItem_Invntory
             // 
             this.mnuItem_Invntory.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -238,6 +230,14 @@
             this.mnuItem_CloseTakingInventory.Size = new System.Drawing.Size(125, 22);
             this.mnuItem_CloseTakingInventory.Text = "أغلاق الجرد";
             this.mnuItem_CloseTakingInventory.Click += new System.EventHandler(this.mnuItem_CloseTakingInventory_Click);
+            // 
+            // mnuItem_Adjustment
+            // 
+            this.mnuItem_Adjustment.Enabled = false;
+            this.mnuItem_Adjustment.Name = "mnuItem_Adjustment";
+            this.mnuItem_Adjustment.Size = new System.Drawing.Size(157, 22);
+            this.mnuItem_Adjustment.Text = "التسوية";
+            this.mnuItem_Adjustment.Click += new System.EventHandler(this.mnuItem_Adjustment_Click);
             // 
             // mnuItem_Purchace
             // 
@@ -331,15 +331,17 @@
             // 
             this.mnuItem_CustomerAccount.Enabled = false;
             this.mnuItem_CustomerAccount.Name = "mnuItem_CustomerAccount";
-            this.mnuItem_CustomerAccount.Size = new System.Drawing.Size(151, 22);
+            this.mnuItem_CustomerAccount.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_CustomerAccount.Text = "حسابات العملاء";
+            this.mnuItem_CustomerAccount.Click += new System.EventHandler(this.mnuItem_CustomerAccount_Click_1);
             // 
             // mnuItem_SupplierAccount
             // 
             this.mnuItem_SupplierAccount.Enabled = false;
             this.mnuItem_SupplierAccount.Name = "mnuItem_SupplierAccount";
-            this.mnuItem_SupplierAccount.Size = new System.Drawing.Size(151, 22);
+            this.mnuItem_SupplierAccount.Size = new System.Drawing.Size(152, 22);
             this.mnuItem_SupplierAccount.Text = "حسابات الموردين";
+            this.mnuItem_SupplierAccount.Click += new System.EventHandler(this.mnuItem_SupplierAccount_Click_1);
             // 
             // pnlContent
             // 
