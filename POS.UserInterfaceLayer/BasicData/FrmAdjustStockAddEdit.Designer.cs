@@ -62,7 +62,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(6037, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(6403, 21);
             // 
             // panl_Footer
             // 
@@ -76,7 +76,7 @@
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(2538, 4);
+            this.btn_Back.Location = new System.Drawing.Point(340, 3);
             // 
             // cbx_StockTypeTO
             // 

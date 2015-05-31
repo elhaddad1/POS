@@ -200,15 +200,19 @@ namespace POS.UserInterfaceLayer.BasicData
             int? oldStockTypeId = dgrid_stock.SelectedRows.Count > 0 ? int.Parse(dgrid_stock.SelectedRows[0].Cells["col_StockTypeID"].Value.ToString()) : 0;
             string BatchID = dgrid_batches.SelectedRows.Count > 0 ? dgrid_batches.SelectedRows[0].Cells["col_batch"].Value.ToString() : "";
             DateTime? ExpiryDate = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDateTime(dgrid_batches.SelectedRows[0].Cells["col_expiry"].Value.ToString()) : (DateTime?)null;
-            decimal oldQty = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDecimal(dgrid_batches.SelectedRows[0].Cells["col_batchQty"].Value.ToString()) : Convert.ToDecimal(dgrid_stock.SelectedRows[0].Cells["col_qty"].Value.ToString());
+            decimal oldQty = dgrid_batches.SelectedRows.Count > 0 ? Convert.ToDecimal(dgrid_batches.SelectedRows[0].Cells["col_batchQty"].Value.ToString()) : dgrid_stock.SelectedRows.Count>0? Convert.ToDecimal(dgrid_stock.SelectedRows[0].Cells["col_qty"].Value.ToString()):0;
             int AdjustReasonID = 0;
             int StockTypeID = 0;
             int InventoryID = 0;
             decimal Qty = num_Qty.Value;
-            int.TryParse(dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value.ToString(), out InvProductID);
-            int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
-            int.TryParse(cbx_StockTypeTO.SelectedValue.ToString(), out StockTypeID);
-            int.TryParse(cbx_Store.SelectedValue.ToString(), out InventoryID);
+            if (dgrid_stock.SelectedRows.Count > 0)
+                int.TryParse(dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value.ToString(), out InvProductID);
+            if (cbx_AdjustReason.SelectedValue != null)
+                int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
+            if (cbx_StockTypeTO.SelectedValue != null)
+                int.TryParse(cbx_StockTypeTO.SelectedValue.ToString(), out StockTypeID);
+            if (cbx_Store.SelectedValue != null)
+                int.TryParse(cbx_Store.SelectedValue.ToString(), out InventoryID);
 
             if (InvProductID > 0)
             {
