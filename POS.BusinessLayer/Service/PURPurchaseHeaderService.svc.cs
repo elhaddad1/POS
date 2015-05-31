@@ -1,10 +1,15 @@
 //
 // Class	:	PURPurchaseHeaderServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:26 PM
+// Date		:	31/5/2015 10:35:27 PM
 //
 
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+//using System.ServiceModel;
+using System.Text;
 using POS.DataLayer;
 
 namespace POS.BusinessLayer
@@ -78,6 +83,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
 				
 			return _pURPurchaseHeaderWCF;
 		}
@@ -121,6 +127,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -181,6 +188,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -224,10 +232,344 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
 			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
 			_pURPurchaseHeader.InvoiceDate=pURPurchaseHeader.InvoiceDate;
+			_pURPurchaseHeader.ChequeNumber=pURPurchaseHeader.ChequeNumber;
 			
 			return _pURPurchaseHeader.Insert();
 		}
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			return POS.DataLayer.PURPurchaseHeaderBase.DeleteAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID));
+		}
 		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeyInventoryID(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID)))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeyInventoryIDPaged(new POS.DataLayer.INVInventoryPrimaryKey(pk.InventoryID), pageSize, skipPages, orderByStatement))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+			/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeyPaymentTypeID(PaymentTypePrimaryKey pk)
+		{
+			return POS.DataLayer.PURPurchaseHeaderBase.DeleteAllByForeignKeyPaymentTypeID(new POS.DataLayer.PaymentTypePrimaryKey(pk.PaymentTypeID));
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeyPaymentTypeID(PaymentTypePrimaryKey pk)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeyPaymentTypeID(new POS.DataLayer.PaymentTypePrimaryKey(pk.PaymentTypeID)))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeyPaymentTypeIDPaged(PaymentTypePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeyPaymentTypeIDPaged(new POS.DataLayer.PaymentTypePrimaryKey(pk.PaymentTypeID), pageSize, skipPages, orderByStatement))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+			/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>True if succeeded</returns>
+		public bool DeleteAllByForeignKeySupplierID(BDSupplierPrimaryKey pk)
+		{
+			return POS.DataLayer.PURPurchaseHeaderBase.DeleteAllByForeignKeySupplierID(new POS.DataLayer.BDSupplierPrimaryKey(pk.SupplierID));
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeySupplierID(BDSupplierPrimaryKey pk)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeySupplierID(new POS.DataLayer.BDSupplierPrimaryKey(pk.SupplierID)))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+		
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		public PURPurchaseHeaderCollection SelectAllByForeignKeySupplierIDPaged(BDSupplierPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			PURPurchaseHeaderCollection pURPurchaseHeaderCollection=new PURPurchaseHeaderCollection();
+			foreach (POS.DataLayer.PURPurchaseHeader _pURPurchaseHeader in POS.DataLayer.PURPurchaseHeaderBase.SelectAllByForeignKeySupplierIDPaged(new POS.DataLayer.BDSupplierPrimaryKey(pk.SupplierID), pageSize, skipPages, orderByStatement))
+			{
+				_pURPurchaseHeaderWCF = new PURPurchaseHeader();
+				_pURPurchaseHeaderWCF.PurcaseHeaderID = _pURPurchaseHeader.PurcaseHeaderID;
+				_pURPurchaseHeaderWCF.PurchaseDate = _pURPurchaseHeader.PurchaseDate;
+				_pURPurchaseHeaderWCF.PaymentTypeID = _pURPurchaseHeader.PaymentTypeID;
+				_pURPurchaseHeaderWCF.SupplierID = _pURPurchaseHeader.SupplierID;
+				_pURPurchaseHeaderWCF.InvoiceNumber = _pURPurchaseHeader.InvoiceNumber;
+				_pURPurchaseHeaderWCF.CreateDate = _pURPurchaseHeader.CreateDate;
+				_pURPurchaseHeaderWCF.CreatedBy = _pURPurchaseHeader.CreatedBy;
+				_pURPurchaseHeaderWCF.updateDate = _pURPurchaseHeader.updateDate;
+				_pURPurchaseHeaderWCF.UpdatedBy = _pURPurchaseHeader.UpdatedBy;
+				_pURPurchaseHeaderWCF.IsDeleted = _pURPurchaseHeader.IsDeleted;
+				_pURPurchaseHeaderWCF.DeleteDate = _pURPurchaseHeader.DeleteDate;
+				_pURPurchaseHeaderWCF.TotalPrice = _pURPurchaseHeader.TotalPrice;
+				_pURPurchaseHeaderWCF.ServicePrice = _pURPurchaseHeader.ServicePrice;
+				_pURPurchaseHeaderWCF.PaidAmount = _pURPurchaseHeader.PaidAmount;
+				_pURPurchaseHeaderWCF.IsClosed = _pURPurchaseHeader.IsClosed;
+				_pURPurchaseHeaderWCF.IsVoid = _pURPurchaseHeader.IsVoid;
+				_pURPurchaseHeaderWCF.IsPrinted = _pURPurchaseHeader.IsPrinted;
+				_pURPurchaseHeaderWCF.RefuseReasonID = _pURPurchaseHeader.RefuseReasonID;
+				_pURPurchaseHeaderWCF.TotalDiscountAmount = _pURPurchaseHeader.TotalDiscountAmount;
+				_pURPurchaseHeaderWCF.TotalDiscountRatio = _pURPurchaseHeader.TotalDiscountRatio;
+				_pURPurchaseHeaderWCF.TaxTypeID = _pURPurchaseHeader.TaxTypeID;
+				_pURPurchaseHeaderWCF.RemainingAmount = _pURPurchaseHeader.RemainingAmount;
+				_pURPurchaseHeaderWCF.LastDayToPay = _pURPurchaseHeader.LastDayToPay;
+				_pURPurchaseHeaderWCF.DeletedBy = _pURPurchaseHeader.DeletedBy;
+				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
+				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
+				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
+				
+				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
+			}
+			return pURPurchaseHeaderCollection;
+		}
+			
 		/// <summary>
 		/// This method will return a list of objects representing the specified number of entries from the specified record number in the table.
 		/// </summary>
@@ -271,6 +613,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -325,6 +668,7 @@ namespace POS.BusinessLayer
 				_pURPurchaseHeaderWCF.Notes = _pURPurchaseHeader.Notes;
 				_pURPurchaseHeaderWCF.InventoryID = _pURPurchaseHeader.InventoryID;
 				_pURPurchaseHeaderWCF.InvoiceDate = _pURPurchaseHeader.InvoiceDate;
+				_pURPurchaseHeaderWCF.ChequeNumber = _pURPurchaseHeader.ChequeNumber;
 				
 				pURPurchaseHeaderCollection.Add(_pURPurchaseHeaderWCF);
 			}
@@ -367,6 +711,7 @@ namespace POS.BusinessLayer
 			_pURPurchaseHeader.Notes=pURPurchaseHeader.Notes;
 			_pURPurchaseHeader.InventoryID=pURPurchaseHeader.InventoryID;
 			_pURPurchaseHeader.InvoiceDate=pURPurchaseHeader.InvoiceDate;
+			_pURPurchaseHeader.ChequeNumber=pURPurchaseHeader.ChequeNumber;
 			
 			return _pURPurchaseHeader.Update();
 		}

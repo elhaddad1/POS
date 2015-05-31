@@ -254,6 +254,13 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@LastDayToPay", pURPurchaseHeader.LastDayToPay);
             else
                 oDatabaseHelper.AddParameter("@LastDayToPay", DBNull.Value);
+
+            if (pURPurchaseHeader.ChequeNumber != null)
+                oDatabaseHelper.AddParameter("@ChequeNumber", pURPurchaseHeader.ChequeNumber);
+            else
+                oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value);
+
+
             // Pass the value of '_totalDiscountAmount' as parameter 'TotalDiscountAmount' of the stored procedure.
             if (pURPurchaseHeader.TotalDiscountAmount != null)
                 oDatabaseHelper.AddParameter("@TotalDiscountAmount", pURPurchaseHeader.TotalDiscountAmount);
@@ -470,6 +477,11 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@LastDayToPay", pURPurchaseHeader.LastDayToPay);
             else
                 oDatabaseHelper.AddParameter("@LastDayToPay", DBNull.Value);
+
+            if (pURPurchaseHeader.ChequeNumber != null)
+                oDatabaseHelper.AddParameter("@ChequeNumber", pURPurchaseHeader.ChequeNumber);
+            else
+                oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value);
             // Pass the value of '_totalDiscountAmount' as parameter 'TotalDiscountAmount' of the stored procedure.
             if (pURPurchaseHeader.TotalDiscountAmount != null)
                 oDatabaseHelper.AddParameter("@TotalDiscountAmount", pURPurchaseHeader.TotalDiscountAmount);

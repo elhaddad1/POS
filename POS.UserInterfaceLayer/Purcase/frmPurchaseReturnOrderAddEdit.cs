@@ -15,6 +15,7 @@ namespace POS.UserInterfaceLayer.Purcase
     public partial class frmPurchaseReturnOrderAddEdit : Form
     {
         PURPurchaseReturnHeaderWrapper pURPurchaseReturnHeaderWrapper;
+        private INVInventoryWrapper iNVInventoryWrapper = new INVInventoryWrapper();
         PURPurchaseReturnLineWrraper pURPurchaseReturnLineWrraper;
         VPURPurchaseOrderCollection vPURPurchaseOrderCollection;
         BDProductWrapper bDProductWrapper;
@@ -41,6 +42,8 @@ namespace POS.UserInterfaceLayer.Purcase
             pURPurchaseReturnLineWrraper = new PURPurchaseReturnLineWrraper();
             bDProductWrapper = new BDProductWrapper();
             FillProductCBX();
+            FillInventoryCBX();
+            
             FillScreenWithDataForEdit(salesReturnHeaderID);
 
         }
@@ -53,7 +56,7 @@ namespace POS.UserInterfaceLayer.Purcase
                 if (!string.IsNullOrEmpty(tbx_InvoiceNumber.Text))
                 {
                     vPURPurchaseOrderCollection = pURPurchaseReturnHeaderWrapper.VPURPurchaseOrder_SelectOneByInvoiceNumber(tbx_InvoiceNumber.Text);
-                    if (vPURPurchaseOrderCollection != null)
+                    if (vPURPurchaseOrderCollection.Count != 0)
                         FillScreenData();
                     else
                         MessageBox.Show("لايوجد فاتورة بهذا المسلسل");
@@ -118,31 +121,7 @@ namespace POS.UserInterfaceLayer.Purcase
                     senderGrid.Rows[e.RowIndex].Cells["ProductName"].Style.BackColor = Color.Red;
                     return;
                 }
-                //else
-                //{
-                //    if ((pURPurchaseReturnLineCollection.Where(a => a.OriginalPurchaseLineID == vPURPurchaseOrder.PurchaseLineID).ToList().Count) == 0)
-                //        pURPurchaseReturnLineCollection.Add(new PURPurchaseReturnLine()
-                //        {
-                //            OriginalPurchaseLineID = vPURPurchaseOrder.PurchaseLineID,
-                //            Qty = (decimal)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value,
-                //            BatchNumber = vPURPurchaseOrder.IsAcceptBatch == true ? senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].Value.ToString() : null,
-                //            ExpiryDate = vPURPurchaseOrder.IsAcceptBatch == true ? Convert.ToDateTime(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value) : (DateTime?)null,
-                //            Reason = senderGrid.Rows[e.RowIndex].Cells["Reason"].Value.ToString()
-                //        });
-                //    else
-                //    {
-                //        pURPurchaseReturnLineCollection.RemoveAt(pURPurchaseReturnLineCollection.IndexOf(pURPurchaseReturnLineCollection.Where(a => a.OriginalPurchaseLineID == vPURPurchaseOrder.PurchaseLineID).SingleOrDefault()));
-                //        pURPurchaseReturnLineCollection.Add(new PURPurchaseReturnLine()
-                //        {
-                //            OriginalPurchaseLineID = vPURPurchaseOrder.PurchaseLineID,
-                //            Qty = (decimal)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value,
-                //            BatchNumber = vPURPurchaseOrder.IsAcceptBatch == true ? senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].Value.ToString() : null,
-                //            ExpiryDate = vPURPurchaseOrder.IsAcceptBatch == true ? Convert.ToDateTime(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value) : (DateTime?)null,
-                //            Reason = senderGrid.Rows[e.RowIndex].Cells["Reason"].Value.ToString()
-                //        });
-                //    }
-                //}
-
+               
                 tbx_Total.Text = (CalculateTotal((double)senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value * (double)senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value)).ToString();
             }
 
@@ -153,7 +132,7 @@ namespace POS.UserInterfaceLayer.Purcase
 
                 BDProduct _product = bDProductWrapper.SelectOne(pk);
                 senderGrid.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
-
+                //senderGrid.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = vPURPurchaseOrder.
                 if (_product.IsAcceptBatch == true)
                 {
                     senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false;
@@ -180,6 +159,7 @@ namespace POS.UserInterfaceLayer.Purcase
             dtb_InvoiceDate.Value = (DateTime)_vPURPurchaseOrder.InvoiceDate;
             dtb_PurchaseDate.Value = (DateTime)_vPURPurchaseOrder.PurchaseDate;
             invoiceDescount = (double)_vPURPurchaseOrder.TotalDiscountRatio;
+            if (_vPURPurchaseOrder.TaxValue != null)
             invoiceTax = (double)_vPURPurchaseOrder.TaxValue;
 
         }
@@ -246,6 +226,21 @@ namespace POS.UserInterfaceLayer.Purcase
             pURPurchaseReturnLineCollection = GetPurchaseReturnLines(salesReturnHeaderID);
             vPURPurchaseOrderCollection = GetPurchaseOriginalPurchaseOrderData((int)pURPurchaseReturnHeader.OriginalHeaderID);
             FillScreenData();
+        }
+        private void FillInventoryCBX()
+        {
+            try
+            {
+                cbx_Inventory.DataSource = iNVInventoryWrapper.SelectAll();
+                cbx_Inventory.DisplayMember = "InventoryName";
+                cbx_Inventory.ValueMember = "InventoryID";
+                cbx_Inventory.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 

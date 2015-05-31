@@ -24,6 +24,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.PaidAmount = pURPurchaseHeader.PaidAmount;
             _pURPurchaseHeader.RemainingAmount = pURPurchaseHeader.RemainingAmount;
             _pURPurchaseHeader.LastDayToPay = pURPurchaseHeader.LastDayToPay;
+            _pURPurchaseHeader.ChequeNumber = pURPurchaseHeader.ChequeNumber;
             _pURPurchaseHeader.TotalDiscountAmount = pURPurchaseHeader.TotalDiscountAmount;
             _pURPurchaseHeader.TotalDiscountRatio = pURPurchaseHeader.TotalDiscountRatio;
             _pURPurchaseHeader.IsClosed = false;
@@ -174,6 +175,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseHeader.IsDeleted = false;
             _pURPurchaseHeader.DeletedBy = null;
             _pURPurchaseHeader.DeleteDate = null;
+            _pURPurchaseHeader.ChequeNumber = pURPurchaseHeader.ChequeNumber;
 
             POS.DataLayer.PURPurchaseLineCollection _pURPurchaseLineCollection = new DataLayer.PURPurchaseLineCollection();
             foreach (PURPurchaseLine pURPurchaseLine in pURPurchaseLineCollection)

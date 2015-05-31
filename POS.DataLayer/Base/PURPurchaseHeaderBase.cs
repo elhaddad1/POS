@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:25 PM
+// Date		:	31/5/2015 10:35:27 PM
 //
 
 using System;
@@ -50,6 +50,7 @@ namespace POS.DataLayer
 		public const string Notes                     = "Notes";
 		public const string InventoryID               = "InventoryID";
 		public const string InvoiceDate               = "InvoiceDate";
+		public const string ChequeNumber              = "ChequeNumber";
 	}
 	
 	/// <summary>
@@ -90,6 +91,7 @@ namespace POS.DataLayer
 		private string         	_notesNonDefault         	= null;
 		private int?           	_inventoryIDNonDefault   	= null;
 		private DateTime?      	_invoiceDateNonDefault   	= null;
+		private decimal?       	_chequeNumberNonDefault  	= null;
 
 		private BDSupplierAccountCollection _bDSupplierAccountCollectionPurcaseInvoiceID = null;
 		private PURPurchaseLineCollection _pURPurchaseLineCollectionPurchaseHeaderID = null;
@@ -145,7 +147,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "PaymentTypeID" field.  
+		/// The foreign key connected with another persistent object.
 		/// </summary>
 		public int? PaymentTypeID
 		{
@@ -161,7 +163,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "SupplierID" field.  Mandatory.
+		/// The foreign key connected with another persistent object.
 		/// </summary>
 		public int? SupplierID
 		{
@@ -535,7 +537,7 @@ namespace POS.DataLayer
 		}
 
 		/// <summary>
-		/// This property is mapped to the "InventoryID" field.  
+		/// The foreign key connected with another persistent object.
 		/// </summary>
 		public int? InventoryID
 		{
@@ -563,6 +565,22 @@ namespace POS.DataLayer
 			{
 			
 				_invoiceDateNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "ChequeNumber" field.  
+		/// </summary>
+		public decimal? ChequeNumber
+		{
+			get 
+			{ 
+				return _chequeNumberNonDefault;
+			}
+			set 
+			{
+			
+				_chequeNumberNonDefault = value; 
 			}
 		}
 
@@ -640,7 +658,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -807,6 +825,12 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
 			  
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			if(_chequeNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -837,7 +861,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -978,6 +1002,11 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@InvoiceDate", DBNull.Value );
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			if(_chequeNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -997,7 +1026,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1089,6 +1118,9 @@ namespace POS.DataLayer
 			// Pass the value of '_invoiceDate' as parameter 'InvoiceDate' of the stored procedure.
 			oDatabaseHelper.AddParameter("@InvoiceDate", _invoiceDateNonDefault );
 			
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -1108,7 +1140,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1145,7 +1177,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1184,7 +1216,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1219,7 +1251,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1267,7 +1299,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1304,7 +1336,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1346,7 +1378,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1392,7 +1424,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1433,7 +1465,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1466,7 +1498,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM				Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1518,7 +1550,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM				Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1570,7 +1602,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM				Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1609,6 +1641,418 @@ namespace POS.DataLayer
 			
 		}
 
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeyInventoryID", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeyInventoryIDPaged(INVInventoryPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeyInventoryIDPaged", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="INVInventoryPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeyInventoryID(INVInventoryPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_PURPurchaseHeader_DeleteAllByForeignKeyInventoryID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
+			
+		}
+
+
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeyPaymentTypeID(PaymentTypePrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeyPaymentTypeID", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeyPaymentTypeIDPaged(PaymentTypePrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeyPaymentTypeIDPaged", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="PaymentTypePrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeyPaymentTypeID(PaymentTypePrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_PURPurchaseHeader_DeleteAllByForeignKeyPaymentTypeID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
+			
+		}
+
+
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeySupplierID(BDSupplierPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeySupplierID", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will get row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be fetched.</param>
+		/// <param name="pageSize" type="int">Number of records returned.</param>
+		/// <param name="skipPages" type="int">The number of missing pages.</param>
+		/// <param name="orderByStatement" type="string">The field value to number</param>
+		///
+		/// <returns>object of class PURPurchaseHeaderCollection</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static PURPurchaseHeaderCollection SelectAllByForeignKeySupplierIDPaged(BDSupplierPrimaryKey pk, int pageSize, int skipPages, string orderByStatement)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			PURPurchaseHeaderCollection obj = null;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			oDatabaseHelper.AddParameter("@PageSize",pageSize);
+			oDatabaseHelper.AddParameter("@SkipPages", skipPages);
+			oDatabaseHelper.AddParameter("@OrderByStatement", orderByStatement );
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			IDataReader dr=oDatabaseHelper.ExecuteReader("gsp_PURPurchaseHeader_SelectAllByForeignKeySupplierIDPaged", ref ExecutionState);
+			obj = new PURPurchaseHeaderCollection();
+			obj = PURPurchaseHeader.PopulateObjectsFromReaderWithCheckingReader(dr, oDatabaseHelper);
+			
+			dr.Close();  
+			oDatabaseHelper.Dispose();
+			return obj;
+			
+		}
+
+		/// <summary>
+		/// This method will delete row(s) from the database using the value of the field specified 
+		/// along with the details of the child table.
+		/// </summary>
+		///
+		/// <param name="pk" type="BDSupplierPrimaryKey">Primary Key information based on which data is to be deleted.</param>
+		///
+		/// <returns>object of boolean type as an indicator for operation success .</returns>
+		///
+		/// <remarks>
+		///
+		/// <RevisionHistory>
+		/// Author				Date			Description
+		/// DLGenerator			31/5/2015 10:35:27 PM				Created function
+		/// 
+		/// </RevisionHistory>
+		///
+		/// </remarks>
+		///
+		public static bool DeleteAllByForeignKeySupplierID(BDSupplierPrimaryKey pk)
+		{
+			DatabaseHelper oDatabaseHelper = new DatabaseHelper();
+			bool ExecutionState = false;
+			
+			// Pass the values of all key parameters to the stored procedure.
+			System.Collections.Specialized.NameValueCollection nvc = pk.GetKeysAndValues();
+			foreach (string key in nvc.Keys)
+			{
+				oDatabaseHelper.AddParameter("@" + key,nvc[key] );
+			}
+			
+			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
+			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
+			
+			oDatabaseHelper.ExecuteNonQuery("gsp_PURPurchaseHeader_DeleteAllByForeignKeySupplierID", ref ExecutionState);
+			oDatabaseHelper.Dispose();
+			return ExecutionState;
+			
+		}
+
 		#endregion	
 		
 		#region Methods (Private)
@@ -1626,7 +2070,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1663,7 +2107,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1755,6 +2199,11 @@ namespace POS.DataLayer
 				obj.InvoiceDate = rdr.GetDateTime(rdr.GetOrdinal(PURPurchaseHeaderFields.InvoiceDate));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(PURPurchaseHeaderFields.ChequeNumber)))
+			{
+				obj.ChequeNumber = rdr.GetDecimal(rdr.GetOrdinal(PURPurchaseHeaderFields.ChequeNumber));
+			}
+			
 
 		}
 
@@ -1770,7 +2219,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1802,7 +2251,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			3/7/2015 2:37:25 PM		Created function
+		/// DLGenerator			31/5/2015 10:35:27 PM		Created function
 		/// 
 		/// </RevisionHistory>
 		///

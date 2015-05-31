@@ -17,6 +17,7 @@ namespace POS.BusinessLayer
 	public class PURPurchaseHeader : PURPurchaseHeaderBase
 	{
         public string SupplierName { get; set; }
+       
 	}
 }
 			

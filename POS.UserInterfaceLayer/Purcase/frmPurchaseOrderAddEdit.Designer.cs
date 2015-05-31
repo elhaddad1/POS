@@ -48,7 +48,7 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_ClosePrint = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_paymentType = new System.Windows.Forms.Label();
             this.dtb_LastTimeToPay = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,20 +77,15 @@
             this.pnl_footer = new System.Windows.Forms.Panel();
             this.btn_Print = new System.Windows.Forms.Button();
             this.pnl_headerData = new System.Windows.Forms.Panel();
+            this.txt_chequeNumber = new System.Windows.Forms.TextBox();
             this.txt_invoiceNumber = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.pnl_agel = new System.Windows.Forms.Panel();
-            this.pnl_cheque = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txt_chequeNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_OrderLines)).BeginInit();
             this.grb_lineData.SuspendLayout();
             this.panl_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.pnl_footer.SuspendLayout();
             this.pnl_headerData.SuspendLayout();
-            this.pnl_agel.SuspendLayout();
-            this.pnl_cheque.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgrd_OrderLines
@@ -248,20 +243,19 @@
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
             this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click);
             // 
-            // label6
+            // lbl_paymentType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(119, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "أخر ميعاد للدفع";
+            this.lbl_paymentType.AutoSize = true;
+            this.lbl_paymentType.Location = new System.Drawing.Point(211, 70);
+            this.lbl_paymentType.Name = "lbl_paymentType";
+            this.lbl_paymentType.Size = new System.Drawing.Size(78, 13);
+            this.lbl_paymentType.TabIndex = 36;
+            this.lbl_paymentType.Text = "أخر ميعاد للدفع";
             // 
             // dtb_LastTimeToPay
             // 
-            this.dtb_LastTimeToPay.Enabled = false;
             this.dtb_LastTimeToPay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtb_LastTimeToPay.Location = new System.Drawing.Point(23, 2);
+            this.dtb_LastTimeToPay.Location = new System.Drawing.Point(118, 66);
             this.dtb_LastTimeToPay.Name = "dtb_LastTimeToPay";
             this.dtb_LastTimeToPay.RightToLeftLayout = true;
             this.dtb_LastTimeToPay.Size = new System.Drawing.Size(78, 20);
@@ -521,7 +515,9 @@
             // 
             // pnl_headerData
             // 
-            this.pnl_headerData.Controls.Add(this.pnl_agel);
+            this.pnl_headerData.Controls.Add(this.dtb_LastTimeToPay);
+            this.pnl_headerData.Controls.Add(this.txt_chequeNumber);
+            this.pnl_headerData.Controls.Add(this.lbl_paymentType);
             this.pnl_headerData.Controls.Add(this.txt_invoiceNumber);
             this.pnl_headerData.Controls.Add(this.label14);
             this.pnl_headerData.Controls.Add(this.cbx_Inventory);
@@ -535,6 +531,13 @@
             this.pnl_headerData.Name = "pnl_headerData";
             this.pnl_headerData.Size = new System.Drawing.Size(827, 128);
             this.pnl_headerData.TabIndex = 50;
+            // 
+            // txt_chequeNumber
+            // 
+            this.txt_chequeNumber.Location = new System.Drawing.Point(96, 70);
+            this.txt_chequeNumber.Name = "txt_chequeNumber";
+            this.txt_chequeNumber.Size = new System.Drawing.Size(100, 20);
+            this.txt_chequeNumber.TabIndex = 38;
             // 
             // txt_invoiceNumber
             // 
@@ -552,46 +555,13 @@
             this.label14.TabIndex = 49;
             this.label14.Text = "رقم الفاتوره";
             // 
-            // pnl_agel
-            // 
-            this.pnl_agel.Controls.Add(this.pnl_cheque);
-            this.pnl_agel.Controls.Add(this.label6);
-            this.pnl_agel.Controls.Add(this.dtb_LastTimeToPay);
-            this.pnl_agel.Location = new System.Drawing.Point(89, 65);
-            this.pnl_agel.Name = "pnl_agel";
-            this.pnl_agel.Size = new System.Drawing.Size(200, 24);
-            this.pnl_agel.TabIndex = 51;
-            // 
-            // pnl_cheque
-            // 
-            this.pnl_cheque.Controls.Add(this.txt_chequeNumber);
-            this.pnl_cheque.Controls.Add(this.label15);
-            this.pnl_cheque.Location = new System.Drawing.Point(42, 3);
-            this.pnl_cheque.Name = "pnl_cheque";
-            this.pnl_cheque.Size = new System.Drawing.Size(158, 24);
-            this.pnl_cheque.TabIndex = 52;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(103, 9);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 13);
-            this.label15.TabIndex = 37;
-            this.label15.Text = "رقم الشيك";
-            // 
-            // txt_chequeNumber
-            // 
-            this.txt_chequeNumber.Location = new System.Drawing.Point(3, 3);
-            this.txt_chequeNumber.Name = "txt_chequeNumber";
-            this.txt_chequeNumber.Size = new System.Drawing.Size(100, 20);
-            this.txt_chequeNumber.TabIndex = 38;
-            // 
             // frmPurchaseOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(852, 640);
+            this.Controls.Add(this.dtb_Date);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.num_OtherPayments);
             this.Controls.Add(this.num_Remaining);
@@ -602,7 +572,6 @@
             this.Controls.Add(this.grb_lineData);
             this.Controls.Add(this.cbx_Supplier);
             this.Controls.Add(this.panl_Header);
-            this.Controls.Add(this.dtb_Date);
             this.Controls.Add(this.pnl_footer);
             this.Controls.Add(this.pnl_headerData);
             this.Name = "frmPurchaseOrderAddEdit";
@@ -619,10 +588,6 @@
             this.pnl_footer.ResumeLayout(false);
             this.pnl_headerData.ResumeLayout(false);
             this.pnl_headerData.PerformLayout();
-            this.pnl_agel.ResumeLayout(false);
-            this.pnl_agel.PerformLayout();
-            this.pnl_cheque.ResumeLayout(false);
-            this.pnl_cheque.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,7 +604,7 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_ClosePrint;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_paymentType;
         private System.Windows.Forms.DateTimePicker dtb_LastTimeToPay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -677,9 +642,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_invoiceNumber;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel pnl_cheque;
         private System.Windows.Forms.TextBox txt_chequeNumber;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Panel pnl_agel;
     }
 }

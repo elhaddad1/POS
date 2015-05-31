@@ -126,8 +126,8 @@ namespace POS.UserInterfaceLayer.Portal
 
         private void mnuItem_PurchaseReturn_Click(object sender, EventArgs e)
         {
-            //frmPurchaseReturnSearch frm = new frmPurchaseReturnSearch();
-            //switchForm(frm);
+            frmPurchaseReturnOrderAddEdit frm = new frmPurchaseReturnOrderAddEdit(); 
+            switchForm(frm);
         }
 
         private void mnuItem_PurcaseOrder_Click(object sender, EventArgs e)

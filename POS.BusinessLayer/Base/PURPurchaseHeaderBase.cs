@@ -1,7 +1,7 @@
 //
 // Class	:	PURPurchaseHeaderBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	3/7/2015 2:37:26 PM
+// Date		:	31/5/2015 10:35:27 PM
 //
 using System;
 using System.Runtime.Serialization;
@@ -99,6 +99,9 @@ namespace POS.BusinessLayer
 
 		[DataMember]
 		public DateTime? InvoiceDate {get;set;}
+
+		[DataMember]
+		public decimal? ChequeNumber {get;set;}
 
 		
 		#endregion

@@ -72,37 +72,57 @@ namespace POS.UserInterfaceLayer.Inventory
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            INVTakingInventoryLineWrapper _TakingInventoryWrapper = new INVTakingInventoryLineWrapper();
-            int takingType = 0;
-            if(ridb_Product.Checked)
-                takingType =1;
-            else if (ridb_ProductGroup.Checked)
-                takingType=2;
-            
-            int? _productID = (cmb_Product.SelectedValue!= null)? cmb_Product.SelectedValue as int? : null;
-            int? _productGroupID=(cmb_productGroup.SelectedValue!=null)?cmb_productGroup.SelectedValue as int? : null ;
-
-            try
+            if (Validate())
             {
-                bool result = _TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value, (int)cmb_inventory.SelectedValue,
-                                                               takingType, _productID, _productGroupID, tbx_notes.Text);
+                INVTakingInventoryLineWrapper _TakingInventoryWrapper = new INVTakingInventoryLineWrapper();
+                int takingType = 0;
+                if (ridb_Product.Checked)
+                    takingType = 1;
+                else if (ridb_ProductGroup.Checked)
+                    takingType = 2;
+
+                int? _productID = (cmb_Product.SelectedValue != null) ? cmb_Product.SelectedValue as int? : null;
+                int? _productGroupID = (cmb_productGroup.SelectedValue != null) ? cmb_productGroup.SelectedValue as int? : null;
+
+                try
+                {
+                    bool result = _TakingInventoryWrapper.OpenTakingInventory(tbx_takingName.Text, dtp_takingDate.Value, (int)cmb_inventory.SelectedValue,
+                                                                   takingType, _productID, _productGroupID, tbx_notes.Text);
+
+                    if (result == false)
+                    {
+                        MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
+                    }
+                    else
+                    {
+                        MessageBox.Show("تم فتح الجرد بنجاح");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
                 
-                if (result == false)
-                {
-                    MessageBox.Show("حدث خطأ يرجي المحاوله مره اخري");
-                }
-                else
-                {
-                    MessageBox.Show("تم فتح الجرد بنجاح");
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
             }
         }
-
+        private bool Validate()
+        {
+            if (tbx_takingName.Text  == "")
+            {
+                MessageBox.Show("لابد من إدخال اسم الجرد");
+                return false;
+            }
+            else if (cmb_inventory .SelectedValue == null || cmb_inventory .SelectedValue=="" )
+            {
+                MessageBox.Show("لابد من اختيار اسم المخزن");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         
     }
 }

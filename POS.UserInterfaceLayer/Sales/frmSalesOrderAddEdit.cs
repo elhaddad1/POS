@@ -434,6 +434,45 @@ namespace POS.UserInterfaceLayer.Sales
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Validate())
+            {
+                CollectHeaderData();
+                try
+                {
+                    if (_sALSalesHeader.SalesHeaderID == null)
+                    {
+                        int salesHeaderID = _sALSalesLinerWrapper.SaveCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection);
+                        if (salesHeaderID != -1)
+                        {
+                            //List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                            //paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", salesHeaderID));
+                           // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        if (_sALSalesLinerWrapper.UpdateCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
+                        {
+                           // List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                           // paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
+                           // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            MessageBox.Show("تمت العلية");
+                            this.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        
+        }
+
 
 
 

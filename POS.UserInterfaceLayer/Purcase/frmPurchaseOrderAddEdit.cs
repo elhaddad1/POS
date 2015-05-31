@@ -137,15 +137,13 @@ namespace POS.UserInterfaceLayer.Purcase
             BindGrid();
            //CalculateTotal();
         }
-
         private void num_Remaining_TextChanged(object sender, EventArgs e)
         {
-            if (Convert.ToDecimal(num_Remaining.Text) < 0)
+            if (Convert.ToDecimal(num_Remaining.Text) > 0)
             {
                 dtb_LastTimeToPay.Enabled = true;
             }
         }
-      
         private void dgrd_OrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && e.ColumnIndex == dgrd_OrderLines.Columns["ProductName"].Index)
@@ -190,25 +188,22 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             if ((int)cbx_PaymentType.SelectedValue == 3)
             {
-                pnl_agel.Visible = false;
-                pnl_cheque.Visible = true;
-                pnl_agel.SendToBack();
-                pnl_cheque.BringToFront ();
-                
+                lbl_paymentType.Text = "رقم الشيك";
+                txt_chequeNumber.Visible = true;
+                dtb_LastTimeToPay.Visible = false;
 
             }
             else if ((int)cbx_PaymentType.SelectedValue == 2)
             {
-                pnl_cheque.Visible = false;
-                
-                pnl_agel.Visible = true;
-                pnl_cheque.SendToBack();
-                pnl_agel.BringToFront();
+                lbl_paymentType.Text = "أخر معاد للدفع";
+                txt_chequeNumber.Visible = false ;
+                dtb_LastTimeToPay.Visible = true;
             }
             else
             {
-                pnl_cheque.Visible = false;
-                pnl_agel.Visible = false;
+                lbl_paymentType.Text = "";
+                txt_chequeNumber.Visible = false;
+                dtb_LastTimeToPay.Visible = false;
             }
         }
 
@@ -262,18 +257,33 @@ namespace POS.UserInterfaceLayer.Purcase
             txt_Total.Text = Header.TotalPrice.ToString();
             txt_DiscountAmount.Text = Header.TotalDiscountAmount.ToString();
             num_Paied.Text = Header.PaidAmount.ToString();
-           // num_Remaining.Text = Header.RemainingAmount.ToString();
-            dtb_LastTimeToPay.Value = Header.LastDayToPay.Value;
+            txt_invoiceNumber.Text = Header.InvoiceNumber;
+            num_Remaining.Text = Header.RemainingAmount.ToString();
+            if (Header.PaymentTypeID == 2)
+            {
+                 dtb_LastTimeToPay.Value = Header.LastDayToPay.Value;
+            }
+            else if (Header.PaymentTypeID == 3)
+            {
+                txt_chequeNumber.Text = Header.ChequeNumber.ToString ();
+            }
+           
             if(Header.TaxTypeID != null)
                 cbx_TaxType.SelectedValue = Header.TaxTypeID;
             num_OtherPayments.Text = Header.ServicePrice.ToString();
             if (Header .IsClosed == true)
             {
-                 pnl_headerData.Enabled = false;
-            pnl_footer.Enabled = false;
+             pnl_headerData.Enabled = false;
+           // pnl_footer.Enabled = false;
             grb_lineData.Enabled = false;
             btn_Save.Enabled = false;
             btn_ClosePrint.Enabled = false;
+            btn_Print.Enabled = false;
+            cbx_Supplier.Enabled = false;
+            dtb_Date.Enabled = false;
+            cbx_TaxType.Enabled = false;
+            num_OtherPayments.Enabled = false;
+            num_Paied.Enabled = false; 
             }
            // txt_DiscountRatio.Text = Header.TotalDiscountRatio.ToString();
         }
@@ -398,17 +408,19 @@ namespace POS.UserInterfaceLayer.Purcase
             if ((int)cbx_PaymentType.SelectedValue == 2)
             {
                 _pURPurchaseHeader.LastDayToPay = dtb_LastTimeToPay.Value.Date;
-                
+                _pURPurchaseHeader.ChequeNumber = null;
                 //_pURPurchaseHeader.che
             }
             else if((int)cbx_PaymentType.SelectedValue ==3)
             {
                 _pURPurchaseHeader.LastDayToPay = null;
+                _pURPurchaseHeader.ChequeNumber =Convert.ToDecimal  ( txt_chequeNumber.Text);
                 
             }
             else
             {
                 _pURPurchaseHeader.LastDayToPay = null;
+                 _pURPurchaseHeader.ChequeNumber=null;
             }
             _pURPurchaseHeader.ServicePrice = string.IsNullOrEmpty(num_OtherPayments.Text) ? 0 : Convert.ToDecimal(num_OtherPayments.Text);
             _pURPurchaseHeader.TaxTypeID = cbx_TaxType.SelectedIndex == -1 ? null : (int?)(cbx_TaxType.SelectedValue);
@@ -436,6 +448,11 @@ namespace POS.UserInterfaceLayer.Purcase
             if (cbx_PaymentType.SelectedIndex == -1)
             {
                 MessageBox.Show("اختار طريقه دفع أولا");
+                return false;
+            }
+            if ((int)cbx_PaymentType.SelectedValue ==1 &&decimal.Parse ( num_Remaining.Text)>0)
+            {
+                MessageBox.Show(" لا يمكن ان تكون طريقه الدفع كاش ويوجد متبقي  ");
                 return false;
             }
 

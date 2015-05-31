@@ -25,6 +25,9 @@ namespace POS.DataLayer
 	
 		#region Class Level Variables
         private string _supplierNameNonDefault = null;
+      
+
+       
 		#endregion
 		
 		#region Constants
