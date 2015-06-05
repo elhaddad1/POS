@@ -64,7 +64,7 @@ namespace POS.DataLayer
             bool ExecutionState = false;
             // Pass the value of '_deletedBy' as parameter 'DeletedBy' of the stored procedure.
             oDatabaseHelper.AddParameter("@UserID", UserID);
-            oDatabaseHelper.AddParameter("@SalesHeaderID", SalesHeaderID);
+            oDatabaseHelper.AddParameter("@SlaesReturnHeaderID", SalesHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
             oDatabaseHelper.ExecuteScalar("usp_SALSalesReturnHader_CloseOrder", ref ExecutionState);
             oDatabaseHelper.Dispose();

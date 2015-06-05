@@ -35,7 +35,7 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    frmSalesReturnOrderAddEdit frm = new frmSalesReturnOrderAddEdit(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SlaesReturnHeaderID"].Value));
                     frm.ShowDialog();
                 }
                 else
@@ -46,7 +46,7 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    sALSalesReturnHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    sALSalesReturnHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SlaesReturnHeaderID"].Value));
                     BindGrid();
                 }
                 else
@@ -61,11 +61,11 @@ namespace POS.UserInterfaceLayer.Sales
             if (dgrid_SalesReturnSearch.SelectedRows.Count != 0)
                 if (!Convert.ToBoolean(dgrid_SalesReturnSearch.SelectedRows[0].Cells["IsClosed"].Value))
                 {
-                    sALSalesReturnHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SalesHeaderID"].Value));
+                    sALSalesReturnHeaderWrapper.CloseOrder(Convert.ToInt32(dgrid_SalesReturnSearch.SelectedRows[0].Cells["SlaesReturnHeaderID"].Value));
                     BindGrid();
                 }
                 else
-                    MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
+                    MessageBox.Show("لا يمكنك أغلاق هذه الفاتوره حيث انها مغلقه");
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
@@ -118,6 +118,7 @@ namespace POS.UserInterfaceLayer.Sales
             catch (Exception ex)
             {
 
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
                 MessageBox.Show(ex.Message);
             }
         }
