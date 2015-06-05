@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace POS.UserInterfaceLayer.BasicData
@@ -64,6 +65,12 @@ namespace POS.UserInterfaceLayer.BasicData
 
             dgrid_Result.DataSource = customerAccountList;
 
+            if (customerAccountList.Count > 0)
+            {
+                lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+            }
         }
 
         #region Form Event

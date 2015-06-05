@@ -1653,7 +1653,7 @@ namespace POS.DataLayer
 			else
 			{
 				oDatabaseHelper.Dispose();
-				return null;
+                return list;
 			}
 			
 		}
