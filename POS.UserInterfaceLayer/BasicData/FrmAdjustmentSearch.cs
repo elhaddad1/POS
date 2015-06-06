@@ -13,14 +13,17 @@ namespace POS.UserInterfaceLayer.BasicData
     public partial class FrmAdjustmentSearch : POS.UserInterfaceLayer.Portal.frmBaseSearchForm
     {
         private INVAdjustStockWrapper _invAdjustStockWrapper = new INVAdjustStockWrapper();
+        private INVInventoryWrapper _inventoryWrapper = new INVInventoryWrapper();
+        private INVAdjustStockReasonWrapper _adjustStockReasonWrapper = new INVAdjustStockReasonWrapper();
 
         public FrmAdjustmentSearch()
         {
            
             InitializeComponent();
             InitiateGrid();
-            base.lbl_FormHeader.Text = "بحث";
-            grb_search.Visible = false;
+            FillStokeCBX();
+            FillAdjustReasonCBX();
+            base.lbl_FormHeader.Text = "بحث التسوية";
         }
 
         public void InitiateGrid()
@@ -45,6 +48,38 @@ namespace POS.UserInterfaceLayer.BasicData
             addColumnToGrid("نوع الصنف الجديد", "StockTypeName", 120, true);
             addColumnToGrid("الكمية", "Qty", 120, true);
             addColumnToGrid("الموظف", "CreatedByName", 120, true);
+        }
+
+        private void FillStokeCBX()
+        {
+
+            try
+            {
+                cbx_Store.DataSource = _inventoryWrapper.SelectAll();
+                cbx_Store.DisplayMember = "InventoryName";
+                cbx_Store.ValueMember = "InventoryID";
+                cbx_Store.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+            }
+        }
+
+        private void FillAdjustReasonCBX()
+        {
+
+            try
+            {
+                cbx_AdjustReason.DataSource = _adjustStockReasonWrapper.SelectAll();
+                cbx_AdjustReason.DisplayMember = "AdjustStockreasonName";
+                cbx_AdjustReason.ValueMember = "AdjustStockReasonID";
+                cbx_AdjustReason.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+            }
         }
 
         /// <summary>
@@ -78,7 +113,7 @@ namespace POS.UserInterfaceLayer.BasicData
             int? adjustStockID = 0;
             if (dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value != null)
             {
-                if (MessageBox.Show("هل نت متأكد من حذف المجموعة؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("هل نت متأكد من حذف التسوية؟", "تحذير", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
             if (dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value != null)
                     adjustStockID = Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["AdjustStockID"].Value);
@@ -111,17 +146,41 @@ namespace POS.UserInterfaceLayer.BasicData
         {
             dgrid_Result.DataSource = null;
             INVAdjustStock searchModel = new INVAdjustStock();
-            searchModel.ProductName = tbx_ProductName.Text != "" ? tbx_ProductName.Text : null;
-            searchModel.InventoryName = tbx_InventoryName.Text != "" ? tbx_InventoryName.Text : null;
-            searchModel.StockTypeName = tbx_StockTypeName.Text != "" ? tbx_StockTypeName.Text : null;
-            searchModel.AdjustReasonName = tbx_AdjustName.Text != "" ? tbx_AdjustName.Text : null;
-            List<INVAdjustStock> adjustStocks = _invAdjustStockWrapper.SearchByCriteria(searchModel);
+            int AdjustReasonID = 0;
+            int InventoryID = 0;
+            DateTime? dateFrom = null;
+            DateTime? toFrom = null;
+            if (toFrom < dateFrom)
+            {
+                MessageBox.Show("يجب اختيار فترة زمنية صحيحة");
+                return;
+            }
+            if (cbx_AdjustReason.SelectedValue != null)
+            {
+                int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
+                searchModel.AdjustReasonID = AdjustReasonID;
+            }
+            if (cbx_Store.SelectedValue != null)
+            {
+                int.TryParse(cbx_Store.SelectedValue.ToString(), out InventoryID);
+                searchModel.InventoryID = InventoryID;
+            }
+            if(dtp_fromDate.Value!=null)
+                dateFrom = dtp_fromDate.Value;
+            if (dtp_toDate.Value != null)
+                toFrom = dtp_toDate.Value;
+            List<INVAdjustStock> adjustStocks = _invAdjustStockWrapper.SearchByCriteria(searchModel, dateFrom, toFrom);
             dgrid_Result.DataSource = adjustStocks;
         }
 
         private void FrmAdjustmentSearch_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Search();
         }
 
     }

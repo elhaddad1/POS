@@ -34,9 +34,6 @@
             this.cbx_AdjustReason = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrid_batches = new System.Windows.Forms.DataGridView();
-            this.col_batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgrid_stock = new System.Windows.Forms.DataGridView();
             this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.num_Qty = new System.Windows.Forms.NumericUpDown();
+            this.col_batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_batchQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.panl_Footer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(6403, 21);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(7135, 21);
             // 
             // panl_Footer
             // 
@@ -144,27 +144,6 @@
             this.dgrid_batches.Size = new System.Drawing.Size(562, 124);
             this.dgrid_batches.TabIndex = 5;
             // 
-            // col_batch
-            // 
-            this.col_batch.DataPropertyName = "BatchNumber";
-            this.col_batch.HeaderText = "رقم التشغيله";
-            this.col_batch.Name = "col_batch";
-            this.col_batch.ReadOnly = true;
-            // 
-            // col_expiry
-            // 
-            this.col_expiry.DataPropertyName = "ExpiryDate";
-            this.col_expiry.HeaderText = "تاريخ الصلاحيه";
-            this.col_expiry.Name = "col_expiry";
-            this.col_expiry.ReadOnly = true;
-            // 
-            // col_batchQty
-            // 
-            this.col_batchQty.DataPropertyName = "BatchQty";
-            this.col_batchQty.HeaderText = "الكميه";
-            this.col_batchQty.Name = "col_batchQty";
-            this.col_batchQty.ReadOnly = true;
-            // 
             // dgrid_stock
             // 
             this.dgrid_stock.AllowUserToAddRows = false;
@@ -186,6 +165,7 @@
             this.dgrid_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgrid_stock.Size = new System.Drawing.Size(562, 169);
             this.dgrid_stock.TabIndex = 4;
+            this.dgrid_stock.SelectionChanged += new System.EventHandler(this.dgrid_stock_SelectionChanged);
             // 
             // col_code
             // 
@@ -271,6 +251,27 @@
             this.num_Qty.Size = new System.Drawing.Size(241, 22);
             this.num_Qty.TabIndex = 77;
             // 
+            // col_batch
+            // 
+            this.col_batch.DataPropertyName = "BatchNo";
+            this.col_batch.HeaderText = "رقم التشغيله";
+            this.col_batch.Name = "col_batch";
+            this.col_batch.ReadOnly = true;
+            // 
+            // col_expiry
+            // 
+            this.col_expiry.DataPropertyName = "ExpiryDate";
+            this.col_expiry.HeaderText = "تاريخ الصلاحيه";
+            this.col_expiry.Name = "col_expiry";
+            this.col_expiry.ReadOnly = true;
+            // 
+            // col_batchQty
+            // 
+            this.col_batchQty.DataPropertyName = "BatchQty";
+            this.col_batchQty.HeaderText = "الكميه";
+            this.col_batchQty.Name = "col_batchQty";
+            this.col_batchQty.ReadOnly = true;
+            // 
             // FrmAdjustStockAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,9 +321,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgrid_batches;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_batch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_expiry;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_batchQty;
         private System.Windows.Forms.DataGridView dgrid_stock;
         private System.Windows.Forms.NumericUpDown num_Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_code;
@@ -331,5 +329,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_StockTypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_stockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_batch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_expiry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_batchQty;
     }
 }
