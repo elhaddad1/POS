@@ -68,6 +68,12 @@ namespace POS.UserInterfaceLayer.BasicData
             FillStokeTypeCBX();
         }
 
+        private void dgrid_stock_SelectionChanged(object sender, EventArgs e)
+        {
+
+            FillBatches();
+        }
+
         public override void btn_Save_Click(object sender, EventArgs e)
         {
             if (Validate())
@@ -124,13 +130,21 @@ namespace POS.UserInterfaceLayer.BasicData
 
         private void FillBatches()
         {
-
-            if (dgrid_stock.SelectedRows.Count == 0)
-                return;
-            int _productStockID = (int)dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value;
-             INVProductStockWrapper _iNVProductStockWrapper = new INVProductStockWrapper();
-            dgrid_batches.AutoGenerateColumns = false;
-            dgrid_batches.DataSource = _iNVProductStockWrapper.GetInventoryStock(_productStockID, null, null, true, true,null);
+            try
+            {
+                dgrid_batches.DataSource = null;
+                if (dgrid_stock.SelectedRows.Count == 0)
+                    return;
+                int _productStockID = (int)dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value;
+                INVProductStockWrapper _iNVProductStockWrapper = new INVProductStockWrapper();
+                dgrid_batches.AutoGenerateColumns = false;
+                var batcheslist = _iNVProductStockWrapper.GetInventoryStock(_productStockID, null, null, true, true, (int)cbx_Store.SelectedValue);
+                dgrid_batches.DataSource = batcheslist;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+            }
         }
 
         private void FillStokeCBX()
@@ -145,8 +159,7 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
             }
         }
 
@@ -162,8 +175,7 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
             }
         }
 
@@ -179,8 +191,7 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
             }
         }
 
@@ -294,5 +305,7 @@ namespace POS.UserInterfaceLayer.BasicData
             return isValid;
         }
         #endregion
+
+
     }
 }
