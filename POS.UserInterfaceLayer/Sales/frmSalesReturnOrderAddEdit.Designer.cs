@@ -54,6 +54,7 @@
             this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,12 +153,15 @@
             // 
             // dgrd_ReturnOrderLines
             // 
+            this.dgrd_ReturnOrderLines.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrd_ReturnOrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrd_ReturnOrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductName,
             this.IsAcceptBatch,
             this.ExpiryDate,
             this.BatchNumber,
+            this.StockType,
             this.TotalQty,
             this.UnitPrice,
             this.Reason});
@@ -310,6 +314,12 @@
             this.BatchNumber.HeaderText = "رقم الشتغيلة";
             this.BatchNumber.Name = "BatchNumber";
             // 
+            // StockType
+            // 
+            this.StockType.HeaderText = "نوع المرتجع";
+            this.StockType.Name = "StockType";
+            this.StockType.Width = 150;
+            // 
             // TotalQty
             // 
             this.TotalQty.HeaderText = "الكمية";
@@ -397,6 +407,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IsAcceptBatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn BatchNumber;
+        private System.Windows.Forms.DataGridViewComboBoxColumn StockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;

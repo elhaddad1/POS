@@ -92,6 +92,8 @@ namespace POS.UserInterfaceLayer.Sales
             dgrid_Result.Size = new Size(800, 200);
             dgrid_Result.DataSource = null;
             dgrid_Result.AutoGenerateColumns = false;
+            dgrid_Result.RowHeadersVisible = false;
+            dgrid_Result.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             addColumnToGrid("", "SalesHeaderID", 20, false);
             addColumnToGrid("مسلسل الفاتورة", "InvoiceNumber", 120, true);
             addColumnToGrid("أسم العميل", "CustomerName", 120, true);

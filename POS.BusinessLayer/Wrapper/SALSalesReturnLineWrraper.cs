@@ -64,6 +64,7 @@ namespace POS.BusinessLayer.Wrapper
                 _sALSalesReturnLine.ExpiryDate = sALSalesReturnLine.ExpiryDate;
                 _sALSalesReturnLine.OriginalSalesLineID = sALSalesReturnLine.OriginalSalesLineID;
                 _sALSalesReturnLine.Reason = sALSalesReturnLine.Reason;
+                _sALSalesReturnLine.StockTypeID = sALSalesReturnLine.StockTypeID;
 
                 _sALSalesReturnLineCollection.Add(_sALSalesReturnLine);
             }
