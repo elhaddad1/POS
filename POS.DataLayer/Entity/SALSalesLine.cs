@@ -122,6 +122,8 @@ namespace POS.DataLayer
         private bool InsertHeader(DatabaseHelper oDatabaseHelper, SALSalesHeader sALSalesHeader, out int pK)
         {
             bool ExecutionState = false;
+            oDatabaseHelper.AddParameter("@InventoryID", sALSalesHeader.InventoryID);
+            
             // Pass the value of '_salesDate' as parameter 'SalesDate' of the stored procedure.
 
             oDatabaseHelper.AddParameter("@SalesDate", sALSalesHeader.SalesDate);
@@ -350,6 +352,9 @@ namespace POS.DataLayer
         {
             bool ExecutionState = false;
             // Pass the value of '_salesHeaderID' as parameter 'SalesHeaderID' of the stored procedure.
+            oDatabaseHelper.AddParameter("@InventoryID", sALSalesHeader.InventoryID);
+            
+            oDatabaseHelper.AddParameter("@SalesHeaderID", sALSalesHeader.SalesHeaderID);
             oDatabaseHelper.AddParameter("@SalesDate", sALSalesHeader.SalesDate);
             // Pass the value of '_customerID' as parameter 'CustomerID' of the stored procedure.
             if (sALSalesHeader.CustomerID != null)

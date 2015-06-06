@@ -62,9 +62,8 @@ namespace POS.UserInterfaceLayer.Sales
         private void num_Remaining_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToDecimal(num_Remaining.Text) < 0)
-            {
                 dtb_LastTimeToPay.Enabled = true;
-            }
+
         }
         private void btn_AddLine_Click(object sender, EventArgs e)
         {
@@ -199,11 +198,13 @@ namespace POS.UserInterfaceLayer.Sales
         }
         private void num_Paied_KeyUp(object sender, KeyEventArgs e)
         {
-            CalculateTotal();
+            if (!string.IsNullOrEmpty(num_Paied.Text))
+                CalculateTotal();
         }
         private void num_OtherPayments_TextChanged(object sender, EventArgs e)
         {
-            CalculateTotal();
+            if (!string.IsNullOrEmpty(num_OtherPayments.Text))
+                CalculateTotal();
         }
         #endregion
 
@@ -371,15 +372,12 @@ namespace POS.UserInterfaceLayer.Sales
             }
             if (Convert.ToInt32(cbx_PaymentType.SelectedValue) == 1)
             {
-                if (Convert.ToInt32(num_Paied.Text) == 0 || string.IsNullOrEmpty(num_Paied.Text))
+                if (string.IsNullOrEmpty(num_Paied.Text)||Convert.ToDecimal(num_Paied.Text) == 0 )
                 {
                     MessageBox.Show("المبلغ المدفوع لايمكن ان يكون صفر فى حالة الدفع كاش");
                     return false;
                 }
             }
-
-
-
             return true;
         }
         private void GetSalesOrderData(int salesHeaderID)
@@ -448,7 +446,7 @@ namespace POS.UserInterfaceLayer.Sales
                         {
                             //List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             //paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", salesHeaderID));
-                           // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            // Utility.Print("SalesOrder.rpt", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -457,9 +455,9 @@ namespace POS.UserInterfaceLayer.Sales
                     {
                         if (_sALSalesLinerWrapper.UpdateCloseSALSalesOrder(_sALSalesHeader, sALSalesLineCollection))
                         {
-                           // List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
-                           // paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
-                           // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            // List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
+                            // paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
+                            // Utility.Print("SalesOrder.rpt", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -470,7 +468,7 @@ namespace POS.UserInterfaceLayer.Sales
                     MessageBox.Show(ex.Message);
                 }
             }
-        
+
         }
 
 
