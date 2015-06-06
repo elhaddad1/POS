@@ -52,7 +52,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(333, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(366, 17);
             // 
             // panl_Footer
             // 
@@ -78,19 +78,19 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(462, 6);
+            this.btn_Add.Location = new System.Drawing.Point(495, 6);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(147, 6);
+            this.btn_Back.Location = new System.Drawing.Point(180, 6);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(357, 6);
+            this.btn_Edit.Location = new System.Drawing.Point(390, 6);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(252, 6);
+            this.btn_Delete.Location = new System.Drawing.Point(285, 6);
             // 
             // cbx_StoreTo
             // 
@@ -155,6 +155,7 @@
             this.btn_Close.TabIndex = 20;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // tbx_OrderSerial
