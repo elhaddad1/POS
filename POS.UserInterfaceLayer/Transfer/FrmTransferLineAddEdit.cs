@@ -44,7 +44,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 {
                     frmAddEditTransferOrder.transferLineCollection.Add(CollectScreenData());
                 }
-                frmAddEditTransferOrder.disableCBX();
+                    frmAddEditTransferOrder.disableCBX();
                 //else
                 //frmAddEditTransferOrder.transferLineCollection.Where(a => a.ProductID == Convert.ToInt32(cbx_Product.SelectedValue)).SingleOrDefault().TotalQty++;
 

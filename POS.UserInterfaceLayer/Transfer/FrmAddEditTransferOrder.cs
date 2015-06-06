@@ -23,6 +23,7 @@ namespace POS.UserInterfaceLayer.Transfer
         public INVTransferLineCollection transferLineCollection;
         private INVTransferHeader _transferHeader;
         private int _transferHeaderID = 0;
+        bool msgShowed = false;
 
         public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch, int transferHeaderID)
         {
@@ -39,6 +40,7 @@ namespace POS.UserInterfaceLayer.Transfer
             {
                 this._transferHeaderID = transferHeaderID;
                 GetTransferOrderData(transferHeaderID);
+                disableCBX();
             }
         }
 
@@ -49,6 +51,11 @@ namespace POS.UserInterfaceLayer.Transfer
             {
                 cbx_StoreFrom.Enabled = false;
                 cbx_StoreTo.Enabled = false;
+                if (!msgShowed)
+                {
+                    msgShowed = true;
+                    MessageBox.Show("لنغيير المخازن يجب حذف الاصناف");
+                }
             }
             else
             {
