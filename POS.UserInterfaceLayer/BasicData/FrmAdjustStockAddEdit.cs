@@ -125,6 +125,8 @@ namespace POS.UserInterfaceLayer.BasicData
         private void FillBatches()
         {
 
+            if (dgrid_stock.SelectedRows.Count == 0)
+                return;
             int _productStockID = (int)dgrid_stock.SelectedRows[0].Cells["col_invProductStock"].Value;
              INVProductStockWrapper _iNVProductStockWrapper = new INVProductStockWrapper();
             dgrid_batches.AutoGenerateColumns = false;
@@ -265,6 +267,7 @@ namespace POS.UserInterfaceLayer.BasicData
                     _adjustStock.CreatedBy = GlobalVariables.CurrentUser.UserID;
                 }
 
+                _adjustStockCollection.Add(_adjustStock);
                 INVAdjustStock _oldAdjustStock = new INVAdjustStock();
                 _oldAdjustStock.ProductID = ProductID;
                 _oldAdjustStock.AdjustReasonID = AdjustReasonID;
