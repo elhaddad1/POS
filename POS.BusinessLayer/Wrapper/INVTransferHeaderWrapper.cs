@@ -48,13 +48,13 @@ namespace POS.BusinessLayer.Wrapper
             return resultList;
         }
 
-        public List<INVTransferHeaderModel> getAllTransferTransaction(INVTransferHeader invtransferHeader)
+        public List<INVTransferHeaderModel> getAllTransferTransaction(INVTransferHeader invtransferHeader, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
             List<INVTransferHeaderModel> resultList = new List<INVTransferHeaderModel>();
             try
             {
-                /*DateTime fromCreationDate = invtransferHeader.CreateDate.Value.Date.AddDays(-1);
-                DateTime toCreationDate = invtransferHeader.CreateDate.Value.Date.AddDays(1);*/
+                DateTime? fromCreationDate = dateFrom!=null?dateFrom:null;
+                DateTime? toCreationDate = toFrom!=null?toFrom:null;
 
                 resultList = (from item in SelectAll()
                               join fromInv in invinventoryService.SelectAll() on item.FromInventoryID equals fromInv.InventoryID
@@ -66,7 +66,7 @@ namespace POS.BusinessLayer.Wrapper
                               (!invtransferHeader.FromInventoryID.HasValue || item.FromInventoryID == invtransferHeader.FromInventoryID)
                               && (!invtransferHeader.ToInventoryID.HasValue || item.ToInventoryID == invtransferHeader.ToInventoryID)
                               && (string.IsNullOrEmpty(invtransferHeader.InvoiceNumber) || item.InvoiceNumber.Contains(invtransferHeader.InvoiceNumber))
-                                  //&& (!invtransferHeader.CreateDate.HasValue || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))
+                              && (invtransferHeader==null || (item.CreateDate > fromCreationDate && item.CreateDate > toCreationDate))
                               )
                               select new INVTransferHeaderModel()
                               {

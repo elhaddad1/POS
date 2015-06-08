@@ -64,26 +64,28 @@ namespace POS.BusinessLayer.Wrapper
             return resultList;
         }
 
-        public List<INVAdjustStock> SearchByCriteria(INVAdjustStock SearchModel)
+        public List<INVAdjustStock> SearchByCriteria(INVAdjustStock SearchModel,DateTime? dateFrom = null,DateTime? toFrom = null)
         {
             List<INVAdjustStock> resultList = new List<INVAdjustStock>();
             try
             {
+                
                 resultList = (from item in SelectAll()
                               join product in productService.SelectAll() on item.ProductID equals product.ProductID
                               join invt in invinventoryService.SelectAll() on item.InventoryID equals invt.InventoryID
                               join aRes in invAdjustStockReasonService.SelectAll() on item.AdjustReasonID equals aRes.AdjustStockReasonID
                               join sType in invStockTypeService.SelectAll() on item.StockTypeID equals sType.StockTypeID
+                              join oldSType in invStockTypeService.SelectAll() on item.OldStockTypeID equals oldSType.StockTypeID
                               join usr in aduserService.SelectAll() on item.CreatedBy equals usr.UserID
                               where 
                               (
-                              string.IsNullOrEmpty(SearchModel.AdjustReasonName) || aRes.AdjustStockreasonName.Contains(SearchModel.AdjustReasonName)
+                              SearchModel.InventoryID == null || item.InventoryID == SearchModel.InventoryID
                               &&
-                              string.IsNullOrEmpty(SearchModel.ProductName) || product.ProductName.Contains(SearchModel.ProductName)
+                              SearchModel.AdjustReasonID == null || item.AdjustReasonID == SearchModel.AdjustReasonID
                               &&
-                              string.IsNullOrEmpty(SearchModel.InventoryName) || invt.InventoryName.Contains(SearchModel.InventoryName)
+                              item.CredateDate >= dateFrom.Value
                               &&
-                              string.IsNullOrEmpty(SearchModel.StockTypeName) || sType.StockTypeName.Contains(SearchModel.StockTypeName)
+                              item.CredateDate <= toFrom.Value
                               )
                               select new INVAdjustStock()
                               {
@@ -100,6 +102,7 @@ namespace POS.BusinessLayer.Wrapper
                                   StockTypeID = item.StockTypeID,
                                   UpdateDate = item.UpdateDate,
                                   UpdatedBy = item.UpdatedBy,
+                                  OldStockTypeName = oldSType.StockTypeName,
                                   StockTypeName = sType.StockTypeName,
                                   InventoryName = invt.InventoryName,
                                   AdjustReasonName = aRes.AdjustStockreasonName

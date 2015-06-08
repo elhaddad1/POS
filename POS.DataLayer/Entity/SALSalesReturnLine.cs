@@ -41,7 +41,7 @@ namespace POS.DataLayer
         #endregion
 
         #region Properties
-
+        public int? StockTypeID { get; set; }
         #endregion
 
         #region Methods (Public)
@@ -225,6 +225,11 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@ExpiryDate", sALSalesReturnLine.ExpiryDate);
             else
                 oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value);
+
+            if (sALSalesReturnLine.StockTypeID != null)
+                oDatabaseHelper.AddParameter("@StockType", sALSalesReturnLine.StockTypeID);
+            else
+                oDatabaseHelper.AddParameter("@StockType", DBNull.Value);
 
             oDatabaseHelper.AddParameter("@SalesReturnHeaderID", salesReturnHeaderID);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);

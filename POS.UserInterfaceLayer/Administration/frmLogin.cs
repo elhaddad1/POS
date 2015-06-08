@@ -41,7 +41,9 @@ namespace POS.UserInterfaceLayer.Administration
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "حدث خطأ برجاء الرجوع لمصمم البرنامج");
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
+                
             }
         }
         private void btn_Back_Click(object sender, EventArgs e)

@@ -23,6 +23,7 @@ namespace POS.UserInterfaceLayer.Transfer
         public INVTransferLineCollection transferLineCollection;
         private INVTransferHeader _transferHeader;
         private int _transferHeaderID = 0;
+        bool msgShowed = false;
 
         public FrmAddEditTransferOrder(FrmTransferOrderSearch frmTransferOrderSearch, int transferHeaderID)
         {
@@ -39,11 +40,29 @@ namespace POS.UserInterfaceLayer.Transfer
             {
                 this._transferHeaderID = transferHeaderID;
                 GetTransferOrderData(transferHeaderID);
+                disableCBX();
             }
         }
 
         #region -- Events
-
+        public void disableCBX()
+        {
+            if (dgrd_OrderLines.RowCount > 0)
+            {
+                cbx_StoreFrom.Enabled = false;
+                cbx_StoreTo.Enabled = false;
+                if (!msgShowed)
+                {
+                    msgShowed = true;
+                    MessageBox.Show("لنغيير المخازن يجب حذف الاصناف");
+                }
+            }
+            else
+            {
+                cbx_StoreFrom.Enabled = true;
+                cbx_StoreTo.Enabled = true;
+            }
+        }
         private void num_Remaining_Leave(object sender, EventArgs e)
         {
 
@@ -78,6 +97,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 transferLineCollection.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
                 //dgrd_OrderLines.Rows.RemoveAt(dgrd_OrderLines.SelectedRows[0].Index);
                 BindGrid();
+                disableCBX();
 
             }
             else
@@ -90,6 +110,7 @@ namespace POS.UserInterfaceLayer.Transfer
             {
                 transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty++;
                 BindGrid();
+                disableCBX();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -105,6 +126,7 @@ namespace POS.UserInterfaceLayer.Transfer
                     transferLineCollection.Where(a => a.ProductID == (int?)dgrd_OrderLines.SelectedRows[0].Cells["ProductID"].Value).SingleOrDefault().Qty--;
 
                 BindGrid();
+                disableCBX();
             }
             else
                 MessageBox.Show("برجاء أختيار عنصر من القائمه");
@@ -134,7 +156,7 @@ namespace POS.UserInterfaceLayer.Transfer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                    MessageBox.Show(string.Concat(ex.Message, "حدث خطأ برجاء المحاولة مرة آخرى"));
                 }
             }
         }
@@ -291,6 +313,7 @@ namespace POS.UserInterfaceLayer.Transfer
             return true;
         }
         #endregion
+
 
 
 

@@ -37,13 +37,6 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_InvoiceDate = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +50,14 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -152,12 +153,15 @@
             // 
             // dgrd_ReturnOrderLines
             // 
+            this.dgrd_ReturnOrderLines.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrd_ReturnOrderLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrd_ReturnOrderLines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductName,
             this.IsAcceptBatch,
             this.ExpiryDate,
             this.BatchNumber,
+            this.StockType,
             this.TotalQty,
             this.UnitPrice,
             this.Reason});
@@ -168,48 +172,6 @@
             this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(686, 187);
             this.dgrd_ReturnOrderLines.TabIndex = 32;
             this.dgrd_ReturnOrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_ReturnOrderLines_CellValueChanged);
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "الصنف";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 210;
-            // 
-            // IsAcceptBatch
-            // 
-            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
-            this.IsAcceptBatch.Name = "IsAcceptBatch";
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحية yyyy-mm-dd";
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.Width = 150;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "رقم الشتغيلة";
-            this.BatchNumber.Name = "BatchNumber";
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "السعر المباع به";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 120;
-            // 
-            // Reason
-            // 
-            this.Reason.HeaderText = "سبب الرجوع";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 300;
             // 
             // label3
             // 
@@ -327,6 +289,56 @@
             this.label12.TabIndex = 50;
             this.label12.Text = "المخزن";
             // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "الصنف";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 210;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            this.IsAcceptBatch.ReadOnly = true;
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية yyyy-mm-dd";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.Width = 150;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم الشتغيلة";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // StockType
+            // 
+            this.StockType.HeaderText = "نوع المرتجع";
+            this.StockType.Name = "StockType";
+            this.StockType.Width = 150;
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "السعر المباع به";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Width = 120;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "سبب الرجوع";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 300;
+            // 
             // frmSalesReturnOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,14 +401,15 @@
         private System.Windows.Forms.TextBox tbx_SalesMan;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_Search;
+        private System.Windows.Forms.ComboBox cbx_Inventory;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewComboBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsAcceptBatch;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpiryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn BatchNumber;
+        private System.Windows.Forms.DataGridViewComboBoxColumn StockType;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reason;
-        private System.Windows.Forms.ComboBox cbx_Inventory;
-        private System.Windows.Forms.Label label12;
     }
 }

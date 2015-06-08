@@ -37,12 +37,34 @@
             this.btn_Close = new System.Windows.Forms.Button();
             this.tbx_OrderSerial = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtp_toDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fromDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.panl_Header.SuspendLayout();
+            this.panl_Footer.SuspendLayout();
             this.grb_search.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // panl_Header
             // 
+            this.panl_Header.Size = new System.Drawing.Size(698, 47);
+            // 
+            // lbl_FormHeader
+            // 
+            this.lbl_FormHeader.Location = new System.Drawing.Point(399, 17);
+            // 
+            // panl_Footer
+            // 
+            this.panl_Footer.Location = new System.Drawing.Point(0, 333);
+            this.panl_Footer.Size = new System.Drawing.Size(698, 70);
+            // 
+            // grb_search
+            // 
+            this.grb_search.Controls.Add(this.label7);
+            this.grb_search.Controls.Add(this.dtp_toDate);
+            this.grb_search.Controls.Add(this.dtp_fromDate);
+            this.grb_search.Controls.Add(this.label6);
             this.grb_search.Controls.Add(this.tbx_OrderSerial);
             this.grb_search.Controls.Add(this.label1);
             this.grb_search.Controls.Add(this.btn_Close);
@@ -52,9 +74,27 @@
             this.grb_search.Controls.Add(this.cbx_StoreFrom);
             this.grb_search.Controls.Add(this.label3);
             this.grb_search.Controls.Add(this.label2);
+            this.grb_search.Size = new System.Drawing.Size(698, 128);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Location = new System.Drawing.Point(528, 6);
+            // 
+            // btn_Back
+            // 
+            this.btn_Back.Location = new System.Drawing.Point(213, 6);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Location = new System.Drawing.Point(423, 6);
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(318, 6);
             // 
             // cbx_StoreTo
             // 
+            this.cbx_StoreTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbx_StoreTo.FormattingEnabled = true;
             this.cbx_StoreTo.Location = new System.Drawing.Point(349, 13);
             this.cbx_StoreTo.Name = "cbx_StoreTo";
@@ -63,6 +103,7 @@
             // 
             // cbx_StoreFrom
             // 
+            this.cbx_StoreFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbx_StoreFrom.FormattingEnabled = true;
             this.cbx_StoreFrom.Location = new System.Drawing.Point(349, 41);
             this.cbx_StoreFrom.Name = "cbx_StoreFrom";
@@ -71,6 +112,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(600, 44);
             this.label3.Name = "label3";
@@ -80,6 +122,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(600, 21);
             this.label2.Name = "label2";
@@ -116,10 +159,12 @@
             this.btn_Close.TabIndex = 20;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // tbx_OrderSerial
             // 
+            this.tbx_OrderSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbx_OrderSerial.Location = new System.Drawing.Point(349, 71);
             this.tbx_OrderSerial.Name = "tbx_OrderSerial";
             this.tbx_OrderSerial.Size = new System.Drawing.Size(241, 22);
@@ -127,12 +172,53 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(616, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 21;
             this.label1.Text = "مسلسل الفاتورة";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(340, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 16);
+            this.label7.TabIndex = 82;
+            this.label7.Text = "الى";
+            // 
+            // dtp_toDate
+            // 
+            this.dtp_toDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_toDate.Location = new System.Drawing.Point(93, 100);
+            this.dtp_toDate.Name = "dtp_toDate";
+            this.dtp_toDate.RightToLeftLayout = true;
+            this.dtp_toDate.Size = new System.Drawing.Size(241, 22);
+            this.dtp_toDate.TabIndex = 81;
+            // 
+            // dtp_fromDate
+            // 
+            this.dtp_fromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fromDate.Location = new System.Drawing.Point(367, 99);
+            this.dtp_fromDate.Name = "dtp_fromDate";
+            this.dtp_fromDate.RightToLeftLayout = true;
+            this.dtp_fromDate.Size = new System.Drawing.Size(241, 22);
+            this.dtp_fromDate.TabIndex = 80;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(614, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 16);
+            this.label6.TabIndex = 79;
+            this.label6.Text = "الفتره      من";
             // 
             // FrmTransferOrderSearch
             // 
@@ -141,6 +227,7 @@
             this.Name = "FrmTransferOrderSearch";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
+            this.panl_Footer.ResumeLayout(false);
             this.grb_search.ResumeLayout(false);
             this.grb_search.PerformLayout();
             this.ResumeLayout(false);
@@ -158,6 +245,10 @@
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.TextBox tbx_OrderSerial;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtp_toDate;
+        private System.Windows.Forms.DateTimePicker dtp_fromDate;
+        private System.Windows.Forms.Label label6;
 
     }
 }

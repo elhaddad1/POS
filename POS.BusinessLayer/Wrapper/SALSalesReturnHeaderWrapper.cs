@@ -41,8 +41,42 @@ namespace POS.BusinessLayer.Wrapper
 
         public VSALSalesOrderCollection VSALSalesOrder_SelectOneByInvoiceNumber(string InvoiceNumber)
         {
-            vSALSalesOrderService = new VSALSalesOrderService();
-            return vSALSalesOrderService.SelectByField("InvoiceNumber", InvoiceNumber, null, DataLayer.TypeOperation.Equal);
+            VSALSalesOrderCollection vSALSalesOrderCollection = new VSALSalesOrderCollection();
+
+            VSALSalesOrder _vSALSalesOrderWCF = new VSALSalesOrder();
+            foreach (POS.DataLayer.VSALSalesOrder _vSALSalesOrder in POS.DataLayer.VSALSalesOrder.SelectByInvoiceNumber("InvoiceNumber", InvoiceNumber, null, DataLayer.TypeOperation.Equal))
+            {
+                _vSALSalesOrderWCF = new VSALSalesOrder();
+
+                _vSALSalesOrderWCF.CustomerID = _vSALSalesOrder.CustomerID;
+                _vSALSalesOrderWCF.CustomerName = _vSALSalesOrder.CustomerName;
+                _vSALSalesOrderWCF.Qty = _vSALSalesOrder.Qty;
+                _vSALSalesOrderWCF.SalesLineID = _vSALSalesOrder.SalesLineID;
+                _vSALSalesOrderWCF.TotalQty = _vSALSalesOrder.TotalQty;
+                _vSALSalesOrderWCF.UnitPrice = _vSALSalesOrder.UnitPrice;
+                _vSALSalesOrderWCF.BatchNumber = _vSALSalesOrder.BatchNumber;
+                _vSALSalesOrderWCF.ExpiryDate = _vSALSalesOrder.ExpiryDate;
+                _vSALSalesOrderWCF.TaxValue = _vSALSalesOrder.TaxValue;
+                _vSALSalesOrderWCF.SalesHeaderID = _vSALSalesOrder.SalesHeaderID;
+                _vSALSalesOrderWCF.SalesDate = _vSALSalesOrder.SalesDate;
+                _vSALSalesOrderWCF.InvoiceNumber = _vSALSalesOrder.InvoiceNumber;
+                _vSALSalesOrderWCF.InvoiceDate = _vSALSalesOrder.InvoiceDate;
+                _vSALSalesOrderWCF.PaymentTypeID = _vSALSalesOrder.PaymentTypeID;
+                _vSALSalesOrderWCF.TotalDiscountRatio = _vSALSalesOrder.TotalDiscountRatio;
+                _vSALSalesOrderWCF.TaxTypeName = _vSALSalesOrder.TaxTypeName;
+                _vSALSalesOrderWCF.IsClosed = _vSALSalesOrder.IsClosed;
+                _vSALSalesOrderWCF.IsVoid = _vSALSalesOrder.IsVoid;
+                _vSALSalesOrderWCF.FinalPrice = _vSALSalesOrder.FinalPrice;
+                _vSALSalesOrderWCF.ChequeNumber = _vSALSalesOrder.ChequeNumber;
+                _vSALSalesOrderWCF.ProductName = _vSALSalesOrder.ProductName;
+                _vSALSalesOrderWCF.ProductCode = _vSALSalesOrder.ProductCode;
+                _vSALSalesOrderWCF.IsAcceptBatch = _vSALSalesOrder.IsAcceptBatch;
+                _vSALSalesOrderWCF.UserFullName = _vSALSalesOrder.UserFullName;
+                _vSALSalesOrderWCF.ProductID = _vSALSalesOrder.ProductID;
+
+                vSALSalesOrderCollection.Add(_vSALSalesOrderWCF);
+            }
+            return vSALSalesOrderCollection;
         }
 
         public VSALSalesOrderCollection VSALSalesOrder_SelectOne(int SalesHeaderID)

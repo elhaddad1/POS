@@ -41,6 +41,7 @@ namespace POS.BusinessLayer.Wrapper
             }
             return iNVProductStockCollection;
         }
+       
         public bool SaveProductStockLine(INVProductStockCollection iNVProductStockCollection)
         {
             foreach (INVProductStock _iNVProductStockWCF in iNVProductStockCollection)

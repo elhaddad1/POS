@@ -16,6 +16,8 @@ namespace POS.BusinessLayer
 	[DataContract(Namespace = "POS.BusinessLayer")]
 	public class SALSalesReturnLine : SALSalesReturnLineBase
 	{
+        [DataMember]
+        public int? StockTypeID { get; set; }
 	}
 }
 			

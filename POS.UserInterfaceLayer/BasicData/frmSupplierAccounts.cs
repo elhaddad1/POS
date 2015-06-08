@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace POS.UserInterfaceLayer.BasicData
@@ -63,6 +64,13 @@ namespace POS.UserInterfaceLayer.BasicData
                 supplierAccountList = _supplierAccountWrapper.GetSupplierAccounts(SupplierId.Value);
 
             dgrid_Result.DataSource = supplierAccountList;
+
+            if (supplierAccountList.Count > 0)
+            {
+                lbl_TotalAmount.Text = supplierAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                lbl_Paid.Text = supplierAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                lbl_Remaining.Text = supplierAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+            }
 
         }
 

@@ -24,7 +24,7 @@ namespace POS.UserInterfaceLayer.Transfer
             InitiateGrid(null);
         }
 
-        public void InitiateGrid(INVTransferHeader invtransferHeader)
+        public void InitiateGrid(INVTransferHeader invtransferHeader,DateTime? dateFrom = null,DateTime? toFrom = null)
         {
             dgrid_Result.Columns.Clear();
 
@@ -53,7 +53,7 @@ namespace POS.UserInterfaceLayer.Transfer
             if (invtransferHeader == null)
                 transferList = _invtransferHeaderWrapper.getAllTransferTransaction();
             else
-                transferList = _invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader);
+                transferList = _invtransferHeaderWrapper.getAllTransferTransaction(invtransferHeader,dateFrom,toFrom);
 
             dgrid_Result.DataSource = transferList;
 

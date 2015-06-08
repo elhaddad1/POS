@@ -50,8 +50,8 @@ namespace POS.DataLayer
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
             oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
-            oDatabaseHelper.AddParameter("@FromDate", FromDate);
-            oDatabaseHelper.AddParameter("@DateTo", ToDate);
+            oDatabaseHelper.AddParameter("@FromDate", FromDate.Date.ToShortDateString());
+            oDatabaseHelper.AddParameter("@DateTo", ToDate.Date.ToShortDateString());
             oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
