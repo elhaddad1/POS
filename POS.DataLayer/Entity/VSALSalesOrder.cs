@@ -148,8 +148,11 @@ namespace POS.DataLayer
             {
                 obj.ProductCode = rdr.GetString(rdr.GetOrdinal(VSALSalesOrderFields.ProductCode));
             }
+            if (!rdr.IsDBNull(rdr.GetOrdinal(VSALSalesOrderFields.IsAcceptBatch)))
+            {
+                obj.IsAcceptBatch = rdr.GetBoolean(rdr.GetOrdinal(VSALSalesOrderFields.IsAcceptBatch));
+            }
 
-            obj.IsAcceptBatch = rdr.GetBoolean(rdr.GetOrdinal(VSALSalesOrderFields.IsAcceptBatch));
             obj.UserFullName = rdr.GetString(rdr.GetOrdinal(VSALSalesOrderFields.UserFullName));
             obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(VSALSalesOrderFields.ProductID));
 

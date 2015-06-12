@@ -341,7 +341,7 @@
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(152, 468);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(195, 468);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 16;
@@ -353,19 +353,20 @@
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(352, 465);
+            this.btn_Save.Location = new System.Drawing.Point(349, 468);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(99, 55);
             this.btn_Save.TabIndex = 17;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(457, 465);
+            this.btn_Cancel.Location = new System.Drawing.Point(409, 468);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 18;
@@ -476,7 +477,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(252, 468);
+            this.button1.Location = new System.Drawing.Point(302, 468);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 55);
             this.button1.TabIndex = 27;

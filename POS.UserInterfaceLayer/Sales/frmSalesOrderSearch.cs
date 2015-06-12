@@ -38,25 +38,25 @@ namespace POS.UserInterfaceLayer.Sales
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
         {
-            if (dgrid_Result.SelectedRows.Count != 0)
-                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
-                {
-                    frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
-                    frm.ShowDialog();
-                }
-                else
-                    MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
+            //if (dgrid_Result.SelectedRows.Count != 0)
+            //    if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+            //    {
+            //        frmSalesOrderAddEdit frm = new frmSalesOrderAddEdit(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+            //        frm.ShowDialog();
+            //    }
+            //    else
+            //        MessageBox.Show("لا يمكنك تعديل هذه الفاتوره حيث انها مغلقه");
         }
         public override void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (dgrid_Result.SelectedRows.Count != 0)
-                if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
-                {
-                    sALSalesHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
-                    BindGrid();
-                }
-                else
-                    MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
+            //if (dgrid_Result.SelectedRows.Count != 0)
+            //    if (!Convert.ToBoolean(dgrid_Result.SelectedRows[0].Cells["IsClosed"].Value))
+            //    {
+            //        sALSalesHeaderWrapper.DeleteOrder(Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value));
+            //        BindGrid();
+            //    }
+            //    else
+            //        MessageBox.Show("لا يمكنك مسح هذه الفاتوره حيث انها مغلقه");
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {

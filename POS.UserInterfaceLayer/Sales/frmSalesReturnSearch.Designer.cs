@@ -90,7 +90,7 @@
             // btn_Close
             // 
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(193, 4);
+            this.btn_Close.Location = new System.Drawing.Point(319, 4);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(115, 63);
             this.btn_Close.TabIndex = 5;
@@ -101,7 +101,7 @@
             // btn_Add
             // 
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(566, 4);
+            this.btn_Add.Location = new System.Drawing.Point(442, 4);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(115, 63);
             this.btn_Add.TabIndex = 0;
@@ -118,12 +118,13 @@
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "حذف";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Visible = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Back
             // 
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(72, 4);
+            this.btn_Back.Location = new System.Drawing.Point(196, 4);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(115, 63);
             this.btn_Back.TabIndex = 2;
@@ -140,6 +141,7 @@
             this.btn_Edit.TabIndex = 4;
             this.btn_Edit.Text = "تعديل";
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Visible = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // dgrid_SalesReturnSearch

@@ -39,6 +39,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.IsDeleted = false;
             _sALSalesHeader.DeletedBy = null;
             _sALSalesHeader.DeletDate = null;
+            _sALSalesHeader.ChequeNumber = sALSalesHeader.ChequeNumber;
 
             POS.DataLayer.SALSalesLineCollection _sALSalesLineCollection = new DataLayer.SALSalesLineCollection();
             foreach (SALSalesLine sALSalesLine in sALSalesLineCollection)
@@ -92,6 +93,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.IsDeleted = false;
             _sALSalesHeader.DeletedBy = null;
             _sALSalesHeader.DeletDate = null;
+            _sALSalesHeader.ChequeNumber = sALSalesHeader.ChequeNumber;
 
             POS.DataLayer.SALSalesLineCollection _sALSalesLineCollection = new DataLayer.SALSalesLineCollection();
             foreach (SALSalesLine sALSalesLine in sALSalesLineCollection)
@@ -146,6 +148,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.IsDeleted = false;
             _sALSalesHeader.DeletedBy = null;
             _sALSalesHeader.DeletDate = null;
+            _sALSalesHeader.ChequeNumber = sALSalesHeader.ChequeNumber;
 
             POS.DataLayer.SALSalesLineCollection _sALSalesLineCollection = new DataLayer.SALSalesLineCollection();
             foreach (SALSalesLine sALSalesLine in sALSalesLineCollection)
@@ -200,6 +203,7 @@ namespace POS.BusinessLayer.Wrapper
             _sALSalesHeader.IsDeleted = false;
             _sALSalesHeader.DeletedBy = null;
             _sALSalesHeader.DeletDate = null;
+            _sALSalesHeader.ChequeNumber = sALSalesHeader.ChequeNumber;
 
             POS.DataLayer.SALSalesLineCollection _sALSalesLineCollection = new DataLayer.SALSalesLineCollection();
             foreach (SALSalesLine sALSalesLine in sALSalesLineCollection)

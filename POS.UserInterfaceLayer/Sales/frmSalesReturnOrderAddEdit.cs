@@ -82,15 +82,19 @@ namespace POS.UserInterfaceLayer.Sales
             CollectLinesData();
             if (sALSalesReturnHeader.SlaesReturnHeaderID == null)
             {
-                sALSalesReturnLineWrraper.SaveCloseSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
-                MessageBox.Show("تمت العملية بنجاح");
-                this.Close();
+                if (sALSalesReturnLineWrraper.SaveCloseSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection) != -1)
+                {
+                    MessageBox.Show("تمت العملية بنجاح");
+                    this.Close();
+                }
             }
             else
             {
-                sALSalesReturnLineWrraper.UpdateCloseSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
-                MessageBox.Show("تمت العملية بنجاح");
-                this.Close();
+                if (sALSalesReturnLineWrraper.UpdateCloseSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection))
+                {
+                    MessageBox.Show("تمت العملية بنجاح");
+                    this.Close();
+                }
             }
         }
 
@@ -100,15 +104,19 @@ namespace POS.UserInterfaceLayer.Sales
             CollectLinesData();
             if (sALSalesReturnHeader.SlaesReturnHeaderID == null)
             {
-                sALSalesReturnLineWrraper.SaveSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
-                MessageBox.Show("تمت العملية بنجاح");
-                this.Close();
+                if (sALSalesReturnLineWrraper.SaveSALSalesReturnOrder(sALSalesReturnHeader, sALSalesReturnLineCollection) != -1)
+                {
+                    MessageBox.Show("تمت العملية بنجاح");
+                    this.Close();
+                }
             }
             else
             {
-                sALSalesReturnLineWrraper.UpdateSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection);
-                MessageBox.Show("تمت العملية بنجاح");
-                this.Close();
+                if (sALSalesReturnLineWrraper.UpdateSALSalesOrder(sALSalesReturnHeader, sALSalesReturnLineCollection))
+                {
+                    MessageBox.Show("تمت العملية بنجاح");
+                    this.Close();
+                }
             }
         }
 
@@ -119,79 +127,95 @@ namespace POS.UserInterfaceLayer.Sales
 
         private void dgrd_ReturnOrderLines_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-
-            if (e.RowIndex != -1 && (e.ColumnIndex == senderGrid.Columns["TotalQty"].Index /*|| e.ColumnIndex == senderGrid.Columns["UnitPrice"].Index*/) && !string.IsNullOrEmpty(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value.ToString()))
+            try
             {
-                if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
+
+                var senderGrid = (DataGridView)sender;
+
+                if (e.RowIndex != -1 && (e.ColumnIndex == senderGrid.Columns["TotalQty"].Index /*|| e.ColumnIndex == senderGrid.Columns["UnitPrice"].Index*/) && !string.IsNullOrEmpty(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value.ToString()))
                 {
-                    MessageBox.Show("أختر صنف أولا");
-                    return;
+                    if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
+                    {
+                        MessageBox.Show("أختر صنف أولا");
+                        return;
+                    }
+                    if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["StockType"].Value) == -1)
+                    {
+                        MessageBox.Show("أختر نوع مرتجع أولا");
+                        return;
+                    }
+
+
+                    VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
+                    if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value) > vSALSalesOrder.TotalQty)
+                    {
+                        MessageBox.Show("الكمية المرتجعه اكبر من الكميه المدخله فى الفاتوره الاصليه");
+                        return;
+                    }
+
+                    if (senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value != null && senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value != null)
+                        tbx_Total.Text = (CalculateTotal(Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value) * Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value))).ToString();
+                    else
+                        return;
+
                 }
 
-                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
-                if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value) > vSALSalesOrder.TotalQty)
+                if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ProductName"].Index)
                 {
-                    MessageBox.Show("الكمية المرتجعه اكبر من الكميه المدخله فى الفاتوره الاصليه");
-                    return;
+                    VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
+                    if (vSALSalesOrder == null)
+                    {
+                        MessageBox.Show("هذا الصنف غير موجود بالفاتورة الاصليه");
+                        senderGrid.Rows[e.RowIndex].ErrorText = "هذا الصنف غير موجود بالفاتورة الاصليه";
+                        //senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value = null;
+                        senderGrid.Rows[e.RowIndex].Cells["ProductName"].Style.BackColor = Color.Red;
+                        return;
+                    }
+
+                    BDProductPrimaryKey pk = new BDProductPrimaryKey();
+                    pk.ProductID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value);
+
+                    BDProduct _product = bDProductWrapper.SelectOne(pk);
+                    senderGrid.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
+
+                    if (_product.IsAcceptBatch == true)
+                    {
+                        senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false;
+                        senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = false;
+                    }
+                    else
+                    {
+                        senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = true;
+                        senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true;
+                    }
+                    senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value = vSALSalesOrder.FinalPrice;
                 }
 
-                if (senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value != null && senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value != null)
-                    tbx_Total.Text = (CalculateTotal(Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value) * Convert.ToDouble(senderGrid.Rows[e.RowIndex].Cells["TotalQty"].Value))).ToString();
-                else
-                    return;
-
+                if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ExpiryDate"].Index)
+                {
+                    if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
+                    {
+                        MessageBox.Show("أختر صنف أولا");
+                        return;
+                    }
+                    DateTime result;
+                    if (!DateTime.TryParse(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value.ToString(), out result))
+                    {
+                        MessageBox.Show("صيغة تاريخ الصلاحية غير صحيحة لابد ان تكون (يوم -شهر -سنة)");
+                        senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.Red;
+                        senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value = "";
+                    }
+                    else
+                    {
+                        senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.White;
+                    }
+                }
             }
-
-            if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ProductName"].Index)
+            catch (Exception ex)
             {
-                VSALSalesOrder vSALSalesOrder = vSALSalesOrderCollection.Where(a => a.ProductID == Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value)).SingleOrDefault();
-                if (vSALSalesOrder == null)
-                {
-                    MessageBox.Show("هذا الصنف غير موجود بالفاتورة الاصليه");
-                    senderGrid.Rows[e.RowIndex].ErrorText = "هذا الصنف غير موجود بالفاتورة الاصليه";
-                    //senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value = null;
-                    senderGrid.Rows[e.RowIndex].Cells["ProductName"].Style.BackColor = Color.Red;
-                    return;
-                }
 
-                BDProductPrimaryKey pk = new BDProductPrimaryKey();
-                pk.ProductID = Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value);
-
-                BDProduct _product = bDProductWrapper.SelectOne(pk);
-                senderGrid.Rows[e.RowIndex].Cells["IsAcceptBatch"].Value = _product.IsAcceptBatch;
-
-                if (_product.IsAcceptBatch == true)
-                {
-                    senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = false;
-                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = false;
-                }
-                else
-                {
-                    senderGrid.Rows[e.RowIndex].Cells["BatchNumber"].ReadOnly = true;
-                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].ReadOnly = true;
-                }
-                senderGrid.Rows[e.RowIndex].Cells["UnitPrice"].Value = vSALSalesOrder.FinalPrice;
-            }
-
-            if (e.RowIndex != -1 && e.ColumnIndex == senderGrid.Columns["ExpiryDate"].Index)
-            {
-                if (Convert.ToInt32(senderGrid.Rows[e.RowIndex].Cells["ProductName"].Value) == -1)
-                {
-                    MessageBox.Show("أختر صنف أولا");
-                    return;
-                }
-                DateTime result;
-                if (!DateTime.TryParse(senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value.ToString(), out result))
-                {
-                    MessageBox.Show("صيغة تاريخ الصلاحية غير صحيحة لابد ان تكون (يوم -شهر -سنة)");
-                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.Red;
-                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Value = "";
-                }
-                else
-                {
-                    senderGrid.Rows[e.RowIndex].Cells["ExpiryDate"].Style.BackColor = Color.White;
-                }
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -257,7 +281,8 @@ namespace POS.UserInterfaceLayer.Sales
                     _sALSalesReturnLine.BatchNumber = vSALSalesOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null;
                     _sALSalesReturnLine.ExpiryDate = vSALSalesOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null;
                     _sALSalesReturnLine.Reason = row.Cells["Reason"].Value != null ? row.Cells["Reason"].Value.ToString() : null;
-                    _sALSalesReturnLine.StockTypeID = Convert.ToInt32(row.Cells["ProductName"].Value);
+                    _sALSalesReturnLine.StockTypeID = Convert.ToInt32(row.Cells["StockType"].Value);
+                    sALSalesReturnLineCollection.Add(_sALSalesReturnLine);
                 }
                 //sALSalesReturnLineCollection.Add(new SALSalesReturnLine()
                 //                      {
@@ -265,8 +290,10 @@ namespace POS.UserInterfaceLayer.Sales
                 //                          Qty = Convert.ToDecimal(row.Cells["TotalQty"].Value),
                 //                          BatchNumber = vSALSalesOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null,
                 //                          ExpiryDate = vSALSalesOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null,
-                //                          Reason = row.Cells["Reason"].Value.ToString()
+                //                          Reason = row.Cells["Reason"].Value.ToString(),
+
                 //                      });
+
 
                 else
                 {

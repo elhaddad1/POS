@@ -416,18 +416,21 @@ namespace POS.UserInterfaceLayer.Sales
                     txt_ChequeNumber.Visible = false;
                     dtb_LastTimeToPay.Visible = false;
                     lblPaymentLable.Text = "";
+                    num_Paied.Enabled = true;
                 }
                 if (value == 2)
                 {
                     txt_ChequeNumber.Visible = false;
                     dtb_LastTimeToPay.Visible = true;
                     lblPaymentLable.Text = "اخر ميعاد للدفع";
+                    num_Paied.Enabled = true;
                 }
                 if (value == 3)
                 {
                     txt_ChequeNumber.Visible = true;
                     dtb_LastTimeToPay.Visible = false;
                     lblPaymentLable.Text = "رقم الشيك";
+                    num_Paied.Enabled = false;
                 }
             }
         }
