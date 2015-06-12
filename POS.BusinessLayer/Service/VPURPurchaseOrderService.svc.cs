@@ -149,7 +149,7 @@ namespace POS.BusinessLayer
 		public VPURPurchaseOrderCollection SelectByField(string field, object fieldValue, object fieldValue2, TypeOperation typeOperation)
 		{
 			VPURPurchaseOrderCollection vPURPurchaseOrderCollection = new VPURPurchaseOrderCollection();
-			foreach (POS.DataLayer.VPURPurchaseOrder _vPURPurchaseOrder in POS.DataLayer.VPURPurchaseOrderBase.SelectByField(field, fieldValue, fieldValue2, typeOperation))
+			foreach (POS.DataLayer.VPURPurchaseOrder _vPURPurchaseOrder in POS.DataLayer.VPURPurchaseOrder.SelectByField(field, fieldValue, fieldValue2, typeOperation))
 			{
 				_vPURPurchaseOrderWCF = new VPURPurchaseOrder();
 				

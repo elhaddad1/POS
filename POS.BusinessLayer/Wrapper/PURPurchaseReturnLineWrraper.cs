@@ -52,7 +52,7 @@ namespace POS.BusinessLayer.Wrapper
             _pURPurchaseReturnHeader.DeleteDate = null;
             _pURPurchaseReturnHeader.OriginalHeaderID = pURPurchaseReturnHeader.OriginalHeaderID;
             _pURPurchaseReturnHeader.ReturnDate = pURPurchaseReturnHeader.ReturnDate;
-
+            _pURPurchaseReturnHeader.ReturnMoney = pURPurchaseReturnHeader.ReturnMoney;
             POS.DataLayer.PURPurchaseReturnLineCollection _pURPurchaseReturnLineCollection = new DataLayer.PURPurchaseReturnLineCollection();
             foreach (PURPurchaseReturnLine pURPurchaseReturnLine in pURPurchaseReturnLineCollection)
             {

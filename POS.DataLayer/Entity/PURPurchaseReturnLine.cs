@@ -163,6 +163,11 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@IsVoid", pURPurchaseReturnHeader.IsVoid);
             else
                 oDatabaseHelper.AddParameter("@IsVoid", DBNull.Value);
+
+            if (pURPurchaseReturnHeader.ReturnMoney != null)
+                oDatabaseHelper.AddParameter("@ReturnMoney", pURPurchaseReturnHeader.ReturnMoney);
+            else
+                oDatabaseHelper.AddParameter("@ReturnMoney", DBNull.Value);
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -178,7 +183,7 @@ namespace POS.DataLayer
             }
             return ExecutionState;
         }
-        private bool InsertDetails(DatabaseHelper oDatabaseHelper, PURPurchaseReturnLine pURPurchaseReturnLine, int salesReturnHeaderID)
+        private bool InsertDetails(DatabaseHelper oDatabaseHelper, PURPurchaseReturnLine pURPurchaseReturnLine, int purchaseReturnHeaderID)
         {
             bool ExecutionState = false;
             // Pass the value of '_qty' as parameter 'Qty' of the stored procedure.
@@ -212,8 +217,8 @@ namespace POS.DataLayer
             else
                 oDatabaseHelper.AddParameter("@ExpiryDate", DBNull.Value);
             // Pass the value of '_salesReturnHeaderID' as parameter 'PurchaseReturnHeaderID' of the stored procedure.
-            if (pURPurchaseReturnLine.PurchaseReturnHeaderID != null)
-                oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", salesReturnHeaderID);
+            if (purchaseReturnHeaderID != null)
+                oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", purchaseReturnHeaderID);
             else
                 oDatabaseHelper.AddParameter("@PurchaseReturnHeaderID", DBNull.Value);
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
