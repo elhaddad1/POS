@@ -38,6 +38,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgrid_stock = new System.Windows.Forms.DataGridView();
+            this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_isAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgrid_batches = new System.Windows.Forms.DataGridView();
             this.col_batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_expiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +51,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_invProductStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_stockType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_isAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grb_Search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_batches)).BeginInit();
@@ -177,6 +177,54 @@
             this.dgrid_stock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_stock_CellContentClick);
             this.dgrid_stock.SelectionChanged += new System.EventHandler(this.dgrid_stock_SelectionChanged);
             // 
+            // col_code
+            // 
+            this.col_code.DataPropertyName = "ProductCode";
+            this.col_code.HeaderText = "كود المنتج";
+            this.col_code.Name = "col_code";
+            this.col_code.ReadOnly = true;
+            // 
+            // col_invProductStock
+            // 
+            this.col_invProductStock.DataPropertyName = "ProductStockID";
+            this.col_invProductStock.HeaderText = "Column1";
+            this.col_invProductStock.Name = "col_invProductStock";
+            this.col_invProductStock.ReadOnly = true;
+            this.col_invProductStock.Visible = false;
+            // 
+            // col_name
+            // 
+            this.col_name.DataPropertyName = "ProductName";
+            this.col_name.HeaderText = "اسم المنتج";
+            this.col_name.Name = "col_name";
+            this.col_name.ReadOnly = true;
+            this.col_name.Width = 200;
+            // 
+            // col_stockType
+            // 
+            this.col_stockType.DataPropertyName = "StockType";
+            this.col_stockType.HeaderText = "نوع المخزون";
+            this.col_stockType.Name = "col_stockType";
+            this.col_stockType.ReadOnly = true;
+            // 
+            // col_qty
+            // 
+            this.col_qty.DataPropertyName = "TotalQty";
+            this.col_qty.HeaderText = "الكميه";
+            this.col_qty.Name = "col_qty";
+            this.col_qty.ReadOnly = true;
+            // 
+            // col_isAcceptBatch
+            // 
+            this.col_isAcceptBatch.DataPropertyName = "IsAcceptBatch";
+            this.col_isAcceptBatch.FalseValue = "false";
+            this.col_isAcceptBatch.HeaderText = "يقبل تشغيله";
+            this.col_isAcceptBatch.Name = "col_isAcceptBatch";
+            this.col_isAcceptBatch.ReadOnly = true;
+            this.col_isAcceptBatch.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_isAcceptBatch.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.col_isAcceptBatch.TrueValue = "true";
+            // 
             // dgrid_batches
             // 
             this.dgrid_batches.AllowUserToAddRows = false;
@@ -247,58 +295,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // col_code
-            // 
-            this.col_code.DataPropertyName = "ProductCode";
-            this.col_code.HeaderText = "كود المنتج";
-            this.col_code.Name = "col_code";
-            this.col_code.ReadOnly = true;
-            // 
-            // col_invProductStock
-            // 
-            this.col_invProductStock.DataPropertyName = "ProductStockID";
-            this.col_invProductStock.HeaderText = "Column1";
-            this.col_invProductStock.Name = "col_invProductStock";
-            this.col_invProductStock.ReadOnly = true;
-            this.col_invProductStock.Visible = false;
-            // 
-            // col_name
-            // 
-            this.col_name.DataPropertyName = "ProductName";
-            this.col_name.HeaderText = "اسم المنتج";
-            this.col_name.Name = "col_name";
-            this.col_name.ReadOnly = true;
-            this.col_name.Width = 200;
-            // 
-            // col_stockType
-            // 
-            this.col_stockType.DataPropertyName = "StockType";
-            this.col_stockType.HeaderText = "نوع المخزون";
-            this.col_stockType.Name = "col_stockType";
-            this.col_stockType.ReadOnly = true;
-            // 
-            // col_qty
-            // 
-            this.col_qty.DataPropertyName = "TotalQty";
-            this.col_qty.HeaderText = "الكميه";
-            this.col_qty.Name = "col_qty";
-            this.col_qty.ReadOnly = true;
-            // 
-            // col_isAcceptBatch
-            // 
-            this.col_isAcceptBatch.DataPropertyName = "IsAcceptBatch";
-            this.col_isAcceptBatch.FalseValue = "false";
-            this.col_isAcceptBatch.HeaderText = "يقبل تشغيله";
-            this.col_isAcceptBatch.Name = "col_isAcceptBatch";
-            this.col_isAcceptBatch.ReadOnly = true;
-            this.col_isAcceptBatch.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_isAcceptBatch.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.col_isAcceptBatch.TrueValue = "true";
-            // 
             // frmStockInquiry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(784, 619);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgrid_batches);

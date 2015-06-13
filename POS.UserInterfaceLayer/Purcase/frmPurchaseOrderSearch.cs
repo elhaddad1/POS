@@ -49,7 +49,7 @@ namespace POS.UserInterfaceLayer.Purcase
         public override void btn_Add_Click(object sender, EventArgs e)
         {
             frmPurchaseOrderAddEdit frm = new frmPurchaseOrderAddEdit();
-            frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;
+           // frm.FormClosed += frmPurchaseOrderAddEdit_FormClosed;
             frm.ShowDialog();
         }
         public override void btn_Edit_Click(object sender, EventArgs e)
@@ -108,10 +108,7 @@ namespace POS.UserInterfaceLayer.Purcase
                 MessageBox.Show("لابد من اختيار مخزن اولا", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void frmPurchaseOrderAddEdit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            BindGrid();
-        }
+       
         #endregion
 
         #region --Private Methods

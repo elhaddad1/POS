@@ -134,11 +134,6 @@ namespace POS.UserInterfaceLayer.Purcase
         {
             this.Close();
         }
-        private void frmSalesLineAddEdit_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            BindGrid();
-           //CalculateTotal();
-        }
         private void num_Remaining_TextChanged(object sender, EventArgs e)
         {
             if (Convert.ToDecimal(num_Remaining.Text) > 0)
@@ -176,15 +171,24 @@ namespace POS.UserInterfaceLayer.Purcase
         }
         private void txt_Total_TextChanged(object sender, EventArgs e)
         {
-            decimal totalPrice = decimal.Parse(txt_Total.Text);
-            decimal discountAmount = decimal.Parse(txt_DiscountAmount.Text) * totalPrice / 100;
-
+            decimal totalPrice=0 ;
+            decimal discountAmount=0; 
+            if (decimal.TryParse(txt_Total.Text,out totalPrice)&& decimal.TryParse(txt_DiscountAmount.Text,out discountAmount))
+            { 
+              discountAmount = discountAmount * totalPrice / 100; 
+            }
             txt_AfterDescount.Text =(totalPrice-discountAmount).ToString();
             num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
         }
         private void num_Paied_TextChanged(object sender, EventArgs e)
         {
-            num_Remaining.Text = (decimal.Parse(txt_AfterDescount.Text) - decimal.Parse(num_Paied.Text)).ToString();
+            decimal afterDescount ;
+            decimal PaiedAmount;
+            if (decimal.TryParse(txt_AfterDescount.Text, out afterDescount) && decimal.TryParse(num_Paied.Text, out PaiedAmount))
+            {
+                num_Remaining.Text = (afterDescount - PaiedAmount).ToString();
+            }
+           
         }
         private void cbx_PaymentType_SelectedIndexChanged(object sender, EventArgs e)
         {

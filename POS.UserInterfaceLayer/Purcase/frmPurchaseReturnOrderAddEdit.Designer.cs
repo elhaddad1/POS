@@ -39,6 +39,14 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaledQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_InvoiceDate = new System.Windows.Forms.DateTimePicker();
@@ -54,14 +62,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SaledQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -147,6 +147,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbx_Inventory);
             this.groupBox1.Controls.Add(this.dgrd_ReturnOrderLines);
             this.groupBox1.Controls.Add(this.tbx_Total);
             this.groupBox1.Controls.Add(this.label8);
@@ -176,6 +177,66 @@
             this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(842, 280);
             this.dgrd_ReturnOrderLines.TabIndex = 32;
             this.dgrd_ReturnOrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_ReturnOrderLines_CellValueChanged);
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "الصنف";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 210;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            this.IsAcceptBatch.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsAcceptBatch.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsAcceptBatch.Width = 50;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم الشتغيلة";
+            this.BatchNumber.Name = "BatchNumber";
+            this.BatchNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BatchNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.BatchNumber.Width = 80;
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.Width = 80;
+            // 
+            // SaledQty
+            // 
+            this.SaledQty.HeaderText = "الكميه المشتراه";
+            this.SaledQty.Name = "SaledQty";
+            this.SaledQty.ReadOnly = true;
+            this.SaledQty.Width = 60;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "سعر الشراء";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Width = 70;
+            // 
+            // returnedQty
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.returnedQty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.returnedQty.HeaderText = "الكمية المرتجعه";
+            this.returnedQty.Name = "returnedQty";
+            this.returnedQty.Width = 60;
+            // 
+            // Reason
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Reason.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Reason.HeaderText = "سبب الرجوع";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 250;
             // 
             // label3
             // 
@@ -268,7 +329,7 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(74, 7);
+            this.btn_Search.Location = new System.Drawing.Point(421, 3);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(61, 23);
             this.btn_Search.TabIndex = 49;
@@ -279,7 +340,7 @@
             // cbx_Inventory
             // 
             this.cbx_Inventory.FormattingEnabled = true;
-            this.cbx_Inventory.Location = new System.Drawing.Point(481, 58);
+            this.cbx_Inventory.Location = new System.Drawing.Point(28, -8);
             this.cbx_Inventory.Name = "cbx_Inventory";
             this.cbx_Inventory.Size = new System.Drawing.Size(197, 21);
             this.cbx_Inventory.TabIndex = 53;
@@ -288,7 +349,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(405, 6);
+            this.label12.Location = new System.Drawing.Point(448, 74);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 52;
@@ -319,66 +380,6 @@
             this.panel2.Size = new System.Drawing.Size(854, 106);
             this.panel2.TabIndex = 55;
             // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "الصنف";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 210;
-            // 
-            // IsAcceptBatch
-            // 
-            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
-            this.IsAcceptBatch.Name = "IsAcceptBatch";
-            this.IsAcceptBatch.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsAcceptBatch.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.IsAcceptBatch.Width = 50;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "رقم الشتغيلة";
-            this.BatchNumber.Name = "BatchNumber";
-            this.BatchNumber.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BatchNumber.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.BatchNumber.Width = 80;
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحية";
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.Width = 80;
-            // 
-            // SaledQty
-            // 
-            this.SaledQty.HeaderText = "الكميه المشتراه";
-            this.SaledQty.Name = "SaledQty";
-            this.SaledQty.ReadOnly = true;
-            this.SaledQty.Width = 60;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "سعر الشراء";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 70;
-            // 
-            // returnedQty
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.returnedQty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.returnedQty.HeaderText = "الكمية المرتجعه";
-            this.returnedQty.Name = "returnedQty";
-            this.returnedQty.Width = 60;
-            // 
-            // Reason
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Reason.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Reason.HeaderText = "سبب الرجوع";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 250;
-            // 
             // frmPurchaseReturnOrderAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,7 +387,6 @@
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(865, 569);
             this.ControlBox = false;
-            this.Controls.Add(this.cbx_Inventory);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtb_PurchaseDate);
             this.Controls.Add(this.tbx_InvoiceNumber);
