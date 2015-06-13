@@ -59,7 +59,7 @@ namespace POS.UserInterfaceLayer.Purcase
                     if (vPURPurchaseOrderCollection.Count != 0)
                         FillScreenData();
                     else
-                        MessageBox.Show("لايوجد فاتورة بهذا المسلسل");
+                        MessageBox.Show("لايوجد فاتورة بهذا المسلسل ");
                 }
                 else
                     MessageBox.Show("برجاء أدخال مسلسل الفاتورة أولا");
