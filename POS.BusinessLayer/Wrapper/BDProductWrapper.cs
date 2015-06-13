@@ -58,5 +58,35 @@ namespace POS.BusinessLayer.Wrapper
             }
             return bDProductCollection;
         }
+
+        public bool ValidateProductName(string name)
+        {
+            bool isValid = false;
+            try
+            {
+                isValid = SelectAll().Where(a => a.ProductName.Equals(name)).Any();
+            }
+            catch (Exception ex)
+            {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        public bool ValidateProductCode(string code)
+        {
+            bool isValid = false;
+            try
+            {
+                isValid = SelectAll().Where(a => a.ProductCode.Equals(code)).Any();
+            }
+            catch (Exception ex)
+            {
+                isValid = false;
+            }
+            return isValid;
+        }
+
+
     }
 }
