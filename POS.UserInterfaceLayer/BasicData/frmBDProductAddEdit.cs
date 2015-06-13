@@ -69,6 +69,11 @@ namespace POS.UserInterfaceLayer.BasicData
             {
                 return "لابد من إختيار المجموعة";
             }
+            if (!string.IsNullOrEmpty(txt_ProductName.Text) && !_bdProductWrapper.ValidateProductName(txt_ProductName.Text))
+                return "الاسم الخاص بهذا الصنف متكرر";
+            if (!string.IsNullOrEmpty(txt_ProductCode.Text) && !_bdProductWrapper.ValidateProductCode(txt_ProductCode.Text))
+                return "الكود الخاص بهذا الصنف متكرر";
+            
             return string.Empty;
         }
 

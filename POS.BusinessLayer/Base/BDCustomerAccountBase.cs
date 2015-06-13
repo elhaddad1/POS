@@ -1,7 +1,7 @@
 //
 // Class	:	BDCustomerAccountBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:47 AM
+// Date		:	6/13/2015 10:16:23 AM
 //
 using System;
 using System.Runtime.Serialization;
@@ -68,7 +68,19 @@ namespace POS.BusinessLayer
 		public DateTime? DeletedDate {get;set;}
 
 		[DataMember]
-		public int? InvoiceType {get;set;}
+		public decimal? Depit {get;set;}
+
+		[DataMember]
+		public decimal? Credit {get;set;}
+
+		[DataMember]
+		public int? ChequeNumber {get;set;}
+
+		[DataMember]
+		public string InvoiceType {get;set;}
+
+		[DataMember]
+		public DateTime? LstDayToPay {get;set;}
 
 		
 		#endregion

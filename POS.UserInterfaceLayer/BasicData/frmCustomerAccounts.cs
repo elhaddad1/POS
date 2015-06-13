@@ -28,48 +28,71 @@ namespace POS.UserInterfaceLayer.BasicData
             InitiateGrid(null);
         }
 
-        public void InitiateGrid(int? CustomerId)
+        public void InitiateGrid(int? CustomerId, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
-            dgrid_Result.Columns.Clear();
-
-            dgrid_Result.AutoGenerateColumns = false;
-
-            dgrid_Result.Height = 150;
-
-            dgrid_Result.Size = new Size(10, 250);
-
-            addColumnToGrid("CustomerAccountNumber", "CustomerAccountNumber", 120, false);
-
-            addColumnToGrid("CustomerID", "CustomerID", 120, false);
-
-            addColumnToGrid("SalesInvoiceId", "SalesInvoiceId", 120, false);
-
-            addColumnToGrid("المبلغ الكلى", "TotalPrice", 120, true);
-
-            addColumnToGrid("المبلغ المدفوع", "PaidAmount", 120, true);
-
-            addColumnToGrid("المبلغ المتبقى", "RemainingAmount", 120, true);
-
-            addColumnToGrid("تاريخ العملية", "SalesDate", 120, true);
-
-            addColumnToGrid("رقم الفاتورة", "InvoiceNumber", 120, true);
-
-            addColumnToGrid("العميل", "CustomerName", 120, true);
-
-            addColumnToGrid("الموظف", "CreatedByName", 120, true);
-
-            List<BDCustomerAccount> customerAccountList = new List<BDCustomerAccount>();
-
-            if (CustomerId != null)
-                customerAccountList = _customerAccountWrapper.GetCustomerAccounts(CustomerId.Value);
-
-            dgrid_Result.DataSource = customerAccountList;
-
-            if (customerAccountList.Count > 0)
+            try
             {
-                lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
-                lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
-                lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+                dgrid_Result.Columns.Clear();
+
+                dgrid_Result.AutoGenerateColumns = false;
+
+                dgrid_Result.Height = 150;
+
+                dgrid_Result.Size = new Size(10, 250);
+
+                addColumnToGrid("CustomerAccountNumber", "CustomerAccountNumber", 120, false);
+
+                addColumnToGrid("CustomerID", "CustomerID", 120, false);
+
+                addColumnToGrid("SalesInvoiceId", "SalesInvoiceId", 120, false);
+
+                addColumnToGrid("نوع العملية", "InvoiceType", 100, true);
+
+                addColumnToGrid("رقم الفاتورة", "InvoiceNumber", 120, true);
+
+                addColumnToGrid("العميل", "CustomerName", 120, true);
+
+                addColumnToGrid("المبلغ الكلى", "TotalPrice", 120, true);
+
+                addColumnToGrid("المبلغ المدفوع", "PaidAmount", 120, true);
+
+                addColumnToGrid("المبلغ المتبقى", "RemainingAmount", 120, true);
+
+                addColumnToGrid("مدين", "Depit", 100, true);
+
+                addColumnToGrid("دائن", "Credit", 100, true);
+
+                addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
+
+                addColumnToGrid("اخر تاريخ دفع", "LstDayToPay", 100, true);
+
+                addColumnToGrid("تاريخ العملية", "SalesDate", 120, true);
+
+                addColumnToGrid("الموظف", "CreatedByName", 120, true);
+
+
+                List<BDCustomerAccount> customerAccountList = new List<BDCustomerAccount>();
+
+                customerAccountList = _customerAccountWrapper.GetCustomerAccounts(CustomerId, dateFrom, toFrom);
+
+                dgrid_Result.DataSource = customerAccountList;
+
+                if (customerAccountList.Count > 0)
+                {
+                    lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                    lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                    lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+                }
+                else
+                {
+                    lbl_TotalAmount.Text = "0";
+                    lbl_Paid.Text = "0";
+                    lbl_Remaining.Text = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -117,14 +140,27 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         private void search()
         {
-            int customerId = 0;
+            int? customerId = null;
 
-            if (cbx_Customer.SelectedValue == null)
+            if (cbx_Customer.SelectedValue != null && !string.IsNullOrEmpty(cbx_Customer.SelectedValue.ToString()))
+                customerId = int.Parse(cbx_Customer.SelectedValue.ToString());
+
+            DateTime? dateFrom = null;
+            DateTime? toFrom = null;
+
+            if (dtp_fromDate.Value != null)
+                dateFrom = dtp_fromDate.Value;
+            if (dtp_toDate.Value != null)
+                toFrom = dtp_toDate.Value;
+
+            if (toFrom == null || dateFrom == null || toFrom.Value.Date < dateFrom.Value.Date)
+            {
+                MessageBox.Show("يجب اختيار فترة زمنية صحيحة");
                 return;
+            }
 
-            int.TryParse(cbx_Customer.SelectedValue.ToString(),out customerId);
 
-            InitiateGrid(customerId);
+            InitiateGrid(customerId, dateFrom, toFrom);
         }
         #endregion
     }

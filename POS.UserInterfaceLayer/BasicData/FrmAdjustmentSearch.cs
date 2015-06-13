@@ -152,11 +152,6 @@ namespace POS.UserInterfaceLayer.BasicData
             int InventoryID = 0;
             DateTime? dateFrom = null;
             DateTime? toFrom = null;
-            if (toFrom < dateFrom)
-            {
-                MessageBox.Show("يجب اختيار فترة زمنية صحيحة");
-                return;
-            }
             if (cbx_AdjustReason.SelectedValue != null)
             {
                 int.TryParse(cbx_AdjustReason.SelectedValue.ToString(), out AdjustReasonID);
@@ -171,6 +166,14 @@ namespace POS.UserInterfaceLayer.BasicData
                 dateFrom = dtp_fromDate.Value;
             if (dtp_toDate.Value != null)
                 toFrom = dtp_toDate.Value;
+
+
+            if (toFrom == null || dateFrom == null || toFrom < dateFrom)
+            {
+                MessageBox.Show("يجب اختيار فترة زمنية صحيحة");
+                return;
+            }
+
             List<INVAdjustStock> adjustStocks = _invAdjustStockWrapper.SearchByCriteria(searchModel, dateFrom, toFrom);
             dgrid_Result.DataSource = adjustStocks;
         }

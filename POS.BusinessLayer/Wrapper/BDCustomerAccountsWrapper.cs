@@ -14,15 +14,33 @@ namespace POS.BusinessLayer.Wrapper
 
         private ADUserService _userService = new ADUserService();
 
-        public List<BDCustomerAccount> GetCustomerAccounts(int id)
+        public List<BDCustomerAccount> GetCustomerAccounts(int? id, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
             List<BDCustomerAccount> customerAccountCollection = new List<BDCustomerAccount>();
+            var query = SelectAll().ToList();
 
-            BDCustomerPrimaryKey pk = new BDCustomerPrimaryKey();
-            pk.CustomerID = id;
-            var query = SelectAllByForeignKeyCustomerID(pk);
 
-            if(query.Count==0)
+            DateTime? fromCreationDate = dateFrom != null ? dateFrom : null;
+            DateTime? toCreationDate = toFrom != null ? toFrom : null;
+
+            if (fromCreationDate != null && toCreationDate != null)
+            {
+                query = (from item in query
+                         where (item.CreateDate >= dateFrom.Value
+                                               &&
+                                               item.CreateDate <= toFrom.Value)
+                         select item).ToList();
+            }
+
+
+            if (id != null)
+            {
+                BDCustomerPrimaryKey pk = new BDCustomerPrimaryKey();
+                pk.CustomerID = id;
+                query = SelectAllByForeignKeyCustomerID(pk).ToList();
+            }
+
+            if (query.Count == 0)
                 return customerAccountCollection;
 
             customerAccountCollection = (from item in query
@@ -41,7 +59,12 @@ namespace POS.BusinessLayer.Wrapper
                                              SalesInvoiceId = item.SalesInvoiceId,
                                              TotalPrice = item.TotalPrice,
                                              CreateDate = item.CreateDate,
-                                             CreatedByName = _user.UserFullName
+                                             CreatedByName = _user.UserFullName,
+                                             ChequeNumber = item.ChequeNumber,
+                                             Credit = item.Credit,
+                                             Depit = item.Depit,
+                                             InvoiceType = item.InvoiceType,
+                                             LstDayToPay = item.LstDayToPay
                                          }
                                           ).ToList();
             return customerAccountCollection;

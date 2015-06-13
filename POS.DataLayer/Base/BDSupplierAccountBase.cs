@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierAccountBase.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:47 AM
+// Date		:	6/13/2015 11:01:00 AM
 //
 
 using System;
@@ -40,6 +40,10 @@ namespace POS.DataLayer
 		public const string DeleteDate                = "DeleteDate";
 		public const string DeletedBy                 = "DeletedBy";
 		public const string InvoiceType               = "InvoiceType";
+		public const string Depit                     = "Depit";
+		public const string Credit                    = "Credit";
+		public const string LstDayToPay               = "LstDayToPay";
+		public const string ChequeNumber              = "ChequeNumber";
 	}
 	
 	/// <summary>
@@ -70,6 +74,10 @@ namespace POS.DataLayer
 		private DateTime?      	_deleteDateNonDefault    	= null;
 		private int?           	_deletedByNonDefault     	= null;
 		private int?           	_invoiceTypeNonDefault   	= null;
+		private decimal?       	_depitNonDefault         	= null;
+		private decimal?       	_creditNonDefault        	= null;
+		private DateTime?      	_lstDayToPayNonDefault   	= null;
+		private string         	_chequeNumberNonDefault  	= null;
 		
 		#endregion
 		
@@ -371,6 +379,81 @@ namespace POS.DataLayer
 			}
 		}
 
+		/// <summary>
+		/// This property is mapped to the "Depit" field.  
+		/// </summary>
+		public decimal? Depit
+		{
+			get 
+			{ 
+				return _depitNonDefault;
+			}
+			set 
+			{
+			
+				_depitNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "Credit" field.  
+		/// </summary>
+		public decimal? Credit
+		{
+			get 
+			{ 
+				return _creditNonDefault;
+			}
+			set 
+			{
+			
+				_creditNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "LstDayToPay" field.  
+		/// </summary>
+		public DateTime? LstDayToPay
+		{
+			get 
+			{ 
+				return _lstDayToPayNonDefault;
+			}
+			set 
+			{
+			
+				_lstDayToPayNonDefault = value; 
+			}
+		}
+
+		/// <summary>
+		/// This property is mapped to the "ChequeNumber" field. Length must be between 0 and 100 characters. 
+		/// </summary>
+		public string ChequeNumber
+		{
+			get 
+			{ 
+				if(_chequeNumberNonDefault==null)return _chequeNumberNonDefault;
+				else return _chequeNumberNonDefault.Trim(); 
+			}
+			set 
+			{
+			    if (value != null && value.Length > 100)
+					throw new ArgumentException("ChequeNumber length must be between 0 and 100 characters.");
+
+				
+				if(value ==null)
+				{
+					_chequeNumberNonDefault =null;//null value 
+				}
+				else
+				{		           
+					_chequeNumberNonDefault = value.Trim(); 
+				}
+			}
+		}
+
 		#endregion
 		
 		#region Methods (Public)
@@ -385,7 +468,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -492,6 +575,30 @@ namespace POS.DataLayer
 			else
 			  oDatabaseHelper.AddParameter("@InvoiceType", DBNull.Value );
 			  
+			// Pass the value of '_depit' as parameter 'Depit' of the stored procedure.
+			if(_depitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Depit", _depitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Depit", DBNull.Value );
+			  
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
+			  
+			// Pass the value of '_lstDayToPay' as parameter 'LstDayToPay' of the stored procedure.
+			if(_lstDayToPayNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@LstDayToPay", _lstDayToPayNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@LstDayToPay", DBNull.Value );
+			  
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			if(_chequeNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value );
+			  
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -522,7 +629,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -613,6 +720,26 @@ namespace POS.DataLayer
 			  oDatabaseHelper.AddParameter("@InvoiceType", _invoiceTypeNonDefault);
 			else
 			  oDatabaseHelper.AddParameter("@InvoiceType", DBNull.Value );
+			// Pass the value of '_depit' as parameter 'Depit' of the stored procedure.
+			if(_depitNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Depit", _depitNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Depit", DBNull.Value );
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			if(_creditNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@Credit", _creditNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@Credit", DBNull.Value );
+			// Pass the value of '_lstDayToPay' as parameter 'LstDayToPay' of the stored procedure.
+			if(_lstDayToPayNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@LstDayToPay", _lstDayToPayNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@LstDayToPay", DBNull.Value );
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			if(_chequeNumberNonDefault!=null)
+			  oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault);
+			else
+			  oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value );
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -632,7 +759,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -694,6 +821,18 @@ namespace POS.DataLayer
 			// Pass the value of '_invoiceType' as parameter 'InvoiceType' of the stored procedure.
 			oDatabaseHelper.AddParameter("@InvoiceType", _invoiceTypeNonDefault );
 			
+			// Pass the value of '_depit' as parameter 'Depit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Depit", _depitNonDefault );
+			
+			// Pass the value of '_credit' as parameter 'Credit' of the stored procedure.
+			oDatabaseHelper.AddParameter("@Credit", _creditNonDefault );
+			
+			// Pass the value of '_lstDayToPay' as parameter 'LstDayToPay' of the stored procedure.
+			oDatabaseHelper.AddParameter("@LstDayToPay", _lstDayToPayNonDefault );
+			
+			// Pass the value of '_chequeNumber' as parameter 'ChequeNumber' of the stored procedure.
+			oDatabaseHelper.AddParameter("@ChequeNumber", _chequeNumberNonDefault );
+			
 			// The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
 			oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 			
@@ -713,7 +852,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -750,7 +889,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -789,7 +928,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -824,7 +963,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -872,7 +1011,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -909,7 +1048,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -951,7 +1090,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -997,7 +1136,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1038,7 +1177,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1071,7 +1210,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1119,7 +1258,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1167,7 +1306,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1209,7 +1348,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1257,7 +1396,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1305,7 +1444,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1347,7 +1486,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1395,7 +1534,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1443,7 +1582,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM				Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1487,7 +1626,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1524,7 +1663,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1582,6 +1721,26 @@ namespace POS.DataLayer
 				obj.InvoiceType = rdr.GetInt32(rdr.GetOrdinal(BDSupplierAccountFields.InvoiceType));
 			}
 			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDSupplierAccountFields.Depit)))
+			{
+				obj.Depit = rdr.GetDecimal(rdr.GetOrdinal(BDSupplierAccountFields.Depit));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDSupplierAccountFields.Credit)))
+			{
+				obj.Credit = rdr.GetDecimal(rdr.GetOrdinal(BDSupplierAccountFields.Credit));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDSupplierAccountFields.LstDayToPay)))
+			{
+				obj.LstDayToPay = rdr.GetDateTime(rdr.GetOrdinal(BDSupplierAccountFields.LstDayToPay));
+			}
+			
+			if (!rdr.IsDBNull(rdr.GetOrdinal(BDSupplierAccountFields.ChequeNumber)))
+			{
+				obj.ChequeNumber = rdr.GetString(rdr.GetOrdinal(BDSupplierAccountFields.ChequeNumber));
+			}
+			
 
 		}
 
@@ -1597,7 +1756,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1629,7 +1788,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			4/4/2015 12:03:46 AM		Created function
+		/// DLGenerator			6/13/2015 11:01:00 AM		Created function
 		/// 
 		/// </RevisionHistory>
 		///
@@ -1657,7 +1816,7 @@ namespace POS.DataLayer
 			else
 			{
 				oDatabaseHelper.Dispose();
-                return list;
+				return null;
 			}
 			
 		}
