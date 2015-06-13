@@ -1,4 +1,4 @@
-﻿namespace POS.UserInterfaceLayer.Purchase
+﻿namespace POS.UserInterfaceLayer.Purcase
 {
     partial class frmPurcaseReturnSearch
     {

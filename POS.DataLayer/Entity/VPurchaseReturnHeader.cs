@@ -48,10 +48,10 @@ namespace POS.DataLayer
         {
             DatabaseHelper oDatabaseHelper = new DatabaseHelper();
             bool ExecutionState = false;
-            oDatabaseHelper.AddParameter("@CustomerName", CustomerName);
+            oDatabaseHelper.AddParameter("@SupplierName", CustomerName);
             oDatabaseHelper.AddParameter("@FromDate", FromDate);
             oDatabaseHelper.AddParameter("@DateTo", ToDate);
-            oDatabaseHelper.AddParameter("@@InvoiceNumber", InvoiceNumber);
+            oDatabaseHelper.AddParameter("@InvoiceNumber", InvoiceNumber);
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
             IDataReader dr = oDatabaseHelper.ExecuteReader("usp_VPurchaseReturnHeader_SearchByCriteria", ref ExecutionState);

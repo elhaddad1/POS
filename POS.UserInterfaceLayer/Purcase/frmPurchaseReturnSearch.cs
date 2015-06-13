@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using POS.BusinessLayer.Wrapper;
 using POS.UserInterfaceLayer.Purcase;
 
-namespace POS.UserInterfaceLayer.Purchase
+namespace POS.UserInterfaceLayer.Purcase
 {
     public partial class frmPurcaseReturnSearch : Form
     {
@@ -83,9 +83,9 @@ namespace POS.UserInterfaceLayer.Purchase
         {
             dgrid_PurchaseReturnSearch.DataSource = null;
             dgrid_PurchaseReturnSearch.AutoGenerateColumns = false;
-            addColumnToGrid("", "SlaesReturnHeaderID", 0, false);
-            addColumnToGrid("مسلسل فاتورة البيع", "InvoiceNumber", 120, true);
-            addColumnToGrid("أسم العميل", "CustomerName", 120, true);
+            addColumnToGrid("", "PurchaseReturnHeaderID", 0, false);
+            addColumnToGrid("مسلسل فاتورة الشراء", "InvoiceNumber", 120, true);
+            addColumnToGrid("أسم المورد", "SupplierName", 120, true);
             addColumnToGrid("تاريخ الأرجاع", "ReturnDate", 120, true);
             addColumnToGrid("مغلق", "IsClosed", 60, true);
 
@@ -109,9 +109,17 @@ namespace POS.UserInterfaceLayer.Purchase
 
         }
         private void BindGrid()
-        {
+        { try
+            {
             dgrid_PurchaseReturnSearch.DataSource = null;
             dgrid_PurchaseReturnSearch.DataSource = pURPurchaseReturnHeaderWrapper.SearchByCriteria(tbx_CustomerName.Text, tbx_VoucherSerial.Text, dtb_From.Value, dtb_To.Value);
+         }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }
