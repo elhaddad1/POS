@@ -53,7 +53,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(558, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(750, 17);
             // 
             // panl_Footer
             // 
@@ -80,7 +80,7 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(687, 6);
+            this.btn_Add.Location = new System.Drawing.Point(879, 6);
             this.btn_Add.Visible = false;
             // 
             // btn_Back
@@ -90,12 +90,12 @@
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(582, 6);
+            this.btn_Edit.Location = new System.Drawing.Point(774, 6);
             this.btn_Edit.Visible = false;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(477, 6);
+            this.btn_Delete.Location = new System.Drawing.Point(669, 6);
             this.btn_Delete.Visible = false;
             // 
             // cbx_Supplier
@@ -238,6 +238,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(1016, 403);
             this.Name = "frmSupplierAccounts";
+            this.Text = "حسابات الموردين";
             this.panl_Header.ResumeLayout(false);
             this.panl_Header.PerformLayout();
             this.panl_Footer.ResumeLayout(false);
