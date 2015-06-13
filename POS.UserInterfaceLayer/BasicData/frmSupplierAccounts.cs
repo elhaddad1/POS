@@ -61,6 +61,7 @@ namespace POS.UserInterfaceLayer.BasicData
                 addColumnToGrid("مدين", "Depit", 100, true);
 
                 addColumnToGrid("دائن", "Credit", 100, true);
+                addColumnToGrid("اخر تاريخ دفع", "LstDayToPay", 100, true);
                 addColumnToGrid("تاريخ العملية", "PurchaseDate", 120, true);
                 addColumnToGrid("الموظف", "CreatedByName", 120, true);
 

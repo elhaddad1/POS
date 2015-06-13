@@ -64,6 +64,8 @@ namespace POS.UserInterfaceLayer.BasicData
 
                 addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
 
+                addColumnToGrid("اخر تاريخ دفع", "LstDayToPay", 100, true);
+
                 addColumnToGrid("تاريخ العملية", "SalesDate", 120, true);
 
                 addColumnToGrid("الموظف", "CreatedByName", 120, true);
