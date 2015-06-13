@@ -46,17 +46,23 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(372, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(552, 17);
             // 
             // panl_Footer
             // 
+            this.panl_Footer.Controls.Add(this.btn_AddCustomer);
+            this.panl_Footer.Controls.Add(this.btn_Close);
             this.panl_Footer.Location = new System.Drawing.Point(0, 389);
             this.panl_Footer.Size = new System.Drawing.Size(704, 62);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Delete, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Edit, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Back, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Add, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_Close, 0);
+            this.panl_Footer.Controls.SetChildIndex(this.btn_AddCustomer, 0);
             // 
             // grb_search
             // 
-            this.grb_search.Controls.Add(this.btn_Close);
-            this.grb_search.Controls.Add(this.btn_AddCustomer);
             this.grb_search.Controls.Add(this.tbx_OrderSerial);
             this.grb_search.Controls.Add(this.tbx_CustomerName);
             this.grb_search.Controls.Add(this.label3);
@@ -66,19 +72,23 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(465, 2);
+            this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Add.Location = new System.Drawing.Point(570, 3);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(150, 2);
+            this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Back.Location = new System.Drawing.Point(35, 3);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(360, 2);
+            this.btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Edit.Location = new System.Drawing.Point(463, 3);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(255, 2);
+            this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Delete.Location = new System.Drawing.Point(356, 3);
             // 
             // tbx_OrderSerial
             // 
@@ -114,7 +124,7 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(12, 13);
+            this.btn_Search.Location = new System.Drawing.Point(249, 43);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(75, 24);
             this.btn_Search.TabIndex = 17;
@@ -125,9 +135,9 @@
             // btn_Close
             // 
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(117, 43);
+            this.btn_Close.Location = new System.Drawing.Point(249, 3);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Size = new System.Drawing.Size(99, 28);
+            this.btn_Close.Size = new System.Drawing.Size(99, 55);
             this.btn_Close.TabIndex = 19;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
@@ -136,9 +146,9 @@
             // btn_AddCustomer
             // 
             this.btn_AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddCustomer.Location = new System.Drawing.Point(12, 43);
+            this.btn_AddCustomer.Location = new System.Drawing.Point(142, 3);
             this.btn_AddCustomer.Name = "btn_AddCustomer";
-            this.btn_AddCustomer.Size = new System.Drawing.Size(99, 28);
+            this.btn_AddCustomer.Size = new System.Drawing.Size(99, 55);
             this.btn_AddCustomer.TabIndex = 18;
             this.btn_AddCustomer.Text = "أضافة عميل";
             this.btn_AddCustomer.UseVisualStyleBackColor = true;

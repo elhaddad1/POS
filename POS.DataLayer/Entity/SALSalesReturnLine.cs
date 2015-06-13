@@ -65,9 +65,14 @@ namespace POS.DataLayer
                         ExecutionState = true;
                 }
                 if (ExecutionState)
+                {
                     oDatabaseHelper.CommitTransaction();
+                }
                 else
+                {
                     oDatabaseHelper.RollbackTransaction();
+                    salesReturnHeaderID = -1;
+                }
             }
             oDatabaseHelper.Dispose();
             return salesReturnHeaderID;
@@ -176,6 +181,7 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@ReturnMoney", sALSalesReturnHeader.ReturnMoney);
             else
                 oDatabaseHelper.AddParameter("@ReturnMoney", DBNull.Value);
+
 
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);

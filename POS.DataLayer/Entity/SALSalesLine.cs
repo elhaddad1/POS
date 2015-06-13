@@ -253,6 +253,11 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@DeletDate", sALSalesHeader.DeletDate);
             else
                 oDatabaseHelper.AddParameter("@DeletDate", DBNull.Value);
+
+            if (sALSalesHeader.ChequeNumber != null)
+                oDatabaseHelper.AddParameter("@ChequeNumber", sALSalesHeader.ChequeNumber);
+            else
+                oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value);
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 
@@ -481,6 +486,11 @@ namespace POS.DataLayer
                 oDatabaseHelper.AddParameter("@DeletDate", sALSalesHeader.DeletDate);
             else
                 oDatabaseHelper.AddParameter("@DeletDate", DBNull.Value);
+
+            if (sALSalesHeader.ChequeNumber != null)
+                oDatabaseHelper.AddParameter("@ChequeNumber", sALSalesHeader.ChequeNumber);
+            else
+                oDatabaseHelper.AddParameter("@ChequeNumber", DBNull.Value);
             // The parameter '@dlgErrorCode' will contain the status after execution of the stored procedure.
             oDatabaseHelper.AddParameter("@dlgErrorCode", -1, System.Data.ParameterDirection.Output);
 

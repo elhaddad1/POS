@@ -37,6 +37,14 @@
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
+            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtb_InvoiceDate = new System.Windows.Forms.DateTimePicker();
@@ -50,14 +58,6 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.IsAcceptBatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BatchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TotalQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panl_Header.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrd_ReturnOrderLines)).BeginInit();
@@ -107,7 +107,7 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(410, 421);
+            this.btn_Cancel.Location = new System.Drawing.Point(363, 420);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 41;
@@ -125,13 +125,14 @@
             this.btn_Save.TabIndex = 40;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_ClosePrint
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(196, 421);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(250, 420);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 39;
@@ -172,6 +173,56 @@
             this.dgrd_ReturnOrderLines.Size = new System.Drawing.Size(686, 187);
             this.dgrd_ReturnOrderLines.TabIndex = 32;
             this.dgrd_ReturnOrderLines.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrd_ReturnOrderLines_CellValueChanged);
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "الصنف";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ProductName.Width = 210;
+            // 
+            // IsAcceptBatch
+            // 
+            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
+            this.IsAcceptBatch.Name = "IsAcceptBatch";
+            this.IsAcceptBatch.ReadOnly = true;
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.HeaderText = "تاريخ الصلاحية yyyy-mm-dd";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.Width = 150;
+            // 
+            // BatchNumber
+            // 
+            this.BatchNumber.HeaderText = "رقم الشتغيلة";
+            this.BatchNumber.Name = "BatchNumber";
+            // 
+            // StockType
+            // 
+            this.StockType.HeaderText = "نوع المرتجع";
+            this.StockType.Name = "StockType";
+            this.StockType.Width = 150;
+            // 
+            // TotalQty
+            // 
+            this.TotalQty.HeaderText = "الكمية";
+            this.TotalQty.Name = "TotalQty";
+            this.TotalQty.Width = 90;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "السعر المباع به";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Width = 120;
+            // 
+            // Reason
+            // 
+            this.Reason.HeaderText = "سبب الرجوع";
+            this.Reason.Name = "Reason";
+            this.Reason.Width = 300;
             // 
             // label3
             // 
@@ -288,56 +339,6 @@
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 50;
             this.label12.Text = "المخزن";
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "الصنف";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ProductName.Width = 210;
-            // 
-            // IsAcceptBatch
-            // 
-            this.IsAcceptBatch.HeaderText = "يقبل رقم تشغيلة";
-            this.IsAcceptBatch.Name = "IsAcceptBatch";
-            this.IsAcceptBatch.ReadOnly = true;
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.HeaderText = "تاريخ الصلاحية yyyy-mm-dd";
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.Width = 150;
-            // 
-            // BatchNumber
-            // 
-            this.BatchNumber.HeaderText = "رقم الشتغيلة";
-            this.BatchNumber.Name = "BatchNumber";
-            // 
-            // StockType
-            // 
-            this.StockType.HeaderText = "نوع المرتجع";
-            this.StockType.Name = "StockType";
-            this.StockType.Width = 150;
-            // 
-            // TotalQty
-            // 
-            this.TotalQty.HeaderText = "الكمية";
-            this.TotalQty.Name = "TotalQty";
-            this.TotalQty.Width = 90;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "السعر المباع به";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.ReadOnly = true;
-            this.UnitPrice.Width = 120;
-            // 
-            // Reason
-            // 
-            this.Reason.HeaderText = "سبب الرجوع";
-            this.Reason.Name = "Reason";
-            this.Reason.Width = 300;
             // 
             // frmSalesReturnOrderAddEdit
             // 
