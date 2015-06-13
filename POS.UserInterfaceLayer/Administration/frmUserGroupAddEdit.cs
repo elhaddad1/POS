@@ -63,7 +63,11 @@ namespace POS.UserInterfaceLayer.Administration
                 MessageBox.Show("تم الحفظ بنجاح");
                 this.Close();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
+            }
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {

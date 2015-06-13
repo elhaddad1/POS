@@ -112,7 +112,8 @@ namespace POS.UserInterfaceLayer.BasicData
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
         private void search()

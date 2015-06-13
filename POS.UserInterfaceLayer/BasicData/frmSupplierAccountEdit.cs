@@ -68,10 +68,11 @@ namespace POS.UserInterfaceLayer.BasicData
                 num_Credit.Value = _supplier.Credit.Value;
                 num_Debit.Value = _supplier.Debit.Value;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
         private bool Validate()
