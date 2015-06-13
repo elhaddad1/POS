@@ -66,6 +66,7 @@ namespace POS.UserInterfaceLayer.Purcase
             }
             catch (Exception ex)
             {
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
                 MessageBox.Show(ex.Message);
             }
         }
@@ -245,7 +246,7 @@ namespace POS.UserInterfaceLayer.Purcase
                    line.Qty =Convert .ToDecimal ( row.Cells["returnedQty"].Value);
                    line.BatchNumber = vPURPurchaseOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null;
                    line.ExpiryDate = vPURPurchaseOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null;
-                    line.Reason =row.Cells["Reason"].Value!=null? row.Cells["Reason"].Value.ToString():null;
+                   line.Reason = row.Cells["Reason"].Value.ToString();
                    pURPurchaseReturnLineCollection.Add(line);
                 }
 
@@ -288,10 +289,11 @@ namespace POS.UserInterfaceLayer.Purcase
                 cbx_Inventory.ValueMember = "InventoryID";
                 cbx_Inventory.SelectedIndex = 0;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
         #endregion

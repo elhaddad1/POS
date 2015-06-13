@@ -40,7 +40,11 @@ namespace POS.UserInterfaceLayer.Administration
                     this.Close();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
+            }
         }
         public override void btn_Back_Click(object sender, EventArgs e)
         {
@@ -66,6 +70,7 @@ namespace POS.UserInterfaceLayer.Administration
             }
             catch (Exception ex)
             {
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
                 MessageBox.Show(ex.Message);
             }
         }
@@ -91,6 +96,7 @@ namespace POS.UserInterfaceLayer.Administration
             }
             catch (Exception ex)
             {
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
                 MessageBox.Show(ex.Message);
             }
         }

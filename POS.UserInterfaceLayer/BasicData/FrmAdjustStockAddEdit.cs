@@ -97,7 +97,8 @@ namespace POS.UserInterfaceLayer.BasicData
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                    MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -143,7 +144,8 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -159,7 +161,8 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -175,7 +178,8 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -191,7 +195,8 @@ namespace POS.UserInterfaceLayer.BasicData
             }
             catch (Exception ex)
             {
-                MessageBox.Show("حدث خطأ برجاء المحاولة مرة آخرى");
+                MessageBox.Show("حدث خطأ برجاء تكرار العمليه مره اخرى واذا تكرر الخطا برجاءالاتصال بالشخص المصمم للبرنامج وارسال رسالة الخطا التى ستظهر بعد قليل له");
+                MessageBox.Show(ex.Message);
             }
         }
 
