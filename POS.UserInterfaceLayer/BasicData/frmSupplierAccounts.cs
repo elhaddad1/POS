@@ -30,61 +30,67 @@ namespace POS.UserInterfaceLayer.BasicData
 
         public void InitiateGrid(int? SupplierId, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
-            dgrid_Result.Columns.Clear();
-
-            dgrid_Result.AutoGenerateColumns = false;
-
-            dgrid_Result.Height = 150;
-
-            dgrid_Result.Size = new Size(10, 250);
-
-            addColumnToGrid("SupplierAccountId", "SupplierAccountId", 120, false);
-
-            addColumnToGrid("SupplierID", "SupplierID", 120, false);
-
-            addColumnToGrid("PurcaseInvoiceID", "PurcaseInvoiceID", 120, false);
-
-            addColumnToGrid("المبلغ الكلى", "TotalPrice", 120, true);
-
-            addColumnToGrid("المبلغ المدفوع", "PaidAmount", 120, true);
-
-            addColumnToGrid("المبلغ المتبقى", "RemainingAmount", 120, true);
-
-            addColumnToGrid("تاريخ العملية", "PurchaseDate", 120, true);
-
-            addColumnToGrid("رقم الفاتورة", "InvoiceNumber", 120, true);
-
-            addColumnToGrid("المورد", "SupplierName", 120, true);
-
-            addColumnToGrid("الموظف", "CreatedByName", 120, true);
-
-            addColumnToGrid("مدين", "Depit", 100, true);
-
-            addColumnToGrid("دائن", "Credit", 100, true);
-
-            addColumnToGrid("نوع العملية", "InvoiceType", 100, true);
-
-            addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
-
-            List<BDSupplierAccount> supplierAccountList = new List<BDSupplierAccount>();
-
-            supplierAccountList = _supplierAccountWrapper.GetSupplierAccounts(SupplierId, dateFrom, toFrom);
-
-            dgrid_Result.DataSource = supplierAccountList;
-
-            if (supplierAccountList.Count > 0)
+            try
             {
-                lbl_TotalAmount.Text = supplierAccountList.Sum(a => a.TotalPrice).Value.ToString();
-                lbl_Paid.Text = supplierAccountList.Sum(a => a.PaidAmount).Value.ToString();
-                lbl_Remaining.Text = supplierAccountList.Sum(a => a.RemainingAmount).Value.ToString();
-            }
-            else
-            {
-                lbl_TotalAmount.Text = "0";
-                lbl_Paid.Text = "0";
-                lbl_Remaining.Text = "0";
-            }
+                dgrid_Result.Columns.Clear();
 
+                dgrid_Result.AutoGenerateColumns = false;
+
+                dgrid_Result.Height = 150;
+
+                dgrid_Result.Size = new Size(10, 250);
+
+                addColumnToGrid("SupplierAccountId", "SupplierAccountId", 120, false);
+
+                addColumnToGrid("SupplierID", "SupplierID", 120, false);
+
+                addColumnToGrid("PurcaseInvoiceID", "PurcaseInvoiceID", 120, false);
+
+
+
+                addColumnToGrid("نوع العملية", "InvoiceType", 100, true);
+                addColumnToGrid("المورد", "SupplierName", 120, true);
+                addColumnToGrid("رقم الفاتورة", "InvoiceNumber", 120, true);
+
+                addColumnToGrid("المبلغ الكلى", "TotalPrice", 120, true);
+
+                addColumnToGrid("المبلغ المدفوع", "PaidAmount", 120, true);
+
+                addColumnToGrid("المبلغ المتبقى", "RemainingAmount", 120, true);
+
+                addColumnToGrid("مدين", "Depit", 100, true);
+
+                addColumnToGrid("دائن", "Credit", 100, true);
+                addColumnToGrid("تاريخ العملية", "PurchaseDate", 120, true);
+                addColumnToGrid("الموظف", "CreatedByName", 120, true);
+
+
+
+                addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
+
+                List<BDSupplierAccount> supplierAccountList = new List<BDSupplierAccount>();
+
+                supplierAccountList = _supplierAccountWrapper.GetSupplierAccounts(SupplierId, dateFrom, toFrom);
+
+                dgrid_Result.DataSource = supplierAccountList;
+
+                if (supplierAccountList.Count > 0)
+                {
+                    lbl_TotalAmount.Text = supplierAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                    lbl_Paid.Text = supplierAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                    lbl_Remaining.Text = supplierAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+                }
+                else
+                {
+                    lbl_TotalAmount.Text = "0";
+                    lbl_Paid.Text = "0";
+                    lbl_Remaining.Text = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         #region Form Event
