@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierAccountServices.svc.cs
 // Author	:  	Ignyte Software ©  2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:47 AM
+// Date		:	6/13/2015 11:01:00 AM
 //
 
 using System;
@@ -72,6 +72,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 			return _bDSupplierAccountWCF;
 		}
@@ -105,6 +109,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -155,6 +163,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -188,6 +200,10 @@ namespace POS.BusinessLayer
 			_bDSupplierAccount.DeleteDate=bDSupplierAccount.DeleteDate;
 			_bDSupplierAccount.DeletedBy=bDSupplierAccount.DeletedBy;
 			_bDSupplierAccount.InvoiceType=bDSupplierAccount.InvoiceType;
+			_bDSupplierAccount.Depit=bDSupplierAccount.Depit;
+			_bDSupplierAccount.Credit=bDSupplierAccount.Credit;
+			_bDSupplierAccount.LstDayToPay=bDSupplierAccount.LstDayToPay;
+			_bDSupplierAccount.ChequeNumber=bDSupplierAccount.ChequeNumber;
 			
 			return _bDSupplierAccount.Insert();
 		}
@@ -235,6 +251,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -275,6 +295,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -324,6 +348,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -364,6 +392,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -413,6 +445,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -453,6 +489,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -492,6 +532,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -536,6 +580,10 @@ namespace POS.BusinessLayer
 				_bDSupplierAccountWCF.DeleteDate = _bDSupplierAccount.DeleteDate;
 				_bDSupplierAccountWCF.DeletedBy = _bDSupplierAccount.DeletedBy;
 				_bDSupplierAccountWCF.InvoiceType = _bDSupplierAccount.InvoiceType;
+				_bDSupplierAccountWCF.Depit = _bDSupplierAccount.Depit;
+				_bDSupplierAccountWCF.Credit = _bDSupplierAccount.Credit;
+				_bDSupplierAccountWCF.LstDayToPay = _bDSupplierAccount.LstDayToPay;
+				_bDSupplierAccountWCF.ChequeNumber = _bDSupplierAccount.ChequeNumber;
 				
 				bDSupplierAccountCollection.Add(_bDSupplierAccountWCF);
 			}
@@ -568,6 +616,10 @@ namespace POS.BusinessLayer
 			_bDSupplierAccount.DeleteDate=bDSupplierAccount.DeleteDate;
 			_bDSupplierAccount.DeletedBy=bDSupplierAccount.DeletedBy;
 			_bDSupplierAccount.InvoiceType=bDSupplierAccount.InvoiceType;
+			_bDSupplierAccount.Depit=bDSupplierAccount.Depit;
+			_bDSupplierAccount.Credit=bDSupplierAccount.Credit;
+			_bDSupplierAccount.LstDayToPay=bDSupplierAccount.LstDayToPay;
+			_bDSupplierAccount.ChequeNumber=bDSupplierAccount.ChequeNumber;
 			
 			return _bDSupplierAccount.Update();
 		}

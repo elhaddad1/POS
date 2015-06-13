@@ -15,14 +15,37 @@ namespace POS.BusinessLayer.Wrapper
 
         private ADUserService _userService = new ADUserService();
 
-        public List<BDSupplierAccount> GetSupplierAccounts(int id)
+        public List<BDSupplierAccount> GetSupplierAccounts(int? id, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
             List<BDSupplierAccount> supplierAccountCollection = new List<BDSupplierAccount>();
 
-            BDSupplierPrimaryKey pk = new BDSupplierPrimaryKey();
-            pk.SupplierID = id;
+            var query = SelectAll().ToList();
 
-            var query = SelectAllByForeignKeySupplierID(pk);
+            DateTime? fromCreationDate = dateFrom != null ? dateFrom : null;
+            DateTime? toCreationDate = toFrom != null ? toFrom : null;
+
+            if (fromCreationDate != null && toCreationDate != null)
+            {
+                query = (from item in query
+                         where (item.CreateDate >= dateFrom.Value
+                                               &&
+                                               item.CreateDate <= toFrom.Value)
+                         select item).ToList();
+            }
+
+            if (id != null)
+            {
+                BDSupplierPrimaryKey pk = new BDSupplierPrimaryKey();
+                pk.SupplierID = id;
+                try
+                {
+                    query = SelectAllByForeignKeySupplierID(pk).ToList();
+                }
+                catch (Exception EX)
+                {
+                    query = new List<BDSupplierAccount>();
+                }
+            }
 
             if (query.Count == 0)
                 return supplierAccountCollection;
@@ -43,7 +66,12 @@ namespace POS.BusinessLayer.Wrapper
                                              PurcaseInvoiceID = item.PurcaseInvoiceID,
                                              TotalPrice = item.TotalPrice,
                                              CreateDate = item.CreateDate,
-                                             CreatedByName = _user.UserFullName
+                                             CreatedByName = _user.UserFullName,
+                                             ChequeNumber = item.ChequeNumber,
+                                             Credit = item.Credit,
+                                             Depit = item.Depit,
+                                             InvoiceType = item.InvoiceType,
+                                             LstDayToPay = item.LstDayToPay
                                          }
                                           ).ToList();
             return supplierAccountCollection;

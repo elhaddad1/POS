@@ -28,7 +28,7 @@ namespace POS.UserInterfaceLayer.BasicData
             InitiateGrid(null);
         }
 
-        public void InitiateGrid(int? CustomerId)
+        public void InitiateGrid(int? CustomerId, DateTime? dateFrom = null, DateTime? toFrom = null)
         {
             dgrid_Result.Columns.Clear();
 
@@ -58,10 +58,17 @@ namespace POS.UserInterfaceLayer.BasicData
 
             addColumnToGrid("الموظف", "CreatedByName", 120, true);
 
+            addColumnToGrid("مدين", "Depit", 100, true);
+
+            addColumnToGrid("دائن", "Credit", 100, true);
+
+            addColumnToGrid("نوع العملية", "InvoiceType", 100, true);
+
+            addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
+
             List<BDCustomerAccount> customerAccountList = new List<BDCustomerAccount>();
 
-            if (CustomerId != null)
-                customerAccountList = _customerAccountWrapper.GetCustomerAccounts(CustomerId.Value);
+            customerAccountList = _customerAccountWrapper.GetCustomerAccounts(CustomerId, dateFrom, toFrom);
 
             dgrid_Result.DataSource = customerAccountList;
 
@@ -70,6 +77,12 @@ namespace POS.UserInterfaceLayer.BasicData
                 lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
                 lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
                 lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+            }
+            else
+            {
+                lbl_TotalAmount.Text = "0";
+                lbl_Paid.Text = "0";
+                lbl_Remaining.Text = "0";
             }
         }
 
@@ -117,14 +130,27 @@ namespace POS.UserInterfaceLayer.BasicData
         }
         private void search()
         {
-            int customerId = 0;
+            int? customerId = null;
 
-            if (cbx_Customer.SelectedValue == null)
+            if (cbx_Customer.SelectedValue != null && !string.IsNullOrEmpty(cbx_Customer.SelectedValue.ToString()))
+                customerId = int.Parse(cbx_Customer.SelectedValue.ToString());
+
+            DateTime? dateFrom = null;
+            DateTime? toFrom = null;
+
+            if (dtp_fromDate.Value != null)
+                dateFrom = dtp_fromDate.Value;
+            if (dtp_toDate.Value != null)
+                toFrom = dtp_toDate.Value;
+
+            if (toFrom == null || dateFrom == null || toFrom.Value.Date < dateFrom.Value.Date)
+            {
+                MessageBox.Show("يجب اختيار فترة زمنية صحيحة");
                 return;
+            }
 
-            int.TryParse(cbx_Customer.SelectedValue.ToString(),out customerId);
 
-            InitiateGrid(customerId);
+            InitiateGrid(customerId, dateFrom, toFrom);
         }
         #endregion
     }

@@ -1,7 +1,7 @@
 //
 // Class	:	BDCustomerAccountCollection.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	4/4/2015 12:03:48 AM
+// Date		:	6/13/2015 10:16:23 AM
 //
 
 using System.Runtime.Serialization;
