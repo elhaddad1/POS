@@ -64,7 +64,7 @@ namespace POS.BusinessLayer.Wrapper
             bool isValid = false;
             try
             {
-                isValid = SelectAll().Where(a => a.ProductName.Equals(name)).Any();
+                isValid = !SelectAll().Where(a => a.ProductName.Equals(name)).Any();
             }
             catch (Exception ex)
             {
@@ -78,7 +78,7 @@ namespace POS.BusinessLayer.Wrapper
             bool isValid = false;
             try
             {
-                isValid = SelectAll().Where(a => a.ProductCode.Equals(code)).Any();
+                isValid = !SelectAll().Where(a => a.ProductCode.Equals(code)).Any();
             }
             catch (Exception ex)
             {
