@@ -245,7 +245,7 @@ namespace POS.UserInterfaceLayer.Purcase
                    line.Qty =Convert .ToDecimal ( row.Cells["returnedQty"].Value);
                    line.BatchNumber = vPURPurchaseOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null;
                    line.ExpiryDate = vPURPurchaseOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null;
-                   line.Reason = row.Cells["Reason"].Value.ToString();
+                    line.Reason =row.Cells["Reason"].Value!=null? row.Cells["Reason"].Value.ToString():null;
                    pURPurchaseReturnLineCollection.Add(line);
                 }
 
