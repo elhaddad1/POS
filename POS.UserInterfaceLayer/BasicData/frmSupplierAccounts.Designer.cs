@@ -53,7 +53,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(750, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(942, 17);
             // 
             // panl_Footer
             // 
@@ -80,7 +80,7 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(879, 6);
+            this.btn_Add.Location = new System.Drawing.Point(1071, 6);
             this.btn_Add.Visible = false;
             // 
             // btn_Back
@@ -90,12 +90,12 @@
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(774, 6);
+            this.btn_Edit.Location = new System.Drawing.Point(966, 6);
             this.btn_Edit.Visible = false;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(669, 6);
+            this.btn_Delete.Location = new System.Drawing.Point(861, 6);
             this.btn_Delete.Visible = false;
             // 
             // cbx_Supplier
@@ -157,7 +157,7 @@
             // 
             this.lbl_Paid.AutoSize = true;
             this.lbl_Paid.BackColor = System.Drawing.Color.AliceBlue;
-            this.lbl_Paid.Location = new System.Drawing.Point(697, 97);
+            this.lbl_Paid.Location = new System.Drawing.Point(687, 97);
             this.lbl_Paid.Name = "lbl_Paid";
             this.lbl_Paid.Size = new System.Drawing.Size(15, 16);
             this.lbl_Paid.TabIndex = 13;
@@ -167,7 +167,7 @@
             // 
             this.lbl_TotalAmount.AutoSize = true;
             this.lbl_TotalAmount.BackColor = System.Drawing.Color.AliceBlue;
-            this.lbl_TotalAmount.Location = new System.Drawing.Point(899, 97);
+            this.lbl_TotalAmount.Location = new System.Drawing.Point(885, 97);
             this.lbl_TotalAmount.Name = "lbl_TotalAmount";
             this.lbl_TotalAmount.Size = new System.Drawing.Size(15, 16);
             this.lbl_TotalAmount.TabIndex = 14;
@@ -177,7 +177,7 @@
             // 
             this.lbl_Remaining.AutoSize = true;
             this.lbl_Remaining.BackColor = System.Drawing.Color.AliceBlue;
-            this.lbl_Remaining.Location = new System.Drawing.Point(520, 97);
+            this.lbl_Remaining.Location = new System.Drawing.Point(508, 97);
             this.lbl_Remaining.Name = "lbl_Remaining";
             this.lbl_Remaining.Size = new System.Drawing.Size(15, 16);
             this.lbl_Remaining.TabIndex = 15;

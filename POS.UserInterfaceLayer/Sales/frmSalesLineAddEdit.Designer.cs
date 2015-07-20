@@ -181,7 +181,7 @@
             this.btn_Finish.Name = "btn_Finish";
             this.btn_Finish.Size = new System.Drawing.Size(99, 55);
             this.btn_Finish.TabIndex = 34;
-            this.btn_Finish.Text = "أنهاء";
+            this.btn_Finish.Text = "أضافة";
             this.btn_Finish.UseVisualStyleBackColor = true;
             this.btn_Finish.Click += new System.EventHandler(this.btn_Finish_Click);
             // 

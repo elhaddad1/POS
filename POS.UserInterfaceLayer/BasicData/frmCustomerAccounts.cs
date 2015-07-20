@@ -25,7 +25,7 @@ namespace POS.UserInterfaceLayer.BasicData
             this._customerAccountWrapper = new BDCustomerAccountWrapper();
             this._customerWrapper = new BDCustomerWrapper();
             FillCustomerCBX();
-            InitiateGrid(null);
+            //InitiateGrid(null);
         }
 
         public void InitiateGrid(int? CustomerId, DateTime? dateFrom = null, DateTime? toFrom = null)
@@ -64,7 +64,7 @@ namespace POS.UserInterfaceLayer.BasicData
 
                 addColumnToGrid("رقم الشيك", "ChequeNumber", 100, true);
 
-                addColumnToGrid("اخر تاريخ دفع", "LstDayToPay", 100, true);
+                addColumnToGrid("أخر ميعاد للدفع", "LstDayToPay", 100, true);
 
                 addColumnToGrid("تاريخ العملية", "SalesDate", 120, true);
 

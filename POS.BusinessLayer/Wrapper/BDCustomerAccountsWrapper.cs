@@ -26,9 +26,9 @@ namespace POS.BusinessLayer.Wrapper
             if (fromCreationDate != null && toCreationDate != null)
             {
                 query = (from item in query
-                         where (item.CreateDate >= dateFrom.Value
+                         where (item.CreateDate.Value.Date >= dateFrom.Value.Date
                                                &&
-                                               item.CreateDate <= toFrom.Value)
+                                               item.CreateDate.Value.Date <= toFrom.Value.Date)
                          select item).ToList();
             }
 

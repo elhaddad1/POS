@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl_FormHeader = new System.Windows.Forms.Label();
             this.panl_Header = new System.Windows.Forms.Panel();
             this.tbx_Total = new System.Windows.Forms.TextBox();
@@ -38,6 +38,7 @@
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_ClosePrint = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.dgrd_ReturnOrderLines = new System.Windows.Forms.DataGridView();
             this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -58,7 +59,6 @@
             this.tbxPurchaseMan = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.cbx_Inventory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -113,7 +113,7 @@
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancel.Location = new System.Drawing.Point(281, 6);
+            this.btn_Cancel.Location = new System.Drawing.Point(329, 6);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(99, 55);
             this.btn_Cancel.TabIndex = 41;
@@ -131,17 +131,18 @@
             this.btn_Save.TabIndex = 40;
             this.btn_Save.Text = "حفظ فقط";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Visible = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_ClosePrint
             // 
             this.btn_ClosePrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_ClosePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClosePrint.Location = new System.Drawing.Point(386, 6);
+            this.btn_ClosePrint.Location = new System.Drawing.Point(436, 6);
             this.btn_ClosePrint.Name = "btn_ClosePrint";
             this.btn_ClosePrint.Size = new System.Drawing.Size(99, 55);
             this.btn_ClosePrint.TabIndex = 39;
-            this.btn_ClosePrint.Text = "أغلاق ";
+            this.btn_ClosePrint.Text = "حفظ وأغلاق";
             this.btn_ClosePrint.UseVisualStyleBackColor = true;
             this.btn_ClosePrint.Click += new System.EventHandler(this.btn_ClosePrint_Click);
             // 
@@ -157,6 +158,15 @@
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "المرتجعات";
+            // 
+            // cbx_Inventory
+            // 
+            this.cbx_Inventory.FormattingEnabled = true;
+            this.cbx_Inventory.Location = new System.Drawing.Point(28, -8);
+            this.cbx_Inventory.Name = "cbx_Inventory";
+            this.cbx_Inventory.Size = new System.Drawing.Size(197, 21);
+            this.cbx_Inventory.TabIndex = 53;
+            this.cbx_Inventory.Visible = false;
             // 
             // dgrd_ReturnOrderLines
             // 
@@ -224,16 +234,16 @@
             // 
             // returnedQty
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.returnedQty.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.returnedQty.DefaultCellStyle = dataGridViewCellStyle5;
             this.returnedQty.HeaderText = "الكمية المرتجعه";
             this.returnedQty.Name = "returnedQty";
             this.returnedQty.Width = 60;
             // 
             // Reason
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Reason.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Reason.DefaultCellStyle = dataGridViewCellStyle6;
             this.Reason.HeaderText = "سبب الرجوع";
             this.Reason.Name = "Reason";
             this.Reason.Width = 250;
@@ -336,15 +346,6 @@
             this.btn_Search.Text = "بحث";
             this.btn_Search.UseVisualStyleBackColor = true;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // cbx_Inventory
-            // 
-            this.cbx_Inventory.FormattingEnabled = true;
-            this.cbx_Inventory.Location = new System.Drawing.Point(28, -8);
-            this.cbx_Inventory.Name = "cbx_Inventory";
-            this.cbx_Inventory.Size = new System.Drawing.Size(197, 21);
-            this.cbx_Inventory.TabIndex = 53;
-            this.cbx_Inventory.Visible = false;
             // 
             // label12
             // 

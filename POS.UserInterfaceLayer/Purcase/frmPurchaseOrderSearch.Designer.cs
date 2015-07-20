@@ -51,7 +51,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(730, 9);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(850, 9);
             // 
             // panl_Footer
             // 
@@ -81,22 +81,28 @@
             // 
             // btn_Add
             // 
-            this.btn_Add.Location = new System.Drawing.Point(811, 6);
+            this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Add.Location = new System.Drawing.Point(436, 3);
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(394, 8);
+            this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Back.Location = new System.Drawing.Point(337, 3);
             this.btn_Back.Click += new System.EventHandler(this.btn_Back_Click);
             // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(706, 6);
+            this.btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Edit.Location = new System.Drawing.Point(482, 3);
+            this.btn_Edit.Visible = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(601, 6);
+            this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Delete.Location = new System.Drawing.Point(383, 3);
+            this.btn_Delete.Visible = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // label3
@@ -206,14 +212,14 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Close.Location = new System.Drawing.Point(498, 10);
+            this.btn_Close.Location = new System.Drawing.Point(286, 4);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(97, 53);
             this.btn_Close.TabIndex = 9;
             this.btn_Close.Text = "إغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // frmPurchaseOrderSearch

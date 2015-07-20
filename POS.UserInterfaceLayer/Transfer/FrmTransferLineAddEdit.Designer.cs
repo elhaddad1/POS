@@ -119,6 +119,7 @@
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "سعر الوحدة";
+            this.label2.Visible = false;
             // 
             // tbx_Price
             // 
@@ -128,6 +129,7 @@
             this.tbx_Price.Size = new System.Drawing.Size(115, 20);
             this.tbx_Price.TabIndex = 12;
             this.tbx_Price.Text = "0";
+            this.tbx_Price.Visible = false;
             this.tbx_Price.Leave += new System.EventHandler(this.tbx_Price_Leave);
             // 
             // lbl_MinPriceHeader

@@ -96,12 +96,13 @@
             this.btn_Close.TabIndex = 5;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // btn_Add
             // 
             this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Add.Location = new System.Drawing.Point(442, 4);
+            this.btn_Add.Location = new System.Drawing.Point(380, 4);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(115, 63);
             this.btn_Add.TabIndex = 0;
@@ -124,7 +125,7 @@
             // btn_Back
             // 
             this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(196, 4);
+            this.btn_Back.Location = new System.Drawing.Point(257, 4);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(115, 63);
             this.btn_Back.TabIndex = 2;

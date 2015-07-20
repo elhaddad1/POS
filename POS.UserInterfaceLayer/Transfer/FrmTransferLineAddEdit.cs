@@ -171,11 +171,11 @@ namespace POS.UserInterfaceLayer.Transfer
         }
         private bool Validate()
         {
-            if (Convert.ToDecimal(tbx_Price.Text == "" ? "0" : tbx_Price.Text) < Convert.ToDecimal(lbl_MinPriceValue.Text == "" ? "0" : lbl_MinPriceValue.Text))
-            {
-                MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
-                return false;
-            }
+            //if (Convert.ToDecimal(tbx_Price.Text == "" ? "0" : tbx_Price.Text) < Convert.ToDecimal(lbl_MinPriceValue.Text == "" ? "0" : lbl_MinPriceValue.Text))
+            //{
+            //    MessageBox.Show("برجاء مراعاة أقل سعر للمنتج");
+            //    return false;
+            //}
             if (int.Parse(num_Quantity.Text) == 0)
             {
                 MessageBox.Show("أدخل كميه مناسبه");

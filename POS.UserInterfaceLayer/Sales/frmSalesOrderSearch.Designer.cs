@@ -46,7 +46,7 @@
             // 
             // lbl_FormHeader
             // 
-            this.lbl_FormHeader.Location = new System.Drawing.Point(552, 17);
+            this.lbl_FormHeader.Location = new System.Drawing.Point(588, 17);
             // 
             // panl_Footer
             // 
@@ -73,22 +73,24 @@
             // btn_Add
             // 
             this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Add.Location = new System.Drawing.Point(570, 3);
+            this.btn_Add.Location = new System.Drawing.Point(410, 3);
             // 
             // btn_Back
             // 
             this.btn_Back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Back.Location = new System.Drawing.Point(35, 3);
+            this.btn_Back.Location = new System.Drawing.Point(196, 3);
             // 
             // btn_Edit
             // 
             this.btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Edit.Location = new System.Drawing.Point(463, 3);
+            this.btn_Edit.Visible = false;
             // 
             // btn_Delete
             // 
             this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Delete.Location = new System.Drawing.Point(356, 3);
+            this.btn_Delete.Visible = false;
             // 
             // tbx_OrderSerial
             // 
@@ -141,12 +143,13 @@
             this.btn_Close.TabIndex = 19;
             this.btn_Close.Text = "أغلاق";
             this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Visible = false;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
             // btn_AddCustomer
             // 
             this.btn_AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddCustomer.Location = new System.Drawing.Point(142, 3);
+            this.btn_AddCustomer.Location = new System.Drawing.Point(303, 3);
             this.btn_AddCustomer.Name = "btn_AddCustomer";
             this.btn_AddCustomer.Size = new System.Drawing.Size(99, 55);
             this.btn_AddCustomer.TabIndex = 18;

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgrd_OrderLines = new System.Windows.Forms.DataGridView();
             this.ProductName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.IsAcceptBatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -126,18 +126,18 @@
             // 
             // TotalQty
             // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.TotalQty.DefaultCellStyle = dataGridViewCellStyle7;
             this.TotalQty.HeaderText = "الكمية";
             this.TotalQty.Name = "TotalQty";
             this.TotalQty.Width = 60;
             // 
             // PurchasePrice
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.PurchasePrice.DefaultCellStyle = dataGridViewCellStyle8;
             this.PurchasePrice.HeaderText = "سعر الشراء";
             this.PurchasePrice.Name = "PurchasePrice";
             this.PurchasePrice.Width = 60;
@@ -149,9 +149,9 @@
             // 
             // ExpiryDate
             // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            this.ExpiryDate.DefaultCellStyle = dataGridViewCellStyle9;
             this.ExpiryDate.HeaderText = "تاريخ الصلاحيه";
             this.ExpiryDate.Name = "ExpiryDate";
             // 

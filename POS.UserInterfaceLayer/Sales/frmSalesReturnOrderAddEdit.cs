@@ -37,6 +37,7 @@ namespace POS.UserInterfaceLayer.Sales
             FillInventoryCBX();
             FillProductCBX();
             FillStockTypeCBX();
+            dgrd_ReturnOrderLines.Enabled = false;
         }
 
         public frmSalesReturnOrderAddEdit(int salesReturnHeaderID)
@@ -62,12 +63,21 @@ namespace POS.UserInterfaceLayer.Sales
                 {
                     vSALSalesOrderCollection = sALSalesReturnHeaderWrapper.VSALSalesOrder_SelectOneByInvoiceNumber(tbx_InvoiceNumber.Text);
                     if (vSALSalesOrderCollection.Count != 0)
+                    {
                         FillScreenData();
+                        dgrd_ReturnOrderLines.Enabled = true;
+                    }
                     else
+                    {
                         MessageBox.Show("لايوجد فاتورة بهذا المسلسل");
+                        dgrd_ReturnOrderLines.Enabled = false;
+                    }
                 }
                 else
+                {
+                    dgrd_ReturnOrderLines.Enabled = false;
                     MessageBox.Show("برجاء أدخال مسلسل الفاتورة أولا");
+                }
             }
             catch (Exception ex)
             {

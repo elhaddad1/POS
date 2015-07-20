@@ -1,7 +1,7 @@
 //
 // Class	:	BDSupplierAccountPrimaryKey.cs
 // Author	:  	Ignyte Software © 2011 (DLG 2.0.9.0)
-// Date		:	6/13/2015 11:01:00 AM
+// Date		:	6/13/2015 2:24:17 PM
 //
 
 using System;
@@ -69,7 +69,7 @@ namespace POS.DataLayer
 		///
 		/// <RevisionHistory>
 		/// Author				Date			Description
-		/// DLGenerator			6/13/2015 11:01:00 AM				Created function
+		/// DLGenerator			6/13/2015 2:24:17 PM				Created function
 		/// 
 		/// </RevisionHistory>
 		///
