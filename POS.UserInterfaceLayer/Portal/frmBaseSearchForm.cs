@@ -45,6 +45,7 @@ namespace POS.UserInterfaceLayer.Portal
             col.Name = dataField;
             col.HeaderText = header;
             col.DataPropertyName = dataField;
+            
             if (visible)
             {
                 col.Width = width;

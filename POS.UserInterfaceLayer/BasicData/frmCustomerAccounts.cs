@@ -77,18 +77,18 @@ namespace POS.UserInterfaceLayer.BasicData
 
                 dgrid_Result.DataSource = customerAccountList;
 
-                if (customerAccountList.Count > 0)
-                {
-                    lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
-                    lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
-                    lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
-                }
-                else
-                {
-                    lbl_TotalAmount.Text = "0";
-                    lbl_Paid.Text = "0";
-                    lbl_Remaining.Text = "0";
-                }
+                //if (customerAccountList.Count > 0)
+                //{
+                //    lbl_TotalAmount.Text = customerAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                //    lbl_Paid.Text = customerAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                //    lbl_Remaining.Text = customerAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+                //}
+                //else
+                //{
+                //    lbl_TotalAmount.Text = "0";
+                //    lbl_Paid.Text = "0";
+                //    lbl_Remaining.Text = "0";
+                //}
             }
             catch (Exception ex)
             {
