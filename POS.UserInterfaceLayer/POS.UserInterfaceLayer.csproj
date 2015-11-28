@@ -310,6 +310,12 @@
     <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.Designer.cs">
+      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,10 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
+    <None Include="Reports\GetTakingInventoryLines_Report.rpt" />
+    <None Include="Reports\InventoryStock_Report.rpt" />
+    <None Include="Reports\Sales_Report.rpt" />
+    <None Include="Reports\TakingInventory_Report.rpt" />
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -490,6 +500,9 @@
     <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmSelectSinglePurchaseOrder.resx">
+      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,10 +536,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Reports\SalesOrder.rpt">
+    <Content Include="Reports\SalesOrder_Report.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Reports\PurchaseReport.rpt" />
+    <None Include="Reports\Purchase_Report.rpt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

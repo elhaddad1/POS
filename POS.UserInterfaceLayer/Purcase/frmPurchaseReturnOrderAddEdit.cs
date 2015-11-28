@@ -202,6 +202,15 @@ namespace POS.UserInterfaceLayer.Purcase
         #region --Private Methods
         private void FillScreenData()
         {
+            if (vPURPurchaseOrderCollection.Count  ()>1)
+            {
+                frmSelectSinglePurchaseOrder frm = new frmSelectSinglePurchaseOrder(vPURPurchaseOrderCollection);
+               // frm.
+                frm.ShowDialog();
+                
+                
+                
+            }
             _vPURPurchaseOrder = vPURPurchaseOrderCollection.FirstOrDefault();
             tbx_CustomerName.Text = _vPURPurchaseOrder.SupplierName;
             tbxPurchaseMan.Text = _vPURPurchaseOrder.UserFullName;
