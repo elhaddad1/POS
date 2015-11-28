@@ -364,10 +364,6 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
-    <None Include="Reports\GetTakingInventoryLines_Report.rpt" />
-    <None Include="Reports\InventoryStock_Report.rpt" />
-    <None Include="Reports\Sales_Report.rpt" />
-    <None Include="Reports\TakingInventory_Report.rpt" />
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -536,10 +532,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Reports\SalesOrder_Report.rpt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Reports\Purchase_Report.rpt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -553,7 +545,9 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
