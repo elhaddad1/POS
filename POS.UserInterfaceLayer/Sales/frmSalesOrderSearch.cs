@@ -70,7 +70,7 @@ namespace POS.UserInterfaceLayer.Sales
                     {
                         List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                         paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", Convert.ToInt32(dgrid_Result.SelectedRows[0].Cells["SalesHeaderID"].Value)));
-                        Utility.Print("SalesOrder.rpt", 1, paramList);
+                        Utility.Print("SalesOrder_Report", 1, paramList);
                         MessageBox.Show("تمت العملية بنجاح");
                     }
                     else

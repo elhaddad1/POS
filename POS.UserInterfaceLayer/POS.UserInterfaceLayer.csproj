@@ -272,6 +272,12 @@
     <Compile Include="Portal\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Portal\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Portal\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portal\frmSplachScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,12 +315,6 @@
     </Compile>
     <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.Designer.cs">
-      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
@@ -364,6 +364,26 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
+    <Content Include="Reports\GetTakingInventoryLines_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\InventoryStock_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\Purchase_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\SalesOrder_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\TakingInventory_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -468,6 +488,9 @@
     <EmbeddedResource Include="Portal\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Portal\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portal\frmSplachScreen.resx">
       <DependentUpon>frmSplachScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,9 +518,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Purcase\frmSelectSinglePurchaseOrder.resx">
-      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>
@@ -545,9 +565,7 @@
       <Name>POS.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
