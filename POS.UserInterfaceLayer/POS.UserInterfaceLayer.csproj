@@ -316,6 +316,10 @@
     <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.cs" />
+    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.Designer.cs">
+      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmSalesLineAddEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -384,6 +388,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
     </Content>
+    <None Include="Reports\Sales_Report.rpt" />
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -518,6 +523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purcase\frmPurchaseReturnSearch.resx">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purcase\frmSelectSinglePurchaseOrder.resx">
+      <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmSalesLineAddEdit.resx">
       <DependentUpon>frmSalesLineAddEdit.cs</DependentUpon>
