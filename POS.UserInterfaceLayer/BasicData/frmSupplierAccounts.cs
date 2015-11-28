@@ -77,15 +77,15 @@ namespace POS.UserInterfaceLayer.BasicData
 
                 if (supplierAccountList.Count > 0)
                 {
-                    lbl_TotalAmount.Text = supplierAccountList.Sum(a => a.TotalPrice).Value.ToString();
-                    lbl_Paid.Text = supplierAccountList.Sum(a => a.PaidAmount).Value.ToString();
-                    lbl_Remaining.Text = supplierAccountList.Sum(a => a.RemainingAmount).Value.ToString();
+                //    lbl_TotalAmount.Text = supplierAccountList.Sum(a => a.TotalPrice).Value.ToString();
+                //    lbl_Paid.Text = supplierAccountList.Sum(a => a.PaidAmount).Value.ToString();
+                //    lbl_Remaining.Text = supplierAccountList.Sum(a => a.RemainingAmount).Value.ToString();
                 }
                 else
                 {
-                    lbl_TotalAmount.Text = "0";
-                    lbl_Paid.Text = "0";
-                    lbl_Remaining.Text = "0";
+                    //lbl_TotalAmount.Text = "0";
+                    //lbl_Paid.Text = "0";
+                    //lbl_Remaining.Text = "0";
                 }
             }
             catch (Exception ex)

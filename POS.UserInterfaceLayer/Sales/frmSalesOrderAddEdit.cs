@@ -129,7 +129,7 @@ namespace POS.UserInterfaceLayer.Sales
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", salesHeaderID));
-                            Utility.Print("SalesOrder.rpt", 1, paramList);
+                            Utility.Print("SalesOrder_Report", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -140,7 +140,7 @@ namespace POS.UserInterfaceLayer.Sales
                         {
                             List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
-                            Utility.Print("SalesOrder.rpt", 1, paramList);
+                            Utility.Print("SalesOrder_Report", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -449,7 +449,7 @@ namespace POS.UserInterfaceLayer.Sales
                         {
                             //List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             //paramList.Add(new KeyValuePair<string, object>("@SalesHeaderID", salesHeaderID));
-                            // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            // Utility.Print("SalesOrder_Report", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }
@@ -460,7 +460,7 @@ namespace POS.UserInterfaceLayer.Sales
                         {
                             // List<KeyValuePair<string, object>> paramList = new List<KeyValuePair<string, object>>();
                             // paramList.Add(new KeyValuePair<string, object>("SalesHeaderID", _sALSalesHeader.SalesHeaderID));
-                            // Utility.Print("SalesOrder.rpt", 1, paramList);
+                            // Utility.Print("SalesOrder_Report", 1, paramList);
                             MessageBox.Show("تمت العلية");
                             this.Close();
                         }

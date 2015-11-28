@@ -272,6 +272,12 @@
     <Compile Include="Portal\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Portal\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Portal\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portal\frmSplachScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,26 @@
     <Compile Include="Transfer\FrmTransferOrderSearch.Designer.cs">
       <DependentUpon>FrmTransferOrderSearch.cs</DependentUpon>
     </Compile>
+    <Content Include="Reports\GetTakingInventoryLines_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\InventoryStock_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\Purchase_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\SalesOrder_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
+    <Content Include="Reports\TakingInventory_Report.rpt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </Content>
     <None Include="Resources\secrecy-icon.png" />
     <None Include="Resources\Ecommerce-Return-Purchase-icon.png" />
     <None Include="Resources\payment-icon.png" />
@@ -462,6 +488,9 @@
     <EmbeddedResource Include="Portal\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Portal\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portal\frmSplachScreen.resx">
       <DependentUpon>frmSplachScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,10 +552,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Reports\SalesOrder.rpt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Reports\PurchaseReport.rpt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

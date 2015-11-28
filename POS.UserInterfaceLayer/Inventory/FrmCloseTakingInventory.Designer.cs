@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_close = new System.Windows.Forms.Button();
             this.dgv_Lines = new System.Windows.Forms.DataGridView();
             this.Col_TakingInventoryLineID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lines)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -164,8 +165,8 @@
             // Col_ActualQty
             // 
             this.Col_ActualQty.DataPropertyName = "ActualQty";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.Col_ActualQty.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Col_ActualQty.DefaultCellStyle = dataGridViewCellStyle2;
             this.Col_ActualQty.HeaderText = "الكميه الحقيقيه";
             this.Col_ActualQty.Name = "Col_ActualQty";
             // 
@@ -279,6 +280,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btn_Save);
@@ -292,7 +294,7 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(188, 12);
+            this.button2.Location = new System.Drawing.Point(288, 7);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 48);
             this.button2.TabIndex = 2;
@@ -304,7 +306,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(334, 12);
+            this.button1.Location = new System.Drawing.Point(434, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 48);
             this.button1.TabIndex = 1;
@@ -316,13 +318,25 @@
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(471, 12);
+            this.btn_Save.Location = new System.Drawing.Point(571, 7);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(123, 48);
             this.btn_Save.TabIndex = 0;
             this.btn_Save.Text = "حفظ";
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(149, 7);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 48);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "طباعة تقرير الجرد";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FrmCloseTakingInventory
             // 
@@ -378,5 +392,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_ExpiryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_ExpectedQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Col_ActualQty;
+        private System.Windows.Forms.Button button3;
     }
 }
