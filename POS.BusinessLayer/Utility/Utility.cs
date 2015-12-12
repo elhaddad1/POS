@@ -67,7 +67,7 @@ namespace POS.BusinessLayer.Utility
 
             _reportDocument.Load(AppDomain.CurrentDomain.BaseDirectory.ToString() + "\\Reports\\" + reportName);
             // set report Connection info
-            string[] LoginData = ConfigurationManager.ConnectionStrings["Production"].ConnectionString.ToString().Split(';');
+            string[] LoginData = ConfigurationManager.ConnectionStrings["Local"].ConnectionString.ToString().Split(';');
             if (!string.IsNullOrEmpty(LoginData[3].ToString()) && LoginData[3].ToString() != "")
                 crConnectionInfo.Password = LoginData[3].Split('=')[1].ToString();
 
