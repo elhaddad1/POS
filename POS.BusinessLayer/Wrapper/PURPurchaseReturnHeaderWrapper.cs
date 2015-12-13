@@ -10,7 +10,7 @@ namespace POS.BusinessLayer.Wrapper
     {
         //VPurchaseReturnHeaderService vPurchaseReturnHeaderService;
         VPURPurchaseOrderService vPURPurchaseOrderService;
-
+        PURPurchaseHeaderService pURPurchaseHeaderService;
         public VPurchaseReturnHeaderCollection SearchByCriteria(string CustomerName, string InvoiceNumber, DateTime DateFrom, DateTime DateTo)
         {
             VPurchaseReturnHeaderCollection vPurchaseReturnHeaderCollection = new VPurchaseReturnHeaderCollection();
@@ -48,10 +48,14 @@ namespace POS.BusinessLayer.Wrapper
         public VPURPurchaseOrderCollection VPURPurchaseOrder_SelectOne(int PurchaseHeaderID)
         {
             vPURPurchaseOrderService = new VPURPurchaseOrderService();
-            return vPURPurchaseOrderService.SelectByField("PurchaseHeaderID", PurchaseHeaderID, null, DataLayer.TypeOperation.Equal);
+            return vPURPurchaseOrderService.SelectByField("PurcaseHeaderID", PurchaseHeaderID, null, DataLayer.TypeOperation.Equal);
 
         }
 
-
+        public PURPurchaseHeaderCollection PURPurchaseOrder_SelectOneByInvoiceNumber(string InvoiceNumber)
+        {
+            pURPurchaseHeaderService = new PURPurchaseHeaderService();
+            return pURPurchaseHeaderService.SelectByField("InvoiceNumber", InvoiceNumber, null, DataLayer.TypeOperation.Equal);
+        }
     }
 }

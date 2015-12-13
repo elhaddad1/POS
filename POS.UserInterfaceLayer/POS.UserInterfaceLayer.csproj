@@ -316,7 +316,9 @@
     <Compile Include="Purcase\frmPurchaseReturnSearch.Designer.cs">
       <DependentUpon>frmPurchaseReturnSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.cs" />
+    <Compile Include="Purcase\frmSelectSinglePurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Purcase\frmSelectSinglePurchaseOrder.Designer.cs">
       <DependentUpon>frmSelectSinglePurchaseOrder.cs</DependentUpon>
     </Compile>

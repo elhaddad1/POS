@@ -81,13 +81,19 @@ namespace POS.DataLayer
                 {
                     obj.Qty = rdr.GetDecimal(rdr.GetOrdinal(VPURPurchaseOrderFields.Qty));
                 }
-                obj.PurchaseLineID = rdr.GetInt32(rdr.GetOrdinal(VPURPurchaseOrderFields.PurchaseLineID));
-                if ( !rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.TotalQty)))
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.PurchaseLineID)))
+                {
+                    obj.PurchaseLineID = rdr.GetInt32(rdr.GetOrdinal(VPURPurchaseOrderFields.PurchaseLineID));
+                    
+                } if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.TotalQty)))
                 {
                     obj.TotalQty = rdr.GetDecimal(rdr.GetOrdinal(VPURPurchaseOrderFields.TotalQty)); 
                 }
-                obj.UnitPrice = rdr.GetDecimal(rdr.GetOrdinal(VPURPurchaseOrderFields.UnitPrice));
-                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.BatchNumber)))
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.UnitPrice)))
+                {
+                    obj.UnitPrice = rdr.GetDecimal(rdr.GetOrdinal(VPURPurchaseOrderFields.UnitPrice));
+                    
+                } if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.BatchNumber)))
                 {
                     obj.BatchNumber = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.BatchNumber));
                 }
@@ -130,15 +136,27 @@ namespace POS.DataLayer
                     obj.ChequeNumber = rdr.GetDecimal(rdr.GetOrdinal(VPURPurchaseOrderFields.ChequeNumber));
                 }
 
-                obj.ProductName = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductName));
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductName)))
+                {
+                    obj.ProductName = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductName)); 
+                }
                 if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductCode)))
                 {
                     obj.ProductCode = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductCode));
                 }
 
-                obj.IsAcceptBatch = rdr.GetBoolean(rdr.GetOrdinal(VPURPurchaseOrderFields.IsAcceptBatch));
-                obj.UserFullName = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.UserFullName));
-                obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductID));
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.IsAcceptBatch)))
+                {
+                    obj.IsAcceptBatch = rdr.GetBoolean(rdr.GetOrdinal(VPURPurchaseOrderFields.IsAcceptBatch)); 
+                }
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.UserFullName)))
+                {
+                    obj.UserFullName = rdr.GetString(rdr.GetOrdinal(VPURPurchaseOrderFields.UserFullName)); 
+                }
+                if (!rdr.IsDBNull(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductID)))
+                {
+                    obj.ProductID = rdr.GetInt32(rdr.GetOrdinal(VPURPurchaseOrderFields.ProductID)); 
+                }
 
                 list.Add(obj);
             }

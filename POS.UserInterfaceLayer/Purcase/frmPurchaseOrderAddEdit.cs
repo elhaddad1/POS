@@ -18,6 +18,8 @@ namespace POS.UserInterfaceLayer.Purcase
         private PaymentTypeWrapper _paymentTypeWrapper;
         private BDSupplierWrapper _bDSupplierWrapper;
         private PURPurchaseLineWrapper _pURPurchaseLinerWrapper;
+        private PURPurchaseHeaderWrapper _pURPurchaseHeaderWrapper;
+
         private INVInventoryService _invInventoryService;
         public PURPurchaseLineCollection pURPurchaseLineCollection;
         private BDProductWrapper _productWrapper;
@@ -25,6 +27,7 @@ namespace POS.UserInterfaceLayer.Purcase
         public frmPurchaseOrderAddEdit()
         {
             InitializeComponent();
+            _pURPurchaseHeaderWrapper = new PURPurchaseHeaderWrapper();
             LoadScreenData();
             //this.Enabled = true;
         }
@@ -465,7 +468,14 @@ namespace POS.UserInterfaceLayer.Purcase
                 MessageBox.Show(" لا يمكن ان تكون طريقه الدفع كاش ويوجد متبقي  ");
                 return false;
             }
-
+              BDSupplierPrimaryKey key=  new BDSupplierPrimaryKey();
+            key.SupplierID =int.Parse (cbx_Supplier .SelectedValue.ToString ()) ;
+         
+            if (txt_invoiceNumber.Text != "" && _pURPurchaseHeaderWrapper.SelectAllByForeignKeySupplierID(key).Where(h => h.InvoiceNumber == txt_invoiceNumber.Text).Count() > 0)
+            {
+                MessageBox.Show("يوجد فاتوره بنفس الرقم لنفس المورد");
+                return false;
+            }
             return true;
         }
         private bool SaveInvoice()

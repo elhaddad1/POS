@@ -24,6 +24,7 @@ namespace POS.UserInterfaceLayer.Purcase
         VPURPurchaseOrder _vPURPurchaseOrder;
         double invoiceTax = 0.00;
         double invoiceDescount = 0.00;
+       public string selectedHeaderID;
         public frmPurchaseReturnOrderAddEdit()
         {
             InitializeComponent();
@@ -57,17 +58,38 @@ namespace POS.UserInterfaceLayer.Purcase
             {
                 if (!string.IsNullOrEmpty(tbx_InvoiceNumber.Text))
                 {
-                    vPURPurchaseOrderCollection = pURPurchaseReturnHeaderWrapper.VPURPurchaseOrder_SelectOneByInvoiceNumber(tbx_InvoiceNumber.Text);
-                    if (vPURPurchaseOrderCollection.Count != 0)
+                    VPURPurchaseOrderCollection selectedHeaders = pURPurchaseReturnHeaderWrapper.VPURPurchaseOrder_SelectOneByInvoiceNumber(tbx_InvoiceNumber.Text);
+                    if (selectedHeaders.Select(p=>p.PurcaseHeaderID).Distinct ().Count() >1)
                     {
+                        frmSelectSinglePurchaseOrder frm = new frmSelectSinglePurchaseOrder(selectedHeaders,this);
+                        frm.ShowDialog();
+                        vPURPurchaseOrderCollection = pURPurchaseReturnHeaderWrapper.VPURPurchaseOrder_SelectOne(int.Parse(selectedHeaderID));
                         dgrd_ReturnOrderLines.Enabled = true;
                         FillScreenData();
                     }
-                    else
+                    else if (selectedHeaders.Count () ==0)
                     {
                         dgrd_ReturnOrderLines.Enabled = false;
-                        MessageBox.Show("لايوجد فاتورة بهذا المسلسل ");
+                       MessageBox.Show("لايوجد فاتورة بهذا المسلسل ");
                     }
+                    else
+                    {
+                        dgrd_ReturnOrderLines.Enabled = true;
+                        vPURPurchaseOrderCollection = selectedHeaders;
+                        FillScreenData();
+                    }
+                    
+                    
+                    //if (vPURPurchaseOrderCollection.Count != 0)
+                    //{
+                    //    dgrd_ReturnOrderLines.Enabled = true;
+                    //    FillScreenData();
+                    //}
+                    //else
+                    //{
+                    //    dgrd_ReturnOrderLines.Enabled = false;
+                    //    MessageBox.Show("لايوجد فاتورة بهذا المسلسل ");
+                    //}
                 }
                 else
                 {
@@ -202,15 +224,18 @@ namespace POS.UserInterfaceLayer.Purcase
         #region --Private Methods
         private void FillScreenData()
         {
-            if (vPURPurchaseOrderCollection.Count  ()>1)
-            {
-                frmSelectSinglePurchaseOrder frm = new frmSelectSinglePurchaseOrder(vPURPurchaseOrderCollection);
-               // frm.
-                frm.ShowDialog();
+            //if (vPURPurchaseOrderCollection.Count  ()>1)
+            //{
+            //    //List <PURPurchaseHeader> purchaseHader = new 
+            //    frmSelectSinglePurchaseOrder frm = new frmSelectSinglePurchaseOrder(vPURPurchaseOrderCollection.Select(
+            //                                                            p => new PURPurchaseHeaderCollection() {p.PurcaseHeaderID}
+            //                                                                                                            ));
+            //   // frm.
+            //    frm.ShowDialog();
                 
                 
                 
-            }
+            //}
             _vPURPurchaseOrder = vPURPurchaseOrderCollection.FirstOrDefault();
             tbx_CustomerName.Text = _vPURPurchaseOrder.SupplierName;
             tbxPurchaseMan.Text = _vPURPurchaseOrder.UserFullName;
@@ -250,7 +275,7 @@ namespace POS.UserInterfaceLayer.Purcase
             pURPurchaseReturnLineCollection.Clear();
             foreach (DataGridViewRow row in dgrd_ReturnOrderLines.Rows)
             {
-                if (row.Cells["ProductName"].Value == null)
+                if (row.Cells["ProductName"].Value == null || row.Cells["IsAcceptBatch"].Value==null)
                 {
                     return;
                 }
@@ -271,10 +296,16 @@ namespace POS.UserInterfaceLayer.Purcase
                 {
                     PURPurchaseReturnLine line = new PURPurchaseReturnLine();
                     line.OriginalpurchaseLineID = vPURPurchaseOrder.PurchaseLineID;
-                    line.Qty = Convert.ToDecimal(row.Cells["returnedQty"].Value);
+                    if (row.Cells["returnedQty"].Value!=null)
+                    {
+                        line.Qty = Convert.ToDecimal(row.Cells["returnedQty"].Value); 
+                    }
+                    else
+                        return;
+                    
                     line.BatchNumber = vPURPurchaseOrder.IsAcceptBatch == true ? row.Cells["BatchNumber"].Value.ToString() : null;
                     line.ExpiryDate = vPURPurchaseOrder.IsAcceptBatch == true ? Convert.ToDateTime(row.Cells["ExpiryDate"].Value) : (DateTime?)null;
-                    line.Reason = row.Cells["Reason"].Value.ToString();
+                    line.Reason = row.Cells["Reason"].Value!=null?row.Cells["Reason"].Value.ToString():"";
                     pURPurchaseReturnLineCollection.Add(line);
                 }
 
